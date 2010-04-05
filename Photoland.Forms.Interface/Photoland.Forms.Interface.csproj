@@ -1,0 +1,391 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{203ECECF-01CF-4495-8106-C39EF06369A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Photoland.Forms.Interface</RootNamespace>
+    <AssemblyName>Photoland.Forms.Interface</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20071.324, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Report.2, Version=2.5.20071.231, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Acceptance.NumGenerator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Components.FilterRow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Order, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security.Discont, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security.User, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="PSA.Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAccptanceTableImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccptanceTableImport.Designer.cs">
+      <DependentUpon>frmAccptanceTableImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGetDateInterval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGetDateInterval.Designer.cs">
+      <DependentUpon>frmGetDateInterval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrderCloseRO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrderCloseRO.Designer.cs">
+      <DependentUpon>frmOrderCloseRO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptionsPublic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptionsPublic.Designer.cs">
+      <DependentUpon>frmOptionsPublic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorNfo.cs" />
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAcceptanceTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAcceptanceTable.Designer.cs">
+      <DependentUpon>frmAcceptanceTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddCommentApplyService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCommentApplyService.Designer.cs">
+      <DependentUpon>frmAddCommentApplyService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdvancePayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdvancePayment.Designer.cs">
+      <DependentUpon>frmAdvancePayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmApplyDefect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmApplyDefect.Designer.cs">
+      <DependentUpon>frmApplyDefect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmApplyService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmApplyService.Designer.cs">
+      <DependentUpon>frmApplyService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBonusPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBonusPayment.Designer.cs">
+      <DependentUpon>frmBonusPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClient.Designer.cs">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFinalPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFinalPayment.Designer.cs">
+      <DependentUpon>frmFinalPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGetDateIntervalTypeDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGetDateIntervalTypeDate.Designer.cs">
+      <DependentUpon>frmGetDateIntervalTypeDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGetDateIntervalUserCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGetDateIntervalUserCheck.Designer.cs">
+      <DependentUpon>frmGetDateIntervalUserCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGetDiscont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGetDiscont.Designer.cs">
+      <DependentUpon>frmGetDiscont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrderClose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrderClose.Designer.cs">
+      <DependentUpon>frmOrderClose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOtherDiscont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOtherDiscont.Designer.cs">
+      <DependentUpon>frmOtherDiscont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQueryCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQueryCount.Designer.cs">
+      <DependentUpon>frmQueryCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQueryFrameParam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQueryFrameParam.Designer.cs">
+      <DependentUpon>frmQueryFrameParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectClient.Designer.cs">
+      <DependentUpon>frmSelectClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectDateIntervalKassa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectDateIntervalKassa.Designer.cs">
+      <DependentUpon>frmSelectDateIntervalKassa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectFrame.Designer.cs">
+      <DependentUpon>frmSelectFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectService.Designer.cs">
+      <DependentUpon>frmSelectService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGetPassword.Designer.cs">
+      <DependentUpon>frmGetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectWork.Designer.cs">
+      <DependentUpon>frmSelectWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWaitConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWaitConnection.Designer.cs">
+      <DependentUpon>frmWaitConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAccptanceTableImport.resx">
+      <DependentUpon>frmAccptanceTableImport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGetDateInterval.resx">
+      <DependentUpon>frmGetDateInterval.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrderCloseRO.resx">
+      <DependentUpon>frmOrderCloseRO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptionsPublic.resx">
+      <DependentUpon>frmOptionsPublic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAbout.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAcceptanceTable.resx">
+      <DependentUpon>frmAcceptanceTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddCommentApplyService.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAddCommentApplyService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdvancePayment.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAdvancePayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmApplyDefect.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmApplyDefect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmApplyService.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmApplyService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBonusPayment.resx">
+      <DependentUpon>frmBonusPayment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClient.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFinalPayment.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFinalPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGetDateIntervalTypeDate.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmGetDateIntervalTypeDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGetDateIntervalUserCheck.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmGetDateIntervalUserCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGetDiscont.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmGetDiscont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptions.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrder.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrderClose.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmOrderClose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOtherDiscont.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmOtherDiscont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQueryCount.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmQueryCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQueryFrameParam.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmQueryFrameParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectClient.resx">
+      <DependentUpon>frmSelectClient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectDateIntervalKassa.resx">
+      <DependentUpon>frmSelectDateIntervalKassa.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectFrame.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSelectFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectService.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSelectService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGetPassword.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmGetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectWork.resx">
+      <DependentUpon>frmSelectWork.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWaitConnection.resx">
+      <DependentUpon>frmWaitConnection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Util\ini.cs" />
+    <Compile Include="Util\Semaphore.cs" />
+    <Compile Include="Util\Settings.cs" />
+    <Compile Include="Util\Settings_def.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Photoland.Components.Counter\Photoland.Components.Counter.csproj">
+      <Project>{8EE53E24-83C3-4182-8F65-0DE55810EC44}</Project>
+      <Name>Photoland.Components.Counter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

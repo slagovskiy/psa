@@ -1,0 +1,1 @@
+DROP VIEW [dbo].[vwAdmin_Defect]

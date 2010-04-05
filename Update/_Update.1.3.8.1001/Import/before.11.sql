@@ -1,0 +1,1 @@
+DROP PROCEDURE [dbo].[spInventoryBody_GetByInventoryId]

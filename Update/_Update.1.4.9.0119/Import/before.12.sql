@@ -1,0 +1,1 @@
+ALTER TABLE dbo.[order] ADD order_price decimal(18, 2) NULL

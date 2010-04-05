@@ -1,0 +1,1 @@
+ALTER TABLE dbo.material ADD sklad nchar(20) NULL

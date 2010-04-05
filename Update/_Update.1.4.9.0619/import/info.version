@@ -1,0 +1,9 @@
+[version]
+Acceptance=1.4.9.0603
+Administrator=1.4.9.0603
+Designer=1.4.9.0602
+Operator=1.4.9.0602
+Exchanger=1.4.9.0619
+Robot=1.4.9.0512
+Inventory=1.4.9.0512
+Kiosk=1.4.9.0126

@@ -1,0 +1,1 @@
+UPDATE [dbo].[price] SET ondate = CONVERT(DATETIME, '2000-12-31 00:00:00', 102)

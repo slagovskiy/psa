@@ -1,0 +1,63 @@
+<!-- 
+	C1ReportDesigner settings
+-->
+<settings>
+  <!-- user preferences -->
+  <preferences>
+    <GridSnap value="True" />
+    <DefaultExportIndex value="8" />
+    <UseFieldWrappers value="True" />
+    <WindowState value="Maximized" />
+  </preferences>
+  <!-- recently used files -->
+  <recentfiles>
+    <item value="d:\work\photoland system automation\photoland\reports\psa.ver1.0.xml" />
+    <item value="d:\work\photoland system automation\photoland\reports\psa.ver1.0_.xml" />
+    <item value="psa.ver1.0.xml" />
+    <item value="d:\work\projects\photoland system automation\photoland\reports\psa.ver1.0.xml" />
+    <item value="d:\work\photoland system automation\photoland\photoland.giveme\bin\debug\a.xml" />
+    <item value="y:\psa\reports\psa.ver1.0.xml" />
+    <item value="d:\work\projects\photoland system automation\photoland\reports\psa.ver1.xml" />
+    <item value="c:\program files\componentone studio.net 2.0\c1report\samples\cs\reportbrowser\sample\nwind.xml" />
+  </recentfiles>
+  <!-- recently used connection strings
+		all connection strings must be valid OLEDB connection strings
+		(they must contain a Provider=... entry)
+		OR they should be the name of an Xml file that contains a DataSet
+		saved with DataSet.WriteXml(filename, WriteSchema)
+	-->
+  <recentconnections>
+    <item encrypt="true" value="dT2VmfZVFTIjfsxKY/MqyB8DREhTFAQN1MXfWypKAWH/4QoziLAUh00mI+lM3ewXVaVTYuSQBqvjI3fLFSDOpONEuLdc5uCeufuszlcbEiF8JiDYWSqc9dP0+s+lxoJv1Bs6HJzeM9y703F99++hkXJVE0qF0aguuhSEX3rdAo4=" />
+    <item encrypt="true" value="obuJkxaIY+qevzP01sQO9hDpT1CimNT8EUXfTSyT9k/gqe0f3cyBK1fYoo0sz/9UY0Fv/Oq/FiHbYcUNe0SrZ6z6WlkmKCVwHTnwt8zERjp/eTwFl8vZ13M5HuwRkVUE2Ce7k9/zWnDy4bwMkNQz2yZbp61Ub96yP0D7p57aCq4=" />
+    <item encrypt="true" value="obuJkxaIY+qevzP01sQO9hDpT1CimNT8EUXfTSyT9k/gqe0f3cyBK1fYoo0sz/9UY0Fv/Oq/FiHbYcUNe0SrZ6z6WlkmKCVwHTnwt8zERjr+Mj2hUh6Vk+4qvYBgWU441lANzMfOdCwR1A3wPfr2cQ07HlCp+qA2GQE4DYLcwnc=" />
+    <item encrypt="true" value="dT2VmfZVFTIjfsxKY/MqyEzMgPydPxfsSpMxvRx6O/1zPPqYubkvhCfYrQeSuUMojwuQrxB7dmWTaz6SuCgLMmH48FDTHkTu0d+KoPQh6i+5+d8GFWIsq14rCErHHfmLTBrhvKvZ2obNg7sLQtuiK1E8BH7PxRx5JfFTEAS48Cc=" />
+    <item encrypt="true" value="obuJkxaIY+qevzP01sQO9hDpT1CimNT8EUXfTSyT9k/gqe0f3cyBK1fYoo0sz/9UY0Fv/Oq/FiHbYcUNe0SrZ6z6WlkmKCVwHTnwt8zERjp/eTwFl8vZ13M5HuwRkVUE2Ce7k9/zWnDy4bwMkNQz28B+ygt2tiCA9KkjplznPrk=" />
+  </recentconnections>
+  <!-- custom fields
+		Custom fields must derive from the C1Report.Field class. Entries contain:
+		- assembly
+		- class
+	 -->
+  <customfields>
+    <item value="C1.Win.C1Report.CustomFields.2;C1.Win.C1Report.CustomFields.Chart" />
+    <item value="C1.Win.C1Report.CustomFields.2;C1.Win.C1Report.CustomFields.Gradient" />
+  </customfields>
+  <!-- custom styles
+		Entries contain:
+		- unique name
+		- hdr_font
+		- label_font
+		- detail_font
+		- hdr_forecolor
+		- label_forecolor
+		- detail_forecolor
+		- hdr_backcolor
+		- linecolor
+		- linewidth
+		- report margins (0 means 'use current settings')
+	 -->
+  <customstyles>
+    <item value="Verdana;Verdana, 18pt, style=Bold;Verdana, 9pt, style=Bold;Verdana, 9pt;White;SteelBlue;Black;SteelBlue;Black;60;0, 0, 0, 0" />
+    <item value="WebReport;Verdana, 18pt, style=Bold;Verdana, 9pt, style=Bold;Verdana, 8.25pt;DarkSlateBlue;DarkSlateBlue;Black;Beige;SlateBlue;15;0, 0, 0, 0" />
+  </customstyles>
+</settings>

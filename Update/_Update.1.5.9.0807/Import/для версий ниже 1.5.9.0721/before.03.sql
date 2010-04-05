@@ -1,0 +1,1 @@
+ALTER TABLE dbo.mashine ADD sklad nchar(20) NULL

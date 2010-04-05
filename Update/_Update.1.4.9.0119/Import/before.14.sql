@@ -1,0 +1,1 @@
+UPDATE [dbo].[order] SET [order_price] = 0

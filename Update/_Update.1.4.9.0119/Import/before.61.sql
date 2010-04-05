@@ -1,0 +1,1 @@
+ALTER TABLE dbo.good ADD kiosk_name nchar(1024) NULL

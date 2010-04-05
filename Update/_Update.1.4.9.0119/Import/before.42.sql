@@ -1,0 +1,1 @@
+DROP PROCEDURE [dbo].[spVerificationBody_GetByVerificationId]

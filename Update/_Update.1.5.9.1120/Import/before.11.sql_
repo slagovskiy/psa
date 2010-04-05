@@ -1,0 +1,1 @@
+INSERT INTO [mashine] (id_mashine, del, mashine, sklad) VALUES (-1, 0, 'Вход для приемки', 0)

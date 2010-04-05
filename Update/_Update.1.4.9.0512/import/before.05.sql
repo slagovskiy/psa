@@ -1,0 +1,1 @@
+UPDATE dbo.discard SET id_mashine = ''

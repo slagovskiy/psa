@@ -1,0 +1,53 @@
+<!-- 
+	C1ReportDesigner settings
+-->
+<settings>
+  <!-- user preferences -->
+  <preferences>
+    <GridSnap value="True" />
+    <DefaultExportIndex value="4" />
+    <UseFieldWrappers value="True" />
+    <WindowState value="Maximized" />
+  </preferences>
+  <!-- recently used files -->
+  <recentfiles>
+  </recentfiles>
+  <!-- recently used connection strings
+		all connection strings must be valid OLEDB connection strings
+		(they must contain a Provider=... entry)
+		OR they should be the name of an Xml file that contains a DataSet
+		saved with DataSet.WriteXml(filename, WriteSchema)
+	-->
+  <recentconnections>
+    <item value="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Program Files\ComponentOne Studio.NET\common\NWIND.MDB;Persist Security Info=False" />
+    <item value="Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Northwind;Data Source=localhost" />
+    <item value="Provider=MSDASQL;Persist Security Info=False;Data Source=NorthWind" />
+  </recentconnections>
+  <!-- custom fields
+		Custom fields must derive from the C1Report.Field class. Entries contain:
+		- assembly
+		- class
+	 -->
+  <customfields>
+    <item value="C1.Win.C1Report.CustomFields.2;C1.Win.C1Report.CustomFields.Chart" />
+    <item value="C1.Win.C1Report.CustomFields.2;C1.Win.C1Report.CustomFields.Gradient" />
+  </customfields>
+  <!-- custom styles
+		Entries contain:
+		- unique name
+		- hdr_font
+		- label_font
+		- detail_font
+		- hdr_forecolor
+		- label_forecolor
+		- detail_forecolor
+		- hdr_backcolor
+		- linecolor
+		- linewidth
+		- report margins (0 means 'use current settings')
+	 -->
+  <customstyles>
+    <item value="Verdana;Verdana, 18pt, style=Bold;Verdana, 9pt, style=Bold;Verdana, 9pt;White;SteelBlue;Black;SteelBlue;Black;60;0, 0, 0, 0" />
+    <item value="WebReport;Verdana, 18pt, style=Bold;Verdana, 9pt, style=Bold;Verdana, 8.25pt;DarkSlateBlue;DarkSlateBlue;Black;Beige;SlateBlue;15;0, 0, 0, 0" />
+  </customstyles>
+</settings>

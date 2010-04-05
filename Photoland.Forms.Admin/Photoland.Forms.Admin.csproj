@@ -1,0 +1,372 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E2DD443E-B789-4EE1-BBC0-D92C07821107}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Photoland.Forms.Admin</RootNamespace>
+    <AssemblyName>Photoland.Forms.Admin</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.C1Preview.2, Version=2.0.20071.41114, Culture=neutral, PublicKeyToken=594a0605db190bb9" />
+    <Reference Include="C1.C1PrintDocument.Classic.2, Version=2.0.20071.401, Culture=neutral, PublicKeyToken=1a6f4158ebe6d3b8" />
+    <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20071.324, Culture=neutral, PublicKeyToken=79882d576c6336da" />
+    <Reference Include="C1.Win.C1Preview.2, Version=2.0.20071.41114, Culture=neutral, PublicKeyToken=41780e2fc605e636" />
+    <Reference Include="C1.Win.C1PrintPreview.Classic.2, Version=2.0.20071.401, Culture=neutral, PublicKeyToken=3af768410ba0a64f" />
+    <Reference Include="C1.Win.C1Report.2, Version=2.5.20071.231, Culture=neutral, PublicKeyToken=79882d576c6336da" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Photoland.Components.FilterRow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Forms.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Order, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security.Discont, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security.User, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ErrorNfo.cs" />
+    <Compile Include="frmCategoryTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategoryTable.Designer.cs">
+      <DependentUpon>frmCategoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientTable.Designer.cs">
+      <DependentUpon>frmClientTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDefectTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDefectTable.Designer.cs">
+      <DependentUpon>frmDefectTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDiscontTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiscontTable.Designer.cs">
+      <DependentUpon>frmDiscontTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditCategory.Designer.cs">
+      <DependentUpon>frmEditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditClient.Designer.cs">
+      <DependentUpon>frmEditClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditDefect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditDefect.Designer.cs">
+      <DependentUpon>frmEditDefect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditDiscont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditDiscont.Designer.cs">
+      <DependentUpon>frmEditDiscont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditGood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditGood.Designer.cs">
+      <DependentUpon>frmEditGood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditMashine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditMashine.Designer.cs">
+      <DependentUpon>frmEditMashine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditMaterial.Designer.cs">
+      <DependentUpon>frmEditMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditODiscont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditODiscont.Designer.cs">
+      <DependentUpon>frmEditODiscont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditPayment.Designer.cs">
+      <DependentUpon>frmEditPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditPoint.Designer.cs">
+      <DependentUpon>frmEditPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditPost.Designer.cs">
+      <DependentUpon>frmEditPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditPrice.Designer.cs">
+      <DependentUpon>frmEditPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditUser.Designer.cs">
+      <DependentUpon>frmEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGoodTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGoodTable.Designer.cs">
+      <DependentUpon>frmGoodTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHelpGoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelpGoodForm.Designer.cs">
+      <DependentUpon>frmHelpGoodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMashineTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMashineTable.Designer.cs">
+      <DependentUpon>frmMashineTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMaterialTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMaterialTable.Designer.cs">
+      <DependentUpon>frmMaterialTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmODiscontTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmODiscontTable.Designer.cs">
+      <DependentUpon>frmODiscontTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrderLockTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrderLockTable.Designer.cs">
+      <DependentUpon>frmOrderLockTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaymentTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaymentTable.Designer.cs">
+      <DependentUpon>frmPaymentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPointTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPointTable.Designer.cs">
+      <DependentUpon>frmPointTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPostTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPostTable.Designer.cs">
+      <DependentUpon>frmPostTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPriceTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPriceTable.Designer.cs">
+      <DependentUpon>frmPriceTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserTable.Designer.cs">
+      <DependentUpon>frmUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmCategoryTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmClientTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDefectTable.resx">
+      <DependentUpon>frmDefectTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDiscontTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDiscontTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditCategory.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditClient.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditDefect.resx">
+      <DependentUpon>frmEditDefect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditDiscont.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditDiscont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditGood.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditGood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditMashine.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditMashine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditMaterial.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditODiscont.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditODiscont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditPayment.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditPoint.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditPoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditPost.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditPrice.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditUser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGoodTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmGoodTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHelpGoodForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmHelpGoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMashineTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMashineTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMaterialTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMaterialTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmODiscontTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmODiscontTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrderLockTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmOrderLockTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaymentTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPaymentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPointTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPointTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPostTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPostTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPriceTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPriceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSA.Lib\PSA.Lib.csproj">
+      <Project>{A71127E6-49D1-4E68-B51E-4A96D24DEF57}</Project>
+      <Name>PSA.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

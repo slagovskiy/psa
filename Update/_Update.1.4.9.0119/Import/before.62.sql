@@ -1,0 +1,1 @@
+UPDATE [dbo].[good] SET [kiosk_name] = ''

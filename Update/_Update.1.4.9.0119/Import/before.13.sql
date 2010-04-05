@@ -1,0 +1,1 @@
+ALTER TABLE dbo.[order] ADD CONSTRAINT DF_order_order_price DEFAULT 0 FOR order_price

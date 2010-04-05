@@ -1,0 +1,1 @@
+ALTER TABLE dbo.orderbody ADD comment nchar(2048) NULL

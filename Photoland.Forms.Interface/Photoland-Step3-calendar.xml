@@ -1,0 +1,114 @@
+﻿<Theme>
+  <Theme name="Windows XP Blue (modified)" componentType="C1Calendar">
+    <Styles>
+      <Style name="Common">
+        <Font>Tahoma, 20.25pt</Font>
+        <Padding>3</Padding>
+        <BorderEdges>(Empty)</BorderEdges>
+        <ForeColor>WindowText</ForeColor>
+        <BackColor>Control</BackColor>
+      </Style>
+      <Style name="Day">
+        <Font>Tahoma, 20.25pt</Font>
+        <Padding>4, 1</Padding>
+        <BorderEdges>(Empty)</BorderEdges>
+        <HorizontalAlignment>Far</HorizontalAlignment>
+        <VerticalAlignment>Center</VerticalAlignment>
+        <WordWrap>False</WordWrap>
+        <Format>%d</Format>
+        <ForeColor>WindowText</ForeColor>
+      </Style>
+      <Style name="DayToday">
+        <Font>Tahoma, 20.25pt</Font>
+        <Padding>4, 1</Padding>
+        <Border>2, 1</Border>
+        <BorderColor>187, 85, 3</BorderColor>
+        <BorderEdges>(Empty)</BorderEdges>
+        <HorizontalAlignment>Far</HorizontalAlignment>
+        <VerticalAlignment>Center</VerticalAlignment>
+        <WordWrap>False</WordWrap>
+        <Format>%d</Format>
+        <ForeColor>WindowText</ForeColor>
+      </Style>
+      <Style name="DayTrail">
+        <Font>Tahoma, 20.25pt</Font>
+        <Padding>4, 1</Padding>
+        <BorderEdges>(Empty)</BorderEdges>
+        <HorizontalAlignment>Far</HorizontalAlignment>
+        <VerticalAlignment>Center</VerticalAlignment>
+        <WordWrap>False</WordWrap>
+        <Format>%d</Format>
+        <ForeColor>ControlLight</ForeColor>
+      </Style>
+      <Style name="DaySelected">
+        <Font>Tahoma, 20.25pt</Font>
+        <Padding>4, 1</Padding>
+        <BorderEdges>(Empty)</BorderEdges>
+        <HorizontalAlignment>Far</HorizontalAlignment>
+        <VerticalAlignment>Center</VerticalAlignment>
+        <WordWrap>False</WordWrap>
+        <Format>%d</Format>
+        <ForeColor>WindowText</ForeColor>
+        <BackColor>Gold</BackColor>
+      </Style>
+      <Style name="DayBold">
+        <Font>Tahoma, 20.25pt, style=Bold</Font>
+        <Padding>4, 1</Padding>
+        <BorderEdges>(Empty)</BorderEdges>
+        <HorizontalAlignment>Far</HorizontalAlignment>
+        <VerticalAlignment>Center</VerticalAlignment>
+        <WordWrap>False</WordWrap>
+        <Format>%d</Format>
+      </Style>
+      <Style name="DaySelectedBold">
+        <Font>Tahoma, 20.25pt, style=Bold</Font>
+        <Padding>4, 1</Padding>
+        <BorderEdges>(Empty)</BorderEdges>
+        <HorizontalAlignment>Far</HorizontalAlignment>
+        <VerticalAlignment>Center</VerticalAlignment>
+        <WordWrap>False</WordWrap>
+        <Format>%d</Format>
+        <BackColor>Gold</BackColor>
+      </Style>
+      <Style name="DayHeader">
+        <Font>Tahoma, 20.25pt</Font>
+        <Padding>4, 1</Padding>
+        <Border>0, 0, 0, 1</Border>
+        <BorderColor>172, 168, 153</BorderColor>
+        <BorderEdges>(Empty)</BorderEdges>
+        <HorizontalAlignment>Far</HorizontalAlignment>
+        <VerticalAlignment>Center</VerticalAlignment>
+        <WordWrap>False</WordWrap>
+        <Format>d</Format>
+        <ForeColor>WindowText</ForeColor>
+      </Style>
+      <Style name="Header">
+        <Font>Tahoma, 20.25pt</Font>
+        <Padding>5</Padding>
+        <BorderEdges>(Empty)</BorderEdges>
+        <HorizontalAlignment>Center</HorizontalAlignment>
+        <VerticalAlignment>Far</VerticalAlignment>
+        <WordWrap>False</WordWrap>
+        <Format>MMMM yyy</Format>
+        <ForeColor>WindowText</ForeColor>
+        <BackColor>158, 190, 245</BackColor>
+      </Style>
+      <Style name="Button">
+        <Font>Webdings, 26.25pt</Font>
+        <Padding>2, 0</Padding>
+        <BorderEdges>(Empty)</BorderEdges>
+        <HorizontalAlignment>Center</HorizontalAlignment>
+        <VerticalAlignment>Center</VerticalAlignment>
+        <WordWrap>False</WordWrap>
+        <Format>MMMM yyy</Format>
+        <Hot>
+          <BorderEdges>(Empty)</BorderEdges>
+        </Hot>
+        <ForeColor>WindowText</ForeColor>
+        <BackColor>158, 190, 245</BackColor>
+      </Style>
+    </Styles>
+    <PrevChar>3</PrevChar>
+    <NextChar>4</NextChar>
+  </Theme>
+</Theme>
