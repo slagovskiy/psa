@@ -187,7 +187,7 @@ namespace Photoland.Administrator
                         this.Text = "Администратор - " + usr.Name + " - Photoland System Automation " + Application.ProductVersion;
 
                         // запрос на не поддтвержденные списания
-                        SqlCommand _cmd = new SqlCommand("SELECT COUNT(*) AS cnt FROM (SELECT TOP (100) PERCENT dbo.orderbody.datework, dbo.[order].number, dbo.defect.defect_name, dbo.orderbody.name_work, dbo.orderbody.user_defect, dbo.orderbody.defect_quantity, dbo.orderbody.defect_ok, dbo.good.name AS good FROM dbo.orderbody LEFT OUTER JOIN dbo.good ON dbo.orderbody.id_good = dbo.good.id_good LEFT OUTER JOIN dbo.defect ON dbo.orderbody.tech_defect = dbo.defect.defect_code LEFT OUTER JOIN dbo.[order] ON dbo.orderbody.id_order = dbo.[order].id_order WHERE (dbo.orderbody.tech_defect > 0)) AS derivedtbl_1", db_connection);
+                        SqlCommand _cmd = new SqlCommand("SELECT COUNT(*) AS cnt FROM (SELECT TOP (100) PERCENT dbo.orderbody.datework, dbo.[order].number, dbo.defect.defect_name, dbo.orderbody.name_work, dbo.orderbody.user_defect, dbo.orderbody.defect_quantity, dbo.orderbody.defect_ok, dbo.good.name AS good FROM dbo.orderbody LEFT OUTER JOIN dbo.good ON dbo.orderbody.id_good = dbo.good.id_good LEFT OUTER JOIN dbo.defect ON dbo.orderbody.tech_defect = dbo.defect.defect_code LEFT OUTER JOIN dbo.[order] ON dbo.orderbody.id_order = dbo.[order].id_order WHERE (dbo.orderbody.tech_defect > 0) AND dbo.orderbody.id_user_work > 0) AS derivedtbl_1", db_connection);
 						_cmd.CommandTimeout = 9000;
                         if ((int)_cmd.ExecuteScalar() > 0)
                             MessageBox.Show("Внимание!\nЕсть не подтвержденные списания!", "Внимание",
