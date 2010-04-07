@@ -323,7 +323,7 @@ namespace Photoland.Forms.Admin
                     f.count = decimal.Parse(gridData.Rows[gridData.Row][5].ToString());
                     f.ok = bool.Parse(gridData.Rows[gridData.Row][9].ToString());
                     f.who = int.Parse(gridData.Rows[gridData.Row][12].ToString());
-                    f.comment = gridData.Rows[gridData.Row][13].ToString();
+                    f.comment = gridData.Rows[gridData.Row][14].ToString();
                     f.ShowDialog();
                     if (f.DialogResult == DialogResult.OK)
                         LoadData(int.Parse(gridData.Rows[gridData.Row][1].ToString()));

@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Data.SqlClient;
 using PSA.Lib.Util;
+using System.Data;
 
 namespace PSA.Robot
 {
@@ -716,6 +717,47 @@ namespace PSA.Robot
 							iaft++;
 						}
 
+                        foreach (FileInfo f in dr.GetFiles("getdata*.sql"))
+                        {
+                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Найден файл экспорта из SQL команды " + f.Name);
+                            file.Flush();
+                            string query = "";
+                            using (StreamReader fs = new StreamReader(f.FullName, Encoding.GetEncoding(1251)))
+                            {
+                                string s = "";
+                                while ((s = fs.ReadLine()) != null)
+                                {
+                                    query += s + "\n";
+                                }
+                                fs.Close();
+                            }
+                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [>] " + query);
+                            file.Flush();
+                            try
+                            {
+                                string csv = SQL2CSV(query);
+                                if (Directory.Exists(prop.Dir_export))
+                                {
+                                    StreamWriter fl = new StreamWriter(prop.Dir_export + "\\" + f.Name + "." + 
+                                        DateTime.Now.Year.ToString("D4") + "_" + DateTime.Now.Month.ToString("D2") + "_" +
+                                        DateTime.Now.Day.ToString("D2") + "_" + DateTime.Now.Hour.ToString("D2") + "_" +
+                                        DateTime.Now.Minute.ToString("D2") + "_" + DateTime.Now.Second.ToString("D2") +
+                                        ".csv", true, Encoding.GetEncoding(1251));
+                                    fl.Write(csv);
+                                    fl.Close();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выполнения запроса " + ex.Message + "\n" + ex.Source);
+                                file.Flush();
+                            }
+                            finally
+                            {
+                                f.Delete();
+                            }
+                            iaft++;
+                        }
 
 					}
 					else
@@ -729,5 +771,54 @@ namespace PSA.Robot
 			{
 			}
 		}
-	}
+
+
+        private string SQL2CSV(string sql)
+        {
+            string ret = "";
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(prop.Connection_string))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandText = sql;
+                    cmd.CommandTimeout = 90000;
+                    cmd.Connection = cn;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable tbl = new DataTable("sql2cmd");
+                    da.Fill(tbl);
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < tbl.Rows.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            for (int j = 0; j < tbl.Columns.Count; j++)
+                            {
+                                sb.Append(tbl.Columns[j].ColumnName);
+                                if (j < tbl.Columns.Count - 1)
+                                    sb.Append(";");
+                            }
+                            sb.Append("\n");
+                        }
+                        for (int j = 0; j < tbl.Columns.Count; j++)
+                        {
+                            sb.Append(tbl.Rows[i][j].ToString().Trim());
+                            if (j < tbl.Columns.Count - 1)
+                                sb.Append(";");
+                        }
+                        sb.Append("\n");
+                    }
+                    ret = sb.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                ret = ex.Message;
+            }
+            return ret;
+        }
+    }
+
+
 }

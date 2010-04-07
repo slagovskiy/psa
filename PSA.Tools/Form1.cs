@@ -433,8 +433,59 @@ namespace PSA.Tools
 				ret = false;
 			}
 			return ret;
-		}  
-	
+		}
+
+        private void btnSQLtoCSV_Click(object sender, EventArgs e)
+        {
+            txtSQLtoCSV.Text = SQL2CSV(txtSQL.Text);
+        }
+
+        private string SQL2CSV(string sql)
+        {
+            string ret = "";
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(settings.Connection_string))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandText = sql;
+                    cmd.CommandTimeout = 90000;
+                    cmd.Connection = cn;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable tbl = new DataTable("sql2cmd");
+                    da.Fill(tbl);
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < tbl.Rows.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            for (int j = 0; j < tbl.Columns.Count; j++)
+                            {
+                                sb.Append(tbl.Columns[j].ColumnName);
+                                if (j < tbl.Columns.Count - 1)
+                                    sb.Append(";");
+                            }
+                            sb.Append("\n");
+                        }
+                        for (int j = 0; j < tbl.Columns.Count; j++)
+                        {
+                            sb.Append(tbl.Rows[i][j].ToString().Trim());
+                            if (j < tbl.Columns.Count - 1)
+                                sb.Append(";");
+                        }
+                        sb.Append("\n");
+                    }
+                    ret = sb.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                ret = ex.Message;
+            }
+            return ret;
+        }
+
 
     }
 }
