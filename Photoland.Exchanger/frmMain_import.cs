@@ -395,17 +395,23 @@ namespace Photoland.Exchanger
                                                             tmp_datework = rdr.GetDateTime(14).ToString();
                                                         string idwork = "0";
                                                         string namework = "";
+                                                        string iddefect = "0";
+                                                        string namedefect = "";
                                                         if (DateTime.Parse(tmp_datework) < DateTime.Parse(DateToSql(r[13])))
                                                         {
                                                             if ((rdr.GetString(16).Trim() == r[15].Trim()) && (rdr.GetInt32(15).ToString() == r[14].Trim()))
                                                             {
                                                                 idwork = r[14];
                                                                 namework = r[15];
+                                                                iddefect = r[14];
+                                                                namedefect = r[15];
                                                             }
                                                             else
                                                             {
                                                                 idwork = "0";
                                                                 namework = r[15];
+                                                                iddefect = "0";
+                                                                namedefect = r[18];
                                                             }
                                                         }
                                                         else
@@ -431,9 +437,9 @@ namespace Photoland.Exchanger
                                                         if (r[16] != "")
                                                             query += ",[defect_quantity] = " + r[16].Replace(",", ".") + " ";
                                                         if (r[17] != "")
-                                                            query += ",[id_user_defect] = " + r[17] + " ";
+                                                            query += ",[id_user_defect] = " + iddefect + " ";
                                                         if (r[18] != "")
-                                                            query += ",[user_defect] = '" + r[18] + "' ";
+                                                            query += ",[user_defect] = '" + namedefect + "' ";
                                                         if (r[19] != "")
                                                             query += ",[tech_defect] = " + r[19] + " ";
                                                         query += "WHERE [guid] = '" + r[4] + "'";
@@ -469,6 +475,8 @@ namespace Photoland.Exchanger
                                                         */
                                                         idwork = "0";
                                                         string namework = r[15];
+                                                        string iddefect = "0";
+                                                        string namedefect = r[18];
 
                                                         query = "INSERT INTO [orderbody] " +
                                                                 "([id_order]";
@@ -523,8 +531,8 @@ namespace Photoland.Exchanger
                                                         query += "," + idwork + " " +
                                                                 ",'" + namework + "' " +
                                                                 "," + r[16].Replace(",", ".") + " " +
-                                                                "," + r[17] + " " +
-                                                                ",'" + r[18] + "'" +
+                                                                "," + iddefect + " " +
+                                                                ",'" + namedefect + "'" +
                                                                 "," + r[19] + ")";
                                                         using (SqlConnection cn = new SqlConnection(prop.Connection_string))
                                                         {

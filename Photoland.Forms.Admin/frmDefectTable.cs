@@ -159,8 +159,9 @@ namespace Photoland.Forms.Admin
 					((txtServ.SelectedValue.ToString().Trim() == "-1") ? ("") : (" AND (id_good = N'" + txtServ.SelectedValue.ToString().Trim() + "') ")) +
 					((txtType.SelectedValue.ToString().Trim() == "-1") ? ("") : (" AND (tech_defect = " + txtType.SelectedValue.ToString().Trim() + ") ")) +
 					((txtU1.SelectedValue.ToString().Trim() == "-1") ? ("") : (" AND (id_user_defect = " + txtU1.SelectedValue.ToString().Trim() + ") ")) +
-					((checkOK.Checked) ? (" AND (defect_ok = 1) ") : (" AND (defect_ok = 0) ")) +
-					" ORDER BY [datework]", db_connection);
+                    ((checkOK.Checked) ? (" AND (defect_ok = 1) ") : (" AND (defect_ok = 0) ")) +
+                    ((checkHideOtherDefect.Checked) ? (" AND (id_user_defect > 1) ") : "") +
+                    " ORDER BY [datework]", db_connection);
                 /*
                  * 1 [id_orderbody], 
                  * 2 [id_order], 
@@ -323,6 +324,7 @@ namespace Photoland.Forms.Admin
                     f.count = decimal.Parse(gridData.Rows[gridData.Row][5].ToString());
                     f.ok = bool.Parse(gridData.Rows[gridData.Row][9].ToString());
                     f.who = int.Parse(gridData.Rows[gridData.Row][12].ToString());
+                    f.whoname = gridData.Rows[gridData.Row][7].ToString();
                     f.comment = gridData.Rows[gridData.Row][14].ToString();
                     f.ShowDialog();
                     if (f.DialogResult == DialogResult.OK)

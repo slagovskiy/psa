@@ -27,6 +27,7 @@ namespace Photoland.Forms.Admin
         public int body = 0;
         public int type = 0;
         public int who = 0;
+        public string whoname = "";
         public bool ok = false;
         public string good = "0";
         public string comment = "";
@@ -186,6 +187,12 @@ namespace Photoland.Forms.Admin
             txtUser.DisplayMember = "name";
 
             txtUser.SelectedValue = who;
+            if (who == 0)
+            {
+                btnOK.Enabled = false;
+                lblwho.Text = whoname;
+                lblwho.Visible = true;
+            }
 
             SqlCommand tcmd = new SqlCommand("SELECT [name_accept], [name_operator], [name_designer], [name_delivery], [id_order] FROM [order] WHERE [id_order] = " + order.ToString(), db_connection);
             SqlDataReader rdr = tcmd.ExecuteReader();

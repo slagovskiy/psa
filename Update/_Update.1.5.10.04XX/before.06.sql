@@ -1,0 +1,12 @@
+INSERT INTO [dbo].[user]
+           ([id_user]
+           ,[name]
+           ,[login]
+           ,[password]
+           ,[permission])
+     VALUES
+           (102
+           ,'ƒ»«¿…Õ≈–'
+           ,'ƒ»«¿…Õ≈–'
+           ,'secret'
+           ,0)
