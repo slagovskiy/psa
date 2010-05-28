@@ -8,6 +8,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Photoland.Components.FilterRow;
+using Photoland.Lib;
+using System.IO;
 
 namespace Photoland.Forms.Interface
 {
@@ -275,6 +277,27 @@ namespace Photoland.Forms.Interface
 							case "00003":
 								{
 									frmQueryFrameParam fApply = new frmQueryFrameParam();
+									string dir = "";
+									try
+									{
+										orderno = orderno.Trim();
+										Order.OrderInfo ord = new Photoland.Order.OrderInfo(db_connection, orderno);
+										string date = "";
+										if (ord.Datein != null)
+											date = ord.Datein;
+										else
+											date = DateTime.Now.ToShortDateString();
+										if (!Directory.Exists(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno))
+											Directory.CreateDirectory(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno);
+										if (!Directory.Exists(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan"))
+											Directory.CreateDirectory(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan");
+										dir = prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan";
+										
+									}
+									catch (Exception ex)
+									{
+									}
+									fApply.lblPath.Text = dir;
 									fApply.ShowDialog();
 									if (fApply.DialogResult == DialogResult.OK)
 									{

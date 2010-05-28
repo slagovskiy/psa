@@ -109,6 +109,12 @@
     <Compile Include="Interface\frmRobotManager.Designer.cs">
       <DependentUpon>frmRobotManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\frmSelectLamdaFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmSelectLamdaFile.Designer.cs">
+      <DependentUpon>frmSelectLamdaFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\frmVerificationDoc_data.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +322,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\frmRobotManager.resx">
       <DependentUpon>frmRobotManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmSelectLamdaFile.resx">
+      <DependentUpon>frmSelectLamdaFile.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\frmVerificationDoc.resx">

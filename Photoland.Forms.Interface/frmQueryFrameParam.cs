@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using PSA.Lib.Interface;
 
 namespace Photoland.Forms.Interface
 {
@@ -130,6 +131,16 @@ namespace Photoland.Forms.Interface
             {
 				ErrorNfo.WriteErrorInfo(ex);
             }
+		}
+
+		private void btnSelectFile_Click(object sender, EventArgs e)
+		{
+			using (frmSelectLamdaFile frm = new frmSelectLamdaFile())
+			{
+				frm.path = lblPath.Text;
+				if (frm.ShowDialog() == DialogResult.OK)
+					txtFile.Text = frm.SelectedFile;
+			}
 		}
 
 	}
