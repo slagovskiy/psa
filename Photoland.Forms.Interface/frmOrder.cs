@@ -1231,7 +1231,7 @@ namespace Photoland.Forms.Interface
 				else
 				{
 					MessageBox.Show("Дисконтная карта не найдена в базе!", "Скидка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					this.order.Discont = null;
+					this.order.Discont = new DiscontInfo();
 				}
 			}
 			ReCalcOrder();

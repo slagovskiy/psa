@@ -84,6 +84,8 @@ namespace Photoland.Forms.Interface
 			this.btnAdvancedPaymentClear = new System.Windows.Forms.Button();
 			this.btnDescontClear = new System.Windows.Forms.Button();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.txtPType = new System.Windows.Forms.ComboBox();
+			this.label14 = new System.Windows.Forms.Label();
 			this.lblTotalPayment = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.btnFinalPaymentClear = new System.Windows.Forms.Button();
@@ -95,8 +97,6 @@ namespace Photoland.Forms.Interface
 			this.txtComment = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.Momental = new System.Windows.Forms.Label();
-			this.txtPType = new System.Windows.Forms.ComboBox();
-			this.label14 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -140,7 +140,7 @@ namespace Photoland.Forms.Interface
 			this.radioCrop3.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.radioCrop3.Location = new System.Drawing.Point(6, 72);
 			this.radioCrop3.Name = "radioCrop3";
-			this.radioCrop3.Size = new System.Drawing.Size(132, 20);
+			this.radioCrop3.Size = new System.Drawing.Size(133, 20);
 			this.radioCrop3.TabIndex = 2;
 			this.radioCrop3.TabStop = true;
 			this.radioCrop3.Text = "Реальный размер";
@@ -209,7 +209,7 @@ namespace Photoland.Forms.Interface
 			this.radioPapperType1.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.radioPapperType1.Location = new System.Drawing.Point(6, 20);
 			this.radioPapperType1.Name = "radioPapperType1";
-			this.radioPapperType1.Size = new System.Drawing.Size(88, 20);
+			this.radioPapperType1.Size = new System.Drawing.Size(89, 20);
 			this.radioPapperType1.TabIndex = 0;
 			this.radioPapperType1.TabStop = true;
 			this.radioPapperType1.Text = "Глянцевая";
@@ -712,7 +712,6 @@ namespace Photoland.Forms.Interface
 			// 
 			// btnDescontClear
 			// 
-			this.btnDescontClear.Enabled = false;
 			this.btnDescontClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnDescontClear.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.btnDescontClear.Location = new System.Drawing.Point(328, 59);
@@ -753,6 +752,25 @@ namespace Photoland.Forms.Interface
 			this.groupBox6.TabIndex = 35;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "Итог";
+			// 
+			// txtPType
+			// 
+			this.txtPType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.txtPType.FormattingEnabled = true;
+			this.txtPType.Location = new System.Drawing.Point(140, 130);
+			this.txtPType.Name = "txtPType";
+			this.txtPType.Size = new System.Drawing.Size(219, 23);
+			this.txtPType.TabIndex = 49;
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.ForeColor = System.Drawing.Color.Red;
+			this.label14.Location = new System.Drawing.Point(62, 133);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(75, 15);
+			this.label14.TabIndex = 48;
+			this.label14.Text = "Тип оплаты";
 			// 
 			// lblTotalPayment
 			// 
@@ -886,25 +904,6 @@ namespace Photoland.Forms.Interface
 			this.Momental.TabIndex = 40;
 			this.Momental.Text = "МОМЕНТАЛЬНЫЙ ЗАКАЗ!";
 			this.Momental.Visible = false;
-			// 
-			// txtPType
-			// 
-			this.txtPType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.txtPType.FormattingEnabled = true;
-			this.txtPType.Location = new System.Drawing.Point(140, 130);
-			this.txtPType.Name = "txtPType";
-			this.txtPType.Size = new System.Drawing.Size(219, 23);
-			this.txtPType.TabIndex = 49;
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.ForeColor = System.Drawing.Color.Red;
-			this.label14.Location = new System.Drawing.Point(62, 133);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(75, 15);
-			this.label14.TabIndex = 48;
-			this.label14.Text = "Тип оплаты";
 			// 
 			// frmOrder
 			// 

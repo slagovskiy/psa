@@ -40,6 +40,13 @@ namespace Photoland.Forms.Interface
 			else
 			{
 				discont = new DiscontInfo(txtDiscontNo.Text, db_connection);
+				if ((discont.Id_dcard != 999999999) && (discont.Id_dcard > 0))
+				{
+					if (MessageBox.Show("Внимение!\n\nДанные по этой карте взяты из локальной базы т.к. основной сервер не доступен!\nЕсли есть возможность принять карту в следующий раз, то лучше это сделать по позже.\n\nИспользовать эти данные?", "Ошибка получения информации о карте", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+					{
+						discont = new DiscontInfo();
+					}
+				}
 				this.DialogResult = DialogResult.OK;
 			}
 
@@ -64,6 +71,13 @@ namespace Photoland.Forms.Interface
 				SqlCommand tmp_cnt = new SqlCommand("DECLARE @C int;  SET @C = (SELECT cnt FROM dbo.dcarduse WHERE (code = '" + txtDiscontNo.Text.Trim() + "') AND (lastdate >= CONVERT(DATETIME, '" + DateTime.Now.Year.ToString("D4") + "-" + DateTime.Now.Month.ToString("D2") + "-" + DateTime.Now.Day.ToString("D2") + " 00:00:00', 102)) AND (lastdate <= CONVERT(DATETIME, '" + DateTime.Now.Year.ToString("D4") + "-" + DateTime.Now.Month.ToString("D2") + "-" + DateTime.Now.Day.ToString("D2") + " 23:59:00', 102))); SELECT ISNULL(@C, 0) AS cnt;", db_connection);
 				int cnt = (int)tmp_cnt.ExecuteScalar();
 				discont = new DiscontInfo(txtDiscontNo.Text, db_connection);
+				if ((discont.Id_dcard != 999999999) && (discont.Id_dcard > 0))
+				{
+					if (MessageBox.Show("Внимение!\n\nДанные по этой карте взяты из локальной базы т.к. основной сервер не доступен!\nЕсли есть возможность принять карту в следующий раз, то лучше это сделать по позже.\n\nИспользовать эти данные?", "Ошибка получения информации о карте", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+					{
+						discont = new DiscontInfo();
+					}
+				}
 				if ((cnt <= prop.DCard_limit) & (discont.BonusType.Trim() != "Z"))
 				{
 					this.DialogResult = DialogResult.OK;
