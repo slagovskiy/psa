@@ -42,7 +42,7 @@ namespace Photoland.Forms.Interface
 				discont = new DiscontInfo(txtDiscontNo.Text, db_connection);
 				if ((discont.Id_dcard != 999999999) && (discont.Id_dcard > 0))
 				{
-					if (MessageBox.Show("Внимение!\n\nДанные по этой карте взяты из локальной базы т.к. основной сервер не доступен!\nЕсли есть возможность принять карту в следующий раз, то лучше это сделать по позже.\n\nИспользовать эти данные?", "Ошибка получения информации о карте", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+					if (MessageBox.Show("Внимение!\n\nДанные по этой карте взяты из локальной базы т.к. основной сервер не доступен!\nЕсли есть возможность принять карту в следующий раз, то лучше это сделать по позже т.к. списание по ней не пройдет.\n\nИспользовать эти данные?", "Ошибка получения информации о карте", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
 					{
 						discont = new DiscontInfo();
 					}

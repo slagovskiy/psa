@@ -47,6 +47,7 @@
 			this.radioConnectionString = new System.Windows.Forms.RadioButton();
 			this.radioDSN = new System.Windows.Forms.RadioButton();
 			this.tabGeneral = new System.Windows.Forms.TabPage();
+			this.checkShowQuickOrder = new System.Windows.Forms.CheckBox();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.checkRound3 = new System.Windows.Forms.CheckBox();
 			this.txtSumRound = new System.Windows.Forms.ComboBox();
@@ -304,7 +305,8 @@
 			this.checkDebugIdForQBtn = new System.Windows.Forms.CheckBox();
 			this.odlg = new System.Windows.Forms.OpenFileDialog();
 			this.dlg = new System.Windows.Forms.FolderBrowserDialog();
-			this.checkShowQuickOrder = new System.Windows.Forms.CheckBox();
+			this.label66 = new System.Windows.Forms.Label();
+			this.txtDiscontServerAddress = new System.Windows.Forms.TextBox();
 			this.tabControl1.SuspendLayout();
 			this.tabDatabase.SuspendLayout();
 			this.tabGeneral.SuspendLayout();
@@ -563,6 +565,16 @@
 			this.tabGeneral.TabIndex = 5;
 			this.tabGeneral.Text = "Общие";
 			this.tabGeneral.UseVisualStyleBackColor = true;
+			// 
+			// checkShowQuickOrder
+			// 
+			this.checkShowQuickOrder.AutoSize = true;
+			this.checkShowQuickOrder.Location = new System.Drawing.Point(266, 186);
+			this.checkShowQuickOrder.Name = "checkShowQuickOrder";
+			this.checkShowQuickOrder.Size = new System.Drawing.Size(313, 17);
+			this.checkShowQuickOrder.TabIndex = 15;
+			this.checkShowQuickOrder.Text = "Показывать кнопку быстрого заказа в модуле приемки";
+			this.checkShowQuickOrder.UseVisualStyleBackColor = true;
 			// 
 			// groupBox5
 			// 
@@ -940,7 +952,7 @@
 			// 
 			// btnQbtn1_clear
 			// 
-			this.btnQbtn1_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn1_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn1_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn1_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn1_clear.Name = "btnQbtn1_clear";
@@ -1025,7 +1037,7 @@
 			// 
 			// btnQbtn2_clear
 			// 
-			this.btnQbtn2_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn2_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn2_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn2_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn2_clear.Name = "btnQbtn2_clear";
@@ -1109,7 +1121,7 @@
 			// 
 			// btnQbtn3_clear
 			// 
-			this.btnQbtn3_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn3_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn3_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn3_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn3_clear.Name = "btnQbtn3_clear";
@@ -1193,7 +1205,7 @@
 			// 
 			// btnQbtn4_clear
 			// 
-			this.btnQbtn4_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn4_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn4_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn4_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn4_clear.Name = "btnQbtn4_clear";
@@ -1277,7 +1289,7 @@
 			// 
 			// btnQbtn5_clear
 			// 
-			this.btnQbtn5_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn5_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn5_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn5_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn5_clear.Name = "btnQbtn5_clear";
@@ -1361,7 +1373,7 @@
 			// 
 			// btnQbtn6_clear
 			// 
-			this.btnQbtn6_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn6_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn6_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn6_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn6_clear.Name = "btnQbtn6_clear";
@@ -1445,7 +1457,7 @@
 			// 
 			// btnQbtn7_clear
 			// 
-			this.btnQbtn7_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn7_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn7_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn7_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn7_clear.Name = "btnQbtn7_clear";
@@ -1529,7 +1541,7 @@
 			// 
 			// btnQbtn8_clear
 			// 
-			this.btnQbtn8_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn8_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn8_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn8_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn8_clear.Name = "btnQbtn8_clear";
@@ -1613,7 +1625,7 @@
 			// 
 			// btnQbtn9_clear
 			// 
-			this.btnQbtn9_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn9_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn9_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn9_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn9_clear.Name = "btnQbtn9_clear";
@@ -1697,7 +1709,7 @@
 			// 
 			// btnQbtn10_clear
 			// 
-			this.btnQbtn10_clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnQbtn10_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btnQbtn10_clear.ForeColor = System.Drawing.Color.Red;
 			this.btnQbtn10_clear.Location = new System.Drawing.Point(343, 20);
 			this.btnQbtn10_clear.Name = "btnQbtn10_clear";
@@ -1756,7 +1768,7 @@
 			// 
 			// txtReklamBlock1
 			// 
-			this.txtReklamBlock1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.txtReklamBlock1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.txtReklamBlock1.Location = new System.Drawing.Point(6, 18);
 			this.txtReklamBlock1.Name = "txtReklamBlock1";
 			this.txtReklamBlock1.Size = new System.Drawing.Size(194, 67);
@@ -2089,6 +2101,8 @@
 			// 
 			// tabAdmin
 			// 
+			this.tabAdmin.Controls.Add(this.txtDiscontServerAddress);
+			this.tabAdmin.Controls.Add(this.label66);
 			this.tabAdmin.Controls.Add(this.txtPublicIni);
 			this.tabAdmin.Controls.Add(this.label60);
 			this.tabAdmin.Controls.Add(this.button3);
@@ -3137,15 +3151,21 @@
 			this.odlg.FileName = "odlg";
 			this.odlg.Filter = "\"Photoland reports (*.xml)|*.xml|All files (*.*)|*.*\"";
 			// 
-			// checkShowQuickOrder
+			// label66
 			// 
-			this.checkShowQuickOrder.AutoSize = true;
-			this.checkShowQuickOrder.Location = new System.Drawing.Point(266, 186);
-			this.checkShowQuickOrder.Name = "checkShowQuickOrder";
-			this.checkShowQuickOrder.Size = new System.Drawing.Size(313, 17);
-			this.checkShowQuickOrder.TabIndex = 15;
-			this.checkShowQuickOrder.Text = "Показывать кнопку быстрого заказа в модуле приемки";
-			this.checkShowQuickOrder.UseVisualStyleBackColor = true;
+			this.label66.AutoSize = true;
+			this.label66.Location = new System.Drawing.Point(14, 290);
+			this.label66.Name = "label66";
+			this.label66.Size = new System.Drawing.Size(199, 13);
+			this.label66.TabIndex = 15;
+			this.label66.Text = "Адрес сервера для списания бонусов";
+			// 
+			// txtDiscontServerAddress
+			// 
+			this.txtDiscontServerAddress.Location = new System.Drawing.Point(219, 287);
+			this.txtDiscontServerAddress.Name = "txtDiscontServerAddress";
+			this.txtDiscontServerAddress.Size = new System.Drawing.Size(333, 20);
+			this.txtDiscontServerAddress.TabIndex = 16;
 			// 
 			// frmSetup
 			// 
@@ -3541,6 +3561,8 @@
 		private System.Windows.Forms.CheckBox checkLoadNotApproved;
 		private System.Windows.Forms.CheckBox checkLoad1000;
 		private System.Windows.Forms.CheckBox checkShowQuickOrder;
+		private System.Windows.Forms.TextBox txtDiscontServerAddress;
+		private System.Windows.Forms.Label label66;
 
 	}
 }

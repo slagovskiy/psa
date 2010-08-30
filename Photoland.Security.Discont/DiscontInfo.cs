@@ -8,12 +8,15 @@ using Photoland.Security;
 using System.Net;
 using System.IO;
 using System.Xml;
+using PSA.Lib.Util;
+
 
 
 namespace Photoland.Security.Discont
 {
 	public class DiscontInfo
 	{
+		PSA.Lib.Util.Settings settings = new Settings();
 
 		public DiscontInfo()
 		{
@@ -44,7 +47,7 @@ namespace Photoland.Security.Discont
 							DateTime.Now.Minute.ToString("D2") + 
 							DateTime.Now.Second.ToString("D2") + 
 							DateTime.Now.Millisecond.ToString("D2");
-				HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://k.fotoland.ru/card.get.php?code=" + code + "&key=" + key + "&format=xml");
+				HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://" + settings.DiscontServerAddress + "/card.get.php?code=" + code + "&key=" + key + "&format=xml");
 				HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 				Stream resStream = response.GetResponseStream();
 				XmlDocument doc = new XmlDocument();
@@ -148,64 +151,23 @@ namespace Photoland.Security.Discont
 			catch 
 			{
 				// ошибка веба
-				if (db_connection.State == ConnectionState.Closed)
-					db_connection.Open();
+				db_connection = new SqlConnection(settings.Connection_string);
 				SqlCommand db_command = new SqlCommand("SELECT [id_dcard], [guid], [code], [name], [disc], [discserv], [date], [not], [phone], [email], [bonus], [typebonus] FROM [vwDCardFull] WHERE RTRIM([code]) = '" + code + "'", db_connection);
-				SqlDataReader db_reader = db_command.ExecuteReader();
-				if (db_reader.Read())
+				SqlDataAdapter da = new SqlDataAdapter(db_command);
+				DataTable tbl = new DataTable("");
+				da.Fill(tbl);
+				if (tbl.Rows.Count > 0)
 				{
-					if (!db_reader.IsDBNull(0))
-						this._id_dcard = db_reader.GetInt32(0);
-					else
-						this._id_dcard = 0;
-
-					if (!db_reader.IsDBNull(2))
-						this._code_dcard = db_reader.GetString(2);
-					else
-						this._code_dcard = "";
-
-					if (!db_reader.IsDBNull(3))
-						this._name_dcard = db_reader.GetString(3);
-					else
-						this._name_dcard = "";
-
-					if (!db_reader.IsDBNull(4))
-						this._disc = db_reader.GetDecimal(4);
-					else
-						this._disc = 0;
-
-					if (!db_reader.IsDBNull(5))
-						this._discserv = db_reader.GetDecimal(5);
-					else
-						this._discserv = 0;
-
-					if (!db_reader.IsDBNull(7))
-						if (db_reader.GetString(7) == "1")
-							this._not = true;
-						else
-							this._not = false;
-					else
-						this._not = false;
-
-					if (!db_reader.IsDBNull(8))
-						this._phone = db_reader.GetString(8);
-					else
-						this._phone = "";
-
-					if (!db_reader.IsDBNull(9))
-						this._email = db_reader.GetString(9);
-					else
-						this._email = "";
-
-					if (!db_reader.IsDBNull(10))
-						this._bonus = db_reader.GetDecimal(10);
-					else
-						this._bonus = 0;
-
-					if (!db_reader.IsDBNull(11))
-						this._bonustype = db_reader.GetString(11);
-					else
-						this._bonustype = "";
+					this._id_dcard = int.Parse(tbl.Rows[0][0].ToString() ?? "0");
+					this._code_dcard = tbl.Rows[0][2].ToString() ?? "";
+					this._name_dcard = tbl.Rows[0][3].ToString() ?? "";
+					this._disc = decimal.Parse(tbl.Rows[0][4].ToString() ?? "0");
+					this._discserv = decimal.Parse(tbl.Rows[0][5].ToString() ?? "0");
+					this._not = false;
+					this._phone = tbl.Rows[0][8].ToString() ?? "";
+					this._email = tbl.Rows[0][9].ToString() ?? "";
+					this._bonus = decimal.Parse(tbl.Rows[0][10].ToString() ?? "0");
+					this._bonustype = tbl.Rows[0][11].ToString() ?? "";
 				}
 				else
 				{
@@ -220,7 +182,6 @@ namespace Photoland.Security.Discont
 					this._bonus = 0;
 					this._bonustype = "";
 				}
-				db_reader.Close();
 			}
 		}
 
@@ -242,6 +203,7 @@ namespace Photoland.Security.Discont
 		public int Id_dcard
 		{
 			get { return _id_dcard; }
+			set { _id_dcard = value; }
 		}
 
 		private string _code_dcard;

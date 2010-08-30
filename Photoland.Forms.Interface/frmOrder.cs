@@ -15,6 +15,7 @@ using Photoland.Lib;
 using Photoland.Acceptance.NumGenerator;
 using Photoland.Order;
 using System.IO;
+using System.Net;
 
 
 namespace Photoland.Forms.Interface
@@ -1600,6 +1601,42 @@ namespace Photoland.Forms.Interface
 				{
 					ok = false;
 				}
+			}
+			if (order.Discont != null)
+			{
+				if (order.Bonus != 0)
+				{
+					ok = false;
+					try
+					{
+						string key = DateTime.Now.Year.ToString("D4") +
+									DateTime.Now.Month.ToString("D2") +
+									DateTime.Now.Day.ToString("D2") +
+									DateTime.Now.Hour.ToString("D2") +
+									DateTime.Now.Minute.ToString("D2") +
+									DateTime.Now.Second.ToString("D2") +
+									DateTime.Now.Millisecond.ToString("D2");
+						HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.get.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&format=csv");
+						HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+						Stream resStream = response.GetResponseStream();
+						byte[] buf = new byte[255];
+						if (resStream.Read(buf, 0, 255) > 0)
+						{
+							ok = true;
+						}
+						else
+						{
+							ok = false;
+							MessageBox.Show("Списание бонусов не возможно т.к. нет связи с сервером!", "Ошибка списания бонусов", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
+					}
+					catch
+					{
+						ok = false;
+						MessageBox.Show("Списание бонусов не возможно т.к. нет связи с сервером!", "Ошибка списания бонусов", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+
 			}
 			if (ok)
 			{

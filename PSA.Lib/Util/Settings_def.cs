@@ -1435,6 +1435,19 @@ namespace PSA.Lib.Util
 			}
 		}
 
+		private string _DiscontServerAddress;
+		public string DiscontServerAddress
+		{
+			get
+			{
+				return _DiscontServerAddress;
+			}
+			set
+			{
+				_DiscontServerAddress = value;
+			}
+		}
+
 
 
 	}

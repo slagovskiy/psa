@@ -139,6 +139,7 @@ namespace PSA.Lib.Util
 			_LoadNotApproved = bool.Parse(f.IniReadValue("Terminal", "LoadNotApproved", "false")); //bool
 			_Load1000 = bool.Parse(f.IniReadValue("Terminal", "Load1000", "true")); //bool
 			_ShowQuickOrder = bool.Parse(f.IniReadValue("Main", "ShowQuickOrder", "false")); //bool
+			_DiscontServerAddress = f.IniReadValue("Main", "DiscontServerAddress", "k.fotoland.ru"); //staring
 
 		}
 		
@@ -257,6 +258,7 @@ namespace PSA.Lib.Util
 				f.IniWriteValue("Terminal", "LoadNotApproved", _LoadNotApproved.ToString()); //bool
 				f.IniWriteValue("Terminal", "Load1000", _Load1000.ToString()); //bool
 				f.IniWriteValue("Main", "ShowQuickOrder", _ShowQuickOrder.ToString()); //bool
+				f.IniWriteValue("Main", "DiscontServerAddress", _DiscontServerAddress); //staring
 				r = true;
 			}
 			catch(Exception ex)

@@ -238,9 +238,14 @@ namespace Photoland.Order
 
 				///////////////////////////////////
 				if ((!tmp_rdr.IsDBNull(20)) && (!tmp_rdr.IsDBNull(20)))
-					Discont = new DiscontInfo(tmp_rdr.GetString(20), new SqlConnection(db_connection.ConnectionString));
+				{
+					Discont = new DiscontInfo(tmp_rdr.GetString(20), db_connection);
+					Discont.Id_dcard = 777777777;
+				}
 				else
+				{
 					Discont = new DiscontInfo("", 0);
+				}
 
 				///////////////////////////////////
 				if (!tmp_rdr.IsDBNull(18))
@@ -621,7 +626,11 @@ namespace Photoland.Order
 
 				///////////////////////////////////
 				if ((!tmp_rdr.IsDBNull(20)) && (!tmp_rdr.IsDBNull(20)))
-					Discont = new DiscontInfo(tmp_rdr.GetString(20), tmp_rdr.GetDecimal(19));
+				{
+					Discont = new DiscontInfo(tmp_rdr.GetString(20), db_connection);
+					Discont.Id_dcard = 777777777;
+				}
+					//Discont = new DiscontInfo(tmp_rdr.GetString(20), tmp_rdr.GetDecimal(19));
 				else
 					Discont = new DiscontInfo("", 0);
 
@@ -945,7 +954,11 @@ namespace Photoland.Order
 
 				///////////////////////////////////
 				if ((!tmp_rdr.IsDBNull(20)) && (!tmp_rdr.IsDBNull(20)))
-					Discont = new DiscontInfo(tmp_rdr.GetString(20), tmp_rdr.GetDecimal(19));
+				{
+					Discont = new DiscontInfo(tmp_rdr.GetString(20), db_connection);
+					Discont.Id_dcard = 777777777;
+				}
+				//Discont = new DiscontInfo(tmp_rdr.GetString(20), tmp_rdr.GetDecimal(19));
 				else
 					Discont = new DiscontInfo("", 0);
 

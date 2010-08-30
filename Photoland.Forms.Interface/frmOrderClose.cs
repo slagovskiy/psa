@@ -17,6 +17,8 @@ using Photoland.Order;
 using System.IO;
 using PSA.Lib.Interface;
 using PSA.Lib.Util;
+using System.IO;
+using System.Net;
 
 namespace Photoland.Forms.Interface
 {
@@ -2291,6 +2293,42 @@ namespace Photoland.Forms.Interface
 								}
 							}
 						}
+						if (order.Discont != null)
+						{
+							if ((order.Bonus != 0) && (order.Discont.Id_dcard != 777777777))
+							{
+								ok = false;
+								try
+								{
+									string key = DateTime.Now.Year.ToString("D4") +
+												DateTime.Now.Month.ToString("D2") +
+												DateTime.Now.Day.ToString("D2") +
+												DateTime.Now.Hour.ToString("D2") +
+												DateTime.Now.Minute.ToString("D2") +
+												DateTime.Now.Second.ToString("D2") +
+												DateTime.Now.Millisecond.ToString("D2");
+									HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.get.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&format=csv");
+									HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+									Stream resStream = response.GetResponseStream();
+									byte[] buf = new byte[255];
+									if (resStream.Read(buf, 0, 255) > 0)
+									{
+										ok = true;
+									}
+									else
+									{
+										ok = false;
+										MessageBox.Show("Списание бонусов не возможно т.к. нет связи с сервером!", "Ошибка списания бонусов", MessageBoxButtons.OK, MessageBoxIcon.Error);
+									}
+								}
+								catch
+								{
+									ok = false;
+									MessageBox.Show("Списание бонусов не возможно т.к. нет связи с сервером!", "Ошибка списания бонусов", MessageBoxButtons.OK, MessageBoxIcon.Error);
+								}
+							}
+
+						}
 
 						if (ok)
 						{
@@ -2314,6 +2352,145 @@ namespace Photoland.Forms.Interface
 									}
 									catch
 									{
+									}
+								}
+								if (order.Discont != null)
+								{
+									if ((order.Discont.Id_dcard != 777777777) & (order.Bonus != 0))
+									{
+										try
+										{
+											string key = DateTime.Now.Year.ToString("D4") +
+														DateTime.Now.Month.ToString("D2") +
+														DateTime.Now.Day.ToString("D2") +
+														DateTime.Now.Hour.ToString("D2") +
+														DateTime.Now.Minute.ToString("D2") +
+														DateTime.Now.Second.ToString("D2") +
+														DateTime.Now.Millisecond.ToString("D2");
+											HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&action=add&bonus=-" + order.Bonus.ToString().Replace(",", "."));
+											HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+											Stream resStream = response.GetResponseStream();
+											byte[] buf = new byte[255];
+											if (resStream.Read(buf, 0, 255) > 0)
+											{
+												if (Encoding.ASCII.GetString(buf).ToLower() == "OK. Confirm, please.".ToLower())
+												{
+													AddEvent("Бонусы зарезервированы для списания");
+													request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&action=confirm&bonus=-" + order.Bonus.ToString().Replace(",", "."));
+													response = (HttpWebResponse)request.GetResponse();
+													resStream = response.GetResponseStream();
+													buf = new byte[255];
+													if (Encoding.ASCII.GetString(buf).ToLower() == "OK.".ToLower())
+													{
+														AddEvent("Потверждено списание с карты " + order.Discont.Code_dcard + " " + order.Bonus.ToString()+ " бонусов");
+													}
+													else
+													{
+														AddEvent("Не удалось списать бонусы, повторная попытка");
+														key = DateTime.Now.Year.ToString("D4") +
+																DateTime.Now.Month.ToString("D2") +
+																DateTime.Now.Day.ToString("D2") +
+																DateTime.Now.Hour.ToString("D2") +
+																DateTime.Now.Minute.ToString("D2") +
+																DateTime.Now.Second.ToString("D2") +
+																DateTime.Now.Millisecond.ToString("D2");
+														request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&action=add&bonus=-" + order.Bonus.ToString().Replace(",", "."));
+														response = (HttpWebResponse)request.GetResponse();
+														resStream = response.GetResponseStream();
+														buf = new byte[255];
+														if (resStream.Read(buf, 0, 255) > 0)
+														{
+															if (Encoding.ASCII.GetString(buf).ToLower().Trim('\0') == "OK. Confirm, please.".ToLower())
+															{
+																AddEvent("Бонусы зарезервированы для списания");
+																request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&action=confirm&bonus=-" + order.Bonus.ToString().Replace(",", "."));
+																response = (HttpWebResponse)request.GetResponse();
+																resStream = response.GetResponseStream();
+																buf = new byte[255];
+																if (resStream.Read(buf, 0, 255) > 0)
+																{
+																	if (Encoding.ASCII.GetString(buf).ToLower().Trim('\0') == "OK.".ToLower())
+																	{
+																		AddEvent("Потверждено списание с карты " + order.Discont.Code_dcard + " " + order.Bonus.ToString() + " бонусов");
+																	}
+																	else
+																	{
+																		AddEvent("Не удалось списать бонусы.");
+																	}
+																}
+															}
+															else
+															{
+																switch (Encoding.ASCII.GetString(buf))
+																{
+																	case "Not enough bonuses.":
+																		{
+																			AddEvent("При списании бонусов сервер вернул - Not enough bonuses.");
+																			break;
+																		}
+																	case "Card not found.":
+																		{
+																			AddEvent("При списании бонусов сервер вернул - Card not found.");
+																			break;
+																		}
+																	case "Action not found.":
+																		{
+																			AddEvent("При списании бонусов сервер вернул - Action not found.");
+																			break;
+																		}
+																	default:
+																		{
+																			AddEvent("При списании бонусов сервер вернул - " + Encoding.ASCII.GetString(buf));
+																			break;
+																		}
+																}
+															}
+														}
+														else
+														{
+															ok = false;
+															MessageBox.Show("Списание бонусов не возможно т.к. нет связи с сервером!", "Ошибка списания бонусов", MessageBoxButtons.OK, MessageBoxIcon.Error);
+														}
+													}
+												}
+												else
+												{
+													switch(Encoding.ASCII.GetString(buf))
+													{
+														case "Not enough bonuses.":
+															{
+																AddEvent("При списании бонусов сервер вернул - Not enough bonuses.");
+																break;
+															}
+														case "Card not found.":
+															{
+																AddEvent("При списании бонусов сервер вернул - Card not found.");
+																break;
+															}
+														case "Action not found.":
+															{
+																AddEvent("При списании бонусов сервер вернул - Action not found.");
+																break;
+															}
+														default:
+															{
+																AddEvent("При списании бонусов сервер вернул - " + Encoding.ASCII.GetString(buf));
+																break;
+															}
+													}
+												}
+											}
+											else
+											{
+												ok = false;
+												MessageBox.Show("Списание бонусов не возможно т.к. нет связи с сервером!", "Ошибка списания бонусов", MessageBoxButtons.OK, MessageBoxIcon.Error);
+											}
+										}
+										catch
+										{
+											ok = false;
+											MessageBox.Show("Списание бонусов не возможно т.к. нет связи с сервером!", "Ошибка списания бонусов", MessageBoxButtons.OK, MessageBoxIcon.Error);
+										}
 									}
 								}
 								AddEvent("Сохранены изменения в заказе (на приемке)");
@@ -2350,7 +2527,6 @@ namespace Photoland.Forms.Interface
 										if (order.Bonus < 0)
 										{
 											// бонусов не хватило для возврата;
-
 											SqlCommand cmd_dc =
 												new SqlCommand(
 													"INSERT INTO [dbo].[payments] ([date], [time], [id_user], [name_user], [number], [payment], [type], [comment], [payment_way], [exported]) VALUES (getdate(), '" + DateTime.Now.ToShortTimeString() + "', " + usr.Id_user + ", '" + usr.Name.Trim() + "', '" + order.Orderno + "', " + decimal.Round(order.Bonus, 2).ToString().Replace(",", ".") + ", 1, 'Автоматический возврат средств', 1, 0); UPDATE [dbo].[order] SET [final_payment] = [final_payment] + " + decimal.Round(order.Bonus, 2).ToString().Replace(",", ".") + " WHERE [id_order] = " + order.Id.ToString(),

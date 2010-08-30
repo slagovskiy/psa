@@ -299,6 +299,7 @@ namespace PSA.Lib.Interface
 			checkLoadNotApproved.Checked = p.LoadNotApproved;
 			checkLoad1000.Checked = p.Load1000;
 			checkShowQuickOrder.Checked = p.ShowQuickOrder;
+			txtDiscontServerAddress.Text = p.DiscontServerAddress;
 
 			
 		}
@@ -586,6 +587,7 @@ namespace PSA.Lib.Interface
 			p.LoadNotApproved = checkLoadNotApproved.Checked;
 			p.Load1000 = checkLoad1000.Checked;
 			p.ShowQuickOrder = checkShowQuickOrder.Checked;
+			p.DiscontServerAddress = txtDiscontServerAddress.Text;
 
             if(!p.Save())
 				MessageBox.Show("Ошибка при сохранении настроек!", "Настройки программы", MessageBoxButtons.OK, MessageBoxIcon.Warning);
