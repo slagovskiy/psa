@@ -7,9 +7,14 @@ if ($key == "") $key = str_replace(' ', '', str_replace('0.', '', microtime()));
 $format = $_GET["format"];
 if ($format == "") $format = "xml";
 
-
-$query = "SELECT `id`, `date`, `code`, `key`, `bonus`, `commit`, `del` FROM `card_action` ORDER BY `date`";
+$query = "SELECT `id`, `date`, `code`, `key`, `bonus`, `commit`, `del` FROM `card_action` WHERE `commit` = 1 AND `del` = 0 ORDER BY `date`";
 $result = mysql_query($query, $db);
+
+$fname = "dcard-" . date("Ymd-His.") . $format;
+
+$fh = fopen("export/" . $fname, 'w') or die("can't open file " . $fname);
+
+$ids = "0";
 
 if (!$result) 
 {
@@ -21,6 +26,7 @@ if ($format == 'xml')
 {
 	$s = "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n<DATA>\n";
 	$s .= "\t<KEY>" . $key . "</KEY>\n";
+	$s .= "\t<FILE>" . $fname . "</FILE>\n";
 	while ($row = mysql_fetch_assoc($result)) 
 	{
 		$s .= "\t<ACTION>\n";
@@ -32,13 +38,18 @@ if ($format == 'xml')
 		$s .= "\t\t<COMMIT>" . ((ord($row['commit'])==1)?"1":"0") . "</COMMIT>\n";
 		$s .= "\t\t<DEL>" . ((ord($row['del'])==1)?"1":"0") . "</DEL>\n";
 		$s .= "\t</ACTION>\n";
+		$ids .= ", " . $row['id'];
 	}
 	$s .= "</DATA>";
 	echo $s;
+	fwrite($fh, $s);
+	fclose($fh);
+	$query = "UPDATE `card_action` SET `del` = 1 WHERE `id` IN (" . $ids . ")";
+	$result = mysql_query($query, $db);
 }
 else if ($format == "csv")
 {
-	$s = "id;date;code;key;bonus;commit;del\n";
+	$s = "id;date;code;key;bonus;commit;del;file\n";
 	while ($row = mysql_fetch_assoc($result)) 
 	{
 		$s .= $row['id'] . ";";
@@ -47,9 +58,15 @@ else if ($format == "csv")
 		$s .= $row['key'] . ";";
 		$s .= $row['bonus'] . ";";
 		$s .= ((ord($row['commit'])==1)?"1":"0") . ";";
-		$s .= ((ord($row['del'])==1)?"1":"0") . "\n";
+		$s .= ((ord($row['del'])==1)?"1":"0") . ";";
+		$s .= $fname . "\n";
+		$ids .= ", " . $row['id'];
 	}
 	echo $s;
+	fwrite($fh, $s);
+	fclose($fh);
+	$query = "UPDATE `card_action` SET `del` = 1 WHERE `id` IN (" . $ids . ")";
+	$result = mysql_query($query, $db);
 }
 else
 {

@@ -6,6 +6,7 @@ if ($key == "") $key = str_replace(' ', '', str_replace('0.', '', microtime()));
 
 $bonus = $_GET["bonus"];
 if ($bonus == "") $bonus = 0;
+$bonus = str_replace(',', '.', $bonus);
 
 $code = $_GET["code"];
 if ($code == "") $code = "0";
