@@ -2367,7 +2367,7 @@ namespace Photoland.Forms.Interface
 														DateTime.Now.Minute.ToString("D2") +
 														DateTime.Now.Second.ToString("D2") +
 														DateTime.Now.Millisecond.ToString("D2");
-											HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&action=add&bonus=-" + order.Bonus.ToString().Replace(",", "."));
+											HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&order=" + order.Orderno.Trim() + "&dep=" + prop.Order_prefics + "&action=add&bonus=-" + order.Bonus.ToString().Replace(",", "."));
 											HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 											Stream resStream = response.GetResponseStream();
 											byte[] buf = new byte[255];
@@ -2376,7 +2376,7 @@ namespace Photoland.Forms.Interface
 												if (Encoding.ASCII.GetString(buf).ToLower() == "OK. Confirm, please.".ToLower())
 												{
 													AddEvent("Бонусы зарезервированы для списания");
-													request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&action=confirm&bonus=-" + order.Bonus.ToString().Replace(",", "."));
+													request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&order=" + order.Orderno.Trim() + "&dep=" + prop.Order_prefics + "&action=confirm&bonus=-" + order.Bonus.ToString().Replace(",", "."));
 													response = (HttpWebResponse)request.GetResponse();
 													resStream = response.GetResponseStream();
 													buf = new byte[255];
@@ -2394,7 +2394,7 @@ namespace Photoland.Forms.Interface
 																DateTime.Now.Minute.ToString("D2") +
 																DateTime.Now.Second.ToString("D2") +
 																DateTime.Now.Millisecond.ToString("D2");
-														request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&action=add&bonus=-" + order.Bonus.ToString().Replace(",", "."));
+														request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&order=" + order.Orderno.Trim() + "&dep=" + prop.Order_prefics + "&action=add&bonus=-" + order.Bonus.ToString().Replace(",", "."));
 														response = (HttpWebResponse)request.GetResponse();
 														resStream = response.GetResponseStream();
 														buf = new byte[255];
@@ -2403,7 +2403,7 @@ namespace Photoland.Forms.Interface
 															if (Encoding.ASCII.GetString(buf).ToLower().Trim('\0') == "OK. Confirm, please.".ToLower())
 															{
 																AddEvent("Бонусы зарезервированы для списания");
-																request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&action=confirm&bonus=-" + order.Bonus.ToString().Replace(",", "."));
+																request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&order=" + order.Orderno.Trim() + "&dep=" + prop.Order_prefics + "&action=confirm&bonus=-" + order.Bonus.ToString().Replace(",", "."));
 																response = (HttpWebResponse)request.GetResponse();
 																resStream = response.GetResponseStream();
 																buf = new byte[255];

@@ -10,6 +10,14 @@ $bonus = str_replace(',', '.', $bonus);
 
 $code = $_GET["code"];
 if ($code == "") $code = "0";
+
+$order = $_GET["order"];
+if ($order == "") $order = "";
+
+$dep = $_GET["dep"];
+if ($dep == "") $dep = "";
+
+
 if (strlen($code) > 15) $code = "0";
 
 $action = $_GET["action"];
@@ -48,7 +56,7 @@ if ($action == "add")
 	}
 	if ($cbonus >= $bonus)
 	{
-		$query = "INSERT INTO `card_action` (`key`, `code`, `bonus`, `commit`, `del`) VALUES ('" . $key . "', '" . $code . "', " . $bonus . ", 0, 0)";
+		$query = "INSERT INTO `card_action` (`key`, `code`, `bonus`, `commit`, `del`, `order`, `dep`) VALUES ('" . $key . "', '" . $code . "', " . $bonus . ", 0, 0, '" . $order . "', '" . $dep . "')";
 		$result = mysql_query($query, $db);
 		if(!$result)
 		{

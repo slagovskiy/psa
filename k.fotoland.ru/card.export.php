@@ -7,7 +7,7 @@ if ($key == "") $key = str_replace(' ', '', str_replace('0.', '', microtime()));
 $format = $_GET["format"];
 if ($format == "") $format = "xml";
 
-$query = "SELECT `id`, `date`, `code`, `key`, `bonus`, `commit`, `del` FROM `card_action` WHERE `commit` = 1 AND `del` = 0 ORDER BY `date`";
+$query = "SELECT `id`, `date`, `code`, `key`, `bonus`, `order`, `dep`, `commit`, `del` FROM `card_action` WHERE `commit` = 1 AND `del` = 0 ORDER BY `date`";
 $result = mysql_query($query, $db);
 
 $fname = "dcard-" . date("Ymd-His.") . $format;
@@ -35,6 +35,8 @@ if ($format == 'xml')
 		$s .= "\t\t<CODE>" . $row['code'] . "</CODE>\n";
 		$s .= "\t\t<KEY>" . $row['key'] . "</KEY>\n";
 		$s .= "\t\t<BONUS>" . $row['bonus'] . "</BONUS>\n";
+		$s .= "\t\t<ORDER>" . $row['order'] . "</ORDER>\n";
+		$s .= "\t\t<DEP>" . $row['dep'] . "</DEP>\n";
 		$s .= "\t\t<COMMIT>" . ((ord($row['commit'])==1)?"1":"0") . "</COMMIT>\n";
 		$s .= "\t\t<DEL>" . ((ord($row['del'])==1)?"1":"0") . "</DEL>\n";
 		$s .= "\t</ACTION>\n";
@@ -49,7 +51,7 @@ if ($format == 'xml')
 }
 else if ($format == "csv")
 {
-	$s = "id;date;code;key;bonus;commit;del;file\n";
+	$s = "id;date;code;key;bonus;order;dep;commit;del;file\n";
 	while ($row = mysql_fetch_assoc($result)) 
 	{
 		$s .= $row['id'] . ";";
@@ -57,6 +59,8 @@ else if ($format == "csv")
 		$s .= $row['code'] . ";";
 		$s .= $row['key'] . ";";
 		$s .= $row['bonus'] . ";";
+		$s .= $row['order'] . ";";
+		$s .= $row['dep'] . ";";
 		$s .= ((ord($row['commit'])==1)?"1":"0") . ";";
 		$s .= ((ord($row['del'])==1)?"1":"0") . ";";
 		$s .= $fname . "\n";
