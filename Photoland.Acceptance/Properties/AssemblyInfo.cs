@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Photoland")]
 [assembly: AssemblyProduct("Photoland.Acceptance")]
-[assembly: AssemblyCopyright("Copyright © Photoland 2007-2009")]
+[assembly: AssemblyCopyright("Copyright © Photoland 2007-2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.5.10.0524")]
-[assembly: AssemblyFileVersion("1.5.10.0524")]
+[assembly: AssemblyVersion("1.5.10.1016")]
+[assembly: AssemblyFileVersion("1.5.10.1016")]

@@ -2373,14 +2373,15 @@ namespace Photoland.Forms.Interface
 											byte[] buf = new byte[255];
 											if (resStream.Read(buf, 0, 255) > 0)
 											{
-												if (Encoding.ASCII.GetString(buf).ToLower() == "OK. Confirm, please.".ToLower())
+												if (Encoding.ASCII.GetString(buf).ToLower().Trim('\0') == "OK. Confirm, please.".ToLower())
 												{
 													AddEvent("Бонусы зарезервированы для списания");
 													request = (HttpWebRequest)WebRequest.Create("http://" + prop.DiscontServerAddress + "/card.action.php?code=" + order.Discont.Code_dcard + "&key=" + key + "&order=" + order.Orderno.Trim() + "&dep=" + prop.Order_prefics + "&action=confirm&bonus=-" + order.Bonus.ToString().Replace(",", "."));
 													response = (HttpWebResponse)request.GetResponse();
 													resStream = response.GetResponseStream();
 													buf = new byte[255];
-													if (Encoding.ASCII.GetString(buf).ToLower() == "OK.".ToLower())
+													resStream.Read(buf, 0, 255);
+													if (Encoding.ASCII.GetString(buf).ToLower().Trim('\0') == "OK.".ToLower())
 													{
 														AddEvent("Потверждено списание с карты " + order.Discont.Code_dcard + " " + order.Bonus.ToString()+ " бонусов");
 													}
