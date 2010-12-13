@@ -300,6 +300,8 @@ namespace PSA.Lib.Interface
 			checkLoad1000.Checked = p.Load1000;
 			checkShowQuickOrder.Checked = p.ShowQuickOrder;
 			txtDiscontServerAddress.Text = p.DiscontServerAddress;
+			txtCheckText1.Text = p.CheckString1;
+			txtCheckText2.Text = p.CheckString2;
 
 			
 		}
@@ -588,6 +590,8 @@ namespace PSA.Lib.Interface
 			p.Load1000 = checkLoad1000.Checked;
 			p.ShowQuickOrder = checkShowQuickOrder.Checked;
 			p.DiscontServerAddress = txtDiscontServerAddress.Text;
+			p.CheckString1 = txtCheckText1.Text;
+			p.CheckString2 = txtCheckText2.Text;
 
             if(!p.Save())
 				MessageBox.Show("Ошибка при сохранении настроек!", "Настройки программы", MessageBoxButtons.OK, MessageBoxIcon.Warning);

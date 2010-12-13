@@ -526,7 +526,7 @@ namespace PSA.Robot
 										{
 											string[] col;
 											col = s.Split(';');
-											if (col.Length != 2)
+											if (col.Length != 3)
 											{
 												file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Найдена ошибка в структуре файла" + s);
 												file.Flush();
@@ -561,9 +561,10 @@ namespace PSA.Robot
 												{
 													string[] col;
 													col = s.Split(';');
-													string query = "INSERT INTO [dbo].[ptype] ([id_ptype], [name_ptype]) VALUES ({<ID>}, '{<NAME>}')";
+													string query = "INSERT INTO [dbo].[ptype] ([id_ptype], [name_ptype], [del]) VALUES ({<ID>}, '{<NAME>}', {<DEL>})";
 													query = query.Replace("{<ID>}", col[0]);
 													query = query.Replace("{<NAME>}", col[1]);
+													query = query.Replace("{<DEL>}", col[2]);
 													SqlCommand cmd = new SqlCommand(query, db_connection);
 													cmd.CommandTimeout = 9000;
 													cmd.ExecuteNonQuery();

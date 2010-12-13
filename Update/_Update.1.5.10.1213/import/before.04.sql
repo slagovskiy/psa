@@ -1,0 +1,1 @@
+ALTER TABLE payments ALTER COLUMN payment decimal(10,2)

@@ -199,6 +199,11 @@
 			this.checkFlyWindowDesigner = new System.Windows.Forms.CheckBox();
 			this.checkRunOneCopyDesigner = new System.Windows.Forms.CheckBox();
 			this.tabAdmin = new System.Windows.Forms.TabPage();
+			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.label68 = new System.Windows.Forms.Label();
+			this.label67 = new System.Windows.Forms.Label();
+			this.txtDiscontServerAddress = new System.Windows.Forms.TextBox();
+			this.label66 = new System.Windows.Forms.Label();
 			this.txtPublicIni = new System.Windows.Forms.TextBox();
 			this.label60 = new System.Windows.Forms.Label();
 			this.button3 = new System.Windows.Forms.Button();
@@ -305,8 +310,8 @@
 			this.checkDebugIdForQBtn = new System.Windows.Forms.CheckBox();
 			this.odlg = new System.Windows.Forms.OpenFileDialog();
 			this.dlg = new System.Windows.Forms.FolderBrowserDialog();
-			this.label66 = new System.Windows.Forms.Label();
-			this.txtDiscontServerAddress = new System.Windows.Forms.TextBox();
+			this.txtCheckText1 = new System.Windows.Forms.RichTextBox();
+			this.txtCheckText2 = new System.Windows.Forms.RichTextBox();
 			this.tabControl1.SuspendLayout();
 			this.tabDatabase.SuspendLayout();
 			this.tabGeneral.SuspendLayout();
@@ -345,6 +350,7 @@
 			this.tabDesigner.SuspendLayout();
 			this.groupBox10.SuspendLayout();
 			this.tabAdmin.SuspendLayout();
+			this.groupBox7.SuspendLayout();
 			this.groupBox15.SuspendLayout();
 			this.tabControl4.SuspendLayout();
 			this.tabPage15.SuspendLayout();
@@ -2101,6 +2107,7 @@
 			// 
 			// tabAdmin
 			// 
+			this.tabAdmin.Controls.Add(this.groupBox7);
 			this.tabAdmin.Controls.Add(this.txtDiscontServerAddress);
 			this.tabAdmin.Controls.Add(this.label66);
 			this.tabAdmin.Controls.Add(this.txtPublicIni);
@@ -2119,18 +2126,65 @@
 			this.tabAdmin.Text = "Администратор";
 			this.tabAdmin.UseVisualStyleBackColor = true;
 			// 
+			// groupBox7
+			// 
+			this.groupBox7.Controls.Add(this.txtCheckText2);
+			this.groupBox7.Controls.Add(this.txtCheckText1);
+			this.groupBox7.Controls.Add(this.label68);
+			this.groupBox7.Controls.Add(this.label67);
+			this.groupBox7.Location = new System.Drawing.Point(6, 261);
+			this.groupBox7.Name = "groupBox7";
+			this.groupBox7.Size = new System.Drawing.Size(583, 99);
+			this.groupBox7.TabIndex = 18;
+			this.groupBox7.TabStop = false;
+			this.groupBox7.Text = "Текст на чеке";
+			// 
+			// label68
+			// 
+			this.label68.AutoSize = true;
+			this.label68.Location = new System.Drawing.Point(302, 17);
+			this.label68.Name = "label68";
+			this.label68.Size = new System.Drawing.Size(74, 13);
+			this.label68.TabIndex = 18;
+			this.label68.Text = "Нижний блок";
+			// 
+			// label67
+			// 
+			this.label67.AutoSize = true;
+			this.label67.Location = new System.Drawing.Point(6, 16);
+			this.label67.Name = "label67";
+			this.label67.Size = new System.Drawing.Size(78, 13);
+			this.label67.TabIndex = 17;
+			this.label67.Text = "Верхный блок";
+			// 
+			// txtDiscontServerAddress
+			// 
+			this.txtDiscontServerAddress.Location = new System.Drawing.Point(311, 207);
+			this.txtDiscontServerAddress.Name = "txtDiscontServerAddress";
+			this.txtDiscontServerAddress.Size = new System.Drawing.Size(272, 20);
+			this.txtDiscontServerAddress.TabIndex = 16;
+			// 
+			// label66
+			// 
+			this.label66.AutoSize = true;
+			this.label66.Location = new System.Drawing.Point(308, 191);
+			this.label66.Name = "label66";
+			this.label66.Size = new System.Drawing.Size(199, 13);
+			this.label66.TabIndex = 15;
+			this.label66.Text = "Адрес сервера для списания бонусов";
+			// 
 			// txtPublicIni
 			// 
 			this.txtPublicIni.Enabled = false;
-			this.txtPublicIni.Location = new System.Drawing.Point(167, 261);
+			this.txtPublicIni.Location = new System.Drawing.Point(311, 168);
 			this.txtPublicIni.Name = "txtPublicIni";
-			this.txtPublicIni.Size = new System.Drawing.Size(385, 20);
+			this.txtPublicIni.Size = new System.Drawing.Size(235, 20);
 			this.txtPublicIni.TabIndex = 13;
 			// 
 			// label60
 			// 
 			this.label60.AutoSize = true;
-			this.label60.Location = new System.Drawing.Point(14, 263);
+			this.label60.Location = new System.Drawing.Point(308, 152);
 			this.label60.Name = "label60";
 			this.label60.Size = new System.Drawing.Size(149, 13);
 			this.label60.TabIndex = 12;
@@ -2139,7 +2193,7 @@
 			// button3
 			// 
 			this.button3.Enabled = false;
-			this.button3.Location = new System.Drawing.Point(558, 258);
+			this.button3.Location = new System.Drawing.Point(552, 166);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(31, 23);
 			this.button3.TabIndex = 14;
@@ -2258,7 +2312,7 @@
 			this.groupBox11.Controls.Add(this.btnSelectExportDir);
 			this.groupBox11.Location = new System.Drawing.Point(6, 64);
 			this.groupBox11.Name = "groupBox11";
-			this.groupBox11.Size = new System.Drawing.Size(593, 85);
+			this.groupBox11.Size = new System.Drawing.Size(583, 85);
 			this.groupBox11.TabIndex = 5;
 			this.groupBox11.TabStop = false;
 			this.groupBox11.Text = "Импорт экспорт";
@@ -2285,19 +2339,19 @@
 			// 
 			this.txtImport.Location = new System.Drawing.Point(189, 19);
 			this.txtImport.Name = "txtImport";
-			this.txtImport.Size = new System.Drawing.Size(357, 20);
+			this.txtImport.Size = new System.Drawing.Size(351, 20);
 			this.txtImport.TabIndex = 4;
 			// 
 			// txtExport
 			// 
 			this.txtExport.Location = new System.Drawing.Point(189, 54);
 			this.txtExport.Name = "txtExport";
-			this.txtExport.Size = new System.Drawing.Size(357, 20);
+			this.txtExport.Size = new System.Drawing.Size(351, 20);
 			this.txtExport.TabIndex = 8;
 			// 
 			// btnSelectImportDir
 			// 
-			this.btnSelectImportDir.Location = new System.Drawing.Point(552, 16);
+			this.btnSelectImportDir.Location = new System.Drawing.Point(546, 17);
 			this.btnSelectImportDir.Name = "btnSelectImportDir";
 			this.btnSelectImportDir.Size = new System.Drawing.Size(31, 23);
 			this.btnSelectImportDir.TabIndex = 6;
@@ -2307,7 +2361,7 @@
 			// 
 			// btnSelectExportDir
 			// 
-			this.btnSelectExportDir.Location = new System.Drawing.Point(552, 52);
+			this.btnSelectExportDir.Location = new System.Drawing.Point(546, 52);
 			this.btnSelectExportDir.Name = "btnSelectExportDir";
 			this.btnSelectExportDir.Size = new System.Drawing.Size(31, 23);
 			this.btnSelectExportDir.TabIndex = 9;
@@ -3151,21 +3205,23 @@
 			this.odlg.FileName = "odlg";
 			this.odlg.Filter = "\"Photoland reports (*.xml)|*.xml|All files (*.*)|*.*\"";
 			// 
-			// label66
+			// txtCheckText1
 			// 
-			this.label66.AutoSize = true;
-			this.label66.Location = new System.Drawing.Point(14, 290);
-			this.label66.Name = "label66";
-			this.label66.Size = new System.Drawing.Size(199, 13);
-			this.label66.TabIndex = 15;
-			this.label66.Text = "Адрес сервера для списания бонусов";
+			this.txtCheckText1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.txtCheckText1.Location = new System.Drawing.Point(6, 32);
+			this.txtCheckText1.Name = "txtCheckText1";
+			this.txtCheckText1.Size = new System.Drawing.Size(290, 61);
+			this.txtCheckText1.TabIndex = 19;
+			this.txtCheckText1.Text = "";
 			// 
-			// txtDiscontServerAddress
+			// txtCheckText2
 			// 
-			this.txtDiscontServerAddress.Location = new System.Drawing.Point(219, 287);
-			this.txtDiscontServerAddress.Name = "txtDiscontServerAddress";
-			this.txtDiscontServerAddress.Size = new System.Drawing.Size(333, 20);
-			this.txtDiscontServerAddress.TabIndex = 16;
+			this.txtCheckText2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.txtCheckText2.Location = new System.Drawing.Point(302, 32);
+			this.txtCheckText2.Name = "txtCheckText2";
+			this.txtCheckText2.Size = new System.Drawing.Size(275, 61);
+			this.txtCheckText2.TabIndex = 20;
+			this.txtCheckText2.Text = "";
 			// 
 			// frmSetup
 			// 
@@ -3242,6 +3298,8 @@
 			this.groupBox10.PerformLayout();
 			this.tabAdmin.ResumeLayout(false);
 			this.tabAdmin.PerformLayout();
+			this.groupBox7.ResumeLayout(false);
+			this.groupBox7.PerformLayout();
 			this.groupBox15.ResumeLayout(false);
 			this.tabControl4.ResumeLayout(false);
 			this.tabPage15.ResumeLayout(false);
@@ -3563,6 +3621,11 @@
 		private System.Windows.Forms.CheckBox checkShowQuickOrder;
 		private System.Windows.Forms.TextBox txtDiscontServerAddress;
 		private System.Windows.Forms.Label label66;
+		private System.Windows.Forms.Label label67;
+		private System.Windows.Forms.GroupBox groupBox7;
+		private System.Windows.Forms.Label label68;
+		private System.Windows.Forms.RichTextBox txtCheckText2;
+		private System.Windows.Forms.RichTextBox txtCheckText1;
 
 	}
 }

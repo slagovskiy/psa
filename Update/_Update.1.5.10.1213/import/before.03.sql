@@ -1,0 +1,1 @@
+UPDATE ptype SET [del]=0

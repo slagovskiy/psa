@@ -1,0 +1,1 @@
+ALTER TABLE [order] ALTER COLUMN final_payment decimal(10,2)

@@ -85,7 +85,7 @@ namespace PSA.Robot
 							"dbo.[order].output_date, dbo.[order].advanced_payment, dbo.[order].final_payment, dbo.[order].discont_percent, " +
 							"CAST(dbo.[order].discont_code AS nchar(15)) AS discont_code, dbo.[order].preview, dbo.[order].comment, dbo.[order].crop, dbo.[order].type,  " +
 							"dbo.[order].exported, dbo.client.name AS client, dbo.category.name AS category, dbo.category.id_category, dbo.[order].bonus,  " +
-							"dbo.[order].order_price AS sm, dbo.[order].ptype " +
+							"dbo.[order].order_price AS sm, dbo.[order].ptype, dbo.client.phone_1 + ' ' + dbo.client.phone_2 " +
 							"FROM         dbo.category LEFT OUTER JOIN " +
 							"dbo.client ON dbo.category.id_category = dbo.client.id_category RIGHT OUTER JOIN " +
 							"dbo.[order] ON dbo.client.id_client = dbo.[order].id_client " +
@@ -132,7 +132,8 @@ namespace PSA.Robot
 											 t.Rows[i][28].ToString().Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][29].ToString().Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][30].ToString().Trim().Replace(";", " ") + ";" +
-											 t.Rows[i][31].ToString().Trim().Replace(";", " "));
+											 t.Rows[i][31].ToString().Trim().Replace(";", " ") + ";" +
+											 t.Rows[i][32].ToString().Trim().Replace(";", " "));
 								exported_order += t.Rows[i][0].ToString();
 
 								SqlCommand cmdo = new SqlCommand();

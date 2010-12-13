@@ -372,6 +372,7 @@ namespace PSA.Tools
 		private void btnUnZip_Click(object sender, EventArgs e)
 		{
 			UnZipFile(txtZ.Text, "korder.xml");
+
 		}
 
 		public static bool UnZipFile(string InputPathOfZipFile, string NewName)
@@ -486,6 +487,123 @@ namespace PSA.Tools
             return ret;
         }
 
+		private void button3_Click(object sender, EventArgs e)
+		{
+			backupDataBase(
+				@"c:",
+				"backup.bak",
+				"backup" +
+					DateTime.Now.Year.ToString("D4") +
+					DateTime.Now.Month.ToString("D2") +
+					DateTime.Now.Day.ToString("D2") +
+					DateTime.Now.Hour.ToString("D2") +
+					DateTime.Now.Minute.ToString("D2") +
+					DateTime.Now.Second.ToString("D2"),
+				true
+				);
+		}
+
+		private void backupDataBase(string path, string backup, string zip, bool upload)
+		{
+			using (SqlConnection cn = new SqlConnection())
+			{
+				try
+				{
+					cn.ConnectionString = settings.Connection_string;
+					cn.Open();
+					SqlCommand cmd = new SqlCommand();
+					cmd.Connection = cn;
+					cmd.CommandTimeout = 99999;
+					cmd.CommandText = "DBCC CHECKDB";
+					cmd.ExecuteNonQuery();
+					cmd.CommandText = "DBCC SHRINKDATABASE ([psa])";
+					cmd.ExecuteNonQuery();
+					cmd.CommandText = "EXEC master.dbo.sp_dropdevice " +
+									  "@logicalname = N'backup'";
+					cmd.ExecuteNonQuery();
+					cmd.CommandText = "EXEC master.dbo.sp_addumpdevice  " +
+									  "@devtype = N'disk', @logicalname = N'backup', " +
+									  "@physicalname = N'" + path + "\\" + backup + "'";
+					cmd.ExecuteNonQuery();
+					cmd.CommandText = "BACKUP DATABASE [psa] " +
+									  "TO  [backup] " +
+									  "WITH NOFORMAT, INIT,  " +
+									  "NAME = N'psa-Full Database Backup', " +
+									  "SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+					cmd.ExecuteNonQuery();
+				}
+				catch { }
+			}
+			try
+			{
+				string[] filenames = new string[1] { path + "\\" + backup };
+				using (ZipOutputStream s = new ZipOutputStream(File.Create(path + "\\" + zip)))
+				{
+					s.SetLevel(9);
+					byte[] buffer = new byte[4096];
+					foreach (string file in filenames)
+					{
+						ZipEntry entry = new
+							   ZipEntry(Path.GetFileName(file));
+						entry.DateTime = DateTime.Now;
+						s.PutNextEntry(entry);
+						using (FileStream fs = File.OpenRead(file))
+						{
+							int sourceBytes;
+							do
+							{
+								sourceBytes = fs.Read(buffer, 0, buffer.Length);
+								s.Write(buffer, 0, sourceBytes);
+							}
+							while (sourceBytes > 0);
+						}
+					}
+					s.Finish();
+					s.Close();
+				}
+			}
+			catch { }
+			PSA.Lib.Util.ftpClient ftp = new PSA.Lib.Util.ftpClient(settings.FTP_Server_Export, settings.FTP_User, settings.FTP_Password);
+			ftp.Upload(path + "\\" + zip, settings.FTP_Path_Export + "/" + zip);
+		}
+
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				string[] filenames = new string[1] { @"c:\backup.bak" };// Directory.GetFiles(@"c:\Python25\Tools\Scripts");
+				using (ZipOutputStream s = new ZipOutputStream(File.Create(txtZo.Text + "\\backup.zip")))
+				{
+					s.SetLevel(9);
+					byte[] buffer = new byte[4096];
+					foreach (string file in filenames)
+					{
+						ZipEntry entry = new
+							   ZipEntry(Path.GetFileName(file));
+						entry.DateTime = DateTime.Now;
+						s.PutNextEntry(entry);
+						using (FileStream fs = File.OpenRead(file))
+						{
+							int sourceBytes;
+							do
+							{
+								sourceBytes = fs.Read(buffer, 0, buffer.Length);
+								s.Write(buffer, 0, sourceBytes);
+							}
+							while (sourceBytes > 0);
+						}
+					}
+					s.Finish();
+					s.Close();
+				}
+				MessageBox.Show("ok");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message.ToString(), "Zip Operation Error");
+			}
+		}
 
     }
 }

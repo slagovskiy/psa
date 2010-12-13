@@ -85,7 +85,7 @@ namespace Photoland.Forms.Interface
 
 			SqlCommand _ptype_cmd = new SqlCommand();
 			_ptype_cmd.Connection = db_connection;
-			_ptype_cmd.CommandText = "SELECT * FROM PTYPE ORDER BY ID_PTYPE";
+			_ptype_cmd.CommandText = "SELECT * FROM PTYPE WHERE [DEL] = 0 ORDER BY ID_PTYPE";
 			_ptype_cmd.CommandTimeout = 9000;
 			SqlDataAdapter _ptype_da = new SqlDataAdapter(_ptype_cmd);
 			DataTable _ptype_tbl = new DataTable();

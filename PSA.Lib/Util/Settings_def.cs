@@ -1448,6 +1448,32 @@ namespace PSA.Lib.Util
 			}
 		}
 
+		private string _checkString1;
+		public string CheckString1
+		{
+			get
+			{
+				return _checkString1;
+			}
+			set
+			{
+				_checkString1 = value;
+			}
+		}
+
+		private string _checkString2;
+		public string CheckString2
+		{
+			get
+			{
+				return _checkString2;
+			}
+			set
+			{
+				_checkString2 = value;
+			}
+		}
+
 
 
 	}

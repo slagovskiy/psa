@@ -713,6 +713,8 @@ namespace Photoland.Acceptance
 						itog += decimal.Parse(prnOrder.OrderBody.Rows[i]["price"].ToString()) *
 								decimal.Parse(prnOrder.OrderBody.Rows[i]["quantity"].ToString());
 					}
+					rep.Fields["advstr1"].Text = prop.CheckString1;
+					rep.Fields["advstr2"].Text = prop.CheckString2;
 					rep.Fields["Total"].Text = itog.ToString().Replace(",", ".");
 					rep.Fields["BarCode"].Text = prnOrder.Orderno.Trim();
 					rep.Fields["OrderNo"].Text = prnOrder.Orderno.Trim();

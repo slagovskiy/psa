@@ -11,6 +11,7 @@
   </preferences>
   <!-- recently used files -->
   <recentfiles>
+    <item value="q:\work\photoland system automation\psa\reports\psa.ver1.0.xml" />
     <item value="h:\work\photoland system automation\psa\reports\psa.ver1.0.xml" />
     <item value="d:\work\photoland system automation\photoland\reports\psa.ver1.0.xml" />
     <item value="d:\work\photoland system automation\photoland\reports\psa.ver1.0_.xml" />
@@ -18,7 +19,6 @@
     <item value="d:\work\projects\photoland system automation\photoland\reports\psa.ver1.0.xml" />
     <item value="d:\work\photoland system automation\photoland\photoland.giveme\bin\debug\a.xml" />
     <item value="y:\psa\reports\psa.ver1.0.xml" />
-    <item value="d:\work\projects\photoland system automation\photoland\reports\psa.ver1.xml" />
   </recentfiles>
   <!-- recently used connection strings
 		all connection strings must be valid OLEDB connection strings

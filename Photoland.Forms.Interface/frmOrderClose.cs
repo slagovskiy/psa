@@ -181,7 +181,7 @@ namespace Photoland.Forms.Interface
 
 			SqlCommand _ptype_cmd = new SqlCommand();
 			_ptype_cmd.Connection = db_connection;
-			_ptype_cmd.CommandText = "SELECT * FROM PTYPE ORDER BY ID_PTYPE";
+			_ptype_cmd.CommandText = "SELECT * FROM PTYPE WHERE ([DEL] = 0) OR (ID_PTYPE = " + order.PType + ") ORDER BY ID_PTYPE";
 			_ptype_cmd.CommandTimeout = 9000;
 			SqlDataAdapter _ptype_da = new SqlDataAdapter(_ptype_cmd);
 			DataTable _ptype_tbl = new DataTable();
@@ -2814,9 +2814,11 @@ namespace Photoland.Forms.Interface
                         itog += decimal.Parse(prnOrder.OrderBody.Rows[i]["price"].ToString()) *
                                 decimal.Parse(prnOrder.OrderBody.Rows[i]["actual_quantity"].ToString());
                     }
-                    rep.Fields["Total"].Text = itog.ToString().Replace(",", ".");
-                    rep.Fields["BarCode"].Text = prnOrder.Orderno.Trim();
-                    rep.Fields["OrderNo"].Text = prnOrder.Orderno.Trim();
+					rep.Fields["advstr1"].Text = prop.CheckString1;
+					rep.Fields["advstr2"].Text = prop.CheckString2;
+					rep.Fields["Total"].Text = itog.ToString().Replace(",", ".");
+					rep.Fields["BarCode"].Text = prnOrder.Orderno.Trim();
+					rep.Fields["OrderNo"].Text = prnOrder.Orderno.Trim();
                     rep.Fields["DateOut"].Text = prnOrder.Dateout + " " + prnOrder.Timeout;
                     rep.Fields["Client"].Text = prnOrder.Client.Name.Trim();
                     rep.Fields["AddonInfo"].Text = prop.ReklamBlock1;
