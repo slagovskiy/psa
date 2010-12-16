@@ -285,7 +285,6 @@
     <Compile Include="Util\ftpClient.cs" />
     <Compile Include="Util\RemoteQuery.cs" />
     <Compile Include="Util\RemoteQuery_kData.cs" />
-    <Compile Include="Util\RemoteQuery_mfotoData.cs" />
     <Compile Include="Util\Semaphore.cs" />
     <Compile Include="Util\ini.cs" />
     <Compile Include="Util\Settings.cs" />

@@ -54,7 +54,39 @@ namespace Photoland.Exchanger
 				MessageBox.Show(ex.Message + "\n" + ex.Source);
 			}
 			lblSaving.Visible = false;
+		}
 
+		private void DoImportMFoto()
+		{
+			lblSaving.Visible = true;
+			try
+			{
+				frmExportScan fscan = new frmExportScan();
+				fscan.status = false;
+				fscan.ShowDialog();
+				if (fscan.DialogResult == DialogResult.OK)
+				{
+					pb.Minimum = 0;
+					pb.Maximum = fscan.numbers.Count;
+					pb.Value = 0;
+					pb.Visible = true;
+					foreach (string n in fscan.numbers)
+					{
+						Application.DoEvents();
+						RemoteQuery rq = new RemoteQuery(usr);
+						rq.GetMFotoData(n);
+						if (pb.Value < pb.Maximum)
+							pb.Value++;
+					}
+					pb.Visible = false;
+					pb.Value = 0;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message + "\n" + ex.Source);
+			}
+			lblSaving.Visible = false;
 		}
 	}
 }

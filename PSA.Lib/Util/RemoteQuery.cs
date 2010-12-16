@@ -275,5 +275,10 @@ namespace PSA.Lib.Util
 				MessageBox.Show("Не верный номер " + barcode + "!");
 			}
 		}
+
+		public void GetMFotoData(string barcode)
+		{
+			QueryData_mfoto(barcode);
+		}
 	}
 }

@@ -133,7 +133,7 @@ namespace PSA.Robot
 											 t.Rows[i][29].ToString().Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][30].ToString().Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][31].ToString().Trim().Replace(";", " ") + ";" +
-											 t.Rows[i][32].ToString().Trim().Replace(";", " "));
+											 t.Rows[i][32].ToString().Replace("'", "").Trim().Replace(";", " "));
 								exported_order += t.Rows[i][0].ToString();
 
 								SqlCommand cmdo = new SqlCommand();

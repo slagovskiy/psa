@@ -624,6 +624,27 @@ namespace Photoland.Exchanger
 												) + "\\PSA.Update.cmd");
 		}
 
-       
+		private void btnFilterAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			for (int i = 0; i < checkStatus.Items.Count; i++)
+			{
+				checkStatus.SetItemChecked(i, true);
+			}
+		}
+
+		private void btnFilterClear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			for (int i = 0; i < checkStatus.Items.Count; i++)
+			{
+				checkStatus.SetItemChecked(i, false);
+			}
+		}
+
+		private void btnImportMFoto_Click(object sender, EventArgs e)
+		{
+			DoImportMFoto();
+		}
+
+
 	}
 }
