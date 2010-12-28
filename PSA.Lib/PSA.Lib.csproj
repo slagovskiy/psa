@@ -79,6 +79,12 @@
     <Compile Include="Interface\frmGetBarCode.Designer.cs">
       <DependentUpon>frmGetBarCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\frmGetBarCodeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmGetBarCodeEdit.Designer.cs">
+      <DependentUpon>frmGetBarCodeEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\frmMovePayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +278,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Util\Checking.cs" />
+    <Compile Include="Util\fs.cs" />
     <Compile Include="Util\RemoteQuery_irDataSet.cs" />
     <Compile Include="Util\RemoteQuery_ioDataSet.cs" />
     <Compile Include="Util\RemoteQuery_kDataSet.cs" />
@@ -304,6 +311,9 @@
     <EmbeddedResource Include="Interface\frmGetBarCode.resx">
       <DependentUpon>frmGetBarCode.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmGetBarCodeEdit.resx">
+      <DependentUpon>frmGetBarCodeEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\frmMovePayment.resx">
       <DependentUpon>frmMovePayment.cs</DependentUpon>

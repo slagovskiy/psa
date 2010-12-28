@@ -1435,6 +1435,19 @@ namespace PSA.Lib.Util
 			}
 		}
 
+		private bool _ShowMFoto;
+		public bool ShowMFoto
+		{
+			get
+			{
+				return _ShowMFoto;
+			}
+			set
+			{
+				_ShowMFoto = value;
+			}
+		}
+
 		private string _DiscontServerAddress;
 		public string DiscontServerAddress
 		{
@@ -1458,6 +1471,19 @@ namespace PSA.Lib.Util
 			set
 			{
 				_checkString1 = value;
+			}
+		}
+
+		private string _mfotoAlbumsPath;
+		public string MfotoAlbumsPath
+		{
+			get
+			{
+				return _mfotoAlbumsPath;
+			}
+			set
+			{
+				_mfotoAlbumsPath = value;
 			}
 		}
 

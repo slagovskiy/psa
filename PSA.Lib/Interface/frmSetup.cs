@@ -302,6 +302,8 @@ namespace PSA.Lib.Interface
 			txtDiscontServerAddress.Text = p.DiscontServerAddress;
 			txtCheckText1.Text = p.CheckString1;
 			txtCheckText2.Text = p.CheckString2;
+			checkMFoto.Checked = p.ShowMFoto;
+			txtDirMfoto.Text = p.MfotoAlbumsPath;
 
 			
 		}
@@ -592,6 +594,8 @@ namespace PSA.Lib.Interface
 			p.DiscontServerAddress = txtDiscontServerAddress.Text;
 			p.CheckString1 = txtCheckText1.Text;
 			p.CheckString2 = txtCheckText2.Text;
+			p.ShowMFoto = checkMFoto.Checked;
+			p.MfotoAlbumsPath = txtDirMfoto.Text;
 
             if(!p.Save())
 				MessageBox.Show("Ошибка при сохранении настроек!", "Настройки программы", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1112,6 +1116,13 @@ namespace PSA.Lib.Interface
             if (dlg.SelectedPath != "")
                 txtDirTmpExport.Text = dlg.SelectedPath;
         }
+
+		private void btnDirMFoto_Click(object sender, EventArgs e)
+		{
+			dlg.ShowDialog();
+			if (dlg.SelectedPath != "")
+				txtDirMfoto.Text = dlg.SelectedPath;
+		}
 		
 	}
 }

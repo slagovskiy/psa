@@ -139,9 +139,11 @@ namespace PSA.Lib.Util
 			_LoadNotApproved = bool.Parse(f.IniReadValue("Terminal", "LoadNotApproved", "false")); //bool
 			_Load1000 = bool.Parse(f.IniReadValue("Terminal", "Load1000", "true")); //bool
 			_ShowQuickOrder = bool.Parse(f.IniReadValue("Main", "ShowQuickOrder", "false")); //bool
+			_ShowMFoto = bool.Parse(f.IniReadValue("Main", "ShowMFoto", "false")); //bool
 			_DiscontServerAddress = f.IniReadValue("Main", "DiscontServerAddress", "k.fotoland.ru"); //staring
 			_checkString1 = f.IniReadValue("Main", "checkString1", "").Replace("<br>", "\n"); //staring
 			_checkString2 = f.IniReadValue("Main", "checkString2", "").Replace("<br>", "\n"); //staring
+			_mfotoAlbumsPath = f.IniReadValue("Main", "MfotoAlbumsPath", "d:\\MPR500_Albums"); //staring
 
 		}
 		
@@ -260,9 +262,11 @@ namespace PSA.Lib.Util
 				f.IniWriteValue("Terminal", "LoadNotApproved", _LoadNotApproved.ToString()); //bool
 				f.IniWriteValue("Terminal", "Load1000", _Load1000.ToString()); //bool
 				f.IniWriteValue("Main", "ShowQuickOrder", _ShowQuickOrder.ToString()); //bool
+				f.IniWriteValue("Main", "ShowMFoto", _ShowMFoto.ToString()); //bool
 				f.IniWriteValue("Main", "DiscontServerAddress", _DiscontServerAddress); //staring
 				f.IniWriteValue("Main", "checkString1", _checkString1.Replace("\n", "<br>").Replace("\r", "")); //staring
 				f.IniWriteValue("Main", "checkString2", _checkString2.Replace("\n", "<br>").Replace("\r", "")); //staring
+				f.IniWriteValue("Main", "MfotoAlbumsPath", _mfotoAlbumsPath); //staring
 				r = true;
 			}
 			catch(Exception ex)

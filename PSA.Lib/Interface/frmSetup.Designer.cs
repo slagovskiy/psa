@@ -47,12 +47,11 @@
 			this.radioConnectionString = new System.Windows.Forms.RadioButton();
 			this.radioDSN = new System.Windows.Forms.RadioButton();
 			this.tabGeneral = new System.Windows.Forms.TabPage();
+			this.checkMFoto = new System.Windows.Forms.CheckBox();
 			this.checkShowQuickOrder = new System.Windows.Forms.CheckBox();
-			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.checkRound3 = new System.Windows.Forms.CheckBox();
 			this.txtSumRound = new System.Windows.Forms.ComboBox();
 			this.label39 = new System.Windows.Forms.Label();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.txtReportFile = new System.Windows.Forms.TextBox();
 			this.label28 = new System.Windows.Forms.Label();
 			this.btnSelectReportFile = new System.Windows.Forms.Button();
@@ -200,6 +199,8 @@
 			this.checkRunOneCopyDesigner = new System.Windows.Forms.CheckBox();
 			this.tabAdmin = new System.Windows.Forms.TabPage();
 			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.txtCheckText2 = new System.Windows.Forms.RichTextBox();
+			this.txtCheckText1 = new System.Windows.Forms.RichTextBox();
 			this.label68 = new System.Windows.Forms.Label();
 			this.label67 = new System.Windows.Forms.Label();
 			this.txtDiscontServerAddress = new System.Windows.Forms.TextBox();
@@ -310,13 +311,12 @@
 			this.checkDebugIdForQBtn = new System.Windows.Forms.CheckBox();
 			this.odlg = new System.Windows.Forms.OpenFileDialog();
 			this.dlg = new System.Windows.Forms.FolderBrowserDialog();
-			this.txtCheckText1 = new System.Windows.Forms.RichTextBox();
-			this.txtCheckText2 = new System.Windows.Forms.RichTextBox();
+			this.label69 = new System.Windows.Forms.Label();
+			this.txtDirMfoto = new System.Windows.Forms.TextBox();
+			this.btnDirMFoto = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabDatabase.SuspendLayout();
 			this.tabGeneral.SuspendLayout();
-			this.groupBox5.SuspendLayout();
-			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.tabAcceptance.SuspendLayout();
@@ -560,9 +560,14 @@
 			// 
 			// tabGeneral
 			// 
+			this.tabGeneral.Controls.Add(this.txtReportFile);
+			this.tabGeneral.Controls.Add(this.label28);
+			this.tabGeneral.Controls.Add(this.checkRound3);
+			this.tabGeneral.Controls.Add(this.btnSelectReportFile);
+			this.tabGeneral.Controls.Add(this.checkMFoto);
+			this.tabGeneral.Controls.Add(this.txtSumRound);
+			this.tabGeneral.Controls.Add(this.label39);
 			this.tabGeneral.Controls.Add(this.checkShowQuickOrder);
-			this.tabGeneral.Controls.Add(this.groupBox5);
-			this.tabGeneral.Controls.Add(this.groupBox3);
 			this.tabGeneral.Controls.Add(this.groupBox2);
 			this.tabGeneral.Controls.Add(this.groupBox1);
 			this.tabGeneral.Location = new System.Drawing.Point(4, 22);
@@ -572,31 +577,30 @@
 			this.tabGeneral.Text = "Общие";
 			this.tabGeneral.UseVisualStyleBackColor = true;
 			// 
+			// checkMFoto
+			// 
+			this.checkMFoto.AutoSize = true;
+			this.checkMFoto.Location = new System.Drawing.Point(266, 253);
+			this.checkMFoto.Name = "checkMFoto";
+			this.checkMFoto.Size = new System.Drawing.Size(302, 17);
+			this.checkMFoto.TabIndex = 16;
+			this.checkMFoto.Text = "Показывать кнопку заказа МФото в модуле приемки";
+			this.checkMFoto.UseVisualStyleBackColor = true;
+			// 
 			// checkShowQuickOrder
 			// 
 			this.checkShowQuickOrder.AutoSize = true;
-			this.checkShowQuickOrder.Location = new System.Drawing.Point(266, 186);
+			this.checkShowQuickOrder.Location = new System.Drawing.Point(266, 230);
 			this.checkShowQuickOrder.Name = "checkShowQuickOrder";
 			this.checkShowQuickOrder.Size = new System.Drawing.Size(313, 17);
 			this.checkShowQuickOrder.TabIndex = 15;
 			this.checkShowQuickOrder.Text = "Показывать кнопку быстрого заказа в модуле приемки";
 			this.checkShowQuickOrder.UseVisualStyleBackColor = true;
 			// 
-			// groupBox5
-			// 
-			this.groupBox5.Controls.Add(this.checkRound3);
-			this.groupBox5.Controls.Add(this.txtSumRound);
-			this.groupBox5.Controls.Add(this.label39);
-			this.groupBox5.Location = new System.Drawing.Point(3, 283);
-			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(587, 83);
-			this.groupBox5.TabIndex = 14;
-			this.groupBox5.TabStop = false;
-			// 
 			// checkRound3
 			// 
 			this.checkRound3.AutoSize = true;
-			this.checkRound3.Location = new System.Drawing.Point(9, 40);
+			this.checkRound3.Location = new System.Drawing.Point(7, 341);
 			this.checkRound3.Name = "checkRound3";
 			this.checkRound3.Size = new System.Drawing.Size(394, 17);
 			this.checkRound3.TabIndex = 9;
@@ -607,7 +611,7 @@
 			// 
 			this.txtSumRound.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.txtSumRound.FormattingEnabled = true;
-			this.txtSumRound.Location = new System.Drawing.Point(175, 13);
+			this.txtSumRound.Location = new System.Drawing.Point(173, 314);
 			this.txtSumRound.Name = "txtSumRound";
 			this.txtSumRound.Size = new System.Drawing.Size(406, 21);
 			this.txtSumRound.TabIndex = 8;
@@ -615,34 +619,23 @@
 			// label39
 			// 
 			this.label39.AutoSize = true;
-			this.label39.Location = new System.Drawing.Point(6, 16);
+			this.label39.Location = new System.Drawing.Point(4, 317);
 			this.label39.Name = "label39";
 			this.label39.Size = new System.Drawing.Size(163, 13);
 			this.label39.TabIndex = 7;
 			this.label39.Text = "Округление стоимости заказа";
 			// 
-			// groupBox3
-			// 
-			this.groupBox3.Controls.Add(this.txtReportFile);
-			this.groupBox3.Controls.Add(this.label28);
-			this.groupBox3.Controls.Add(this.btnSelectReportFile);
-			this.groupBox3.Location = new System.Drawing.Point(3, 225);
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(587, 52);
-			this.groupBox3.TabIndex = 14;
-			this.groupBox3.TabStop = false;
-			// 
 			// txtReportFile
 			// 
-			this.txtReportFile.Location = new System.Drawing.Point(187, 19);
+			this.txtReportFile.Location = new System.Drawing.Point(173, 288);
 			this.txtReportFile.Name = "txtReportFile";
-			this.txtReportFile.Size = new System.Drawing.Size(357, 20);
+			this.txtReportFile.Size = new System.Drawing.Size(369, 20);
 			this.txtReportFile.TabIndex = 10;
 			// 
 			// label28
 			// 
 			this.label28.AutoSize = true;
-			this.label28.Location = new System.Drawing.Point(6, 22);
+			this.label28.Location = new System.Drawing.Point(4, 291);
 			this.label28.Name = "label28";
 			this.label28.Size = new System.Drawing.Size(131, 13);
 			this.label28.TabIndex = 9;
@@ -650,7 +643,7 @@
 			// 
 			// btnSelectReportFile
 			// 
-			this.btnSelectReportFile.Location = new System.Drawing.Point(550, 16);
+			this.btnSelectReportFile.Location = new System.Drawing.Point(548, 285);
 			this.btnSelectReportFile.Name = "btnSelectReportFile";
 			this.btnSelectReportFile.Size = new System.Drawing.Size(31, 23);
 			this.btnSelectReportFile.TabIndex = 11;
@@ -662,7 +655,7 @@
 			// 
 			this.groupBox2.Controls.Add(this.label17);
 			this.groupBox2.Controls.Add(this.txtOrderPrifics);
-			this.groupBox2.Location = new System.Drawing.Point(3, 174);
+			this.groupBox2.Location = new System.Drawing.Point(3, 230);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(257, 45);
 			this.groupBox2.TabIndex = 13;
@@ -687,6 +680,9 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.label69);
+			this.groupBox1.Controls.Add(this.txtDirMfoto);
+			this.groupBox1.Controls.Add(this.btnDirMFoto);
 			this.groupBox1.Controls.Add(this.label65);
 			this.groupBox1.Controls.Add(this.txtDirTmpExport);
 			this.groupBox1.Controls.Add(this.btnDirTmpExport);
@@ -701,7 +697,7 @@
 			this.groupBox1.Controls.Add(this.label9);
 			this.groupBox1.Location = new System.Drawing.Point(3, 3);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(587, 165);
+			this.groupBox1.Size = new System.Drawing.Size(587, 221);
 			this.groupBox1.TabIndex = 12;
 			this.groupBox1.TabStop = false;
 			// 
@@ -785,7 +781,7 @@
 			// 
 			// txtListOfFiles
 			// 
-			this.txtListOfFiles.Location = new System.Drawing.Point(392, 132);
+			this.txtListOfFiles.Location = new System.Drawing.Point(392, 195);
 			this.txtListOfFiles.Name = "txtListOfFiles";
 			this.txtListOfFiles.Size = new System.Drawing.Size(189, 20);
 			this.txtListOfFiles.TabIndex = 6;
@@ -803,7 +799,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(9, 135);
+			this.label9.Location = new System.Drawing.Point(9, 198);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(369, 13);
 			this.label9.TabIndex = 5;
@@ -2139,6 +2135,24 @@
 			this.groupBox7.TabStop = false;
 			this.groupBox7.Text = "Текст на чеке";
 			// 
+			// txtCheckText2
+			// 
+			this.txtCheckText2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.txtCheckText2.Location = new System.Drawing.Point(302, 32);
+			this.txtCheckText2.Name = "txtCheckText2";
+			this.txtCheckText2.Size = new System.Drawing.Size(275, 61);
+			this.txtCheckText2.TabIndex = 20;
+			this.txtCheckText2.Text = "";
+			// 
+			// txtCheckText1
+			// 
+			this.txtCheckText1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.txtCheckText1.Location = new System.Drawing.Point(6, 32);
+			this.txtCheckText1.Name = "txtCheckText1";
+			this.txtCheckText1.Size = new System.Drawing.Size(290, 61);
+			this.txtCheckText1.TabIndex = 19;
+			this.txtCheckText1.Text = "";
+			// 
 			// label68
 			// 
 			this.label68.AutoSize = true;
@@ -3205,23 +3219,31 @@
 			this.odlg.FileName = "odlg";
 			this.odlg.Filter = "\"Photoland reports (*.xml)|*.xml|All files (*.*)|*.*\"";
 			// 
-			// txtCheckText1
+			// label69
 			// 
-			this.txtCheckText1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.txtCheckText1.Location = new System.Drawing.Point(6, 32);
-			this.txtCheckText1.Name = "txtCheckText1";
-			this.txtCheckText1.Size = new System.Drawing.Size(290, 61);
-			this.txtCheckText1.TabIndex = 19;
-			this.txtCheckText1.Text = "";
+			this.label69.AutoSize = true;
+			this.label69.Location = new System.Drawing.Point(6, 135);
+			this.label69.Name = "label69";
+			this.label69.Size = new System.Drawing.Size(133, 13);
+			this.label69.TabIndex = 10;
+			this.label69.Text = "Каталог заказов МФото";
 			// 
-			// txtCheckText2
+			// txtDirMfoto
 			// 
-			this.txtCheckText2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.txtCheckText2.Location = new System.Drawing.Point(302, 32);
-			this.txtCheckText2.Name = "txtCheckText2";
-			this.txtCheckText2.Size = new System.Drawing.Size(275, 61);
-			this.txtCheckText2.TabIndex = 20;
-			this.txtCheckText2.Text = "";
+			this.txtDirMfoto.Location = new System.Drawing.Point(187, 132);
+			this.txtDirMfoto.Name = "txtDirMfoto";
+			this.txtDirMfoto.Size = new System.Drawing.Size(357, 20);
+			this.txtDirMfoto.TabIndex = 11;
+			// 
+			// btnDirMFoto
+			// 
+			this.btnDirMFoto.Location = new System.Drawing.Point(550, 130);
+			this.btnDirMFoto.Name = "btnDirMFoto";
+			this.btnDirMFoto.Size = new System.Drawing.Size(31, 23);
+			this.btnDirMFoto.TabIndex = 12;
+			this.btnDirMFoto.Text = "...";
+			this.btnDirMFoto.UseVisualStyleBackColor = true;
+			this.btnDirMFoto.Click += new System.EventHandler(this.btnDirMFoto_Click);
 			// 
 			// frmSetup
 			// 
@@ -3241,10 +3263,6 @@
 			this.tabDatabase.PerformLayout();
 			this.tabGeneral.ResumeLayout(false);
 			this.tabGeneral.PerformLayout();
-			this.groupBox5.ResumeLayout(false);
-			this.groupBox5.PerformLayout();
-			this.groupBox3.ResumeLayout(false);
-			this.groupBox3.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
@@ -3361,10 +3379,8 @@
 		private System.Windows.Forms.RadioButton radioConnectionString;
 		private System.Windows.Forms.RadioButton radioDSN;
 		private System.Windows.Forms.TabPage tabGeneral;
-		private System.Windows.Forms.GroupBox groupBox5;
 		private System.Windows.Forms.ComboBox txtSumRound;
 		private System.Windows.Forms.Label label39;
-		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.TextBox txtReportFile;
 		private System.Windows.Forms.Label label28;
 		private System.Windows.Forms.Button btnSelectReportFile;
@@ -3626,6 +3642,10 @@
 		private System.Windows.Forms.Label label68;
 		private System.Windows.Forms.RichTextBox txtCheckText2;
 		private System.Windows.Forms.RichTextBox txtCheckText1;
+		private System.Windows.Forms.CheckBox checkMFoto;
+		private System.Windows.Forms.Label label69;
+		private System.Windows.Forms.TextBox txtDirMfoto;
+		private System.Windows.Forms.Button btnDirMFoto;
 
 	}
 }

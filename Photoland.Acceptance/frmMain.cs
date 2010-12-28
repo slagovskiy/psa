@@ -535,6 +535,16 @@ namespace Photoland.Acceptance
 								toolQuick.Visible = false;
 								toolStripQuick.Visible = false;
 							}
+							if (prop.ShowMFoto)
+							{
+								toolMFoto.Visible = true;
+								toolStripQuick.Visible = true;
+							}
+							else
+							{
+								toolMFoto.Visible = false;
+								toolStripQuick.Visible = false;
+							}
 						}
 						else
 						{
@@ -1354,5 +1364,53 @@ namespace Photoland.Acceptance
 			OpenNewQuickOrder();
 		}
 
+		private void toolMFoto_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				frmGetBarCodeEdit fscan = new frmGetBarCodeEdit();
+				fscan.ShowDialog();
+				if (fscan.DialogResult == DialogResult.OK)
+				{
+					try
+					{
+						Application.DoEvents();
+						RemoteQuery rq = new RemoteQuery(usr);
+						rq.GetMFotoData(fscan.barcode);
+						OpenOrder2("44" + int.Parse(fscan.barcode).ToString("D10"));
+					}
+					catch { }
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message + "\n" + ex.Source);
+			}
+		}
+
+		private void OpenOrder2(string orderno)
+		{
+			SqlCommand tmp_cmd = new SqlCommand("SELECT [id_order] FROM [vwOrderNoList] WHERE RTRIM([number]) LIKE '%' + RTRIM('" + orderno + "') + '%'", db_connection);
+			SqlDataReader tmp_rdr = tmp_cmd.ExecuteReader();
+			int tmp_id = 0;
+			if (tmp_rdr.Read())
+			{
+				if (!tmp_rdr.IsDBNull(0))
+				{
+					tmp_id = tmp_rdr.GetInt32(0);
+				}
+			}
+			tmp_rdr.Close();
+			if (tmp_id > 0)
+			{
+				using (frmOrderClose fOrder = new frmOrderClose(db_connection, usr, tmp_id))
+				{
+					//fOrder.fixDouble = checkDouble.Checked;
+					fOrder.ShowDialog();
+				}
+			}
+			
+		}
+	
 	}
 }

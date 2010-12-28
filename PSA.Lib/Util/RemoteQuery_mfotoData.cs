@@ -7,6 +7,8 @@ using System.Data;
 using PSA.Lib.Interface;
 using System.IO;
 using System.Data.SqlClient;
+using PSA.Lib.Util;
+
 
 
 namespace PSA.Lib.Util
@@ -362,7 +364,7 @@ namespace PSA.Lib.Util
 								   ",'" + "МФОТО" + "' \n" +
 								   ",'' \n" +
 								   ",'' \n" +
-								   ",'000111' \n" +
+								   ",'000100' \n" +
 								   ",'" + orderNumber + "' \n" +
 								   ",GETDATE() \n" +
 								   ",DATEADD(hour, 1, GETDATE()) \n" +
@@ -396,10 +398,7 @@ namespace PSA.Lib.Util
 								   ",[id_user_add] \n" +
 								   ",[name_add] \n" +
 								   ",[exported] \n" +
-								   ",[comment] \n" +
-								   ",[datework] \n" +
-								   ",[id_user_work] \n" +
-								   ",[name_work]) \n" +
+								   ",[comment]) \n" +
 							 "VALUES \n" +
 								   "(@ID \n" +
 								   ",0 \n" +
@@ -415,11 +414,7 @@ namespace PSA.Lib.Util
 								   "," + usr.Id_user + " \n" +
 								   ",'" + usr.Name + "' \n" +
 								   ",0\n" +
-								   ",'" + strPRODUCT_NAME + " Copies:" + strCOPIES + " Total price:" + strTOTAL_PRICE + "р'" +
-								   ",getdate() " +
-								   "," + user_id +
-								   ",'МФОТО' " + 
-								   ");\n";
+								   ",'" + strPRODUCT_NAME + " Copies:" + strCOPIES + " Total price:" + strTOTAL_PRICE + "р');\n";
 
 							query += "INSERT INTO [dbo].[orderevent] \n" +
 									   "([del] \n" +
@@ -445,6 +440,17 @@ namespace PSA.Lib.Util
 							cmd.Connection = cn;
 							cmd.CommandTimeout = 15000;
 							cmd.ExecuteNonQuery();
+							try
+							{
+								if (Directory.Exists(prop.MfotoAlbumsPath + "\\" + barcode))
+								{
+									fs.CopyDirectory(prop.MfotoAlbumsPath + "\\" + barcode, prop.Dir_print + "\\" + DateTime.Now.Year.ToString("D4") + "\\" + DateTime.Now.Month.ToString("D2") + "\\" + DateTime.Now.Day.ToString("D2") + "\\" + orderNumber + "\\", true);
+								}
+							}
+							catch (Exception ex)
+							{
+								MessageBox.Show("Ошибка копирования файлов заказа МФото\n" + ex.Message);
+							}
 						}
 					}
 				}

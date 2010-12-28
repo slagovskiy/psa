@@ -43,6 +43,7 @@
 			this.mnuAcceptanceAuto = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuAcceptanceManual = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuAcceptanceHand = new System.Windows.Forms.ToolStripMenuItem();
+			this.newQuickOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuFinansy = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuPaymentsCyr = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuPaymentsAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +74,8 @@
 			this.tbtnWizardMaster = new System.Windows.Forms.ToolStripButton();
 			this.tbtnMaster = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolQuick = new System.Windows.Forms.ToolStripButton();
+			this.toolStripQuick = new System.Windows.Forms.ToolStripSeparator();
 			this.tbtnOpenAcceptabceTable = new System.Windows.Forms.ToolStripButton();
 			this.toolOpenAccepTable2 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -82,9 +85,7 @@
 			this.tbtnLogoff = new System.Windows.Forms.ToolStripButton();
 			this.rep = new C1.Win.C1Report.C1Report();
 			this.sdlg = new System.Windows.Forms.SaveFileDialog();
-			this.toolQuick = new System.Windows.Forms.ToolStripButton();
-			this.newQuickOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripQuick = new System.Windows.Forms.ToolStripSeparator();
+			this.toolMFoto = new System.Windows.Forms.ToolStripButton();
 			this.mnuMain.SuspendLayout();
 			this.toolAccentance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.rep)).BeginInit();
@@ -112,25 +113,25 @@
             this.toolStripSeparator5,
             this.ExitToolStripMenuItem});
 			this.mnuFile.Name = "mnuFile";
-			this.mnuFile.Size = new System.Drawing.Size(48, 20);
+			this.mnuFile.Size = new System.Drawing.Size(45, 20);
 			this.mnuFile.Text = "Файл";
 			// 
 			// LogoffStripMenuItem1
 			// 
 			this.LogoffStripMenuItem1.Name = "LogoffStripMenuItem1";
-			this.LogoffStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+			this.LogoffStripMenuItem1.Size = new System.Drawing.Size(190, 22);
 			this.LogoffStripMenuItem1.Text = "Смена пользователя";
 			this.LogoffStripMenuItem1.Click += new System.EventHandler(this.LogoffStripMenuItem1_Click);
 			// 
 			// toolStripSeparator5
 			// 
 			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			this.toolStripSeparator5.Size = new System.Drawing.Size(185, 6);
+			this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
 			// 
 			// ExitToolStripMenuItem
 			// 
 			this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-			this.ExitToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+			this.ExitToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
 			this.ExitToolStripMenuItem.Text = "Выход";
 			this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
 			// 
@@ -145,13 +146,13 @@
             this.mnuAcceptanceHand,
             this.newQuickOrderToolStripMenuItem});
 			this.mnuAcceptance.Name = "mnuAcceptance";
-			this.mnuAcceptance.Size = new System.Drawing.Size(119, 20);
+			this.mnuAcceptance.Size = new System.Drawing.Size(112, 20);
 			this.mnuAcceptance.Text = "Работа с заказами";
 			// 
 			// mnuOpenAcceptanceTable
 			// 
 			this.mnuOpenAcceptanceTable.Name = "mnuOpenAcceptanceTable";
-			this.mnuOpenAcceptanceTable.Size = new System.Drawing.Size(231, 22);
+			this.mnuOpenAcceptanceTable.Size = new System.Drawing.Size(226, 22);
 			this.mnuOpenAcceptanceTable.Text = "Основной журнал заказов";
 			this.mnuOpenAcceptanceTable.Click += new System.EventHandler(this.mnuOpenAcceptanceTable_Click);
 			// 
@@ -161,7 +162,7 @@
             this.toolStripMenuItem12,
             this.toolStripMenuItem13});
 			this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-			this.toolStripMenuItem11.Size = new System.Drawing.Size(231, 22);
+			this.toolStripMenuItem11.Size = new System.Drawing.Size(226, 22);
 			this.toolStripMenuItem11.Text = "Сверка";
 			// 
 			// toolStripMenuItem12
@@ -181,13 +182,13 @@
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(228, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(223, 6);
 			// 
 			// mnuAcceptanceAuto
 			// 
 			this.mnuAcceptanceAuto.Enabled = false;
 			this.mnuAcceptanceAuto.Name = "mnuAcceptanceAuto";
-			this.mnuAcceptanceAuto.Size = new System.Drawing.Size(231, 22);
+			this.mnuAcceptanceAuto.Size = new System.Drawing.Size(226, 22);
 			this.mnuAcceptanceAuto.Text = "Автоматический";
 			this.mnuAcceptanceAuto.Click += new System.EventHandler(this.mnuAcceptanceAuto_Click);
 			// 
@@ -195,16 +196,23 @@
 			// 
 			this.mnuAcceptanceManual.Enabled = false;
 			this.mnuAcceptanceManual.Name = "mnuAcceptanceManual";
-			this.mnuAcceptanceManual.Size = new System.Drawing.Size(231, 22);
+			this.mnuAcceptanceManual.Size = new System.Drawing.Size(226, 22);
 			this.mnuAcceptanceManual.Text = "Полуавтоматический";
 			this.mnuAcceptanceManual.Click += new System.EventHandler(this.mnuAcceptanceManual_Click);
 			// 
 			// mnuAcceptanceHand
 			// 
 			this.mnuAcceptanceHand.Name = "mnuAcceptanceHand";
-			this.mnuAcceptanceHand.Size = new System.Drawing.Size(231, 22);
+			this.mnuAcceptanceHand.Size = new System.Drawing.Size(226, 22);
 			this.mnuAcceptanceHand.Text = "Новый ручной заказ";
 			this.mnuAcceptanceHand.Click += new System.EventHandler(this.mnuAcceptanceHand_Click);
+			// 
+			// newQuickOrderToolStripMenuItem
+			// 
+			this.newQuickOrderToolStripMenuItem.Name = "newQuickOrderToolStripMenuItem";
+			this.newQuickOrderToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+			this.newQuickOrderToolStripMenuItem.Text = "Новый моментальный заказ";
+			this.newQuickOrderToolStripMenuItem.Click += new System.EventHandler(this.newQuickOrderToolStripMenuItem_Click);
 			// 
 			// mnuFinansy
 			// 
@@ -215,20 +223,20 @@
             this.toolStripMenuItem16,
             this.toolStripMenuItem7});
 			this.mnuFinansy.Name = "mnuFinansy";
-			this.mnuFinansy.Size = new System.Drawing.Size(70, 20);
+			this.mnuFinansy.Size = new System.Drawing.Size(64, 20);
 			this.mnuFinansy.Text = "Финансы";
 			// 
 			// mnuPaymentsCyr
 			// 
 			this.mnuPaymentsCyr.Name = "mnuPaymentsCyr";
-			this.mnuPaymentsCyr.Size = new System.Drawing.Size(211, 22);
+			this.mnuPaymentsCyr.Size = new System.Drawing.Size(216, 22);
 			this.mnuPaymentsCyr.Text = "Платежи (свои)";
 			this.mnuPaymentsCyr.Click += new System.EventHandler(this.mnuPaymentsCyr_Click);
 			// 
 			// mnuPaymentsAll
 			// 
 			this.mnuPaymentsAll.Name = "mnuPaymentsAll";
-			this.mnuPaymentsAll.Size = new System.Drawing.Size(211, 22);
+			this.mnuPaymentsAll.Size = new System.Drawing.Size(216, 22);
 			this.mnuPaymentsAll.Text = "Платежи (все)";
 			this.mnuPaymentsAll.Click += new System.EventHandler(this.mnuPaymentsAll_Click);
 			// 
@@ -239,27 +247,27 @@
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
 			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(211, 22);
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(216, 22);
 			this.toolStripMenuItem3.Text = "Отчет по кассе (полный)";
 			// 
 			// toolStripMenuItem4
 			// 
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(157, 22);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(164, 22);
 			this.toolStripMenuItem4.Text = "Печать";
 			this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
 			// 
 			// toolStripMenuItem5
 			// 
 			this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-			this.toolStripMenuItem5.Size = new System.Drawing.Size(157, 22);
+			this.toolStripMenuItem5.Size = new System.Drawing.Size(164, 22);
 			this.toolStripMenuItem5.Text = "Экспорт в PDF";
 			this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
 			// 
 			// toolStripMenuItem6
 			// 
 			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-			this.toolStripMenuItem6.Size = new System.Drawing.Size(157, 22);
+			this.toolStripMenuItem6.Size = new System.Drawing.Size(164, 22);
 			this.toolStripMenuItem6.Text = "Экспорт в Excel";
 			this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
 			// 
@@ -270,27 +278,27 @@
             this.toolStripMenuItem18,
             this.toolStripMenuItem19});
 			this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-			this.toolStripMenuItem16.Size = new System.Drawing.Size(211, 22);
+			this.toolStripMenuItem16.Size = new System.Drawing.Size(216, 22);
 			this.toolStripMenuItem16.Text = "Отчет по кассе (краткий)";
 			// 
 			// toolStripMenuItem17
 			// 
 			this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-			this.toolStripMenuItem17.Size = new System.Drawing.Size(157, 22);
+			this.toolStripMenuItem17.Size = new System.Drawing.Size(164, 22);
 			this.toolStripMenuItem17.Text = "Печать";
 			this.toolStripMenuItem17.Click += new System.EventHandler(this.ToolStripMenuItem17Click);
 			// 
 			// toolStripMenuItem18
 			// 
 			this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-			this.toolStripMenuItem18.Size = new System.Drawing.Size(157, 22);
+			this.toolStripMenuItem18.Size = new System.Drawing.Size(164, 22);
 			this.toolStripMenuItem18.Text = "Экспорт в PDF";
 			this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
 			// 
 			// toolStripMenuItem19
 			// 
 			this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-			this.toolStripMenuItem19.Size = new System.Drawing.Size(157, 22);
+			this.toolStripMenuItem19.Size = new System.Drawing.Size(164, 22);
 			this.toolStripMenuItem19.Text = "Экспорт в Excel";
 			this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
 			// 
@@ -301,27 +309,27 @@
             this.toolStripMenuItem9,
             this.toolStripMenuItem10});
 			this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-			this.toolStripMenuItem7.Size = new System.Drawing.Size(211, 22);
+			this.toolStripMenuItem7.Size = new System.Drawing.Size(216, 22);
 			this.toolStripMenuItem7.Text = "Оптовики";
 			// 
 			// toolStripMenuItem8
 			// 
 			this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-			this.toolStripMenuItem8.Size = new System.Drawing.Size(157, 22);
+			this.toolStripMenuItem8.Size = new System.Drawing.Size(164, 22);
 			this.toolStripMenuItem8.Text = "Печать";
 			this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
 			// 
 			// toolStripMenuItem9
 			// 
 			this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-			this.toolStripMenuItem9.Size = new System.Drawing.Size(157, 22);
+			this.toolStripMenuItem9.Size = new System.Drawing.Size(164, 22);
 			this.toolStripMenuItem9.Text = "Экспорт в PDF";
 			this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
 			// 
 			// toolStripMenuItem10
 			// 
 			this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-			this.toolStripMenuItem10.Size = new System.Drawing.Size(157, 22);
+			this.toolStripMenuItem10.Size = new System.Drawing.Size(164, 22);
 			this.toolStripMenuItem10.Text = "Экспорт в Excel";
 			this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
 			// 
@@ -330,13 +338,13 @@
 			this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2});
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(94, 20);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(86, 20);
 			this.toolStripMenuItem1.Text = "Справочники";
 			// 
 			// toolStripMenuItem2
 			// 
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(122, 22);
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
 			this.toolStripMenuItem2.Text = "Клиенты";
 			this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
 			// 
@@ -349,39 +357,39 @@
             this.toolStripSeparator6,
             this.mnuSetupLastVersion});
 			this.mnuService.Name = "mnuService";
-			this.mnuService.Size = new System.Drawing.Size(59, 20);
+			this.mnuService.Size = new System.Drawing.Size(55, 20);
 			this.mnuService.Text = "Сервис";
 			// 
 			// mnuRobotToolStripMenuItem
 			// 
 			this.mnuRobotToolStripMenuItem.Name = "mnuRobotToolStripMenuItem";
-			this.mnuRobotToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+			this.mnuRobotToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
 			this.mnuRobotToolStripMenuItem.Text = "Управление роботом";
 			this.mnuRobotToolStripMenuItem.Click += new System.EventHandler(this.mnuRobotToolStripMenuItem_Click);
 			// 
 			// mnuSetup
 			// 
 			this.mnuSetup.Name = "mnuSetup";
-			this.mnuSetup.Size = new System.Drawing.Size(250, 22);
+			this.mnuSetup.Size = new System.Drawing.Size(249, 22);
 			this.mnuSetup.Text = "Настройки";
 			this.mnuSetup.Click += new System.EventHandler(this.mnuSetup_Click);
 			// 
 			// semaphoresToolStripMenuItem
 			// 
 			this.semaphoresToolStripMenuItem.Name = "semaphoresToolStripMenuItem";
-			this.semaphoresToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+			this.semaphoresToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
 			this.semaphoresToolStripMenuItem.Text = "Семафоры";
 			this.semaphoresToolStripMenuItem.Click += new System.EventHandler(this.semaphoresToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator6
 			// 
 			this.toolStripSeparator6.Name = "toolStripSeparator6";
-			this.toolStripSeparator6.Size = new System.Drawing.Size(247, 6);
+			this.toolStripSeparator6.Size = new System.Drawing.Size(246, 6);
 			// 
 			// mnuSetupLastVersion
 			// 
 			this.mnuSetupLastVersion.Name = "mnuSetupLastVersion";
-			this.mnuSetupLastVersion.Size = new System.Drawing.Size(250, 22);
+			this.mnuSetupLastVersion.Size = new System.Drawing.Size(249, 22);
 			this.mnuSetupLastVersion.Text = "Установить последнюю версию";
 			this.mnuSetupLastVersion.Click += new System.EventHandler(this.mnuSetupLastVersion_Click);
 			// 
@@ -390,7 +398,7 @@
 			this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
 			this.mnuHelp.Name = "mnuHelp";
-			this.mnuHelp.Size = new System.Drawing.Size(68, 20);
+			this.mnuHelp.Size = new System.Drawing.Size(59, 20);
 			this.mnuHelp.Text = "Помощь";
 			// 
 			// aboutToolStripMenuItem
@@ -409,6 +417,7 @@
             this.tbtnMaster,
             this.toolStripSeparator2,
             this.toolQuick,
+            this.toolMFoto,
             this.toolStripQuick,
             this.tbtnOpenAcceptabceTable,
             this.toolOpenAccepTable2,
@@ -464,6 +473,22 @@
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 71);
+			// 
+			// toolQuick
+			// 
+			this.toolQuick.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolQuick.Image = ((System.Drawing.Image)(resources.GetObject("toolQuick.Image")));
+			this.toolQuick.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolQuick.Name = "toolQuick";
+			this.toolQuick.Size = new System.Drawing.Size(68, 68);
+			this.toolQuick.Text = "Быстрый прием";
+			this.toolQuick.ToolTipText = "Принять моментальный заказ";
+			this.toolQuick.Click += new System.EventHandler(this.toolQuick_Click);
+			// 
+			// toolStripQuick
+			// 
+			this.toolStripQuick.Name = "toolStripQuick";
+			this.toolStripQuick.Size = new System.Drawing.Size(6, 71);
 			// 
 			// tbtnOpenAcceptabceTable
 			// 
@@ -529,28 +554,15 @@
 			// 
 			this.rep.ReportDefinition = resources.GetString("rep.ReportDefinition");
 			// 
-			// toolQuick
+			// toolMFoto
 			// 
-			this.toolQuick.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolQuick.Image = ((System.Drawing.Image)(resources.GetObject("toolQuick.Image")));
-			this.toolQuick.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolQuick.Name = "toolQuick";
-			this.toolQuick.Size = new System.Drawing.Size(68, 68);
-			this.toolQuick.Text = "toolStripButton2";
-			this.toolQuick.ToolTipText = "Принять моментальный заказ";
-			this.toolQuick.Click += new System.EventHandler(this.toolQuick_Click);
-			// 
-			// newQuickOrderToolStripMenuItem
-			// 
-			this.newQuickOrderToolStripMenuItem.Name = "newQuickOrderToolStripMenuItem";
-			this.newQuickOrderToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-			this.newQuickOrderToolStripMenuItem.Text = "Новый моментальный заказ";
-			this.newQuickOrderToolStripMenuItem.Click += new System.EventHandler(this.newQuickOrderToolStripMenuItem_Click);
-			// 
-			// toolStripQuick
-			// 
-			this.toolStripQuick.Name = "toolStripQuick";
-			this.toolStripQuick.Size = new System.Drawing.Size(6, 71);
+			this.toolMFoto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolMFoto.Image = ((System.Drawing.Image)(resources.GetObject("toolMFoto.Image")));
+			this.toolMFoto.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolMFoto.Name = "toolMFoto";
+			this.toolMFoto.Size = new System.Drawing.Size(68, 68);
+			this.toolMFoto.Text = "Заказ с МФото";
+			this.toolMFoto.Click += new System.EventHandler(this.toolMFoto_Click);
 			// 
 			// frmMain
 			// 
@@ -633,6 +645,7 @@
 		private System.Windows.Forms.ToolStripButton toolQuick;
 		private System.Windows.Forms.ToolStripMenuItem newQuickOrderToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripQuick;
+		private System.Windows.Forms.ToolStripButton toolMFoto;
 
 
 
