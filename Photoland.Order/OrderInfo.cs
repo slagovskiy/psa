@@ -152,15 +152,31 @@ namespace Photoland.Order
             set { _order_price = value; }
         }
 
-		private int _ptype = 0;
-		public int PType
-		{
-			get { return _ptype; }
-			set { _ptype = value; }
-		}
+        private int _ptype = 0;
+        public int PType
+        {
+            get { return _ptype; }
+            set { _ptype = value; }
+        }
 
 
-		public OrderInfo(SqlConnection db_connection)
+        private int _autoexport = 0;
+        public int AutoExport
+        {
+            get { return _autoexport; }
+            set { _autoexport = value; }
+        }
+
+
+        private int _place = 0;
+        public int Place
+        {
+            get { return _place; }
+            set { _place = value; }
+        }
+
+
+        public OrderInfo(SqlConnection db_connection)
 		{
 			this.db_connection = db_connection;
 		}
@@ -170,7 +186,7 @@ namespace Photoland.Order
 			this.db_connection = db_connection;
 			this._id = id_order;
 
-			SqlCommand tmp_cmd = new SqlCommand("SELECT [id_order] as [id], [id_order], [id_user_accept], [id_user_operator], [id_user_designer], [id_user_delivery], [id_client], [guid], [del], [name_accept], [name_operator], [name_delivery], [status], [number], [input_date], [expected_date], [output_date], [advanced_payment], [final_payment], [discont_percent], [discont_code], [preview], [comment], [crop], [type], [bonus], [order_price], [ptype] FROM [order] WHERE [id_order] = " + id_order, db_connection);
+            SqlCommand tmp_cmd = new SqlCommand("SELECT [id_order] as [id], [id_order], [id_user_accept], [id_user_operator], [id_user_designer], [id_user_delivery], [id_client], [guid], [del], [name_accept], [name_operator], [name_delivery], [status], [number], [input_date], [expected_date], [output_date], [advanced_payment], [final_payment], [discont_percent], [discont_code], [preview], [comment], [crop], [type], [bonus], [order_price], [ptype], [auto_export], [id_place] FROM [order] WHERE [id_order] = " + id_order, db_connection);
 			SqlDataReader tmp_rdr = tmp_cmd.ExecuteReader();
 			if (tmp_rdr.Read())
 			{
@@ -319,13 +335,25 @@ namespace Photoland.Order
 				else
 					_client_id = 0;
 
-				///////////////////////////////////
-				if (!tmp_rdr.IsDBNull(1))
-					id_order = tmp_rdr.GetInt32(1);
-				else
-					id_order = 0;
+                ///////////////////////////////////
+                if (!tmp_rdr.IsDBNull(1))
+                    id_order = tmp_rdr.GetInt32(1);
+                else
+                    id_order = 0;
 
-			}
+                ///////////////////////////////////
+                if (!tmp_rdr.IsDBNull(28))
+                    _autoexport = tmp_rdr.GetInt32(28);
+                else
+                    _autoexport = 0;
+
+                ///////////////////////////////////
+                if (!tmp_rdr.IsDBNull(29))
+                    _place = tmp_rdr.GetInt32(29);
+                else
+                    _place = 0;
+
+            }
 			tmp_rdr.Close();
 			if (_client_id > 0)
 				Client = new ClientInfo(_client_id, db_connection);
@@ -558,7 +586,7 @@ namespace Photoland.Order
 		{
 			this.db_connection = db_connection;
 
-			SqlCommand tmp_cmd = new SqlCommand("SELECT [id_order] as [id], [id_order], [id_user_accept], [id_user_operator], [id_user_designer], [id_user_delivery], [id_client], [guid], [del], [name_accept], [name_operator], [name_delivery], [status], [number], [input_date], [expected_date], [output_date], [advanced_payment], [final_payment], [discont_percent], [discont_code], [preview], [comment], [crop], [type], [bonus], [order_price], [ptype] FROM [order] WHERE [number] = '" + orderno + "'", db_connection);
+			SqlCommand tmp_cmd = new SqlCommand("SELECT [id_order] as [id], [id_order], [id_user_accept], [id_user_operator], [id_user_designer], [id_user_delivery], [id_client], [guid], [del], [name_accept], [name_operator], [name_delivery], [status], [number], [input_date], [expected_date], [output_date], [advanced_payment], [final_payment], [discont_percent], [discont_code], [preview], [comment], [crop], [type], [bonus], [order_price], [ptype], [auto_export], [id_place] FROM [order] WHERE [number] = '" + orderno + "'", db_connection);
 			SqlDataReader tmp_rdr = tmp_cmd.ExecuteReader();
 			if (tmp_rdr.Read())
 			{
@@ -712,7 +740,19 @@ namespace Photoland.Order
 				else
 					this._id = 0;
 
-			}
+                ///////////////////////////////////
+                if (!tmp_rdr.IsDBNull(28))
+                    _autoexport = tmp_rdr.GetInt32(28);
+                else
+                    _autoexport = 0;
+
+                ///////////////////////////////////
+                if (!tmp_rdr.IsDBNull(29))
+                    _place = tmp_rdr.GetInt32(29);
+                else
+                    _place = 0;
+
+            }
 			tmp_rdr.Close();
 			if (_client_id > 0)
 				Client = new ClientInfo(_client_id, db_connection);
@@ -886,7 +926,7 @@ namespace Photoland.Order
 		{
 			this.db_connection = db_connection;
 
-			SqlCommand tmp_cmd = new SqlCommand("SELECT [id_order] as [id], [id_order], [id_user_accept], [id_user_operator], [id_user_designer], [id_user_delivery], [id_client], [guid], [del], [name_accept], [name_operator], [name_delivery], [status], [number], [input_date], [expected_date], [output_date], [advanced_payment], [final_payment], [discont_percent], [discont_code], [preview], [comment], [crop], [type], [bonus], [order_price], [ptype] FROM [order] WHERE [number] = '" + orderno + "'", db_connection);
+			SqlCommand tmp_cmd = new SqlCommand("SELECT [id_order] as [id], [id_order], [id_user_accept], [id_user_operator], [id_user_designer], [id_user_delivery], [id_client], [guid], [del], [name_accept], [name_operator], [name_delivery], [status], [number], [input_date], [expected_date], [output_date], [advanced_payment], [final_payment], [discont_percent], [discont_code], [preview], [comment], [crop], [type], [bonus], [order_price], [ptype], [auto_export], [id_place] FROM [order] WHERE [number] = '" + orderno + "'", db_connection);
 			SqlDataReader tmp_rdr = tmp_cmd.ExecuteReader();
 			if (tmp_rdr.Read())
 			{
@@ -1040,7 +1080,19 @@ namespace Photoland.Order
 				else
 					this._id = 0;
 
-			}
+                ///////////////////////////////////
+                if (!tmp_rdr.IsDBNull(28))
+                    _autoexport = tmp_rdr.GetInt32(28);
+                else
+                    _autoexport = 0;
+
+                ///////////////////////////////////
+                if (!tmp_rdr.IsDBNull(29))
+                    _place = tmp_rdr.GetInt32(29);
+                else
+                    _place = 0;
+
+            }
 			tmp_rdr.Close();
 			if (_client_id > 0)
 				Client = new ClientInfo(_client_id, db_connection);

@@ -19,9 +19,12 @@ namespace PSA.Robot
 		private System.Timers.Timer t3 = new System.Timers.Timer();
 		private System.Timers.Timer t4 = new System.Timers.Timer();
 		private System.Timers.Timer t5 = new System.Timers.Timer();
+        private System.Timers.Timer t6 = new System.Timers.Timer();
 		private StreamWriter file;
 		private CultureInfo ci = new CultureInfo("de-DE");
 		Settings prop = new Settings();
+
+        private bool UploadWork = false;
 
 
 		public RobotService()
@@ -77,7 +80,15 @@ namespace PSA.Robot
 			t5.Start();
 			file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Запущено задание повторной выгрузки суточных данных.");
 			file.Flush();
-		}
+
+            t6.Enabled = true;
+            t6.Interval = 60000;
+            t6.AutoReset = true;
+            t6.Elapsed += new System.Timers.ElapsedEventHandler(t6_Elapsed);
+            t6.Start();
+            file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Запущено задание автоматической выгрузки заказов.");
+            file.Flush();
+        }
 
 		protected override void OnStop()
 		{
@@ -97,11 +108,15 @@ namespace PSA.Robot
 			file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Остановлено задание получения КЭШа.");
 			file.Flush();
 
-			t5.Stop();
-			file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Остановлено задание повторной выгрузки суточных данных.");
-			file.Flush();
+            t5.Stop();
+            file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Остановлено задание повторной выгрузки суточных данных.");
+            file.Flush();
 
-			file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Служба остановлена.");
+            t6.Stop();
+            file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Остановлено задание автоматической выгрузки заказов.");
+            file.Flush();
+
+            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Служба остановлена.");
 			file.Flush();
 			file.Close();
 
@@ -206,19 +221,32 @@ namespace PSA.Robot
 			}
 		}
 
-		private void t5_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-		{
-			if ((DateTime.Now.Hour == 0) && (DateTime.Now.Minute == 15))
-			{
-				t5.Stop();
-				try
-				{
-					ReExport();
-				}
-				catch { }
-				t5.Start();
-			}
-		}
+        private void t5_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if ((DateTime.Now.Hour == 0) && (DateTime.Now.Minute == 15))
+            {
+                t5.Stop();
+                try
+                {
+                    ReExport();
+                }
+                catch { }
+                t5.Start();
+            }
+        }
 
-	}
+        private void t6_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            t6.Stop();
+            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Пробуем выгрузить заказы");
+            file.Flush();            
+            try
+            {
+                UploadOrders();
+            }
+            catch { }
+            t6.Start();
+        }
+
+    }
 }

@@ -65,6 +65,25 @@ namespace Photoland.Forms.Interface
             etalon_order = new OrderInfo(db_connection, order.Id);
             this.Text = "Работа с заказом";
 
+            try
+            {
+                if (order.AutoExport != 0)
+                {
+                    SqlCommand db_command = new SqlCommand("SELECT [name] FROM [place] WHERE [id_place] = " + order.Place.ToString(), db_connection);
+                    if (order.AutoExport == -1)
+                    {
+                        lblAdvStatus.Text = "Заказ отправлен в " + db_command.ExecuteScalar().ToString().Trim();
+                        lblAdvStatus.ForeColor = Color.Red;
+                    }
+                    if (order.AutoExport > 0)
+                    {
+                        lblAdvStatus.Text = "Заказ отправляется в " + db_command.ExecuteScalar().ToString().Trim();
+                        lblAdvStatus.ForeColor = Color.Blue;
+                    }
+                }
+            }
+            catch { }
+
             // номер
             lblOrderNo.Text = order.Orderno;
             // дата поступления заказа
@@ -753,6 +772,35 @@ namespace Photoland.Forms.Interface
 						break;
 					}
 			}
+
+            if (order.AutoExport != 0)
+            {
+                hideActions.Visible = false;
+
+                btnQuickServ1.Enabled = false;
+                btnQuickServ2.Enabled = false;
+                btnQuickServ3.Enabled = false;
+                btnQuickServ4.Enabled = false;
+                btnQuickServ5.Enabled = false;
+                btnQuickServ6.Enabled = false;
+                btnQuickServ7.Enabled = false;
+                btnQuickServ8.Enabled = false;
+                btnQuickServ9.Enabled = false;
+                btnQuickServ10.Enabled = false;
+                btnOK.Enabled = false;
+                btnOrderDesigner.Enabled = false;
+                btnOrderEnd.Enabled = false;
+                btnOrderEndZ.Enabled = false;
+                btnOrderEndZ.Enabled = false;
+                btnOrderEnd.Visible = false;
+                btnOrderEndZ.Visible = false;
+                btnOrderPrint.Enabled = false;
+                btnToWork.Enabled = false;
+                btnOrderCancel.Enabled = false;
+                btnAddServ.Enabled = false;
+                btnDelServ.Enabled = false;
+                txtPType.Enabled = false;
+            }
 
 
 			//if (("_" + order.Client.Category_name.ToLower()).IndexOf("оптов") > 0) 

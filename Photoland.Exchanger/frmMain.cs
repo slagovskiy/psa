@@ -645,6 +645,17 @@ namespace Photoland.Exchanger
 			DoImportMFoto();
 		}
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmSelectExportPlace f = new frmSelectExportPlace();
+            f.ShowDialog();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            PSA.Lib.Util.ExportOrder.autoExport(1, "150000045308");
+        }
+
 
 	}
 }
