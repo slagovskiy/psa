@@ -1,0 +1,4 @@
+1;фм ГУТ;0;192.168.1.217;/dev/gut/;anonymous;name@server.ru
+2;отдел широкоформатной печати;0;192.168.1.217;/dev/lambda/;anonymous;name@server.ru
+3;отдел полиграфии;0;192.168.1.217;/dev/cop/;anonymous;name@server.ru
+4;отдел допечатной обработки;0;192.168.1.217;/dev/designer/;anonymous;name@server.ru

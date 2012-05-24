@@ -271,6 +271,7 @@ namespace PSA.Lib.Util
                         pr.StartInfo.WorkingDirectory = fli.DirectoryName;
                         pr.StartInfo.FileName = file + ".bat";
                         pr.Start();
+                        pr.WaitForExit(); 
                     }
                     fl.Close();
                 }

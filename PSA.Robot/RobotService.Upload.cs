@@ -6,6 +6,8 @@ using System.IO;
 using PSA.Lib.Util;
 using System.Data;
 using System.Net;
+using Xceed.Ftp;
+using Xceed.FileSystem;
 
 namespace PSA.Robot
 {
@@ -27,31 +29,41 @@ namespace PSA.Robot
 
                     foreach (DataRow rw in tbl.Rows)
                     {
-                        file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Подготавливаем к выгрузке заказ " + rw["number"].ToString().Trim());
-                        file.Flush();
-                        PSA.Lib.Util.ExportOrder.autoExport((int)rw["auto_export"], rw["number"].ToString().Trim());
-                        db_command = new SqlCommand("SELECT [server], [path], [username], [password] FROM [place] WHERE [id_place] = " + rw["id_place"], db_connection);
-                        db_adapter = new SqlDataAdapter(db_command);
-                        DataTable ptbl = new DataTable();
-                        db_adapter.Fill(ptbl);
-                        if (ptbl.Rows.Count > 0)
+                        try
                         {
-                            DataRow place = ptbl.Rows[0];
-                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Выгружаем заказ " + rw["number"].ToString().Trim() + " на " + place["server"].ToString().Trim() + " в " + place["path"].ToString().Trim());
+                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Подготавливаем к выгрузке заказ " + rw["number"].ToString().Trim());
                             file.Flush();
-                            PSA.Lib.Util.ftpClient ftp = new PSA.Lib.Util.ftpClient(
-                                place["server"].ToString().Trim(),
-                                place["username"].ToString().Trim(),
-                                place["password"].ToString().Trim()
-                                );
-                            if (ftp.Upload(
-                                prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\" + rw["number"].ToString().Trim() + ".export", 
-                                place["path"].ToString() + "\\"
-                                ))
+                            PSA.Lib.Util.ExportOrder.autoExport((int)rw["auto_export"], rw["number"].ToString().Trim());
+                            db_command = new SqlCommand("SELECT [server], [path], [username], [password] FROM [place] WHERE [id_place] = " + rw["id_place"], db_connection);
+                            db_adapter = new SqlDataAdapter(db_command);
+                            DataTable ptbl = new DataTable();
+                            db_adapter.Fill(ptbl);
+                            if (ptbl.Rows.Count > 0)
                             {
-                                file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Выгружен заказ " + rw["number"].ToString().Trim());
+                                DataRow place = ptbl.Rows[0];
+                                file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Выгружаем заказ " + rw["number"].ToString().Trim() + " на " + place["server"].ToString().Trim() + " в " + place["path"].ToString().Trim());
                                 file.Flush();
+                                using (FtpConnection connection = new FtpConnection(
+                                    place["server"].ToString().Trim(),
+                                    place["username"].ToString().Trim(),
+                                    place["password"].ToString().Trim()))
+                                {
+                                    connection.Encoding = Encoding.GetEncoding(1251);
+                                    DiskFolder source = new DiskFolder(prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\");
+                                    FtpFolder destination = new FtpFolder(connection, place["path"].ToString() + "//" + rw["number"].ToString().Trim() + "//");
+                                    source.CopyFilesTo(destination, true, true);
+                                    db_command = new SqlCommand("UPDATE [order] SET [auto_export] = -1 WHERE [number] = '" + rw["number"].ToString().Trim() + "'", db_connection);
+                                    db_command.ExecuteNonQuery();
+                                    file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Выгружен заказ " + rw["number"].ToString().Trim());
+                                    file.Flush();
+                                    //Directory.Delete(prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\", true);
+                                }
                             }
+                        }
+                        catch (Exception ex)
+                        {
+                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выгрузки заказа " + ex.Message);
+                            file.Flush();
                         }
                     }
                 }

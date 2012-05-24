@@ -99,85 +99,164 @@ namespace PSA.Robot
 							file.Flush();
 							switch (f.Name)
 							{
-								case "mashine.csv":
-									{
-										// Загружаем таблицу машин
-										// Первый тестовый проход на пригодность файла
-										file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Начинаем иморт данных из файла " + f.Name);
-										file.Flush();
-										bool not_good = false;
-										string s = "";
-										StreamReader fl = new StreamReader(f.FullName, System.Text.Encoding.GetEncoding(1251));
-										//StreamReader fl = f.OpenText();
-										int pbi = 0;
-										while ((s = fl.ReadLine()) != null)
-										{
-											string[] col;
-											col = s.Split(';');
-											if (col.Length != 4)
-											{
-												file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Найдена ошибка в структуре файла " + s);
-												file.Flush();
-												not_good = true;
-												break;
-											}
-											pbi++;
-										}
-										fl.Close();
+                                case "mashine.csv":
+                                    {
+                                        // Загружаем таблицу машин
+                                        // Первый тестовый проход на пригодность файла
+                                        file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Начинаем иморт данных из файла " + f.Name);
+                                        file.Flush();
+                                        bool not_good = false;
+                                        string s = "";
+                                        StreamReader fl = new StreamReader(f.FullName, System.Text.Encoding.GetEncoding(1251));
+                                        //StreamReader fl = f.OpenText();
+                                        int pbi = 0;
+                                        while ((s = fl.ReadLine()) != null)
+                                        {
+                                            string[] col;
+                                            col = s.Split(';');
+                                            if (col.Length != 4)
+                                            {
+                                                file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Найдена ошибка в структуре файла " + s);
+                                                file.Flush();
+                                                not_good = true;
+                                                break;
+                                            }
+                                            pbi++;
+                                        }
+                                        fl.Close();
 
-										if (!not_good)
-										{
-											file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Очищаем таблицу машин операторов");
-											file.Flush();
-											try
-											{
-												string query = "DELETE FROM [mashine]";
-												SqlCommand cmd = new SqlCommand(query, db_connection);
-												cmd.CommandTimeout = 9000;
-												cmd.ExecuteNonQuery();
-											}
-											catch (Exception ex)
-											{
-												file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выполнения запроса " + ex.Message + "\n" + ex.Source);
-												file.Flush();
-											}
-											s = "";
-											fl = new StreamReader(f.FullName, System.Text.Encoding.GetEncoding(1251));
-											while ((s = fl.ReadLine()) != null)
-											{
-												try
-												{
-													string[] col;
-													col = s.Split(';');
-													string query = "INSERT INTO [mashine] ([id_mashine], [del], [mashine], [sklad]) VALUES ('{<ID>}', {<DEL>}, '{<MASHINE>}', '{<SKLAD>}')";
-													query = query.Replace("{<ID>}", col[0]);
-													query = query.Replace("{<DEL>}", col[1]);
-													query = query.Replace("{<MASHINE>}", col[2]);
-													query = query.Replace("{<SKLAD>}", col[3]);
-													SqlCommand cmd = new SqlCommand(query, db_connection);
-													cmd.CommandTimeout = 9000;
-													cmd.ExecuteNonQuery();
-												}
-												catch (Exception ex)
-												{
-													file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выполнения запроса " + ex.Message + "\n" + ex.Source);
-													file.Flush();
-												}
-											}
-											fl.Close();
-											file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Импорт завершен");
-											file.Flush();
-										}
-										else
-										{
-											file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] При проверке структуры файла " + f.Name +
-														   "были найдены ошибки, импорт этого справочника не будет производится");
-											file.Flush();
-										}
-										iniRobot.IniWriteValue("import", "mashine", DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString());
-										break;
-									}
-								case "material.csv":
+                                        if (!not_good)
+                                        {
+                                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Очищаем таблицу машин операторов");
+                                            file.Flush();
+                                            try
+                                            {
+                                                string query = "DELETE FROM [mashine]";
+                                                SqlCommand cmd = new SqlCommand(query, db_connection);
+                                                cmd.CommandTimeout = 9000;
+                                                cmd.ExecuteNonQuery();
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выполнения запроса " + ex.Message + "\n" + ex.Source);
+                                                file.Flush();
+                                            }
+                                            s = "";
+                                            fl = new StreamReader(f.FullName, System.Text.Encoding.GetEncoding(1251));
+                                            while ((s = fl.ReadLine()) != null)
+                                            {
+                                                try
+                                                {
+                                                    string[] col;
+                                                    col = s.Split(';');
+                                                    string query = "INSERT INTO [mashine] ([id_mashine], [del], [mashine], [sklad]) VALUES ('{<ID>}', {<DEL>}, '{<MASHINE>}', '{<SKLAD>}')";
+                                                    query = query.Replace("{<ID>}", col[0]);
+                                                    query = query.Replace("{<DEL>}", col[1]);
+                                                    query = query.Replace("{<MASHINE>}", col[2]);
+                                                    query = query.Replace("{<SKLAD>}", col[3]);
+                                                    SqlCommand cmd = new SqlCommand(query, db_connection);
+                                                    cmd.CommandTimeout = 9000;
+                                                    cmd.ExecuteNonQuery();
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выполнения запроса " + ex.Message + "\n" + ex.Source);
+                                                    file.Flush();
+                                                }
+                                            }
+                                            fl.Close();
+                                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Импорт завершен");
+                                            file.Flush();
+                                        }
+                                        else
+                                        {
+                                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] При проверке структуры файла " + f.Name +
+                                                           "были найдены ошибки, импорт этого справочника не будет производится");
+                                            file.Flush();
+                                        }
+                                        iniRobot.IniWriteValue("import", "mashine", DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString());
+                                        break;
+                                    }
+                                case "place.csv":
+                                    {
+                                        // Загружаем таблицу исполнителей
+                                        // Первый тестовый проход на пригодность файла
+                                        file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Начинаем иморт данных из файла " + f.Name);
+                                        file.Flush();
+                                        bool not_good = false;
+                                        string s = "";
+                                        StreamReader fl = new StreamReader(f.FullName, System.Text.Encoding.GetEncoding(1251));
+                                        int pbi = 0;
+                                        while ((s = fl.ReadLine()) != null)
+                                        {
+                                            string[] col;
+                                            col = s.Split(';');
+                                            if (col.Length != 7)
+                                            {
+                                                file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Найдена ошибка в структуре файла " + s);
+                                                file.Flush();
+                                                not_good = true;
+                                                break;
+                                            }
+                                            pbi++;
+                                        }
+                                        fl.Close();
+
+                                        if (!not_good)
+                                        {
+                                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Очищаем таблицу исполнителей");
+                                            file.Flush();
+                                            try
+                                            {
+                                                string query = "DELETE FROM [place]";
+                                                SqlCommand cmd = new SqlCommand(query, db_connection);
+                                                cmd.CommandTimeout = 9000;
+                                                cmd.ExecuteNonQuery();
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выполнения запроса " + ex.Message + "\n" + ex.Source);
+                                                file.Flush();
+                                            }
+                                            s = "";
+                                            fl = new StreamReader(f.FullName, System.Text.Encoding.GetEncoding(1251));
+                                            while ((s = fl.ReadLine()) != null)
+                                            {
+                                                try
+                                                {
+                                                    string[] col;
+                                                    col = s.Split(';');
+                                                    string query = "INSERT INTO [place] ([id_place], [name], [del], [server], [path], [username], [password]) VALUES ('{<ID>}', {<NAME>}, '{<DEL>}', {<SERVER>}, '{<PATH>}', '{<USER>}', '{<PASSWORD>}')";
+                                                    query = query.Replace("{<ID>}", col[0]);
+                                                    query = query.Replace("{<NAME>}", col[1]);
+                                                    query = query.Replace("{<DEL>}", col[2]);
+                                                    query = query.Replace("{<SERVER>}", col[3].Replace(",", "."));
+                                                    query = query.Replace("{<PATH>}", col[4]);
+                                                    query = query.Replace("{<USER>}", col[5]);
+                                                    query = query.Replace("{<PASSWORD>}", col[6]);
+                                                    SqlCommand cmd = new SqlCommand(query, db_connection);
+                                                    cmd.CommandTimeout = 9000;
+                                                    cmd.ExecuteNonQuery();
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выполнения запроса " + ex.Message + "\n" + ex.Source);
+                                                    file.Flush();
+                                                }
+                                            }
+                                            fl.Close();
+                                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Импорт завершен");
+                                        }
+                                        else
+                                        {
+                                            file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] При проверке структуры файла " + f.Name +
+                                                           "были найдены ошибки, импорт этого справочника не будет производится");
+                                            file.Flush();
+                                        }
+                                        iniRobot.IniWriteValue("import", "place", DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString());
+                                        break;
+                                    }
+                                case "material.csv":
 									{
 										// Загружаем таблицу материалов
 										// Первый тестовый проход на пригодность файла

@@ -254,6 +254,7 @@ namespace Photoland.Exchanger
                                                                     ",[name_delivery] = '" + r[11] + "' " +
                                                                     ",[status] = '" + r[12] + "' " +
                                                                     ",[preview] = " + prev + " " +
+                                                                    ",[auto_export] = 0 " +
                                                                     ",[comment] = '" + r[22].Replace("!Экспорт", "").Trim() + "' " +
                                                                     "WHERE [guid] = '" + r[6] + "'";
                                                             using (SqlConnection cn = new SqlConnection(prop.Connection_string))
