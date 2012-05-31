@@ -226,7 +226,7 @@ namespace PSA.Robot
                                                 {
                                                     string[] col;
                                                     col = s.Split(';');
-                                                    string query = "INSERT INTO [place] ([id_place], [name], [del], [server], [path], [username], [password]) VALUES ('{<ID>}', {<NAME>}, '{<DEL>}', {<SERVER>}, '{<PATH>}', '{<USER>}', '{<PASSWORD>}')";
+                                                    string query = "INSERT INTO [place] ([id_place], [name], [del], [server], [path], [username], [password]) VALUES ('{<ID>}', '{<NAME>}', '{<DEL>}', '{<SERVER>}', '{<PATH>}', '{<USER>}', '{<PASSWORD>}')";
                                                     query = query.Replace("{<ID>}", col[0]);
                                                     query = query.Replace("{<NAME>}", col[1]);
                                                     query = query.Replace("{<DEL>}", col[2]);

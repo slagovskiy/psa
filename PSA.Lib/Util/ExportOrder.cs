@@ -32,7 +32,7 @@ namespace PSA.Lib.Util
 
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT [id_order], id_user_accept, id_user_operator, id_user_designer, id_user_delivery, id_client, guid, del, name_accept, name_operator, name_designer, name_delivery, status, number, input_date, expected_date, output_date, advanced_payment, final_payment, discont_percent, discont_code, preview, comment, crop, type, exported, [id_order] FROM [order] WHERE (number IN (" + order_id + "))";
+            cmd.CommandText = "SELECT [id_order], id_user_accept, id_user_operator, id_user_designer, id_user_delivery, id_client, guid, del, name_accept, name_operator, name_designer, name_delivery, status, number, input_date, expected_date, output_date, advanced_payment, final_payment, discont_percent, discont_code, preview, comment, crop, type, exported, [id_order] FROM [order] WHERE (number IN ('" + order_id + "'))";
             cmd.Connection = db_connection;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable t = new DataTable("order");
