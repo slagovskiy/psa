@@ -159,7 +159,7 @@
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUpdate.Location = new System.Drawing.Point(889, 438);
+            this.btnUpdate.Location = new System.Drawing.Point(889, 429);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(104, 30);
             this.btnUpdate.TabIndex = 7;
@@ -182,7 +182,7 @@
             this.GridOder.Rows.Count = 2;
             this.GridOder.Rows.DefaultSize = 17;
             this.GridOder.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
-            this.GridOder.Size = new System.Drawing.Size(1005, 404);
+            this.GridOder.Size = new System.Drawing.Size(1005, 395);
             this.GridOder.StyleInfo = resources.GetString("GridOder.StyleInfo");
             this.GridOder.TabIndex = 8;
             this.GridOder.Click += new System.EventHandler(this.GridOder_Click);
@@ -192,7 +192,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(889, 474);
+            this.button1.Location = new System.Drawing.Point(889, 465);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 30);
             this.button1.TabIndex = 10;
@@ -206,7 +206,7 @@
             this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnImport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnImport.Location = new System.Drawing.Point(735, 438);
+            this.btnImport.Location = new System.Drawing.Point(735, 429);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(148, 35);
             this.btnImport.TabIndex = 8;
@@ -219,7 +219,7 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnClose.Location = new System.Drawing.Point(889, 510);
+            this.btnClose.Location = new System.Drawing.Point(889, 501);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(104, 30);
             this.btnClose.TabIndex = 1;
@@ -232,7 +232,7 @@
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSelect.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSelect.Location = new System.Drawing.Point(755, 518);
+            this.btnSelect.Location = new System.Drawing.Point(755, 509);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(169, 30);
             this.btnSelect.TabIndex = 9;
@@ -247,7 +247,7 @@
             this.btnExport2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnExport2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExport2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnExport2.Location = new System.Drawing.Point(12, 505);
+            this.btnExport2.Location = new System.Drawing.Point(12, 496);
             this.btnExport2.Name = "btnExport2";
             this.btnExport2.Size = new System.Drawing.Size(137, 60);
             this.btnExport2.TabIndex = 11;
@@ -261,7 +261,7 @@
             this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnExport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnExport.Location = new System.Drawing.Point(12, 438);
+            this.btnExport.Location = new System.Drawing.Point(12, 429);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(137, 60);
             this.btnExport.TabIndex = 2;
@@ -289,7 +289,7 @@
             this.groupBox1.Controls.Add(this.btnFilterApply);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox1.Location = new System.Drawing.Point(155, 434);
+            this.groupBox1.Location = new System.Drawing.Point(155, 425);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(574, 131);
             this.groupBox1.TabIndex = 6;
@@ -477,7 +477,7 @@
             this.btnImportTerminal.BackColor = System.Drawing.Color.Khaki;
             this.btnImportTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnImportTerminal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnImportTerminal.Location = new System.Drawing.Point(735, 476);
+            this.btnImportTerminal.Location = new System.Drawing.Point(735, 467);
             this.btnImportTerminal.Name = "btnImportTerminal";
             this.btnImportTerminal.Size = new System.Drawing.Size(148, 45);
             this.btnImportTerminal.TabIndex = 11;
@@ -491,7 +491,7 @@
             this.lblSaving.AutoSize = true;
             this.lblSaving.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblSaving.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSaving.Location = new System.Drawing.Point(233, 382);
+            this.lblSaving.Location = new System.Drawing.Point(233, 373);
             this.lblSaving.Name = "lblSaving";
             this.lblSaving.Size = new System.Drawing.Size(229, 37);
             this.lblSaving.TabIndex = 12;
@@ -504,7 +504,7 @@
             this.btnImportMFoto.BackColor = System.Drawing.Color.LimeGreen;
             this.btnImportMFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnImportMFoto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnImportMFoto.Location = new System.Drawing.Point(735, 525);
+            this.btnImportMFoto.Location = new System.Drawing.Point(735, 516);
             this.btnImportMFoto.Name = "btnImportMFoto";
             this.btnImportMFoto.Size = new System.Drawing.Size(148, 45);
             this.btnImportMFoto.TabIndex = 13;
@@ -516,7 +516,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 577);
+            this.ClientSize = new System.Drawing.Size(1005, 568);
             this.Controls.Add(this.btnImportMFoto);
             this.Controls.Add(this.lblSaving);
             this.Controls.Add(this.btnImportTerminal);

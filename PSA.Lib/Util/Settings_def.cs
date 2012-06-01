@@ -1500,6 +1500,18 @@ namespace PSA.Lib.Util
 			}
 		}
 
+        private bool _ExportOld;
+        public bool ExportOld
+        {
+            get
+            {
+                return _ExportOld;
+            }
+            set
+            {
+                _ExportOld = value;
+            }
+        }
 
 
 	}

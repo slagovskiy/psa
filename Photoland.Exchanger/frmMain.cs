@@ -565,36 +565,42 @@ namespace Photoland.Exchanger
 
 		private string DateToSql(string str)
 		{
-			if (str != "")
-			{
-				DateTime tmp = DateTime.Parse(str);
-				string o = "";
+            string o = "";
 
-				o = tmp.Year.ToString();
-				o += "/";
-				o += tmp.Month < 10 ? "0" + tmp.Month.ToString() : tmp.Month.ToString();
-				o += "/";
-				o += tmp.Day < 10 ? "0" + tmp.Day.ToString() : tmp.Day.ToString();
-				o += " ";
-				o += tmp.ToShortTimeString();
+            try
+            {
+                str = str.Replace(" AM", "").Replace(" PM", "");
+                DateTime tmp = DateTime.Parse(str);
 
-				return o;
-			}
-			else
-			{
-				DateTime tmp = DateTime.Parse(DateTime.Now.AddYears(-20).ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
-				string o = "";
+                o = tmp.Year.ToString();
+                o += "/";
+                o += tmp.Month < 10 ? "0" + tmp.Month.ToString() : tmp.Month.ToString();
+                o += "/";
+                o += tmp.Day < 10 ? "0" + tmp.Day.ToString() : tmp.Day.ToString();
+                o += " ";
+                o += tmp.ToShortTimeString();
 
-				o = tmp.Year.ToString();
-				o += "/";
-				o += tmp.Month < 10 ? "0" + tmp.Month.ToString() : tmp.Month.ToString();
-				o += "/";
-				o += tmp.Day < 10 ? "0" + tmp.Day.ToString() : tmp.Day.ToString();
-				o += " ";
-				o += tmp.ToShortTimeString();
 
-				return o;
-			}
+            }
+            catch
+            {
+                DateTime tmp = DateTime.Now;
+
+                o = tmp.Year.ToString();
+                o += "/";
+                o += tmp.Month < 10 ? "0" + tmp.Month.ToString() : tmp.Month.ToString();
+                o += "/";
+                o += tmp.Day < 10 ? "0" + tmp.Day.ToString() : tmp.Day.ToString();
+                o += " ";
+                o += tmp.ToShortTimeString();
+
+
+            }
+            finally
+            {
+                
+            }
+            return o;
 		}
 
 		private void semaphoresToolStripMenuItem_Click(object sender, EventArgs e)

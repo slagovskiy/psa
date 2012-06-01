@@ -263,7 +263,12 @@ namespace PSA.Lib.Interface
 			else
 				checkDenyDelete.Checked = false;
 
-			txtDCardLimit.Text = p.DCard_limit.ToString();
+            if (p.ExportOld)
+                checkExportOld.Checked = true;
+            else
+                checkExportOld.Checked = false;
+            
+            txtDCardLimit.Text = p.DCard_limit.ToString();
 			txtPublicIni.Text = p.PublicIni;
 
 			Rebild();
@@ -567,6 +572,12 @@ namespace PSA.Lib.Interface
 				p.DenyDelete = true;
 			else
 				p.DenyDelete = false;
+
+            if (checkExportOld.Checked)
+                p.ExportOld = true;
+            else
+                p.ExportOld = false;
+
 
 			p.DCard_limit = int.Parse(txtDCardLimit.Text);
 			p.PublicIni = txtPublicIni.Text;

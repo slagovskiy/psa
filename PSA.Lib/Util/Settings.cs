@@ -145,7 +145,8 @@ namespace PSA.Lib.Util
 			_checkString2 = f.IniReadValue("Main", "checkString2", "").Replace("<br>", "\n"); //staring
 			_mfotoAlbumsPath = f.IniReadValue("Main", "MfotoAlbumsPath", "d:\\MPR500_Albums"); //staring
 
-		}
+            _ExportOld = bool.Parse(f.IniReadValue("Main", "ExportOld", "true")); //bool
+        }
 		
 		public bool Save()
 		{
@@ -266,8 +267,9 @@ namespace PSA.Lib.Util
 				f.IniWriteValue("Main", "DiscontServerAddress", _DiscontServerAddress); //staring
 				f.IniWriteValue("Main", "checkString1", _checkString1.Replace("\n", "<br>").Replace("\r", "")); //staring
 				f.IniWriteValue("Main", "checkString2", _checkString2.Replace("\n", "<br>").Replace("\r", "")); //staring
-				f.IniWriteValue("Main", "MfotoAlbumsPath", _mfotoAlbumsPath); //staring
-				r = true;
+                f.IniWriteValue("Main", "MfotoAlbumsPath", _mfotoAlbumsPath); //staring
+                f.IniWriteValue("Main", "ExportOld", _ExportOld.ToString()); //bool
+                r = true;
 			}
 			catch(Exception ex)
 			{
