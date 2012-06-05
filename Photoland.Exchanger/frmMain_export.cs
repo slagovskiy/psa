@@ -18,6 +18,7 @@ using Photoland.Security.User;
 using PSA.Lib.Interface;
 using PSA.Lib.Util;
 using PSA.Lib.Interface;
+using System.Globalization;
 
 namespace Photoland.Exchanger
 {
@@ -142,6 +143,7 @@ namespace Photoland.Exchanger
                                         }
 
                                         fl.WriteLine("[order]");
+                                        CultureInfo ci = CultureInfo.InvariantCulture;
                                         fl.WriteLine(t.Rows[i][0].ToString().Trim().Replace(";", " ") + ";" +
                                                      t.Rows[i][1].ToString().Trim().Replace(";", " ") + ";" +
                                                      t.Rows[i][2].ToString().Trim().Replace(";", " ") + ";" +
@@ -156,9 +158,9 @@ namespace Photoland.Exchanger
                                                      t.Rows[i][11].ToString().Trim().Replace(";", " ") + ";" +
                                                      _status + ";" +
                                                      t.Rows[i][13].ToString().Trim().Replace(";", " ") + ";" +
-                                                     t.Rows[i][14].ToString().Trim().Replace(";", " ") + ";" +
-                                                     t.Rows[i][15].ToString().Trim().Replace(";", " ") + ";" +
-                                                     t.Rows[i][16].ToString().Trim().Replace(";", " ") + ";" +
+                                                     ((t.Rows[i][14].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][14]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                     ((t.Rows[i][15].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][15]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                     ((t.Rows[i][16].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][16]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
                                                      t.Rows[i][17].ToString().Trim().Replace(";", " ") + ";" +
                                                      t.Rows[i][18].ToString().Trim().Replace(";", " ") + ";" +
                                                      t.Rows[i][19].ToString().Trim().Replace(";", " ") + ";" +
@@ -233,10 +235,10 @@ namespace Photoland.Exchanger
                                                              rt.Rows[ii][7].ToString().Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][8].ToString().Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][9].ToString().Trim().Replace(";", " ") + ";" +
-                                                             rt.Rows[ii][10].ToString().Trim().Replace(";", " ") + ";" +
+                                                             ((rt.Rows[ii][10].GetType().Name == "DBNull") ? "" : ((DateTime)rt.Rows[ii][10]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][11].ToString().Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][12].ToString().Trim().Replace(";", " ") + ";" +
-                                                             rt.Rows[ii][13].ToString().Trim().Replace(";", " ") + ";" +
+                                                             ((rt.Rows[ii][13].GetType().Name == "DBNull") ? "" : ((DateTime)rt.Rows[ii][13]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][14].ToString().Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][15].ToString().Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][16].ToString().Trim().Replace(";", " ") + ";" +
@@ -277,7 +279,7 @@ namespace Photoland.Exchanger
                                                              rt.Rows[ii][1].ToString().Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][2].ToString().Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][3].ToString().Trim().Replace(";", " ") + ";" +
-                                                             rt.Rows[ii][4].ToString().Trim().Replace(";", " ") + ";" +
+                                                             ((rt.Rows[ii][4].GetType().Name == "DBNull") ? "" : ((DateTime)rt.Rows[ii][4]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][5].ToString().Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][6].ToString().Trim().Replace(";", " ") + ";" +
                                                              rt.Rows[ii][7].ToString().Trim().Replace(";", " ") + ";" +

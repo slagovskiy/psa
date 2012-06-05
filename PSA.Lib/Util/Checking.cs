@@ -19,8 +19,8 @@ namespace PSA.Lib.Util
 				{
 					if(file == "info.version")
 					{
-						ftp.Download(sett.Dir_import, "info.version", sett.FTP_Path, "info.version");
-						ini ver = new ini(sett.Dir_import + "\\info.version");
+                        ftp.Download(Environment.GetEnvironmentVariable("TEMP"), "info.version", sett.FTP_Path, "info.version");
+                        ini ver = new ini(Environment.GetEnvironmentVariable("TEMP") + "\\info.version");
 						switch(Module)
 						{
 							case Modules.Acceptance:
