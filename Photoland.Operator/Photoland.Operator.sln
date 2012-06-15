@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photoland.Operator", "Photoland.Operator.csproj", "{6D87A435-7D88-4AD8-AE05-9B7B572525FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photoland.Designer", "..\Photoland.Designer\Photoland.Designer.csproj", "{81D61AD5-FE22-43DF-AD9D-A9AE3EB02A25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{6D87A435-7D88-4AD8-AE05-9B7B572525FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D87A435-7D88-4AD8-AE05-9B7B572525FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D87A435-7D88-4AD8-AE05-9B7B572525FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D61AD5-FE22-43DF-AD9D-A9AE3EB02A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D61AD5-FE22-43DF-AD9D-A9AE3EB02A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D61AD5-FE22-43DF-AD9D-A9AE3EB02A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D61AD5-FE22-43DF-AD9D-A9AE3EB02A25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

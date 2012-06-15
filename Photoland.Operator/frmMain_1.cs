@@ -347,7 +347,7 @@ namespace Photoland.Operator
 							if ((!tmp.IsDBNull(11)) && (!tmp.IsDBNull(12)))
 							{
 								bool load = false;
-								if ((tmp.GetString(12).Trim() == "000100") || (tmp.GetString(12).Trim() == "000110") || (tmp.GetString(12).Trim() == "000111") || (tmp.GetString(12).Trim() == "000211"))
+								if ((tmp.GetString(12).Trim() == "000100") || (tmp.GetString(12).Trim() == "000110") || (tmp.GetString(12).Trim() == "000111") || (tmp.GetString(12).Trim() == "000211") || usr.prmCanLoginAdmin)
 								{
 									if ((tmp.GetInt32(11) == usr.Id_user) || (tmp.GetInt32(11) == 0))
 									{

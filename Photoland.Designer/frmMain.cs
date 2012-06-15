@@ -547,7 +547,7 @@ namespace Photoland.Designer
                             if ((!tmp.IsDBNull(11)) && (!tmp.IsDBNull(13)))
                             {
                                 bool load = false;
-								if ((tmp.GetString(13).Trim() == "000200") || (tmp.GetString(13).Trim() == "000210") || (tmp.GetString(13).Trim() == "000212") || (tmp.GetString(13).Trim() == "000211") || (tmp.GetString(13).Trim() == "000111"))
+								if ((tmp.GetString(13).Trim() == "000200") || (tmp.GetString(13).Trim() == "000210") || (tmp.GetString(13).Trim() == "000212") || (tmp.GetString(13).Trim() == "000211") || (tmp.GetString(13).Trim() == "000111") || usr.prmCanLoginAdmin)
                                 {
                                     if ((tmp.GetInt32(11) == usr.Id_user) || (tmp.GetInt32(11) == 0))
                                     {
