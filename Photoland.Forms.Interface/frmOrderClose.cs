@@ -110,7 +110,10 @@ namespace Photoland.Forms.Interface
                 t += 0.5;
             }
             // клиент
-            lblClientName.Text = order.Client.Name;
+            if (order.Client != null)
+                lblClientName.Text = order.Client.Name;
+            else
+                lblClientName.Text = "Клиент не определен";
             switch (order.Crop)
             {
                 case 1:
@@ -772,56 +775,67 @@ namespace Photoland.Forms.Interface
 						break;
 					}
 			}
-
-            if (order.AutoExport != 0)
+            if (!prop.DontLockExported)
             {
-                hideActions.Visible = false;
+                if (order.AutoExport != 0)
+                {
+                    hideActions.Visible = false;
 
-                btnQuickServ1.Enabled = false;
-                btnQuickServ2.Enabled = false;
-                btnQuickServ3.Enabled = false;
-                btnQuickServ4.Enabled = false;
-                btnQuickServ5.Enabled = false;
-                btnQuickServ6.Enabled = false;
-                btnQuickServ7.Enabled = false;
-                btnQuickServ8.Enabled = false;
-                btnQuickServ9.Enabled = false;
-                btnQuickServ10.Enabled = false;
-                btnOK.Enabled = false;
-                btnOrderDesigner.Enabled = false;
-                btnOrderEnd.Enabled = false;
-                btnOrderEndZ.Enabled = false;
-                btnOrderEndZ.Enabled = false;
-                btnOrderEnd.Visible = false;
-                btnOrderEndZ.Visible = false;
-                btnOrderPrint.Enabled = false;
-                btnToWork.Enabled = false;
-                btnOrderCancel.Enabled = false;
-                btnAddServ.Enabled = false;
-                btnDelServ.Enabled = false;
-                txtPType.Enabled = false;
+                    btnQuickServ1.Enabled = false;
+                    btnQuickServ2.Enabled = false;
+                    btnQuickServ3.Enabled = false;
+                    btnQuickServ4.Enabled = false;
+                    btnQuickServ5.Enabled = false;
+                    btnQuickServ6.Enabled = false;
+                    btnQuickServ7.Enabled = false;
+                    btnQuickServ8.Enabled = false;
+                    btnQuickServ9.Enabled = false;
+                    btnQuickServ10.Enabled = false;
+                    btnOK.Enabled = false;
+                    btnOrderDesigner.Enabled = false;
+                    btnOrderEnd.Enabled = false;
+                    btnOrderEndZ.Enabled = false;
+                    btnOrderEndZ.Enabled = false;
+                    btnOrderEnd.Visible = false;
+                    btnOrderEndZ.Visible = false;
+                    btnOrderPrint.Enabled = false;
+                    btnToWork.Enabled = false;
+                    btnOrderCancel.Enabled = false;
+                    btnAddServ.Enabled = false;
+                    btnDelServ.Enabled = false;
+                    txtPType.Enabled = false;
+                }
             }
 
 
 			//if (("_" + order.Client.Category_name.ToLower()).IndexOf("оптов") > 0) 
-			if((order.Client.Name.ToUpper().Substring(0, 2) == "БН") || (("_" + order.Client.Category_name.ToLower()).IndexOf("оптов") > 0))
-			{
-				//btnOrderEnd.Enabled = true;
-				//btnOrderEndZ.Enabled = true;
-				//btnOrderEndF.Enabled = false;
-				btnOrderEnd.Visible = true;
-				btnOrderEndZ.Visible = true;
-				btnOrderEndF.Visible = false;
-			}
-			else
-			{
-				//btnOrderEnd.Enabled = false;
-				//btnOrderEndZ.Enabled = false;
-				//btnOrderEndF.Enabled = true;
-				btnOrderEnd.Visible = false;
-				btnOrderEndZ.Visible = false;
-				btnOrderEndF.Visible = true;
-			}
+            if (order.Client != null)
+            {
+                if ((order.Client.Name.ToUpper().Substring(0, 2) == "БН") || (("_" + order.Client.Category_name.ToLower()).IndexOf("оптов") > 0))
+                {
+                    //btnOrderEnd.Enabled = true;
+                    //btnOrderEndZ.Enabled = true;
+                    //btnOrderEndF.Enabled = false;
+                    btnOrderEnd.Visible = true;
+                    btnOrderEndZ.Visible = true;
+                    btnOrderEndF.Visible = false;
+                }
+                else
+                {
+                    //btnOrderEnd.Enabled = false;
+                    //btnOrderEndZ.Enabled = false;
+                    //btnOrderEndF.Enabled = true;
+                    btnOrderEnd.Visible = false;
+                    btnOrderEndZ.Visible = false;
+                    btnOrderEndF.Visible = true;
+                }
+            }
+            else
+            {
+                btnOrderEnd.Visible = false;
+                btnOrderEndZ.Visible = false;
+                btnOrderEndF.Visible = true;
+            }
 
 
 			if (((order.Orderno.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1)) && (prop.Terminal_control_worker)) &&

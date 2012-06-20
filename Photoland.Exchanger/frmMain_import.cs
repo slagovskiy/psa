@@ -27,7 +27,7 @@ namespace Photoland.Exchanger
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-			lblSaving.Visible = true;
+            lblSaving.Visible = true;
             if (CheckState(db_connection))
             {
                 string f = "";

@@ -146,6 +146,8 @@ namespace PSA.Lib.Util
 			_mfotoAlbumsPath = f.IniReadValue("Main", "MfotoAlbumsPath", "d:\\MPR500_Albums"); //staring
 
             _ExportOld = bool.Parse(f.IniReadValue("Main", "ExportOld", "true")); //bool
+            _DontLockExported = bool.Parse(f.IniReadValue("Main", "DontLockExported", "true")); //bool
+            _Dir_auto_import = f.IniReadValue("Main", "DirAutoImport", "d:\\Exchange"); //staring
         }
 		
 		public bool Save()
@@ -269,6 +271,8 @@ namespace PSA.Lib.Util
 				f.IniWriteValue("Main", "checkString2", _checkString2.Replace("\n", "<br>").Replace("\r", "")); //staring
                 f.IniWriteValue("Main", "MfotoAlbumsPath", _mfotoAlbumsPath); //staring
                 f.IniWriteValue("Main", "ExportOld", _ExportOld.ToString()); //bool
+                f.IniWriteValue("Main", "DontLockExported", _DontLockExported.ToString()); //bool
+                f.IniWriteValue("Main", "DirAutoImport", _Dir_auto_import); //staring
                 r = true;
 			}
 			catch(Exception ex)

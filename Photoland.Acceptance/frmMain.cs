@@ -1411,6 +1411,13 @@ namespace Photoland.Acceptance
 			}
 			
 		}
+
+        private void tbtnImport_Click(object sender, EventArgs e)
+        {
+            frmNewImport f = new frmNewImport();
+            f.usr = usr;
+            f.ShowDialog();
+        }
 	
 	}
 }

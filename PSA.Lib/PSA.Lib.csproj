@@ -32,8 +32,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20071.324, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1Report.2, Version=2.5.20071.231, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\Debug\C1.Win.C1Report.2.dll</HintPath>
+    </Reference>
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=2.5.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL" />
     <Reference Include="Photoland.Components.FilterRow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Order, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security.Discont, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Photoland.Security.User, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -90,6 +98,12 @@
     </Compile>
     <Compile Include="Interface\frmMovePayment.Designer.cs">
       <DependentUpon>frmMovePayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmNewImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmNewImport.Designer.cs">
+      <DependentUpon>frmNewImport.cs</DependentUpon>
     </Compile>
     <Compile Include="Interface\frmOrderDiscardList.cs">
       <SubType>Form</SubType>
@@ -326,6 +340,9 @@
       <DependentUpon>frmMovePayment.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmNewImport.resx">
+      <DependentUpon>frmNewImport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\frmOrderDiscardList.resx">
       <DependentUpon>frmOrderDiscardList.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -456,10 +473,6 @@
     <ProjectReference Include="..\Photoland.Forms.Interface\Photoland.Forms.Interface.csproj">
       <Project>{203ECECF-01CF-4495-8106-C39EF06369A2}</Project>
       <Name>Photoland.Forms.Interface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Photoland.Security.User\Photoland.Security.User.csproj">
-      <Project>{0B0FDC42-5494-4832-8AC9-C9322C5A3693}</Project>
-      <Name>Photoland.Security.User</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

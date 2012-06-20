@@ -309,6 +309,9 @@ namespace PSA.Lib.Interface
 			txtCheckText2.Text = p.CheckString2;
 			checkMFoto.Checked = p.ShowMFoto;
 			txtDirMfoto.Text = p.MfotoAlbumsPath;
+            txtDirAutoImport.Text = p.Dir_auto_import;
+            checkExportOld.Checked = p.ExportOld;
+            checkDontLockExport.Checked = p.DontLockExported;
 
 			
 		}
@@ -608,6 +611,10 @@ namespace PSA.Lib.Interface
 			p.ShowMFoto = checkMFoto.Checked;
 			p.MfotoAlbumsPath = txtDirMfoto.Text;
 
+            p.ExportOld = checkExportOld.Checked;
+            p.DontLockExported = checkDontLockExport.Checked;
+
+            p.Dir_auto_import = txtDirAutoImport.Text;
             if(!p.Save())
 				MessageBox.Show("Ошибка при сохранении настроек!", "Настройки программы", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -1134,6 +1141,13 @@ namespace PSA.Lib.Interface
 			if (dlg.SelectedPath != "")
 				txtDirMfoto.Text = dlg.SelectedPath;
 		}
+
+        private void btnAutoImport_Click(object sender, EventArgs e)
+        {
+            dlg.ShowDialog();
+            if (dlg.SelectedPath != "")
+                txtDirAutoImport.Text = dlg.SelectedPath;
+        }
 		
 	}
 }

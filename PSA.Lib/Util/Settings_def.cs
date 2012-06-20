@@ -1513,6 +1513,32 @@ namespace PSA.Lib.Util
             }
         }
 
+        private string _Dir_auto_import;
+        public string Dir_auto_import
+		{
+			get
+			{
+                return _Dir_auto_import;
+			}
+			set
+			{
+                _Dir_auto_import = value;
+			}
+		}
+
+        private bool _DontLockExported;
+        public bool DontLockExported
+        {
+            get
+            {
+                return _DontLockExported;
+            }
+            set
+            {
+                _DontLockExported = value;
+            }
+        }
+
 
 	}
 }

@@ -59,6 +59,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtOrderPrifics = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.txtDirAutoImport = new System.Windows.Forms.TextBox();
+            this.btnAutoImport = new System.Windows.Forms.Button();
             this.label69 = new System.Windows.Forms.Label();
             this.txtDirMfoto = new System.Windows.Forms.TextBox();
             this.btnDirMFoto = new System.Windows.Forms.Button();
@@ -75,6 +78,7 @@
             this.checkSearchSubDir = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabAcceptance = new System.Windows.Forms.TabPage();
+            this.checkExportOld = new System.Windows.Forms.CheckBox();
             this.txtDCardLimit = new System.Windows.Forms.TextBox();
             this.label61 = new System.Windows.Forms.Label();
             this.txtCheckCount = new System.Windows.Forms.TextBox();
@@ -314,7 +318,7 @@
             this.checkDebugIdForQBtn = new System.Windows.Forms.CheckBox();
             this.odlg = new System.Windows.Forms.OpenFileDialog();
             this.dlg = new System.Windows.Forms.FolderBrowserDialog();
-            this.checkExportOld = new System.Windows.Forms.CheckBox();
+            this.checkDontLockExport = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabDatabase.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -681,6 +685,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label70);
+            this.groupBox1.Controls.Add(this.txtDirAutoImport);
+            this.groupBox1.Controls.Add(this.btnAutoImport);
             this.groupBox1.Controls.Add(this.label69);
             this.groupBox1.Controls.Add(this.txtDirMfoto);
             this.groupBox1.Controls.Add(this.btnDirMFoto);
@@ -702,10 +709,36 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(6, 143);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(160, 13);
+            this.label70.TabIndex = 15;
+            this.label70.Text = "Каталог заказов для импорта";
+            // 
+            // txtDirAutoImport
+            // 
+            this.txtDirAutoImport.Location = new System.Drawing.Point(187, 140);
+            this.txtDirAutoImport.Name = "txtDirAutoImport";
+            this.txtDirAutoImport.Size = new System.Drawing.Size(357, 20);
+            this.txtDirAutoImport.TabIndex = 13;
+            // 
+            // btnAutoImport
+            // 
+            this.btnAutoImport.Location = new System.Drawing.Point(550, 138);
+            this.btnAutoImport.Name = "btnAutoImport";
+            this.btnAutoImport.Size = new System.Drawing.Size(31, 23);
+            this.btnAutoImport.TabIndex = 14;
+            this.btnAutoImport.Text = "...";
+            this.btnAutoImport.UseVisualStyleBackColor = true;
+            this.btnAutoImport.Click += new System.EventHandler(this.btnAutoImport_Click);
+            // 
             // label69
             // 
             this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(6, 135);
+            this.label69.Location = new System.Drawing.Point(6, 117);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(133, 13);
             this.label69.TabIndex = 10;
@@ -713,14 +746,14 @@
             // 
             // txtDirMfoto
             // 
-            this.txtDirMfoto.Location = new System.Drawing.Point(187, 132);
+            this.txtDirMfoto.Location = new System.Drawing.Point(187, 114);
             this.txtDirMfoto.Name = "txtDirMfoto";
             this.txtDirMfoto.Size = new System.Drawing.Size(357, 20);
             this.txtDirMfoto.TabIndex = 11;
             // 
             // btnDirMFoto
             // 
-            this.btnDirMFoto.Location = new System.Drawing.Point(550, 130);
+            this.btnDirMFoto.Location = new System.Drawing.Point(550, 112);
             this.btnDirMFoto.Name = "btnDirMFoto";
             this.btnDirMFoto.Size = new System.Drawing.Size(31, 23);
             this.btnDirMFoto.TabIndex = 12;
@@ -731,7 +764,7 @@
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(6, 86);
+            this.label65.Location = new System.Drawing.Point(6, 68);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(164, 13);
             this.label65.TabIndex = 7;
@@ -739,14 +772,14 @@
             // 
             // txtDirTmpExport
             // 
-            this.txtDirTmpExport.Location = new System.Drawing.Point(187, 83);
+            this.txtDirTmpExport.Location = new System.Drawing.Point(187, 65);
             this.txtDirTmpExport.Name = "txtDirTmpExport";
             this.txtDirTmpExport.Size = new System.Drawing.Size(357, 20);
             this.txtDirTmpExport.TabIndex = 8;
             // 
             // btnDirTmpExport
             // 
-            this.btnDirTmpExport.Location = new System.Drawing.Point(550, 81);
+            this.btnDirTmpExport.Location = new System.Drawing.Point(550, 63);
             this.btnDirTmpExport.Name = "btnDirTmpExport";
             this.btnDirTmpExport.Size = new System.Drawing.Size(31, 23);
             this.btnDirTmpExport.TabIndex = 9;
@@ -766,7 +799,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 51);
+            this.label8.Location = new System.Drawing.Point(6, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(175, 13);
             this.label8.TabIndex = 1;
@@ -781,7 +814,7 @@
             // 
             // txtDirEdit
             // 
-            this.txtDirEdit.Location = new System.Drawing.Point(187, 48);
+            this.txtDirEdit.Location = new System.Drawing.Point(187, 39);
             this.txtDirEdit.Name = "txtDirEdit";
             this.txtDirEdit.Size = new System.Drawing.Size(357, 20);
             this.txtDirEdit.TabIndex = 2;
@@ -798,7 +831,7 @@
             // 
             // btnDirEdit
             // 
-            this.btnDirEdit.Location = new System.Drawing.Point(550, 46);
+            this.btnDirEdit.Location = new System.Drawing.Point(550, 36);
             this.btnDirEdit.Name = "btnDirEdit";
             this.btnDirEdit.Size = new System.Drawing.Size(31, 23);
             this.btnDirEdit.TabIndex = 3;
@@ -816,7 +849,7 @@
             // checkSearchSubDir
             // 
             this.checkSearchSubDir.AutoSize = true;
-            this.checkSearchSubDir.Location = new System.Drawing.Point(9, 109);
+            this.checkSearchSubDir.Location = new System.Drawing.Point(9, 91);
             this.checkSearchSubDir.Name = "checkSearchSubDir";
             this.checkSearchSubDir.Size = new System.Drawing.Size(201, 17);
             this.checkSearchSubDir.TabIndex = 4;
@@ -834,6 +867,7 @@
             // 
             // tabAcceptance
             // 
+            this.tabAcceptance.Controls.Add(this.checkDontLockExport);
             this.tabAcceptance.Controls.Add(this.checkExportOld);
             this.tabAcceptance.Controls.Add(this.txtDCardLimit);
             this.tabAcceptance.Controls.Add(this.label61);
@@ -854,6 +888,16 @@
             this.tabAcceptance.TabIndex = 1;
             this.tabAcceptance.Text = "Приемка";
             this.tabAcceptance.UseVisualStyleBackColor = true;
+            // 
+            // checkExportOld
+            // 
+            this.checkExportOld.AutoSize = true;
+            this.checkExportOld.Location = new System.Drawing.Point(411, 300);
+            this.checkExportOld.Name = "checkExportOld";
+            this.checkExportOld.Size = new System.Drawing.Size(165, 17);
+            this.checkExportOld.TabIndex = 49;
+            this.checkExportOld.Text = "Экспорт в старом формате";
+            this.checkExportOld.UseVisualStyleBackColor = true;
             // 
             // txtDCardLimit
             // 
@@ -3247,15 +3291,14 @@
             this.odlg.FileName = "odlg";
             this.odlg.Filter = "\"Photoland reports (*.xml)|*.xml|All files (*.*)|*.*\"";
             // 
-            // checkExportOld
+            // checkDontLockExport
             // 
-            this.checkExportOld.AutoSize = true;
-            this.checkExportOld.Location = new System.Drawing.Point(411, 300);
-            this.checkExportOld.Name = "checkExportOld";
-            this.checkExportOld.Size = new System.Drawing.Size(165, 17);
-            this.checkExportOld.TabIndex = 49;
-            this.checkExportOld.Text = "Экспорт в старом формате";
-            this.checkExportOld.UseVisualStyleBackColor = true;
+            this.checkDontLockExport.Location = new System.Drawing.Point(411, 323);
+            this.checkDontLockExport.Name = "checkDontLockExport";
+            this.checkDontLockExport.Size = new System.Drawing.Size(185, 30);
+            this.checkDontLockExport.TabIndex = 50;
+            this.checkDontLockExport.Text = "Не блокировать заказ при экспорте";
+            this.checkDontLockExport.UseVisualStyleBackColor = true;
             // 
             // frmSetup
             // 
@@ -3659,6 +3702,10 @@
 		private System.Windows.Forms.TextBox txtDirMfoto;
 		private System.Windows.Forms.Button btnDirMFoto;
         private System.Windows.Forms.CheckBox checkExportOld;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.TextBox txtDirAutoImport;
+        private System.Windows.Forms.Button btnAutoImport;
+        private System.Windows.Forms.CheckBox checkDontLockExport;
 
 	}
 }
