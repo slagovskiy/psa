@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Data.SqlClient;
 using System.Data;
+using System.Globalization;
 
 namespace PSA.Lib.Util
 {
@@ -99,34 +100,34 @@ namespace PSA.Lib.Util
                         _status = "000010";
                         //}
                     }
-
+                    CultureInfo ci = CultureInfo.InvariantCulture;
                     fl.WriteLine("[order]");
                     fl.WriteLine(t.Rows[i][0].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][1].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][2].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][3].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][4].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][5].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][6].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][7].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][8].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][9].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][10].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][11].ToString().Trim().Replace(";", " ") + ";" +
-                                 _status + ";" +
-                                 t.Rows[i][13].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][14].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][15].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][16].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][17].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][18].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][19].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][20].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][21].ToString().Trim().Replace(";", " ") + ";" +
-								 t.Rows[i][22].ToString().Trim().Replace(";", " ").Replace("!Экспорт", "") + ";" +
-                                 t.Rows[i][23].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][24].ToString().Trim().Replace(";", " ") + ";" +
-                                 t.Rows[i][25].ToString().Trim().Replace(";", " "));
+                                                     t.Rows[i][1].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][2].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][3].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][4].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][5].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][6].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][7].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][8].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][9].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][10].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][11].ToString().Trim().Replace(";", " ") + ";" +
+                                                     _status + ";" +
+                                                     t.Rows[i][13].ToString().Trim().Replace(";", " ") + ";" +
+                                                     ((t.Rows[i][14].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][14]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                     ((t.Rows[i][15].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][15]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                     ((t.Rows[i][16].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][16]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][17].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][18].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][19].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][20].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][21].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][22].ToString().Trim().Replace(";", " ").Replace("!Экспорт", "") + ";" +
+                                                     t.Rows[i][23].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][24].ToString().Trim().Replace(";", " ") + ";" +
+                                                     t.Rows[i][25].ToString().Trim().Replace(";", " "));
 
                     //GridOder.Rows[i + 2].Style = GridOder.Styles["Normal"];
                     if (finalStatus)
@@ -183,26 +184,26 @@ namespace PSA.Lib.Util
                             //Application.DoEvents();
 
                             fl.WriteLine(rt.Rows[ii][0].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][1].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][2].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][3].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][4].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][5].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][6].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][7].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][8].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][9].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][10].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][11].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][12].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][13].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][14].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][15].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][16].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][17].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][18].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][19].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][20].ToString().Trim().Replace(";", " "));
+                                                             rt.Rows[ii][1].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][2].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][3].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][4].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][5].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][6].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][7].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][8].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][9].ToString().Trim().Replace(";", " ") + ";" +
+                                                             ((rt.Rows[ii][10].GetType().Name == "DBNull") ? "" : ((DateTime)rt.Rows[ii][10]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][11].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][12].ToString().Trim().Replace(";", " ") + ";" +
+                                                             ((rt.Rows[ii][13].GetType().Name == "DBNull") ? "" : ((DateTime)rt.Rows[ii][13]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][14].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][15].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][16].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][17].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][18].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][19].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][20].ToString().Trim().Replace(";", " "));
 
                         }
                     }
@@ -233,14 +234,14 @@ namespace PSA.Lib.Util
                             //Application.DoEvents();
 
                             fl.WriteLine(rt.Rows[ii][0].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][1].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][2].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][3].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][4].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][5].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][6].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][7].ToString().Trim().Replace(";", " ") + ";" +
-                                         rt.Rows[ii][8].ToString().Trim().Replace(";", " "));
+                                                             rt.Rows[ii][1].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][2].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][3].ToString().Trim().Replace(";", " ") + ";" +
+                                                             ((rt.Rows[ii][4].GetType().Name == "DBNull") ? "" : ((DateTime)rt.Rows[ii][4]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][5].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][6].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][7].ToString().Trim().Replace(";", " ") + ";" +
+                                                             rt.Rows[ii][8].ToString().Trim().Replace(";", " "));
 
                         }
                     }
