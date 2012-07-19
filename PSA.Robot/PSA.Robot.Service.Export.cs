@@ -6,6 +6,7 @@ using System.IO;
 using PSA.Lib.Util;
 using System.Data;
 using System.Net;
+using System.Globalization;
 
 namespace PSA.Robot
 {
@@ -52,6 +53,7 @@ namespace PSA.Robot
 				ini iniRobot = new ini(prop.Dir_export + "\\robot.ini");
 				if (Directory.Exists(prop.Dir_export))
 				{
+                    CultureInfo ci = CultureInfo.InvariantCulture;
 					using (SqlConnection db_connection = new SqlConnection(prop.Connection_string))
 					{
 						string exported_order = "0";
@@ -115,10 +117,10 @@ namespace PSA.Robot
 											 t.Rows[i][11].ToString().Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][12].ToString().Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][13].ToString().Trim().Replace(";", " ") + ";" +
-											 t.Rows[i][14].ToString().Trim().Replace(";", " ") + ";" +
-											 t.Rows[i][15].ToString().Trim().Replace(";", " ") + ";" +
-											 t.Rows[i][16].ToString().Trim().Replace(";", " ") + ";" +
-											 t.Rows[i][17].ToString().Trim().Replace(";", " ") + ";" +
+                                             ((t.Rows[i][14].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][14]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                             ((t.Rows[i][15].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][15]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                             ((t.Rows[i][16].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][16]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                             t.Rows[i][17].ToString().Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][18].ToString().Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][19].ToString().Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][20].ToString().Trim().Replace(";", " ") + ";" +
@@ -170,7 +172,7 @@ namespace PSA.Robot
 													 tt.Rows[j][8].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][9].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][10].ToString().Trim().Replace(";", " ") + ";" +
-													 tt.Rows[j][11].ToString().Trim().Replace(";", " ") + ";" +
+                                                     ((tt.Rows[j][11].GetType().Name == "DBNull") ? "" : ((DateTime)tt.Rows[j][11]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][12].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][13].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][14].ToString().Trim().Replace(";", " ") + ";" +
@@ -178,7 +180,7 @@ namespace PSA.Robot
 													 tt.Rows[j][16].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][17].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][18].ToString().Trim().Replace(";", " ") + ";" +
-													 tt.Rows[j][19].ToString().Trim().Replace(";", " ") + ";" +
+													 ((tt.Rows[j][19].GetType().Name == "DBNull") ? "" : ((DateTime)tt.Rows[j][19]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][20].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][21].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][22].ToString().Trim().Replace(";", " ") + ";" +
@@ -203,7 +205,7 @@ namespace PSA.Robot
 													 tt.Rows[j][1].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][2].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][3].ToString().Trim().Replace(";", " ") + ";" +
-													 tt.Rows[j][4].ToString().Trim().Replace(";", " ") + ";" +
+													 ((tt.Rows[j][4].GetType().Name == "DBNull") ? "" : ((DateTime)tt.Rows[j][4]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][5].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][6].ToString().Trim().Replace(";", " ") + ";" +
 													 tt.Rows[j][7].ToString().Trim().Replace(";", " ") + ";" +
@@ -236,7 +238,7 @@ namespace PSA.Robot
 												 td.Rows[j][8].ToString().Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][9].ToString().Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][10].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][11].ToString().Trim().Replace(";", " ") + ";" +
+												 ((t.Rows[j][11].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[j][11]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][12].ToString().Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][13].ToString().Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][14].ToString().Trim().Replace(";", " ") + ";" +
@@ -244,7 +246,7 @@ namespace PSA.Robot
 												 td.Rows[j][16].ToString().Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][17].ToString().Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][18].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][19].ToString().Trim().Replace(";", " ") + ";" +
+												 ((td.Rows[j][19].GetType().Name == "DBNull") ? "" : ((DateTime)td.Rows[j][19]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][20].ToString().Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][21].ToString().Trim().Replace(";", " ") + ";" +
 												 td.Rows[j][22].ToString().Trim().Replace(";", " "));
@@ -282,7 +284,7 @@ namespace PSA.Robot
 								fl.WriteLine(t.Rows[i][0].ToString().Trim() + ";" +
 											 t.Rows[i][1].ToString().Trim() + ";" +
 											 t.Rows[i][2].ToString().Trim() + ";" +
-											 t.Rows[i][3].ToString().Trim() + ";" +
+											 ((t.Rows[i][3].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][3]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][4].ToString().Trim() + ";" +
 											 t.Rows[i][5].ToString().Trim() + ";" +
 											 t.Rows[i][6].ToString().Trim() + ";" +
@@ -321,7 +323,7 @@ namespace PSA.Robot
 								fl.WriteLine(t.Rows[i][0].ToString().Trim() + ";" +
 											 t.Rows[i][1].ToString().Trim() + ";" +
 											 t.Rows[i][2].ToString().Trim() + ";" +
-											 t.Rows[i][3].ToString().Trim() + ";" +
+											 ((t.Rows[i][3].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][3]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][4].ToString().Trim());
 								exported_inv += t.Rows[i][0].ToString();
 
@@ -345,8 +347,8 @@ namespace PSA.Robot
 										ti.Rows[iij][5].ToString().Trim() + ";" +
 										ti.Rows[iij][6].ToString().Trim() + ";" +
 										ti.Rows[iij][7].ToString().Trim() + ";" +
-										ti.Rows[iij][8].ToString().Trim() + ";" +
-										ti.Rows[iij][9].ToString().Trim() + ";" +
+										((ti.Rows[iij][8].GetType().Name == "DBNull") ? "" : ((DateTime)ti.Rows[iij][8]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+										((ti.Rows[iij][9].GetType().Name == "DBNull") ? "" : ((DateTime)ti.Rows[iij][9]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 										ti.Rows[iij][10].ToString().Trim() + ";" +
 										ti.Rows[iij][11].ToString().Trim() + ";" +
 										ti.Rows[iij][12].ToString().Trim() + ";" +
@@ -386,7 +388,7 @@ namespace PSA.Robot
 								fl.WriteLine(t.Rows[i][0].ToString().Trim() + ";" +
 											 t.Rows[i][1].ToString().Trim() + ";" +
 											 t.Rows[i][2].ToString().Trim() + ";" +
-											 t.Rows[i][3].ToString().Trim() + ";" +
+                                             ((t.Rows[i][3].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][3]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][4].ToString().Trim());
 								exported_ver += t.Rows[i][0].ToString();
 
@@ -410,8 +412,8 @@ namespace PSA.Robot
 										ti.Rows[iij][5].ToString().Trim() + ";" +
 										ti.Rows[iij][6].ToString().Trim() + ";" +
 										ti.Rows[iij][7].ToString().Trim() + ";" +
-										ti.Rows[iij][8].ToString().Trim() + ";" +
-										ti.Rows[iij][9].ToString().Trim() + ";" +
+                                        ((ti.Rows[iij][8].GetType().Name == "DBNull") ? "" : ((DateTime)ti.Rows[iij][8]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                        ((ti.Rows[iij][9].GetType().Name == "DBNull") ? "" : ((DateTime)ti.Rows[iij][9]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 										ti.Rows[iij][10].ToString().Trim() + ";" +
 										ti.Rows[iij][11].ToString().Trim() + ";" +
 										ti.Rows[iij][12].ToString().Trim() + ";" +
@@ -455,7 +457,7 @@ namespace PSA.Robot
 								fl.WriteLine(t.Rows[i][0].ToString().Trim() + ";" +
 											 t.Rows[i][1].ToString().Trim() + ";" +
 											 t.Rows[i][2].ToString().Trim() + ";" +
-											 t.Rows[i][3].ToString().Trim() + ";" +
+                                             ((t.Rows[i][3].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][3]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][4].ToString().Trim() + ";" +
 											 t.Rows[i][5].ToString().Trim() + ";" +
 											 t.Rows[i][6].ToString().Trim() + ";" +
@@ -496,9 +498,9 @@ namespace PSA.Robot
 											 t.Rows[i][3].ToString().Trim() + ";" +
 											 t.Rows[i][4].ToString().Trim() + ";" +
 											 t.Rows[i][5].ToString().Trim() + ";" +
-											 t.Rows[i][6].ToString().Trim() + ";" +
+                                             ((t.Rows[i][6].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][6]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][7].ToString().Trim() + ";" +
-											 t.Rows[i][8].ToString().Trim() + ";" +
+                                             ((t.Rows[i][8].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][8]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][9].ToString().Trim() + ";" +
 											 t.Rows[i][10].ToString().Trim() + ";" +
 											 t.Rows[i][11].ToString().Trim());
@@ -530,7 +532,7 @@ namespace PSA.Robot
 								fl.WriteLine(t.Rows[i][0].ToString().Trim() + ";" +
 											 t.Rows[i][1].ToString().Trim() + ";" +
 											 t.Rows[i][2].ToString().Trim() + ";" +
-											 t.Rows[i][3].ToString().Trim() + ";" +
+                                             ((t.Rows[i][3].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][3]).ToString("dd/MM/yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
 											 t.Rows[i][4].ToString().Trim() + ";" +
 											 t.Rows[i][5].ToString().Trim() + ";" +
 											 t.Rows[i][6].ToString().Trim());

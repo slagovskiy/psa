@@ -609,9 +609,7 @@ namespace Photoland.Exchanger
                                                                 ",'" + r[5].Trim() + "' " +
                                                                 ",'" + r[6].Trim() + "' " +
                                                                 ",'" + r[7] + "' " +
-                                                                ",CONVERT(DATETIME, '" + _d.Year.ToString("D4") + "-" +
-                                                                _d.Month.ToString("D2") + "-" + _d.Day.ToString("D2") +
-                                                                " " + _d.ToShortTimeString() + "', 120) " +
+                                                                ", CONVERT(DATETIME, '" + DateToSql(r[4]) + "', 120) " +
                                                                 ",'" + r[2] + "'" + 
                                                                 ",'" + r[8] + "')";
                                                         using (SqlConnection cn = new SqlConnection(prop.Connection_string))
