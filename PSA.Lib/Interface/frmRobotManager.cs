@@ -149,7 +149,7 @@ namespace PSA.Lib.Interface
 				data.Cols[1].Width = 245;
 				data.Cols[2].Width = 150;
 
-				if (File.Exists(prop.Dir_export + "\\robot.export"))
+				if (File.Exists(prop.Dir_net_export + "\\robot.export"))
 				{
 					btnExport.Enabled = false;
 				}
@@ -158,7 +158,7 @@ namespace PSA.Lib.Interface
 					btnExport.Enabled = true;
 				}
 
-				if (File.Exists(prop.Dir_export + "\\robot.cache"))
+				if (File.Exists(prop.Dir_net_export + "\\robot.cache"))
 				{
 					button1.Enabled = false;
 				}
@@ -167,7 +167,7 @@ namespace PSA.Lib.Interface
 					button1.Enabled = true;
 				}
 
-				if (File.Exists(prop.Dir_export + "\\robot.import"))
+				if (File.Exists(prop.Dir_net_export + "\\robot.import"))
 				{
 					btnImport.Enabled = false;
 				}

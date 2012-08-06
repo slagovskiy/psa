@@ -78,6 +78,7 @@
             this.checkSearchSubDir = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabAcceptance = new System.Windows.Forms.TabPage();
+            this.checkDontLockExport = new System.Windows.Forms.CheckBox();
             this.checkExportOld = new System.Windows.Forms.CheckBox();
             this.txtDCardLimit = new System.Windows.Forms.TextBox();
             this.label61 = new System.Windows.Forms.Label();
@@ -318,7 +319,9 @@
             this.checkDebugIdForQBtn = new System.Windows.Forms.CheckBox();
             this.odlg = new System.Windows.Forms.OpenFileDialog();
             this.dlg = new System.Windows.Forms.FolderBrowserDialog();
-            this.checkDontLockExport = new System.Windows.Forms.CheckBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.txtExportNet = new System.Windows.Forms.TextBox();
+            this.btnSelectExportDirNet = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabDatabase.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -888,6 +891,15 @@
             this.tabAcceptance.TabIndex = 1;
             this.tabAcceptance.Text = "Приемка";
             this.tabAcceptance.UseVisualStyleBackColor = true;
+            // 
+            // checkDontLockExport
+            // 
+            this.checkDontLockExport.Location = new System.Drawing.Point(411, 323);
+            this.checkDontLockExport.Name = "checkDontLockExport";
+            this.checkDontLockExport.Size = new System.Drawing.Size(185, 30);
+            this.checkDontLockExport.TabIndex = 50;
+            this.checkDontLockExport.Text = "Не блокировать заказ при экспорте";
+            this.checkDontLockExport.UseVisualStyleBackColor = true;
             // 
             // checkExportOld
             // 
@@ -2390,15 +2402,18 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.label71);
+            this.groupBox11.Controls.Add(this.txtExportNet);
+            this.groupBox11.Controls.Add(this.btnSelectExportDirNet);
             this.groupBox11.Controls.Add(this.label36);
             this.groupBox11.Controls.Add(this.label38);
             this.groupBox11.Controls.Add(this.txtImport);
             this.groupBox11.Controls.Add(this.txtExport);
             this.groupBox11.Controls.Add(this.btnSelectImportDir);
             this.groupBox11.Controls.Add(this.btnSelectExportDir);
-            this.groupBox11.Location = new System.Drawing.Point(6, 64);
+            this.groupBox11.Location = new System.Drawing.Point(6, 58);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(583, 85);
+            this.groupBox11.Size = new System.Drawing.Size(583, 91);
             this.groupBox11.TabIndex = 5;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Импорт экспорт";
@@ -2406,7 +2421,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(8, 22);
+            this.label36.Location = new System.Drawing.Point(8, 18);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(168, 13);
             this.label36.TabIndex = 5;
@@ -2415,29 +2430,29 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(8, 57);
+            this.label38.Location = new System.Drawing.Point(8, 44);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(138, 13);
+            this.label38.Size = new System.Drawing.Size(265, 13);
             this.label38.TabIndex = 7;
-            this.label38.Text = "Каталог экспорта данных";
+            this.label38.Text = "Каталог экспорта данных (локальный для робота!)";
             // 
             // txtImport
             // 
-            this.txtImport.Location = new System.Drawing.Point(189, 19);
+            this.txtImport.Location = new System.Drawing.Point(189, 15);
             this.txtImport.Name = "txtImport";
             this.txtImport.Size = new System.Drawing.Size(351, 20);
             this.txtImport.TabIndex = 4;
             // 
             // txtExport
             // 
-            this.txtExport.Location = new System.Drawing.Point(189, 54);
+            this.txtExport.Location = new System.Drawing.Point(279, 41);
             this.txtExport.Name = "txtExport";
-            this.txtExport.Size = new System.Drawing.Size(351, 20);
+            this.txtExport.Size = new System.Drawing.Size(261, 20);
             this.txtExport.TabIndex = 8;
             // 
             // btnSelectImportDir
             // 
-            this.btnSelectImportDir.Location = new System.Drawing.Point(546, 17);
+            this.btnSelectImportDir.Location = new System.Drawing.Point(546, 13);
             this.btnSelectImportDir.Name = "btnSelectImportDir";
             this.btnSelectImportDir.Size = new System.Drawing.Size(31, 23);
             this.btnSelectImportDir.TabIndex = 6;
@@ -2447,7 +2462,7 @@
             // 
             // btnSelectExportDir
             // 
-            this.btnSelectExportDir.Location = new System.Drawing.Point(546, 52);
+            this.btnSelectExportDir.Location = new System.Drawing.Point(546, 39);
             this.btnSelectExportDir.Name = "btnSelectExportDir";
             this.btnSelectExportDir.Size = new System.Drawing.Size(31, 23);
             this.btnSelectExportDir.TabIndex = 9;
@@ -3291,14 +3306,31 @@
             this.odlg.FileName = "odlg";
             this.odlg.Filter = "\"Photoland reports (*.xml)|*.xml|All files (*.*)|*.*\"";
             // 
-            // checkDontLockExport
+            // label71
             // 
-            this.checkDontLockExport.Location = new System.Drawing.Point(411, 323);
-            this.checkDontLockExport.Name = "checkDontLockExport";
-            this.checkDontLockExport.Size = new System.Drawing.Size(185, 30);
-            this.checkDontLockExport.TabIndex = 50;
-            this.checkDontLockExport.Text = "Не блокировать заказ при экспорте";
-            this.checkDontLockExport.UseVisualStyleBackColor = true;
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(8, 70);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(216, 13);
+            this.label71.TabIndex = 10;
+            this.label71.Text = "Каталог экспорта данных (сетевой путь!)";
+            // 
+            // txtExportNet
+            // 
+            this.txtExportNet.Location = new System.Drawing.Point(230, 67);
+            this.txtExportNet.Name = "txtExportNet";
+            this.txtExportNet.Size = new System.Drawing.Size(310, 20);
+            this.txtExportNet.TabIndex = 11;
+            // 
+            // btnSelectExportDirNet
+            // 
+            this.btnSelectExportDirNet.Location = new System.Drawing.Point(546, 65);
+            this.btnSelectExportDirNet.Name = "btnSelectExportDirNet";
+            this.btnSelectExportDirNet.Size = new System.Drawing.Size(31, 23);
+            this.btnSelectExportDirNet.TabIndex = 12;
+            this.btnSelectExportDirNet.Text = "...";
+            this.btnSelectExportDirNet.UseVisualStyleBackColor = true;
+            this.btnSelectExportDirNet.Click += new System.EventHandler(this.btnSelectExportDirNet_Click);
             // 
             // frmSetup
             // 
@@ -3706,6 +3738,9 @@
         private System.Windows.Forms.TextBox txtDirAutoImport;
         private System.Windows.Forms.Button btnAutoImport;
         private System.Windows.Forms.CheckBox checkDontLockExport;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.TextBox txtExportNet;
+        private System.Windows.Forms.Button btnSelectExportDirNet;
 
 	}
 }

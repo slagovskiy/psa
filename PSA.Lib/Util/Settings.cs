@@ -95,8 +95,9 @@ namespace PSA.Lib.Util
 			_UpdateOrderTableInDesigner = int.Parse(f.IniReadValue("Main", "UpdateOrderTableInDesigner", "60")); //int 
 			_Fly_window_designer = bool.Parse(f.IniReadValue("Main", "Fly_window_designer", "true")); //bool 
 			_Dir_import = f.IniReadValue("Main", "Dir_import", ""); //string 
-			_Dir_export = f.IniReadValue("Main", "Dir_export", ""); //string 
-			_Robot_animation_icon = bool.Parse(f.IniReadValue("Robot", "Robot_animation_icon", "true")); //bool 
+            _Dir_export = f.IniReadValue("Main", "Dir_export", ""); //string 
+            _Dir_net_export = f.IniReadValue("Main", "Dir_net_export", ""); //string 
+            _Robot_animation_icon = bool.Parse(f.IniReadValue("Robot", "Robot_animation_icon", "true")); //bool 
 			_SQL_Import_Template_Mashine = f.IniReadValue("Robot", "SQL_Import_Template_Mashine", ""); //string 
 			_SQL_Import_Template_DCard = f.IniReadValue("Robot", "SQL_Import_Template_DCard", ""); //string 
 			_SQL_Import_Template_Material = f.IniReadValue("Robot", "SQL_Import_Template_Material", ""); //string 
@@ -221,8 +222,9 @@ namespace PSA.Lib.Util
 				f.IniWriteValue("Main", "UpdateOrderTableInDesigner", _UpdateOrderTableInDesigner.ToString()); //int 
 				f.IniWriteValue("Main", "Fly_window_designer", _Fly_window_designer.ToString()); //bool 
 				f.IniWriteValue("Main", "Dir_import", _Dir_import); //string 
-				f.IniWriteValue("Main", "Dir_export", _Dir_export); //string 
-				f.IniWriteValue("Robot", "Robot_animation_icon", _Robot_animation_icon.ToString()); //bool 
+                f.IniWriteValue("Main", "Dir_export", _Dir_export); //string 
+                f.IniWriteValue("Main", "Dir_net_export", _Dir_net_export); //string 
+                f.IniWriteValue("Robot", "Robot_animation_icon", _Robot_animation_icon.ToString()); //bool 
 				f.IniWriteValue("Robot", "SQL_Import_Template_Mashine", _SQL_Import_Template_Mashine); //string 
 				f.IniWriteValue("Robot", "SQL_Import_Template_DCard", _SQL_Import_Template_DCard); //string 
 				f.IniWriteValue("Robot", "SQL_Import_Template_Material", _SQL_Import_Template_Material); //string 

@@ -78,6 +78,7 @@
             this.toolMFoto = new System.Windows.Forms.ToolStripButton();
             this.toolStripQuick = new System.Windows.Forms.ToolStripSeparator();
             this.tbtnOpenAcceptabceTable = new System.Windows.Forms.ToolStripButton();
+            this.tbtnImport = new System.Windows.Forms.ToolStripButton();
             this.toolOpenAccepTable2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -86,7 +87,6 @@
             this.tbtnLogoff = new System.Windows.Forms.ToolStripButton();
             this.rep = new C1.Win.C1Report.C1Report();
             this.sdlg = new System.Windows.Forms.SaveFileDialog();
-            this.tbtnImport = new System.Windows.Forms.ToolStripButton();
             this.mnuMain.SuspendLayout();
             this.toolAccentance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rep)).BeginInit();
@@ -418,10 +418,10 @@
             this.tbtnMaster,
             this.toolStripSeparator2,
             this.toolQuick,
+            this.tbtnImport,
             this.toolMFoto,
             this.toolStripQuick,
             this.tbtnOpenAcceptabceTable,
-            this.tbtnImport,
             this.toolOpenAccepTable2,
             this.toolStripButton1,
             this.toolStripSeparator1,
@@ -512,6 +512,16 @@
             this.tbtnOpenAcceptabceTable.Text = "Открыть основной журнал";
             this.tbtnOpenAcceptabceTable.Click += new System.EventHandler(this.tbtnOpenAcceptabceTable_Click);
             // 
+            // tbtnImport
+            // 
+            this.tbtnImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbtnImport.Image = ((System.Drawing.Image)(resources.GetObject("tbtnImport.Image")));
+            this.tbtnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbtnImport.Name = "tbtnImport";
+            this.tbtnImport.Size = new System.Drawing.Size(68, 68);
+            this.tbtnImport.Text = "Импортировать пришедшие заказы";
+            this.tbtnImport.Click += new System.EventHandler(this.tbtnImport_Click);
+            // 
             // toolOpenAccepTable2
             // 
             this.toolOpenAccepTable2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -565,16 +575,6 @@
             // rep
             // 
             this.rep.ReportDefinition = resources.GetString("rep.ReportDefinition");
-            // 
-            // tbtnImport
-            // 
-            this.tbtnImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbtnImport.Image = ((System.Drawing.Image)(resources.GetObject("tbtnImport.Image")));
-            this.tbtnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbtnImport.Name = "tbtnImport";
-            this.tbtnImport.Size = new System.Drawing.Size(68, 68);
-            this.tbtnImport.Text = "Импортировать пришедшие заказы";
-            this.tbtnImport.Click += new System.EventHandler(this.tbtnImport_Click);
             // 
             // frmMain
             // 

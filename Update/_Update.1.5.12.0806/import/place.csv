@@ -1,0 +1,14 @@
+1;приемка Королева 40;0;int.fotoland.ru;/input/;psa;solaris
+2;отдел допечатной обработки;0;int.fotoland.ru;/designer/;psa;solaris
+3;отдел широкоформатной печати;0;int.fotoland.ru;/lambda/;psa;solaris
+4;Центр оперативной полиграфии;0;int.fotoland.ru;/cop/;psa;solaris
+5;фм «ГУТ»;0;gut.fotoland.ru;/gut/;psa;solaris
+6;фм «На Молодежной»;0;gut.fotoland.ru;/molod/;psa;solaris
+7;фм «Центральный»;0;pub.fotoland.ru;/;psa;solaris
+8;фм «На студенческой»;0;80.242.84.59;/stud/;psa;solaris
+9;фм «Сибирский молл»;0;192.168.15.2;/;psa;solaris
+10;фм «на Титова»;0;192.168.15.2;/;psa;solaris80.242.65.146
+11;фо «На Колхидской»;0;80.242.84.59;/kolhid/;psa;solaris
+12;фо «Сибирь»;0;80.242.84.59;/sibir/;psa;solaris
+13;фо «Меркурий»;0;195.208.151.117;/;psa;solaris
+99;Тест для разработчика;0;int.fotoland.ru;/test/;psa;solaris

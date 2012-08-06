@@ -61,7 +61,13 @@ namespace PSA.Lib.Interface
                             if ((file.Extension.ToLower() == ".import") || (file.Extension.ToLower() == ".export"))
                                 found = true;
 
-                            if (file.Extension.ToLower() == ".loaded")
+                            //if (file.Extension.ToLower() == ".loaded")
+                            //{
+                            //    found = false;
+                            //    break;
+                            //}
+                            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM [order_import] WHERE [number] = '" + sub.Name + "'", db_connection);
+                            if ((int)cmd.ExecuteScalar() > 0)
                             {
                                 found = false;
                                 break;
@@ -181,7 +187,9 @@ namespace PSA.Lib.Interface
                                 {
                                     try
                                     {
-                                        File.Create(dir.FullName + "\\.loaded");
+                                        //File.Create(dir.FullName + "\\.loaded");
+                                        SqlCommand cmd = new SqlCommand("INSERT INTO [order_import] ([number]) VALUES ('" + rw["Number"].ToString() + "')", db_connection);
+                                        cmd.ExecuteNonQuery();
                                     }
                                     catch { }
                                 }

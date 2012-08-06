@@ -167,8 +167,9 @@ namespace PSA.Lib.Interface
 
 			txtOrderListDesignerUpdate.Text = p.UpdateOrderTableInDesigner.ToString();
 
-			txtExport.Text = p.Dir_export;
-			txtImport.Text = p.Dir_import;
+            txtExport.Text = p.Dir_export;
+            txtExportNet.Text = p.Dir_net_export;
+            txtImport.Text = p.Dir_import;
 
 			if (p.Robot_animation_icon)
 				checkRobotIconAnimation.Checked = true;
@@ -487,7 +488,8 @@ namespace PSA.Lib.Interface
 			p.UpdateOrderTableInDesigner = int.Parse(txtOrderListDesignerUpdate.Text);
 
 			p.Dir_import = txtImport.Text;
-			p.Dir_export = txtExport.Text;
+            p.Dir_export = txtExport.Text;
+            p.Dir_net_export = txtExportNet.Text;
 
 			if (checkRobotIconAnimation.Checked)
 				p.Robot_animation_icon = true;
@@ -1147,6 +1149,13 @@ namespace PSA.Lib.Interface
             dlg.ShowDialog();
             if (dlg.SelectedPath != "")
                 txtDirAutoImport.Text = dlg.SelectedPath;
+        }
+
+        private void btnSelectExportDirNet_Click(object sender, EventArgs e)
+        {
+            dlg.ShowDialog();
+            if (dlg.SelectedPath != "")
+                txtExportNet.Text = dlg.SelectedPath;
         }
 		
 	}

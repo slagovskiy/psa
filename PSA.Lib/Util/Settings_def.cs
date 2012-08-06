@@ -863,20 +863,33 @@ namespace PSA.Lib.Util
 			}
 		}
 
-		private string _Dir_export;
-		public string Dir_export
-		{
-			get
-			{
-				return _Dir_export;
-			}
-			set
-			{
-				_Dir_export = value;
-			}
-		}
+        private string _Dir_export;
+        public string Dir_export
+        {
+            get
+            {
+                return _Dir_export;
+            }
+            set
+            {
+                _Dir_export = value;
+            }
+        }
 
-		private bool _Robot_animation_icon;
+        private string _Dir_net_export;
+        public string Dir_net_export
+        {
+            get
+            {
+                return _Dir_net_export;
+            }
+            set
+            {
+                _Dir_net_export = value;
+            }
+        }
+
+        private bool _Robot_animation_icon;
 		public bool Robot_animation_icon
 		{
 			get

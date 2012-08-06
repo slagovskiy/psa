@@ -1,0 +1,1 @@
+start "Update" "%CD%\PSA.Update.exe"
