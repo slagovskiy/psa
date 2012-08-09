@@ -227,35 +227,37 @@ namespace PSA.Robot
 								for (int j = 0; j < td.Rows.Count; j++)
 								{
 									exported_orderbody += ", ";
-									fl.WriteLine(td.Rows[j][0].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][1].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][2].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][3].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][4].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][5].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][6].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][7].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][8].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][9].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][10].ToString().Trim().Replace(";", " ") + ";" +
-												 ((t.Rows[j][11].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[j][11]).ToString("dd.MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][12].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][13].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][14].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][15].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][16].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][17].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][18].ToString().Trim().Replace(";", " ") + ";" +
-												 ((td.Rows[j][19].GetType().Name == "DBNull") ? "" : ((DateTime)td.Rows[j][19]).ToString("dd.MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][20].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][21].ToString().Trim().Replace(";", " ") + ";" +
-												 td.Rows[j][22].ToString().Trim().Replace(";", " "));
+                                    fl.WriteLine(td.Rows[j][0].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][1].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][2].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][3].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][4].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][5].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][6].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][7].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][8].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][9].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][10].ToString().Trim().Replace(";", " ") + ";" +
+                                                 ((t.Rows[j][11].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[j][11]).ToString("dd.MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][12].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][13].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][14].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][15].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][16].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][17].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][18].ToString().Trim().Replace(";", " ") + ";" +
+                                                 ((td.Rows[j][19].GetType().Name == "DBNull") ? "" : ((DateTime)td.Rows[j][19]).ToString("dd.MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][20].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][21].ToString().Trim().Replace(";", " ") + ";" +
+                                                 td.Rows[j][22].ToString().Trim().Replace(";", " "));
 									try
 									{
 										exported_orderbody += td.Rows[j][0].ToString();
 									}
 									catch (Exception ex)
 									{
+                                        file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка " + ex.Message + "\n" + ex.Source + "\n" + ex.StackTrace);
+                                        file.Flush();
 									}
 								}
 							}
@@ -960,9 +962,11 @@ namespace PSA.Robot
 					file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Каталог экспорта не найден");
 				}
 			}
-			catch
-			{
-			}
+			catch(Exception ex)
+				{
+					file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка " + ex.Message + "\n" + ex.Source + "\n" + ex.StackTrace);
+					file.Flush();
+				}
 		}
 	}
 }

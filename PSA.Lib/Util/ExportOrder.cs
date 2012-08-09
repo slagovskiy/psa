@@ -117,7 +117,7 @@ namespace PSA.Lib.Util
                                                      _status + ";" +
                                                      t.Rows[i][13].ToString().Trim().Replace(";", " ") + ";" +
                                                      ((t.Rows[i][14].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][14]).ToString("dd.MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
-                                                     ((t.Rows[i][15].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][15]).ToString("dd/MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                     ((t.Rows[i][15].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][15]).ToString("dd.MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
                                                      ((t.Rows[i][16].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[i][16]).ToString("dd.MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
                                                      t.Rows[i][17].ToString().Trim().Replace(";", " ") + ";" +
                                                      t.Rows[i][18].ToString().Trim().Replace(";", " ") + ";" +

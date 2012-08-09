@@ -421,7 +421,7 @@ namespace Photoland.Acceptance
 		{
             try
             {
-                StreamWriter sw = new StreamWriter(prop.Dir_export + "\\Acceptance_" + Environment.MachineName + "_" + Environment.UserName + ".info", false, Encoding.GetEncoding(1251));
+                StreamWriter sw = new StreamWriter(prop.Dir_net_export + "\\Acceptance_" + Environment.MachineName + "_" + Environment.UserName + ".info", false, Encoding.GetEncoding(1251));
                 sw.Write("Date:           " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() +
                          "\nMashine:        " + Environment.MachineName +
                          "\nUser:           " + Environment.UserName +
