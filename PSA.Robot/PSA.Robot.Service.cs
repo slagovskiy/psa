@@ -30,16 +30,17 @@ namespace PSA.Robot
 		public RobotService()
 		{
 			InitializeComponent();
-		}
+
+            file = new StreamWriter(System.Environment.GetCommandLineArgs()[0].Substring(
+                0,
+                System.Environment.GetCommandLineArgs()[0].LastIndexOf('\\')
+                ) + "\\PSA.Robot.Service.log", true, System.Text.Encoding.UTF8);
+            file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Служба стартовала.");
+            file.Flush();
+        }
 
 		protected override void OnStart(string[] args)
 		{
-			file = new StreamWriter(System.Environment.GetCommandLineArgs()[0].Substring(
-				0,
-				System.Environment.GetCommandLineArgs()[0].LastIndexOf('\\')
-				) + "\\PSA.Robot.Service.log", true, System.Text.Encoding.UTF8);
-			file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Служба стартовала.");
-			file.Flush();
 
 			t1.Enabled = true;
 			t1.Interval = 60000;

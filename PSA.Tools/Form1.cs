@@ -14,6 +14,10 @@ using FirebirdSql.Data.FirebirdClient;
 using System.Net;
 using System.IO.Compression;
 using ICSharpCode.SharpZipLib.Zip;
+using PSA.Robot;
+using Xceed.Ftp;
+using Xceed.FileSystem;
+
 
 
 namespace PSA.Tools
@@ -604,6 +608,39 @@ namespace PSA.Tools
 				MessageBox.Show(ex.Message.ToString(), "Zip Operation Error");
 			}
 		}
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            RobotService robot = new RobotService();
+            robot.doExport();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Xceed.Ftp.Licenser.LicenseKey = "FTN42-K40Z3-DXCGS-PYGA";
+                
+                using (FtpConnection connection = new FtpConnection(
+                    ftpAddress.Text,
+                    ftpUser.Text,
+                    ftpPassword.Text))
+                {
+                    connection.Encoding = Encoding.GetEncoding(1251);
+
+                    DiskFolder source = new DiskFolder(ftpSource.Text);
+
+                    FtpFolder destination = new FtpFolder(connection, ftpDestanation.Text);
+
+                    source.CopyFilesTo(destination, true, true);
+                }
+                MessageBox.Show("ok");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + ex.Source + "\n" + ex.StackTrace);
+            }
+        }
 
     }
 }

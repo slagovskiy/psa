@@ -14,7 +14,7 @@ namespace PSA.Robot
     public partial class RobotService
     {
 
-        private void UploadOrders()
+        public void UploadOrders()
         {
             try
             {
@@ -57,8 +57,18 @@ namespace PSA.Robot
                                         place["password"].ToString().Trim()))
                                     {
                                         connection.Encoding = Encoding.GetEncoding(1251);
+
+                                        file.WriteLine("from: " + prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\");
+                                        file.Flush();
                                         DiskFolder source = new DiskFolder(prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\");
-                                        FtpFolder destination = new FtpFolder(connection, place["path"].ToString() + "//" + rw["number"].ToString().Trim() + "//");
+
+
+                                        string ftp_to = place["path"].ToString().Trim() + rw["number"].ToString().Trim() + "/";
+                                        if (ftp_to.Substring(0, 1) == "/") ftp_to = ftp_to.Substring(1);
+                                        file.WriteLine("to: " + ftp_to);
+                                        file.Flush();
+                                        FtpFolder destination = new FtpFolder(connection, ftp_to);
+                                        
                                         source.CopyFilesTo(destination, true, true);
                                         db_command = new SqlCommand("UPDATE [order] SET [auto_export] = -1 WHERE [number] = '" + rw["number"].ToString().Trim() + "'", db_connection);
                                         db_command.ExecuteNonQuery();
@@ -70,14 +80,14 @@ namespace PSA.Robot
                             }
                             catch (Exception ex)
                             {
-                                file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выгрузки заказа " + ex.Message);
+                                file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выгрузки заказа " + ex.Message + "\n" + ex.Source + "\n" + ex.StackTrace);
                                 file.Flush();
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выгрузки заказов " + ex.Message);
+                        file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выгрузки заказов " + ex.Message + "\n" + ex.Source + "\n" + ex.StackTrace);
                         file.Flush();
                     }
                     finally

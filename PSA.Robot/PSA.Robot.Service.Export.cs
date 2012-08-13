@@ -46,7 +46,7 @@ namespace PSA.Robot
 		}
 
 
-		private void doExport()
+		public void doExport()
 		{
 			try
 			{
@@ -238,7 +238,7 @@ namespace PSA.Robot
                                                  td.Rows[j][8].ToString().Trim().Replace(";", " ") + ";" +
                                                  td.Rows[j][9].ToString().Trim().Replace(";", " ") + ";" +
                                                  td.Rows[j][10].ToString().Trim().Replace(";", " ") + ";" +
-                                                 ((t.Rows[j][11].GetType().Name == "DBNull") ? "" : ((DateTime)t.Rows[j][11]).ToString("dd.MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
+                                                 ((td.Rows[j][11].GetType().Name == "DBNull") ? "" : ((DateTime)td.Rows[j][11]).ToString("dd.MM.yyyy hh:mm", ci)).Trim().Replace(";", " ") + ";" +
                                                  td.Rows[j][12].ToString().Trim().Replace(";", " ") + ";" +
                                                  td.Rows[j][13].ToString().Trim().Replace(";", " ") + ";" +
                                                  td.Rows[j][14].ToString().Trim().Replace(";", " ") + ";" +
