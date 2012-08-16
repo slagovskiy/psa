@@ -17,6 +17,7 @@ using ICSharpCode.SharpZipLib.Zip;
 using PSA.Robot;
 using Xceed.Ftp;
 using Xceed.FileSystem;
+using Photoland.Security.User;
 
 
 
@@ -27,6 +28,8 @@ namespace PSA.Tools
         Settings settings = new Settings();
         bool stop = false;
 
+        UserInfo usr;
+
         public frmMain()
         {
             InitializeComponent();
@@ -34,6 +37,12 @@ namespace PSA.Tools
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            frmLogin fl = new frmLogin();
+            fl.ShowDialog();
+            if (fl.DialogResult == DialogResult.OK)
+            {
+                usr = fl.usr;
+            }
         }
 
         private void btnAction1a_Click(object sender, EventArgs e)
@@ -640,6 +649,20 @@ namespace PSA.Tools
             {
                 MessageBox.Show(ex.Message + "\n" + ex.Source + "\n" + ex.StackTrace);
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            frmNewImport import = new frmNewImport();
+            import.usr = usr;
+            import.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            RobotService robot = new RobotService();
+            robot.UploadOrders();
         }
 
     }

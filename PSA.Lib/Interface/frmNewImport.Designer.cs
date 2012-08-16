@@ -38,6 +38,7 @@
             this.checkPrintCheck = new System.Windows.Forms.CheckBox();
             this.rep = new C1.Win.C1Report.C1Report();
             this.pb = new System.Windows.Forms.ProgressBar();
+            this.log = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             this.data.MultiSelect = false;
             this.data.Name = "data";
             this.data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data.Size = new System.Drawing.Size(278, 478);
+            this.data.Size = new System.Drawing.Size(278, 390);
             this.data.TabIndex = 2;
             // 
             // btnSelectAll
@@ -131,10 +132,20 @@
             this.pb.Size = new System.Drawing.Size(115, 23);
             this.pb.TabIndex = 10;
             // 
+            // log
+            // 
+            this.log.FormattingEnabled = true;
+            this.log.Location = new System.Drawing.Point(12, 459);
+            this.log.Name = "log";
+            this.log.ScrollAlwaysVisible = true;
+            this.log.Size = new System.Drawing.Size(278, 82);
+            this.log.TabIndex = 11;
+            // 
             // frmNewImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(427, 566);
+            this.Controls.Add(this.log);
             this.Controls.Add(this.pb);
             this.Controls.Add(this.checkPrintCheck);
             this.Controls.Add(this.btnClose);
@@ -145,8 +156,8 @@
             this.Controls.Add(this.data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmNewImport";
-            this.Text = "       - PSA v.9.0.30729.1";
-            this.Title = "         ";
+            this.Text = "          - PSA v.9.0.30729.1";
+            this.Title = "            ";
             this.Load += new System.EventHandler(this.frmNewImport_Load);
             this.Controls.SetChildIndex(this.data, 0);
             this.Controls.SetChildIndex(this.btnSelectAll, 0);
@@ -156,6 +167,7 @@
             this.Controls.SetChildIndex(this.btnClose, 0);
             this.Controls.SetChildIndex(this.checkPrintCheck, 0);
             this.Controls.SetChildIndex(this.pb, 0);
+            this.Controls.SetChildIndex(this.log, 0);
             ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep)).EndInit();
             this.ResumeLayout(false);
@@ -174,5 +186,6 @@
         public System.Windows.Forms.CheckBox checkPrintCheck;
         private C1.Win.C1Report.C1Report rep;
         private System.Windows.Forms.ProgressBar pb;
+        private System.Windows.Forms.ListBox log;
     }
 }

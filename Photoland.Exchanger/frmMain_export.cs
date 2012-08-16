@@ -297,9 +297,9 @@ namespace Photoland.Exchanger
 
                                 fl.Close();
                                 pb.Visible = false;
-                                MessageBox.Show("Данные успешно экспортированы!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                if (type == 1)
-                                {
+                                //MessageBox.Show("Данные успешно экспортированы!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //if (type == 1)
+                                //{
                                     StreamWriter batw =
                                         new StreamWriter(file + ".bat", false, Encoding.GetEncoding(866));
                                     batw.WriteLine("@echo off\n");
@@ -349,7 +349,7 @@ namespace Photoland.Exchanger
                                         pr.Start();
                                         //pr.WaitForExit();
                                     }
-                                }
+                                //}
                                 System.Diagnostics.Process pre = new System.Diagnostics.Process();
                                 pre.StartInfo.WorkingDirectory = System.Environment.GetEnvironmentVariables()["SystemRoot"].ToString();
                                 pre.StartInfo.Arguments = (new FileInfo(file).Directory.ToString());
@@ -425,6 +425,11 @@ namespace Photoland.Exchanger
                             {
                                 for (int i = 0; i < fscan.numbers.Count; i++)
                                 {
+                                    db_command = new SqlCommand("SELECT [id_order] FROM [ORDER] WHERE [number] = '" + fscan.numbers[i] + "'", db_connection);
+                                    int id_order = (int)db_command.ExecuteScalar();
+
+                                    AddEvent("Заказ был экспортирован", id_order);
+
                                     db_command = new SqlCommand(
                                         "UPDATE [dbo].[order] SET [auto_export] = " + type.ToString() +
                                         ", [id_place] = " + fExport.place.ToString() +

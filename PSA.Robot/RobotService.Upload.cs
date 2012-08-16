@@ -74,7 +74,7 @@ namespace PSA.Robot
                                         db_command.ExecuteNonQuery();
                                         file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Выгружен заказ " + rw["number"].ToString().Trim());
                                         file.Flush();
-                                        //Directory.Delete(prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\", true);
+                                        Directory.Delete(prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\", true);
                                     }
                                 }
                             }

@@ -1585,6 +1585,7 @@ namespace Photoland.Forms.Interface
 		private void btnOK_Click(object sender, EventArgs e)
 		{
 			bool ok = true;
+            order.Konvert = ((checkKonvert.Checked) ? 1 : 0);
 			if ((this.order.AdvancedPayment != 0) && (txtPType.SelectedValue.ToString() == "-1"))
 			{
 				MessageBox.Show("Внимание! Укажите тип оплаты!", "Проверка", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -219,9 +219,14 @@ namespace Photoland.Forms.Interface
 
 			txtPType.SelectedValue = order.PType;
 
+            if (order.Konvert == 1)
+                checkKonvert.Checked = true;
+            else
+                checkKonvert.Checked = false;
 
 
-            tmr.Stop();
+
+                tmr.Stop();
             tmr.Interval = prop.UpdateOrderTableInAcceptance * 1000;
             tmr.Start();
         }
@@ -329,6 +334,7 @@ namespace Photoland.Forms.Interface
             btnFinalPayment.Enabled = false;
             btnFinalPaymentClear.Enabled = false;
 			txtPType.Enabled = false;
+            checkKonvert.Enabled = false;
 
             lblStatus.Text = "Статус не определен";
             
@@ -364,6 +370,7 @@ namespace Photoland.Forms.Interface
                         lblStatus.Text = "Готово после обработки, предпросмотр";
                         btnHow.Enabled = true;
                         hideActions.Visible = true;
+                        checkKonvert.Enabled = true;
 
                         break;
                     }
@@ -375,6 +382,7 @@ namespace Photoland.Forms.Interface
 						btnAddServ.Enabled = true;
                         btnReCalc.Enabled = true;
                         btnOK.Enabled = true;
+                        checkKonvert.Enabled = true;
                         //checkPreview.Enabled = true;
 						if (Decimal.Parse(lblOrderSum.Text) == 0)
 							btnOrderCancel.Enabled = true;
@@ -391,6 +399,7 @@ namespace Photoland.Forms.Interface
                         hideActions.Visible = false;
                         btnAddServ.Enabled = true;
 						btnDelServ.Enabled = true;
+                        checkKonvert.Enabled = true;
 						if (prop.Qbtn01_id != "0")
 							btnQuickServ1.Enabled = true;
 						else
@@ -449,7 +458,7 @@ namespace Photoland.Forms.Interface
                         hideActions.Visible = false;
 
 						lblStatus.Text = "В процессе печати";
-
+                        checkKonvert.Enabled = true;
 						break;
 					}
 				//В процессе обработки дизайнером
@@ -458,7 +467,7 @@ namespace Photoland.Forms.Interface
                         hideActions.Visible = false;
 
 						lblStatus.Text = "В процессе обработки дизайнером";
-
+                        checkKonvert.Enabled = true;
 						break;
 					}
 				// На предпросмотре
@@ -517,6 +526,7 @@ namespace Photoland.Forms.Interface
                         btnDescont.Enabled = false;
 						//btnDescontClear.Enabled = true;
 						btnReCalc.Enabled = true;
+                        checkKonvert.Enabled = true;
 						
 
 						btnOrderEnd.Enabled = false;
@@ -585,6 +595,7 @@ namespace Photoland.Forms.Interface
                         btnDescont.Enabled = false;
 						//btnDescontClear.Enabled = true;
 						btnReCalc.Enabled = true;
+                        checkKonvert.Enabled = true;
 
                         if (decimal.Parse(lblOrderSumFinal.Text) == 0)
                         {
@@ -2283,6 +2294,7 @@ namespace Photoland.Forms.Interface
 			order.Dateout = txtOrderDateOutput.Value.ToShortDateString() + " " + txtOrderTimeOutput.Text;
 			order.Timeout = txtOrderTimeOutput.Text;
 			order.PType = int.Parse(txtPType.SelectedValue.ToString());
+            order.Konvert = ((checkKonvert.Checked) ? 1 : 0);
 			try
 			{
 				if (((order.Distanation.Trim() == "100000") || (order.Distanation.Trim() == "200000")) && (int.Parse(txtPType.SelectedValue.ToString()) == -1))

@@ -1836,3 +1836,123 @@ mscorlib
 08/13/2012 13:02 [+] Файл payments_2012_08_13_12_27_45.csv успешно скопирован в резервный каталог
 08/13/2012 13:02 [+] Файл payments_2012_08_13_12_27_45.csv успешно скопирован на ftp сервер
 08/13/2012 13:02 [+] Файл payments_2012_08_13_12_27_45.csv успешно удален
+16.08.2012 14:37 [+] Служба стартовала.
+08/16/2012 14:37 [+] Начинаем экспорт заказов
+08/16/2012 14:37 [+] Экспорт заказов завершен
+08/16/2012 14:37 [+] Начинаем экспорт платежей
+08/16/2012 14:38 [+] начинаем экспорт инвентаризации
+08/16/2012 14:38 [+] Начинаем экспорт сверки
+08/16/2012 14:38 [+] Начинаем экспорт списаний
+08/16/2012 14:38 [+] Начинаем экспорт счетчиков операторов
+08/16/2012 14:38 [+] Начинаем экспорт счетчиков моментальной печати
+08/16/2012 14:38 [+] Начинаем экспорт событий по терминальным заказам
+08/16/2012 14:38 [+] Проставляем признак экспорта в заказах
+08/16/2012 14:38 [+] Проставляем признак экспорта в таблице заказа
+08/16/2012 14:38 [+] Проставляем признак экспорта в платежах
+08/16/2012 14:38 [+] Проставляем признак экспорта в списаниях
+08/16/2012 14:38 [+] Проставляем признак экспорта в инвентаризации
+08/16/2012 14:38 [+] Проставляем признак экспорта в сверке
+08/16/2012 14:38 [+] Проставляем признак экспорта событий по терминальным заказам
+08/16/2012 14:38 [+] Проставляем признак экспорта счетчиков операторов
+08/16/2012 14:38 [+] Проставляем признак экспорта счетчиков моментальной печати
+08/16/2012 14:38 [+] Начинаем отправку данных
+08/16/2012 14:38 [+] Файл order3_2012_08_16_14_37_01.csv успешно скопирован в резервный каталог
+08/16/2012 14:38 [+] Файл order3_2012_08_16_14_37_01.csv успешно скопирован на ftp сервер
+08/16/2012 14:38 [+] Файл order3_2012_08_16_14_37_01.csv успешно удален
+16.08.2012 14:53 [+] Служба стартовала.
+16.08.2012 14:53 [+] Выбираем заказы на экспорт
+16.08.2012 14:53 [+] Подготавливаем к выгрузке заказ 030000057994
+16.08.2012 14:53 [+] Выгружаем заказ 030000057994 на 80.242.65.146 в /
+from: C:\Database\Export\auto_export\030000057994\
+to: 030000057994/
+16.08.2012 14:53 [+] Выгружен заказ 030000057994
+16.08.2012 14:53 [+] Подготавливаем к выгрузке заказ 060000070865
+16.08.2012 14:53 [+] Выгружаем заказ 060000070865 на pub.fotoland.ru в /
+from: C:\Database\Export\auto_export\060000070865\
+to: 060000070865/
+16.08.2012 14:53 [+] Выгружен заказ 060000070865
+16.08.2012 14:53 [+] Подготавливаем к выгрузке заказ 060000070854
+16.08.2012 14:53 [+] Выгружаем заказ 060000070854 на pub.fotoland.ru в /
+from: C:\Database\Export\auto_export\060000070854\
+to: 060000070854/
+16.08.2012 14:53 [+] Выгружен заказ 060000070854
+16.08.2012 14:53 [+] Подготавливаем к выгрузке заказ 060000070877
+16.08.2012 14:53 [+] Выгружаем заказ 060000070877 на pub.fotoland.ru в /
+from: C:\Database\Export\auto_export\060000070877\
+to: 060000070877/
+16.08.2012 14:54 [!] Ошибка выгрузки заказа An error occurred while opening a file for writing.
+Type: Xceed.Ftp.FtpFile
+FullName: \060000070877/\060000070877.export.bat
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 72
+16.08.2012 14:54 [+] Подготавливаем к выгрузке заказ 060000070878
+16.08.2012 14:54 [+] Выгружаем заказ 060000070878 на pub.fotoland.ru в /
+from: C:\Database\Export\auto_export\060000070878\
+to: 060000070878/
+16.08.2012 14:54 [+] Выгружен заказ 060000070878
+16.08.2012 14:54 [+] Подготавливаем к выгрузке заказ 060000070887
+16.08.2012 14:54 [+] Выгружаем заказ 060000070887 на pub.fotoland.ru в /
+from: C:\Database\Export\auto_export\060000070887\
+to: 060000070887/
+16.08.2012 14:54 [+] Выгружен заказ 060000070887
+16.08.2012 14:54 [+] Подготавливаем к выгрузке заказ 160000045028
+16.08.2012 14:54 [+] Выгружаем заказ 160000045028 на 195.208.151.117 в /
+from: C:\Database\Export\auto_export\160000045028\
+to: 160000045028/
+16.08.2012 14:54 [+] Выгружен заказ 160000045028
+16.08.2012 14:54 [+] Подготавливаем к выгрузке заказ 060000070898
+16.08.2012 14:54 [+] Выгружаем заказ 060000070898 на pub.fotoland.ru в /
+from: C:\Database\Export\auto_export\060000070898\
+to: 060000070898/
+16.08.2012 14:54 [+] Выгружен заказ 060000070898
+16.08.2012 14:54 [+] Подготавливаем к выгрузке заказ 660000248633
+16.08.2012 14:54 [+] Выгружаем заказ 660000248633 на int.fotoland.ru в /test/
+from: C:\Database\Export\auto_export\660000248633\
+to: test/660000248633/
+16.08.2012 14:54 [!] Ошибка выгрузки заказа The file item could not be opened for reading.
+Type: Xceed.FileSystem.DiskFile
+FullName: C:\Database\Export\auto_export\660000248633\.k
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 72
+16.08.2012 14:59 [+] Служба стартовала.
+16.08.2012 14:59 [+] Выбираем заказы на экспорт
+16.08.2012 14:59 [+] Подготавливаем к выгрузке заказ 060000070877
+16.08.2012 14:59 [+] Выгружаем заказ 060000070877 на pub.fotoland.ru в /
+from: C:\Database\Export\auto_export\060000070877\
+to: 060000070877/
+16.08.2012 14:59 [+] Выгружен заказ 060000070877
+16.08.2012 14:59 [+] Подготавливаем к выгрузке заказ 660000248633
+16.08.2012 14:59 [+] Выгружаем заказ 660000248633 на int.fotoland.ru в /test/
+from: C:\Database\Export\auto_export\660000248633\
+to: test/660000248633/
+16.08.2012 14:59 [!] Ошибка выгрузки заказа An attempt was made to create a root folder. If the root folder is a removable drive, make sure a disk is inserted.
+Type: Xceed.Ftp.FtpFolder
+FullName: \
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 72
+16.08.2012 15:08 [+] Служба стартовала.
+16.08.2012 15:08 [+] Выбираем заказы на экспорт
+16.08.2012 15:08 [+] Подготавливаем к выгрузке заказ 660000248633
+16.08.2012 15:08 [+] Выгружаем заказ 660000248633 на 192.168.1.217 в /test/
+from: C:\Database\Export\auto_export\660000248633\
+to: test/660000248633/
+16.08.2012 15:08 [!] Ошибка выгрузки заказа An error occurred while opening a file for writing.
+Type: Xceed.Ftp.FtpFile
+FullName: \test/660000248633/\edit\660000248633\660000248633.txt
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 72
+16.08.2012 15:10 [+] Служба стартовала.
+16.08.2012 15:10 [+] Выбираем заказы на экспорт
+16.08.2012 15:11 [+] Подготавливаем к выгрузке заказ 660000248633
+16.08.2012 15:11 [+] Выгружаем заказ 660000248633 на 192.168.1.217 в /test/
+from: C:\Database\Export\auto_export\660000248633\
+to: test/660000248633/
+16.08.2012 15:11 [+] Выгружен заказ 660000248633

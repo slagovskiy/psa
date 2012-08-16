@@ -83,22 +83,24 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ftpDestanation = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ftpSource = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ftpPassword = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ftpUser = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ftpAddress = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.button6 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ftpAddress = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.ftpUser = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.ftpPassword = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.ftpSource = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ftpDestanation = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -664,6 +666,8 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.button8);
+            this.tabPage8.Controls.Add(this.button7);
             this.tabPage8.Controls.Add(this.groupBox1);
             this.tabPage8.Controls.Add(this.button5);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
@@ -674,35 +678,15 @@
             this.tabPage8.Text = "Robot";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // button7
             // 
-            this.button5.Location = new System.Drawing.Point(6, 6);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Text Export";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(545, 414);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 8;
-            this.btnClose.Text = "Закрыть";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(227, 149);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Copy ftp";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button7.Location = new System.Drawing.Point(87, 6);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 3;
+            this.button7.Text = "new import";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // groupBox1
             // 
@@ -724,39 +708,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ftp";
             // 
-            // ftpAddress
+            // label10
             // 
-            this.ftpAddress.Location = new System.Drawing.Point(72, 19);
-            this.ftpAddress.Name = "ftpAddress";
-            this.ftpAddress.Size = new System.Drawing.Size(230, 20);
-            this.ftpAddress.TabIndex = 2;
-            this.ftpAddress.Text = "int.fotoland.ru";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 126);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "ftp dest";
             // 
-            // label6
+            // ftpDestanation
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 22);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "ftp Address";
+            this.ftpDestanation.Location = new System.Drawing.Point(72, 123);
+            this.ftpDestanation.Name = "ftpDestanation";
+            this.ftpDestanation.Size = new System.Drawing.Size(230, 20);
+            this.ftpDestanation.TabIndex = 10;
+            this.ftpDestanation.Text = "/";
             // 
-            // label7
+            // label9
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 48);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "ftp user";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 100);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "ftp source";
             // 
-            // ftpUser
+            // ftpSource
             // 
-            this.ftpUser.Location = new System.Drawing.Point(72, 45);
-            this.ftpUser.Name = "ftpUser";
-            this.ftpUser.Size = new System.Drawing.Size(230, 20);
-            this.ftpUser.TabIndex = 4;
-            this.ftpUser.Text = "psa";
+            this.ftpSource.Location = new System.Drawing.Point(72, 97);
+            this.ftpSource.Name = "ftpSource";
+            this.ftpSource.Size = new System.Drawing.Size(230, 20);
+            this.ftpSource.TabIndex = 8;
             // 
             // label8
             // 
@@ -775,38 +758,79 @@
             this.ftpPassword.TabIndex = 6;
             this.ftpPassword.Text = "solaris";
             // 
-            // label9
+            // label7
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 100);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "ftp source";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 48);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "ftp user";
             // 
-            // ftpSource
+            // ftpUser
             // 
-            this.ftpSource.Location = new System.Drawing.Point(72, 97);
-            this.ftpSource.Name = "ftpSource";
-            this.ftpSource.Size = new System.Drawing.Size(230, 20);
-            this.ftpSource.TabIndex = 8;
+            this.ftpUser.Location = new System.Drawing.Point(72, 45);
+            this.ftpUser.Name = "ftpUser";
+            this.ftpUser.Size = new System.Drawing.Size(230, 20);
+            this.ftpUser.TabIndex = 4;
+            this.ftpUser.Text = "psa";
             // 
-            // label10
+            // label6
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 126);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 13);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "ftp dest";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "ftp Address";
             // 
-            // ftpDestanation
+            // ftpAddress
             // 
-            this.ftpDestanation.Location = new System.Drawing.Point(72, 123);
-            this.ftpDestanation.Name = "ftpDestanation";
-            this.ftpDestanation.Size = new System.Drawing.Size(230, 20);
-            this.ftpDestanation.TabIndex = 10;
-            this.ftpDestanation.Text = "/";
+            this.ftpAddress.Location = new System.Drawing.Point(72, 19);
+            this.ftpAddress.Name = "ftpAddress";
+            this.ftpAddress.Size = new System.Drawing.Size(230, 20);
+            this.ftpAddress.TabIndex = 2;
+            this.ftpAddress.Text = "int.fotoland.ru";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(227, 149);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "Copy ftp";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(6, 6);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "Text Export";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(545, 414);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Закрыть";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(168, 6);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "new export";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // frmMain
             // 
@@ -920,6 +944,8 @@
         private System.Windows.Forms.TextBox ftpUser;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ftpAddress;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
 

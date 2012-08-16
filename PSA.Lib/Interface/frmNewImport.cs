@@ -28,12 +28,14 @@ namespace PSA.Lib.Interface
 
             this.Title = "Импорт заказов";
 
-            tbl.Columns.Add("Checked", Type.GetType("System.Boolean"));
-            tbl.Columns.Add("Number", Type.GetType("System.String"));
+            tbl.Columns.Add("Выбрано", Type.GetType("System.Boolean"));
+            tbl.Columns.Add("Номер", Type.GetType("System.String"));
+            tbl.Columns.Add(" ", Type.GetType("System.String"));
 
-            tbl.Columns["Checked"].Caption = "Выбрано";
-            tbl.Columns["Number"].Caption = "Номер";
-            tbl.Columns["Number"].ReadOnly = true;
+            tbl.Columns[0].Caption = "Выбрано";
+            tbl.Columns[1].Caption = "Номер";
+            tbl.Columns[2].Caption = " ";
+            tbl.Columns[1].ReadOnly = true;
 
             db_connection.ConnectionString = prop.Connection_string;
             db_connection.Open();
@@ -56,33 +58,41 @@ namespace PSA.Lib.Interface
                     foreach (DirectoryInfo sub in dir.GetDirectories())
                     {
                         bool found = false;
+                        bool found_k = false;
                         foreach (FileInfo file in sub.GetFiles())
                         {
                             if ((file.Extension.ToLower() == ".import") || (file.Extension.ToLower() == ".export"))
                                 found = true;
 
+                            if (file.Name == ".k")
+                                found_k = true;
                             //if (file.Extension.ToLower() == ".loaded")
                             //{
                             //    found = false;
                             //    break;
                             //}
-                            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM [order_import] WHERE [number] = '" + sub.Name + "'", db_connection);
-                            if ((int)cmd.ExecuteScalar() > 0)
-                            {
-                                found = false;
-                                break;
-                            }
+                            //SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM [order_import] WHERE [number] = '" + sub.Name + "'", db_connection);
+                            //if ((int)cmd.ExecuteScalar() > 0)
+                            //{
+                                //found = false;
+                                //break;
+                            //}
                         }
                         if (found)
                         {
                             DataRow rw = tbl.NewRow();
-                            rw["Checked"] = false;
-                            rw["Number"] = sub.Name;
+                            rw[0] = false;
+                            rw[1] = sub.Name;
+                            if (found_k)
+                                rw[2] = "конверт";
                             tbl.Rows.Add(rw);
                         }
                     }
 
                     data.DataSource = tbl;
+                    data.Columns[0].Width = 60;
+                    data.Columns[1].Width = 85;
+                    data.Columns[2].Width = 60;
                 }
                 catch (Exception ex)
                 {
@@ -101,7 +111,7 @@ namespace PSA.Lib.Interface
             {
                 foreach (DataRow rw in tbl.Rows)
                 {
-                    rw["Checked"] = true;
+                    rw[0] = true;
                 }
             }
             catch { }
@@ -113,7 +123,7 @@ namespace PSA.Lib.Interface
             {
                 foreach (DataRow rw in tbl.Rows)
                 {
-                    rw["Checked"] = false;
+                    rw[0] = false;
                 }
             }
             catch { }
@@ -133,6 +143,10 @@ namespace PSA.Lib.Interface
         {
             try
             {
+                log.Items.Add("Загрузка заказов началась");
+                log.SelectedIndex = log.Items.Count - 1;
+                Application.DoEvents();
+
                 pb.Visible = true;
                 btnClose.Enabled = false;
                 btnLoadSelected.Enabled = false;
@@ -145,9 +159,9 @@ namespace PSA.Lib.Interface
                 int cnt = 0;
                 foreach (DataRow rw in tbl.Rows)
                 {
-                    if ((Boolean)rw["Checked"])
+                    if ((Boolean)rw[0])
                     {
-                        SqlCommand cmd = new SqlCommand("SELECT COUNT([number]) FROM [order] WHERE [number] = '" + rw["Number"].ToString() + "'", db_connection);
+                        SqlCommand cmd = new SqlCommand("SELECT COUNT([number]) FROM [order] WHERE [number] = '" + rw[1].ToString() + "'", db_connection);
                         if ((int)cmd.ExecuteScalar() == 0)
                         {
                             unknown = true;
@@ -176,20 +190,92 @@ namespace PSA.Lib.Interface
 
                 foreach (DataRow rw in tbl.Rows)
                 {
-                    if ((Boolean)rw["Checked"])
+                    if ((Boolean)rw[0])
                     {
-                        DirectoryInfo dir = new DirectoryInfo(prop.Dir_auto_import + "\\" + rw["Number"].ToString());
+                        DirectoryInfo dir = new DirectoryInfo(prop.Dir_auto_import + "\\" + rw[1].ToString());
                         foreach (FileInfo file in dir.GetFiles())
                         {
                             if ((file.Extension.ToLower() == ".import") || (file.Extension.ToLower() == ".export"))
                             {
+                                string number = file.Name.Replace(file.Extension, "");
+                                log.Items.Add("Загружаем " + number);
+                                log.SelectedIndex = log.Items.Count - 1;
+                                Application.DoEvents();
+
                                 if (ImportFile(file.FullName, checkPrintCheck.Checked, clientid))
                                 {
                                     try
                                     {
                                         //File.Create(dir.FullName + "\\.loaded");
-                                        SqlCommand cmd = new SqlCommand("INSERT INTO [order_import] ([number]) VALUES ('" + rw["Number"].ToString() + "')", db_connection);
-                                        cmd.ExecuteNonQuery();
+                                        //SqlCommand cmd = new SqlCommand("INSERT INTO [order_import] ([number]) VALUES ('" + rw[1].ToString() + "')", db_connection);
+                                        //cmd.ExecuteNonQuery();
+
+                                        log.Items.Add("Проверяется загруженный заказ");
+                                        log.SelectedIndex = log.Items.Count - 1;
+                                        Application.DoEvents();
+
+                                        OrderInfo order = new OrderInfo(db_connection, number);
+
+                                        log.Items.Add("Копируются файлы для печати");
+                                        log.SelectedIndex = log.Items.Count - 1;
+                                        Application.DoEvents();
+
+                                        string dy = DateTime.Parse(order.Datein).Year.ToString("D4");
+                                        string dm = DateTime.Parse(order.Datein).Month.ToString("D2");
+                                        string dd = DateTime.Parse(order.Datein).Day.ToString("D2");
+
+                                        Directory.CreateDirectory(prop.Dir_print + "\\" + dy + "\\" + dm + "\\" + dd + "\\" + number);
+
+                                        string SourcePath = prop.Dir_auto_import + "\\" + rw[1].ToString() + "\\print\\" + rw[1].ToString() + "\\";
+                                        string DestinationPath = prop.Dir_print + "\\" + dy + "\\" + dm + "\\" + dd + "\\" + number + "\\";
+
+                                        if (Directory.Exists(SourcePath))
+                                        {
+                                            foreach (string dirPath in Directory.GetDirectories(SourcePath, "*",
+                                                SearchOption.AllDirectories))
+                                                Directory.CreateDirectory(dirPath.Replace(SourcePath, DestinationPath));
+
+                                            
+                                            foreach (string newPath in Directory.GetFiles(SourcePath, "*.*",
+                                                SearchOption.AllDirectories))
+                                                if (!File.Exists(newPath.Replace(SourcePath, DestinationPath)))
+                                                    File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath)); 
+                                        }
+
+                                        log.Items.Add("Копируются файлы для обработки");
+                                        log.SelectedIndex = log.Items.Count - 1;
+                                        Application.DoEvents();
+
+                                        Directory.CreateDirectory(prop.Dir_edit + "\\" + dy + "\\" + dm + "\\" + dd + "\\" + number);
+
+                                        SourcePath = prop.Dir_auto_import + "\\" + rw[1].ToString() + "\\edit\\" + rw[1].ToString() + "\\";
+                                        DestinationPath = prop.Dir_edit + "\\" + dy + "\\" + dm + "\\" + dd + "\\" + number + "\\";
+
+                                        if (Directory.Exists(SourcePath))
+                                        {
+                                            foreach (string dirPath in Directory.GetDirectories(SourcePath, "*",
+                                                SearchOption.AllDirectories))
+                                                Directory.CreateDirectory(dirPath.Replace(SourcePath, DestinationPath));
+
+
+                                            foreach (string newPath in Directory.GetFiles(SourcePath, "*.*",
+                                                SearchOption.AllDirectories))
+                                                if (!File.Exists(newPath.Replace(SourcePath, DestinationPath)))
+                                                    File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath));
+                                        }
+
+                                        log.Items.Add("Заказ " + number + " загружен");
+                                        log.SelectedIndex = log.Items.Count - 1;
+                                        Application.DoEvents();
+
+                                        log.Items.Add("Заказ " + number + " перемещается в архив");
+                                        log.SelectedIndex = log.Items.Count - 1;
+                                        Application.DoEvents();
+
+                                        Directory.Move(prop.Dir_auto_import + "\\" + rw[1].ToString(),
+                                            prop.Dir_auto_import + "\\ok\\" + rw[1].ToString());
+
+
                                     }
                                     catch { }
                                 }
@@ -202,6 +288,10 @@ namespace PSA.Lib.Interface
                         }
                     }
                 }
+                log.Items.Add("Загрузка завершена");
+                log.SelectedIndex = log.Items.Count - 1;
+                Application.DoEvents();
+
                 MessageBox.Show("Загрузка завершена!");
 
                 btnClose.Enabled = true;

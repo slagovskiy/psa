@@ -128,6 +128,7 @@
             this.btnFixDouble = new System.Windows.Forms.Button();
             this.tt = new System.Windows.Forms.ToolTip(this.components);
             this.lblAdvStatus = new System.Windows.Forms.Label();
+            this.checkKonvert = new System.Windows.Forms.CheckBox();
             this.groupBox7.SuspendLayout();
             this.hideActions.SuspendLayout();
             this.hideWorker.SuspendLayout();
@@ -1329,11 +1330,22 @@
             this.lblAdvStatus.TabIndex = 65;
             this.lblAdvStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // checkKonvert
+            // 
+            this.checkKonvert.AutoSize = true;
+            this.checkKonvert.Location = new System.Drawing.Point(852, 401);
+            this.checkKonvert.Name = "checkKonvert";
+            this.checkKonvert.Size = new System.Drawing.Size(124, 17);
+            this.checkKonvert.TabIndex = 66;
+            this.checkKonvert.Text = "Заказ с конвертом";
+            this.checkKonvert.UseVisualStyleBackColor = true;
+            // 
             // frmOrderClose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 602);
+            this.Controls.Add(this.checkKonvert);
             this.Controls.Add(this.lblAdvStatus);
             this.Controls.Add(this.panelFixDouble);
             this.Controls.Add(this.hideWorker);
@@ -1489,5 +1501,6 @@
 		private System.Windows.Forms.Button btnEditPType;
 		private System.Windows.Forms.ToolTip tt;
         private System.Windows.Forms.Label lblAdvStatus;
+        private System.Windows.Forms.CheckBox checkKonvert;
 	}
 }
