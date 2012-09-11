@@ -47,6 +47,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xceed.FileSystem, Version=4.2.10304.10260, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Ftp, Version=4.2.10304.10260, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Inventory.cs">
@@ -69,6 +71,12 @@
     <Compile Include="DAL\SqlProviders\UserProvider.cs" />
     <Compile Include="DAL\SqlProviders\VerificationBodyProvider.cs" />
     <Compile Include="DAL\SqlProviders\VerificationProvider.cs" />
+    <Compile Include="Interface\frmCheckFtp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmCheckFtp.Designer.cs">
+      <DependentUpon>frmCheckFtp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\frmDeleteOld.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +329,9 @@
     <Compile Include="Util\Version.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Interface\frmCheckFtp.resx">
+      <DependentUpon>frmCheckFtp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\frmDeleteOld.resx">
       <DependentUpon>frmDeleteOld.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -39,6 +39,7 @@
             this.rep = new C1.Win.C1Report.C1Report();
             this.pb = new System.Windows.Forms.ProgressBar();
             this.log = new System.Windows.Forms.ListBox();
+            this.btnCheckPionts = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             this.data.MultiSelect = false;
             this.data.Name = "data";
             this.data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.data.Size = new System.Drawing.Size(278, 390);
+            this.data.Size = new System.Drawing.Size(480, 390);
             this.data.TabIndex = 2;
             // 
             // btnSelectAll
@@ -82,7 +83,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(300, 63);
+            this.btnUpdate.Location = new System.Drawing.Point(498, 63);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(115, 30);
             this.btnUpdate.TabIndex = 5;
@@ -92,7 +93,7 @@
             // 
             // btnLoadSelected
             // 
-            this.btnLoadSelected.Location = new System.Drawing.Point(300, 99);
+            this.btnLoadSelected.Location = new System.Drawing.Point(498, 99);
             this.btnLoadSelected.Name = "btnLoadSelected";
             this.btnLoadSelected.Size = new System.Drawing.Size(115, 49);
             this.btnLoadSelected.TabIndex = 6;
@@ -102,7 +103,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(300, 262);
+            this.btnClose.Location = new System.Drawing.Point(498, 262);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(115, 30);
             this.btnClose.TabIndex = 8;
@@ -114,7 +115,7 @@
             // 
             this.checkPrintCheck.Checked = true;
             this.checkPrintCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkPrintCheck.Location = new System.Drawing.Point(300, 154);
+            this.checkPrintCheck.Location = new System.Drawing.Point(498, 154);
             this.checkPrintCheck.Name = "checkPrintCheck";
             this.checkPrintCheck.Size = new System.Drawing.Size(115, 35);
             this.checkPrintCheck.TabIndex = 9;
@@ -127,7 +128,7 @@
             // 
             // pb
             // 
-            this.pb.Location = new System.Drawing.Point(300, 195);
+            this.pb.Location = new System.Drawing.Point(498, 195);
             this.pb.Name = "pb";
             this.pb.Size = new System.Drawing.Size(115, 23);
             this.pb.TabIndex = 10;
@@ -138,13 +139,24 @@
             this.log.Location = new System.Drawing.Point(12, 459);
             this.log.Name = "log";
             this.log.ScrollAlwaysVisible = true;
-            this.log.Size = new System.Drawing.Size(278, 82);
+            this.log.Size = new System.Drawing.Size(480, 82);
             this.log.TabIndex = 11;
+            // 
+            // btnCheckPionts
+            // 
+            this.btnCheckPionts.Location = new System.Drawing.Point(498, 298);
+            this.btnCheckPionts.Name = "btnCheckPionts";
+            this.btnCheckPionts.Size = new System.Drawing.Size(115, 49);
+            this.btnCheckPionts.TabIndex = 12;
+            this.btnCheckPionts.Text = "Проверить доступность точек";
+            this.btnCheckPionts.UseVisualStyleBackColor = true;
+            this.btnCheckPionts.Click += new System.EventHandler(this.btnCheckPionts_Click);
             // 
             // frmNewImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(427, 566);
+            this.ClientSize = new System.Drawing.Size(625, 566);
+            this.Controls.Add(this.btnCheckPionts);
             this.Controls.Add(this.log);
             this.Controls.Add(this.pb);
             this.Controls.Add(this.checkPrintCheck);
@@ -156,8 +168,8 @@
             this.Controls.Add(this.data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmNewImport";
-            this.Text = "          - PSA v.9.0.30729.1";
-            this.Title = "            ";
+            this.Text = "                - PSA v.9.0.30729.1";
+            this.Title = "                  ";
             this.Load += new System.EventHandler(this.frmNewImport_Load);
             this.Controls.SetChildIndex(this.data, 0);
             this.Controls.SetChildIndex(this.btnSelectAll, 0);
@@ -168,6 +180,7 @@
             this.Controls.SetChildIndex(this.checkPrintCheck, 0);
             this.Controls.SetChildIndex(this.pb, 0);
             this.Controls.SetChildIndex(this.log, 0);
+            this.Controls.SetChildIndex(this.btnCheckPionts, 0);
             ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep)).EndInit();
             this.ResumeLayout(false);
@@ -187,5 +200,6 @@
         private C1.Win.C1Report.C1Report rep;
         private System.Windows.Forms.ProgressBar pb;
         private System.Windows.Forms.ListBox log;
+        private System.Windows.Forms.Button btnCheckPionts;
     }
 }

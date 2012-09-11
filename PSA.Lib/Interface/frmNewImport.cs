@@ -30,12 +30,19 @@ namespace PSA.Lib.Interface
 
             tbl.Columns.Add("Выбрано", Type.GetType("System.Boolean"));
             tbl.Columns.Add("Номер", Type.GetType("System.String"));
+            tbl.Columns.Add("Статус", Type.GetType("System.String"));
+            tbl.Columns.Add("Дата", Type.GetType("System.String"));
             tbl.Columns.Add(" ", Type.GetType("System.String"));
 
             tbl.Columns[0].Caption = "Выбрано";
             tbl.Columns[1].Caption = "Номер";
-            tbl.Columns[2].Caption = " ";
+            tbl.Columns[2].Caption = "Статус";
+            tbl.Columns[3].Caption = "Дата";
+            tbl.Columns[3].Caption = " ";
             tbl.Columns[1].ReadOnly = true;
+            tbl.Columns[2].ReadOnly = true;
+            tbl.Columns[3].ReadOnly = true; 
+            tbl.Columns[4].ReadOnly = true;
 
             db_connection.ConnectionString = prop.Connection_string;
             db_connection.Open();
@@ -62,10 +69,20 @@ namespace PSA.Lib.Interface
                         foreach (FileInfo file in sub.GetFiles())
                         {
                             if ((file.Extension.ToLower() == ".import") || (file.Extension.ToLower() == ".export"))
+                            {
                                 found = true;
+                            }
 
                             if (file.Name == ".k")
+                            {
                                 found_k = true;
+                            }
+
+                            if (file.Name == ".lock")
+                            {
+                                found_k = false;
+                                break;
+                            }
                             //if (file.Extension.ToLower() == ".loaded")
                             //{
                             //    found = false;
@@ -80,11 +97,44 @@ namespace PSA.Lib.Interface
                         }
                         if (found)
                         {
+                            string _status = "";
+                            string _date = "";
+                            if (File.Exists(sub.FullName + "\\" + sub.Name + ".export"))
+                            {
+                                using (StreamReader r = new StreamReader(sub.FullName + "\\" + sub.Name + ".export"))
+                                {
+                                    string line = r.ReadLine();
+                                    if (line == "[order]")
+                                    {
+                                        line = r.ReadLine();
+                                        line = line.Replace(";000100;", ";В очереди на печать;");
+                                        line = line.Replace(";000200;", ";В очереди на обработку;");
+                                        line = line.Replace(";000110;", ";В процессе печати;");
+                                        line = line.Replace(";000210;", ";В процессе обработки;");
+                                        line = line.Replace(";000000;", ";На выдаче;");
+                                        line = line.Replace(";000010;", ";На предпросмотре;");
+                                        line = line.Replace(";000001;", ";В ожидании оплаты;");
+                                        line = line.Replace(";100000;", ";Выдано;");
+                                        line = line.Replace(";010000;", ";Отменено;");
+                                        line = line.Replace(";000111;", ";Готово после печати;");
+                                        line = line.Replace(";000211;", ";Готово после обработки;");
+                                        line = line.Replace(";000212;", ";Готово после обработки, предпросмотр;");
+                                        line = line.Replace(";200000;", ";выдано без оплаты;");
+                                        line = line.Replace(";300000;", ";Утерян;");
+                                        string[] _data = line.Split(';');
+                                        _status = _data[12];
+                                        _date = _data[14];
+                                    }
+                                }
+                                
+                            }
                             DataRow rw = tbl.NewRow();
                             rw[0] = false;
                             rw[1] = sub.Name;
                             if (found_k)
-                                rw[2] = "конверт";
+                                rw[4] = "конверт";
+                            rw[2] = _status;
+                            rw[3] = _date;
                             tbl.Rows.Add(rw);
                         }
                     }
@@ -92,7 +142,9 @@ namespace PSA.Lib.Interface
                     data.DataSource = tbl;
                     data.Columns[0].Width = 60;
                     data.Columns[1].Width = 85;
-                    data.Columns[2].Width = 60;
+                    data.Columns[2].Width = 120;
+                    data.Columns[3].Width = 80;
+                    data.Columns[4].Width = 60;
                 }
                 catch (Exception ex)
                 {
@@ -998,6 +1050,14 @@ namespace PSA.Lib.Interface
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка записи в историю.\n" + ex.Message + "\n" + ex.Source);
+            }
+        }
+
+        private void btnCheckPionts_Click(object sender, EventArgs e)
+        {
+            using (frmCheckFtp frm = new frmCheckFtp())
+            {
+                frm.ShowDialog();
             }
         }
 
