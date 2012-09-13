@@ -1956,3 +1956,122 @@ Xceed.FileSystem
 from: C:\Database\Export\auto_export\660000248633\
 to: test/660000248633/
 16.08.2012 15:11 [+] Выгружен заказ 660000248633
+12.09.2012 16:07 [+] Служба стартовала.
+12.09.2012 16:07 [!] Запущено задание импорта.
+12.09.2012 16:07 [!] Запущено задание экспорта.
+12.09.2012 16:07 [!] Запущено задание мониторинга.
+12.09.2012 16:07 [!] Запущено задание получения КЭШа.
+12.09.2012 16:07 [!] Запущено задание повторной выгрузки суточных данных.
+12.09.2012 16:07 [!] Запущено задание автоматической выгрузки заказов.
+12.09.2012 16:08 [+] Пробуем выгрузить заказы
+12.09.2012 16:08 [+] Выбираем заказы на экспорт
+12.09.2012 16:08 [+] Подготавливаем к выгрузке заказ 090000196700
+12.09.2012 16:08 [+] Выгружаем заказ 090000196700 на _int.fotoland.ru в /gut/
+from: C:\Database\Export\auto_export\090000196700\
+to: gut/090000196700/
+12.09.2012 16:08 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \gut/090000196700/\090000196700.export
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 72
+12.09.2012 16:08 [+] Подготавливаем к выгрузке заказ 090000197556
+12.09.2012 16:08 [+] Выгружаем заказ 090000197556 на _int.fotoland.ru в /gut/
+from: C:\Database\Export\auto_export\090000197556\
+to: gut/090000197556/
+12.09.2012 16:08 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \gut/090000197556/\090000197556.export
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 72
+12.09.2012 16:08 [+] Подготавливаем к выгрузке заказ 090000228459
+12.09.2012 16:08 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+12.09.2012 16:08 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\090000228459.export
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 72
+12.09.2012 16:08 [+] Подготавливаем к выгрузке заказ 090000228614
+12.09.2012 16:08 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+12.09.2012 16:08 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\090000228614.export
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 72
+12.09.2012 16:08 [+] Подготавливаем к выгрузке заказ 090000228758
+12.09.2012 16:08 [+] Выгружаем заказ 090000228758 на int.fotoland.ru в /test/
+from: C:\Database\Export\auto_export\090000228758\
+to: test/090000228758/
+12.09.2012 16:08 [+] Выгружен заказ 090000228758
+12.09.2012 16:08 [+] Подготавливаем к выгрузке заказ 090000229118
+12.09.2012 16:08 [+] Выгружаем заказ 090000229118 на int.fotoland.ru в /test/
+from: C:\Database\Export\auto_export\090000229118\
+to: test/090000229118/
+12.09.2012 16:08 [+] Выгружен заказ 090000229118
+12.09.2012 16:08 [!] Остановлено задание импорта
+12.09.2012 16:08 [!] Остановлено задание экспорта.
+12.09.2012 16:08 [!] Остановлено задание мониторинга.
+12.09.2012 16:08 [!] Остановлено задание получения КЭШа.
+12.09.2012 16:08 [!] Остановлено задание повторной выгрузки суточных данных.
+12.09.2012 16:08 [!] Остановлено задание автоматической выгрузки заказов.
+12.09.2012 16:08 [+] Служба остановлена.
+12.09.2012 16:44 [+] Служба стартовала.
+12.09.2012 16:44 [!] Запущено задание импорта.
+12.09.2012 16:44 [!] Запущено задание экспорта.
+12.09.2012 16:44 [!] Запущено задание мониторинга.
+12.09.2012 16:44 [!] Запущено задание получения КЭШа.
+12.09.2012 16:44 [!] Запущено задание повторной выгрузки суточных данных.
+12.09.2012 16:44 [!] Запущено задание автоматической выгрузки заказов.
+12.09.2012 16:45 [+] Опрос каталога
+12.09.2012 16:45 [+] Пробуем выгрузить заказы
+12.09.2012 16:45 [+] Выбираем заказы на экспорт
+12.09.2012 16:45 [+] Подготавливаем к выгрузке заказ 090000196700
+12.09.2012 16:45 [+] Выгружаем заказ 090000196700 на int.fotoland.ru в /gut/
+from: C:\Database\Export\auto_export\090000196700\
+to: gut/090000196700/
+12.09.2012 16:45 [+] Выгружен заказ 090000196700
+12.09.2012 16:45 [+] Подготавливаем к выгрузке заказ 090000197556
+12.09.2012 16:45 [+] Выгружаем заказ 090000197556 на int.fotoland.ru в /gut/
+from: C:\Database\Export\auto_export\090000197556\
+to: gut/090000197556/
+12.09.2012 16:45 [+] Выгружен заказ 090000197556
+12.09.2012 16:45 [+] Подготавливаем к выгрузке заказ 090000228459
+12.09.2012 16:45 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+12.09.2012 16:45 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 76
+12.09.2012 16:45 [+] Подготавливаем к выгрузке заказ 090000228614
+12.09.2012 16:45 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+12.09.2012 16:45 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 76
+12.09.2012 16:45 [!] Остановлено задание импорта
+12.09.2012 16:45 [!] Остановлено задание экспорта.
+12.09.2012 16:45 [!] Остановлено задание мониторинга.
+12.09.2012 16:45 [!] Остановлено задание получения КЭШа.
+12.09.2012 16:45 [!] Остановлено задание повторной выгрузки суточных данных.
+12.09.2012 16:45 [!] Остановлено задание автоматической выгрузки заказов.
+12.09.2012 16:45 [+] Служба остановлена.

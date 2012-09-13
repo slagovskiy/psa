@@ -68,9 +68,15 @@ namespace PSA.Robot
                                         file.WriteLine("to: " + ftp_to);
                                         file.Flush();
                                         FtpFolder destination = new FtpFolder(connection, ftp_to);
+
+                                        StreamWriter _tmp = new StreamWriter(prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\.lock");
+                                        _tmp.Write("\n");
+                                        _tmp.Close();
                                         
                                         source.CopyFilesTo(destination, true, true);
-                                        db_command = new SqlCommand("UPDATE [order] SET [auto_export] = -1 WHERE [number] = '" + rw["number"].ToString().Trim() + "'", db_connection);
+                                        FtpFile _lock = new FtpFile(connection, ftp_to + ".lock");
+                                        _lock.Delete();
+                                        db_command = new SqlCommand("UPDATE [order] SET [auto_export] = -1, [status_export] = 'Отправлен', [status_export_date] = getdate() WHERE [number] = '" + rw["number"].ToString().Trim() + "'", db_connection);
                                         db_command.ExecuteNonQuery();
                                         file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Выгружен заказ " + rw["number"].ToString().Trim());
                                         file.Flush();
@@ -80,6 +86,10 @@ namespace PSA.Robot
                             }
                             catch (Exception ex)
                             {
+                                db_command = new SqlCommand("UPDATE [order] SET [status_export] = '" + ex.Message + 
+                                                            "', [status_export_date] = getdate() WHERE [number] = '" + rw["number"].ToString().Trim() + "'", 
+                                                            db_connection);
+                                db_command.ExecuteNonQuery();
                                 file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Ошибка выгрузки заказа " + ex.Message + "\n" + ex.Source + "\n" + ex.StackTrace);
                                 file.Flush();
                             }

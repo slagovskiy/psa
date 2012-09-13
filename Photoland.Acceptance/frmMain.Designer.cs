@@ -75,10 +75,10 @@
             this.tbtnMaster = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolQuick = new System.Windows.Forms.ToolStripButton();
+            this.tbtnImport = new System.Windows.Forms.ToolStripButton();
             this.toolMFoto = new System.Windows.Forms.ToolStripButton();
             this.toolStripQuick = new System.Windows.Forms.ToolStripSeparator();
             this.tbtnOpenAcceptabceTable = new System.Windows.Forms.ToolStripButton();
-            this.tbtnImport = new System.Windows.Forms.ToolStripButton();
             this.toolOpenAccepTable2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -487,6 +487,16 @@
             this.toolQuick.ToolTipText = "Принять моментальный заказ";
             this.toolQuick.Click += new System.EventHandler(this.toolQuick_Click);
             // 
+            // tbtnImport
+            // 
+            this.tbtnImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbtnImport.Image = ((System.Drawing.Image)(resources.GetObject("tbtnImport.Image")));
+            this.tbtnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbtnImport.Name = "tbtnImport";
+            this.tbtnImport.Size = new System.Drawing.Size(68, 68);
+            this.tbtnImport.Text = "Автоматический обмен заказами";
+            this.tbtnImport.Click += new System.EventHandler(this.tbtnImport_Click);
+            // 
             // toolMFoto
             // 
             this.toolMFoto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -511,16 +521,6 @@
             this.tbtnOpenAcceptabceTable.Size = new System.Drawing.Size(68, 68);
             this.tbtnOpenAcceptabceTable.Text = "Открыть основной журнал";
             this.tbtnOpenAcceptabceTable.Click += new System.EventHandler(this.tbtnOpenAcceptabceTable_Click);
-            // 
-            // tbtnImport
-            // 
-            this.tbtnImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbtnImport.Image = ((System.Drawing.Image)(resources.GetObject("tbtnImport.Image")));
-            this.tbtnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbtnImport.Name = "tbtnImport";
-            this.tbtnImport.Size = new System.Drawing.Size(68, 68);
-            this.tbtnImport.Text = "Импортировать пришедшие заказы";
-            this.tbtnImport.Click += new System.EventHandler(this.tbtnImport_Click);
             // 
             // toolOpenAccepTable2
             // 

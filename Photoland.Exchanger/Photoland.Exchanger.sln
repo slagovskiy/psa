@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photoland.Exchanger", "Phot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSA.Lib", "..\PSA.Lib\PSA.Lib.csproj", "{A71127E6-49D1-4E68-B51E-4A96D24DEF57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photoland.Order", "..\Photoland.Order\Photoland.Order.csproj", "{74503FC9-42A3-46C6-B536-891E7C71EFF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{A71127E6-49D1-4E68-B51E-4A96D24DEF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A71127E6-49D1-4E68-B51E-4A96D24DEF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A71127E6-49D1-4E68-B51E-4A96D24DEF57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74503FC9-42A3-46C6-B536-891E7C71EFF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74503FC9-42A3-46C6-B536-891E7C71EFF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74503FC9-42A3-46C6-B536-891E7C71EFF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74503FC9-42A3-46C6-B536-891E7C71EFF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

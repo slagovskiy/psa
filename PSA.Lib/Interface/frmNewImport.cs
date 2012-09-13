@@ -11,6 +11,9 @@ using Photoland.Security.User;
 
 using Photoland.Order;
 using Photoland.Forms.Interface;
+using Xceed.Ftp;
+using Xceed.FileSystem;
+using System.Threading;
 
 namespace PSA.Lib.Interface
 {
@@ -26,7 +29,7 @@ namespace PSA.Lib.Interface
         {
             InitializeComponent();
 
-            this.Title = "Импорт заказов";
+            this.Title = "Автоматический обмен заказами";
 
             tbl.Columns.Add("Выбрано", Type.GetType("System.Boolean"));
             tbl.Columns.Add("Номер", Type.GetType("System.String"));
@@ -52,6 +55,9 @@ namespace PSA.Lib.Interface
         private void frmNewImport_Load(object sender, EventArgs e)
         {
             loadOrders();
+
+            dateFilterStart1.Value = DateTime.Now.AddDays(-3);
+            dateFilterStop1.Value = DateTime.Now.AddDays(+1);
         }
 
         private void loadOrders()
@@ -200,7 +206,6 @@ namespace PSA.Lib.Interface
                 Application.DoEvents();
 
                 pb.Visible = true;
-                btnClose.Enabled = false;
                 btnLoadSelected.Enabled = false;
                 btnUpdate.Enabled = false;
                 checkPrintCheck.Enabled = false;
@@ -287,11 +292,17 @@ namespace PSA.Lib.Interface
                                                 SearchOption.AllDirectories))
                                                 Directory.CreateDirectory(dirPath.Replace(SourcePath, DestinationPath));
 
-                                            
+
                                             foreach (string newPath in Directory.GetFiles(SourcePath, "*.*",
                                                 SearchOption.AllDirectories))
                                                 if (!File.Exists(newPath.Replace(SourcePath, DestinationPath)))
-                                                    File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath)); 
+                                                    File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath));
+                                        }
+                                        else
+                                        {
+                                            log.Items.Add("!!! Не удалось скопировать файлы для печати !!!");
+                                            log.SelectedIndex = log.Items.Count - 1;
+                                            MessageBox.Show("Не удалось скопировать файлы для печати");
                                         }
 
                                         log.Items.Add("Копируются файлы для обработки");
@@ -315,6 +326,12 @@ namespace PSA.Lib.Interface
                                                 if (!File.Exists(newPath.Replace(SourcePath, DestinationPath)))
                                                     File.Copy(newPath, newPath.Replace(SourcePath, DestinationPath));
                                         }
+                                        else
+                                        {
+                                            log.Items.Add("!!! Не удалось скопировать файлы для обработки !!!");
+                                            log.SelectedIndex = log.Items.Count - 1;
+                                            MessageBox.Show("Не удалось скопировать файлы для обработки");
+                                        }
 
                                         log.Items.Add("Заказ " + number + " загружен");
                                         log.SelectedIndex = log.Items.Count - 1;
@@ -323,9 +340,21 @@ namespace PSA.Lib.Interface
                                         log.Items.Add("Заказ " + number + " перемещается в архив");
                                         log.SelectedIndex = log.Items.Count - 1;
                                         Application.DoEvents();
+                                        try
+                                        {
+                                            if (!Directory.Exists(prop.Dir_auto_import + "\\ok\\"))
+                                                Directory.CreateDirectory(prop.Dir_auto_import + "\\ok\\");
+                                            Directory.Move(prop.Dir_auto_import + "\\" + rw[1].ToString(),
+                                                prop.Dir_auto_import + "\\ok\\" + rw[1].ToString());
+                                        }
+                                        catch
+                                        {
+                                            log.Items.Add("Заказ " + number + " не перемещен в архив");
+                                            log.SelectedIndex = log.Items.Count - 1;
+                                            Application.DoEvents();
+                                            MessageBox.Show("Не удалось переместить заказ в архив");
+                                        }
 
-                                        Directory.Move(prop.Dir_auto_import + "\\" + rw[1].ToString(),
-                                            prop.Dir_auto_import + "\\ok\\" + rw[1].ToString());
 
 
                                     }
@@ -346,7 +375,6 @@ namespace PSA.Lib.Interface
 
                 MessageBox.Show("Загрузка завершена!");
 
-                btnClose.Enabled = true;
                 btnLoadSelected.Enabled = true;
                 btnUpdate.Enabled = true;
                 checkPrintCheck.Enabled = true;
@@ -1059,6 +1087,199 @@ namespace PSA.Lib.Interface
             {
                 frm.ShowDialog();
             }
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            btnStart.Enabled = false;
+            try
+            {
+                Xceed.Ftp.Licenser.LicenseKey = "FTN42-K40Z3-DXCGS-PYGA";
+
+                SqlConnection cn = new SqlConnection(prop.Connection_string);
+                cn.Open();
+                SqlCommand cmd = new SqlCommand();
+                data2.Columns.Clear();
+                data2.Rows.Clear();
+                data2.Columns.Add("name", "Точка");
+                data2.Columns.Add("rezult", "Результат");
+                data2.Columns[0].Width = 200;
+                data2.Columns[1].Width = 350;
+
+                cn = new SqlConnection(prop.Connection_string);
+                cn.Open();
+
+                cmd = new SqlCommand("SELECT * FROM [place];", cn);
+
+                DataTable tbl = new DataTable();
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                da.Fill(tbl);
+                pb2.Minimum = 0;
+                pb2.Maximum = tbl.Rows.Count;
+                pb2.Value = 0;
+                foreach (DataRow r in tbl.Rows)
+                {
+                    try
+                    {
+                        using (FtpConnection connection = new FtpConnection(
+                            r["server"].ToString().Trim(),
+                            r["username"].ToString().Trim(),
+                            r["password"].ToString().Trim()))
+                        {
+                            connection.Timeout = 10;
+                            string tmp = Guid.NewGuid().ToString();
+                            StreamWriter w = new StreamWriter(System.IO.Path.GetTempPath() + tmp);
+                            w.Write(tmp);
+                            w.Close();
+
+                            connection.Encoding = Encoding.GetEncoding(1251);
+
+                            DiskFile source = new DiskFile(System.IO.Path.GetTempPath() + tmp);
+                            string ftp_to = r["path"].ToString().Trim();
+                            if (ftp_to.Substring(0, 1) == "/") ftp_to = ftp_to.Substring(1);
+                            FtpFolder destination = new FtpFolder(connection, ftp_to);
+
+                            source.CopyTo(destination, true);
+
+                            Thread.Sleep(2000);
+
+                            FtpFile remote = new FtpFile(connection, ftp_to + tmp);
+
+                            remote.Delete();
+                        }
+                        data2.Rows.Add(new string[] { r["name"].ToString().Trim(), "ok" });
+                    }
+                    catch (Exception ex)
+                    {
+                        data2.Rows.Add(new string[] { r["name"].ToString().Trim(), "ошибка: " + ex.Message });
+                    }
+                    finally
+                    {
+                        pb2.Value++;
+                        Application.DoEvents();
+                    }
+                }
+            }
+            catch
+            {
+            }
+            finally
+            {
+                btnStart.Enabled = true;
+                MessageBox.Show("ok");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnUpdateSendOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(prop.Connection_string))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = cn;
+                    cmd.CommandText = @"SELECT dbo.[order].number, dbo.order_status.status_desc, dbo.[order].input_date, dbo.place.name, dbo.[order].status_export, 
+                                        dbo.[order].status_export_date
+                                        FROM dbo.[order] INNER JOIN
+                                        dbo.place ON dbo.[order].id_place = dbo.place.id_place INNER JOIN
+                                        dbo.order_status ON dbo.[order].status = dbo.order_status.order_status
+                                        WHERE (dbo.[order].auto_export > 0)";
+                    cmd.CommandTimeout = 9000;
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                    DataTable tbl = new DataTable();
+
+                    da.Fill(tbl);
+
+                    DataTable _tbl = new DataTable();
+                    _tbl.Columns.Add("Номер");
+                    _tbl.Columns.Add("Статус");
+                    _tbl.Columns.Add("Принят");
+                    _tbl.Columns.Add("Отправляется в");
+                    _tbl.Columns.Add("Ошибки отправки");
+                    _tbl.Columns.Add("Время последней попытки");
+
+                    foreach (DataRow rw in tbl.Rows)
+                    {
+                        DataRow _rw = _tbl.NewRow();
+                        _rw[0] = rw[0].ToString().Trim();
+                        _rw[1] = rw[1].ToString().Trim();
+                        _rw[2] = DateTime.Parse(rw[2].ToString()).ToString("u");
+                        _rw[3] = rw[3].ToString().Trim();
+                        _rw[4] = rw[4].ToString().Trim();
+                        _rw[5] = (rw[5].ToString() != "" ? DateTime.Parse(rw[5].ToString()).ToString("u") : "");
+
+                        _tbl.Rows.Add(_rw);
+
+                    }
+                    data3.DataSource = _tbl;
+
+                }
+            }
+            catch { }
+            finally { }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(prop.Connection_string))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = cn;
+                    cmd.CommandText = @"SELECT     dbo.[order].number, dbo.order_status.status_desc, dbo.[order].input_date, dbo.place.name, dbo.[order].status_export, 
+                      dbo.[order].status_export_date
+FROM         dbo.[order] INNER JOIN
+                      dbo.place ON dbo.[order].id_place = dbo.place.id_place INNER JOIN
+                      dbo.order_status ON dbo.[order].status = dbo.order_status.order_status
+WHERE     (dbo.[order].auto_export = - 1) AND (dbo.place.id_place > 0) AND (dbo.[order].input_date > CONVERT(DATETIME, '" + dateFilterStart1.Value.ToString("yyyy-MM-dd") + @" 00:00:00', 102) AND 
+                      dbo.[order].input_date < CONVERT(DATETIME, '" + dateFilterStop1.Value.ToString("yyyy-MM-dd") + " 23:59:59', 102))";
+                    cmd.CommandTimeout = 9000;
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                    DataTable tbl = new DataTable();
+
+                    da.Fill(tbl);
+
+                    DataTable _tbl = new DataTable();
+                    _tbl.Columns.Add("Номер");
+                    _tbl.Columns.Add("Статус");
+                    _tbl.Columns.Add("Принят");
+                    _tbl.Columns.Add("Отправлено в");
+                    _tbl.Columns.Add("Статус отправки");
+                    _tbl.Columns.Add("Время отправки");
+
+                    foreach (DataRow rw in tbl.Rows)
+                    {
+                        DataRow _rw = _tbl.NewRow();
+                        _rw[0] = rw[0].ToString().Trim();
+                        _rw[1] = rw[1].ToString().Trim();
+                        _rw[2] = DateTime.Parse(rw[2].ToString()).ToString("u");
+                        _rw[3] = rw[3].ToString().Trim();
+                        _rw[4] = rw[4].ToString().Trim();
+                        _rw[5] = (rw[5].ToString() != "" ? DateTime.Parse(rw[5].ToString()).ToString("u") : "");
+
+                        _tbl.Rows.Add(_rw);
+
+                    }
+                    data4.DataSource = _tbl;
+
+                }
+            }
+            catch { }
+            finally { }
         }
 
     }

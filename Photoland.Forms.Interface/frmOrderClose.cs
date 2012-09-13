@@ -959,6 +959,8 @@ namespace Photoland.Forms.Interface
 					lblFixDouble.Text = "При отмене заказу будет присвоен новый номер с префиксом " + (order.Orderno.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1) ? "49" : "59");
 				}
 			}
+            if (!usr.prmCanLoginAdmin)
+                btnDelServ.Enabled = false;
 
 		}
 
