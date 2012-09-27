@@ -62,17 +62,24 @@ namespace PSA.Robot
                                         file.Flush();
                                         DiskFolder source = new DiskFolder(prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\");
 
-
                                         string ftp_to = place["path"].ToString().Trim() + rw["number"].ToString().Trim() + "/";
                                         if (ftp_to.Substring(0, 1) == "/") ftp_to = ftp_to.Substring(1);
                                         file.WriteLine("to: " + ftp_to);
                                         file.Flush();
+                                        try
+                                        {
+                                            FtpFolder _ftp_to = new FtpFolder(connection, ftp_to);
+                                            _ftp_to.Delete();
+                                        }
+                                        catch { }
+
                                         FtpFolder destination = new FtpFolder(connection, ftp_to);
 
                                         StreamWriter _tmp = new StreamWriter(prop.Dir_export + "\\auto_export\\" + rw["number"].ToString().Trim() + "\\.lock");
                                         _tmp.Write("\n");
                                         _tmp.Close();
-                                        
+                                        db_command = new SqlCommand("UPDATE [order] SET [status_export] = 'Началась выгрузка', [status_export_date] = getdate() WHERE [number] = '" + rw["number"].ToString().Trim() + "'", db_connection);
+                                        db_command.ExecuteNonQuery();
                                         source.CopyFilesTo(destination, true, true);
                                         FtpFile _lock = new FtpFile(connection, ftp_to + ".lock");
                                         _lock.Delete();

@@ -20,6 +20,7 @@ namespace PSA.Robot
 		private System.Timers.Timer t4 = new System.Timers.Timer();
 		private System.Timers.Timer t5 = new System.Timers.Timer();
         private System.Timers.Timer t6 = new System.Timers.Timer();
+        private System.Timers.Timer t7 = new System.Timers.Timer();
 		private StreamWriter file;
 		private CultureInfo ci = new CultureInfo("de-DE");
 		Settings prop = new Settings();
@@ -41,7 +42,6 @@ namespace PSA.Robot
 
 		protected override void OnStart(string[] args)
 		{
-
 			t1.Enabled = true;
 			t1.Interval = 60000;
 			t1.AutoReset = true;
@@ -89,6 +89,14 @@ namespace PSA.Robot
             t6.Start();
             file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Запущено задание автоматической выгрузки заказов.");
             file.Flush();
+
+            t7.Enabled = true;
+            t7.Interval = 60000;
+            t7.AutoReset = true;
+            t7.Elapsed += new System.Timers.ElapsedEventHandler(t7_Elapsed);
+            t7.Start();
+            file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Запущено задание автоматического перезапуска службы.");
+            file.Flush();
         }
 
 		protected override void OnStop()
@@ -115,6 +123,10 @@ namespace PSA.Robot
 
             t6.Stop();
             file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Остановлено задание автоматической выгрузки заказов.");
+            file.Flush();
+
+            t7.Stop();
+            file.WriteLine(DateTime.Now.ToString("g", ci) + " [!] Остановлено задание автоматического перезапуска службы.");
             file.Flush();
 
             file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Служба остановлена.");
@@ -247,6 +259,33 @@ namespace PSA.Robot
             }
             catch { }
             t6.Start();
+        }
+
+        private void t7_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if (((DateTime.Now.Minute == 10) && (
+                (DateTime.Now.Hour == 0) ||
+                (DateTime.Now.Hour == 2) ||
+                (DateTime.Now.Hour == 4) ||
+                (DateTime.Now.Hour == 6) ||
+                (DateTime.Now.Hour == 8) ||
+                (DateTime.Now.Hour == 10) ||
+                (DateTime.Now.Hour == 12) ||
+                (DateTime.Now.Hour == 14) ||
+                (DateTime.Now.Hour == 16) ||
+                (DateTime.Now.Hour == 18) ||
+                (DateTime.Now.Hour == 20) ||
+                (DateTime.Now.Hour == 22)
+                )))
+            {
+                t7.Stop();
+                try
+                {
+                    RestartService();
+                }
+                catch { }
+                t7.Start();
+            }
         }
 
     }

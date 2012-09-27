@@ -52,6 +52,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RobotService.Restart.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PSA.Robot.Service.ReExport.cs">
       <SubType>Component</SubType>
     </Compile>

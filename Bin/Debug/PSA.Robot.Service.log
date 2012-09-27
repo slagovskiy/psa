@@ -2075,3 +2075,316 @@ Xceed.FileSystem
 12.09.2012 16:45 [!] Остановлено задание повторной выгрузки суточных данных.
 12.09.2012 16:45 [!] Остановлено задание автоматической выгрузки заказов.
 12.09.2012 16:45 [+] Служба остановлена.
+27.09.2012 10:38 [+] Служба стартовала.
+27.09.2012 10:38 [!] Запущено задание импорта.
+27.09.2012 10:38 [!] Запущено задание экспорта.
+27.09.2012 10:38 [!] Запущено задание мониторинга.
+27.09.2012 10:38 [!] Запущено задание получения КЭШа.
+27.09.2012 10:38 [!] Запущено задание повторной выгрузки суточных данных.
+27.09.2012 10:38 [!] Запущено задание автоматической выгрузки заказов.
+27.09.2012 10:38 [!] Запущено задание автоматического перезапуска службы.
+27.09.2012 10:39 [+] Пробуем выгрузить заказы
+27.09.2012 10:39 [+] Выбираем заказы на экспорт
+27.09.2012 10:39 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:39 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:39 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:39 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:39 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:39 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+09/27/2012 10:40 [+] Начинаем экспорт заказов
+27.09.2012 10:40 [+] Пробуем выгрузить заказы
+27.09.2012 10:40 [+] Выбираем заказы на экспорт
+27.09.2012 10:40 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:40 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:40 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:40 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:40 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:40 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+09/27/2012 10:40 [+] Экспорт заказов завершен
+09/27/2012 10:40 [+] Начинаем экспорт платежей
+09/27/2012 10:41 [+] Экспорт платежей завершен
+09/27/2012 10:41 [+] начинаем экспорт инвентаризации
+09/27/2012 10:41 [+] Начинаем экспорт сверки
+09/27/2012 10:41 [+] Начинаем экспорт списаний
+09/27/2012 10:41 [+] Начинаем экспорт счетчиков операторов
+09/27/2012 10:41 [+] Начинаем экспорт счетчиков моментальной печати
+09/27/2012 10:41 [+] Начинаем экспорт событий по терминальным заказам
+09/27/2012 10:41 [+] Проставляем признак экспорта в заказах
+09/27/2012 10:41 [+] Проставляем признак экспорта в таблице заказа
+09/27/2012 10:41 [+] Проставляем признак экспорта в платежах
+09/27/2012 10:41 [+] Проставляем признак экспорта в списаниях
+09/27/2012 10:41 [+] Проставляем признак экспорта в инвентаризации
+09/27/2012 10:41 [+] Проставляем признак экспорта в сверке
+09/27/2012 10:41 [+] Проставляем признак экспорта событий по терминальным заказам
+09/27/2012 10:41 [+] Проставляем признак экспорта счетчиков операторов
+09/27/2012 10:41 [+] Проставляем признак экспорта счетчиков моментальной печати
+09/27/2012 10:41 [+] Начинаем отправку данных
+09/27/2012 10:41 [+] Файл order3_2012_09_27_10_40_07.csv успешно скопирован в резервный каталог
+09/27/2012 10:41 [+] Файл order3_2012_09_27_10_40_07.csv успешно скопирован на ftp сервер
+09/27/2012 10:41 [+] Файл order3_2012_09_27_10_40_07.csv успешно удален
+09/27/2012 10:41 [+] Файл payments_2012_09_27_10_40_07.csv успешно скопирован в резервный каталог
+09/27/2012 10:41 [+] Файл payments_2012_09_27_10_40_07.csv успешно скопирован на ftp сервер
+09/27/2012 10:41 [+] Файл payments_2012_09_27_10_40_07.csv успешно удален
+09/27/2012 10:41 [+] Файл er_2012-08-16.info успешно скопирован в резервный каталог
+09/27/2012 10:41 [+] Файл er_2012-08-16.info успешно скопирован на ftp сервер
+09/27/2012 10:41 [+] Файл er_2012-08-16.info успешно удален
+09/27/2012 10:41 [+] Файл er_2012-09-11.info успешно скопирован в резервный каталог
+09/27/2012 10:41 [+] Файл er_2012-09-11.info успешно скопирован на ftp сервер
+09/27/2012 10:41 [+] Файл er_2012-09-11.info успешно удален
+09/27/2012 10:41 [+] Файл er_2012-09-12.info успешно скопирован в резервный каталог
+09/27/2012 10:41 [+] Файл er_2012-09-12.info успешно скопирован на ftp сервер
+09/27/2012 10:41 [+] Файл er_2012-09-12.info успешно удален
+09/27/2012 10:41 [+] Файл er_2012-09-14.info успешно скопирован в резервный каталог
+09/27/2012 10:41 [+] Файл er_2012-09-14.info успешно скопирован на ftp сервер
+09/27/2012 10:41 [+] Файл er_2012-09-14.info успешно удален
+27.09.2012 10:41 [+] Пробуем выгрузить заказы
+27.09.2012 10:41 [+] Выбираем заказы на экспорт
+27.09.2012 10:41 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:41 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:41 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:41 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:41 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:41 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:42 [+] Пробуем выгрузить заказы
+27.09.2012 10:42 [+] Выбираем заказы на экспорт
+27.09.2012 10:42 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:42 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:42 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:42 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:42 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:42 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:43 [+] Пробуем выгрузить заказы
+27.09.2012 10:43 [+] Выбираем заказы на экспорт
+27.09.2012 10:43 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:43 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:43 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:43 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:43 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:43 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:44 [+] Пробуем выгрузить заказы
+27.09.2012 10:44 [+] Выбираем заказы на экспорт
+27.09.2012 10:44 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:44 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:44 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:44 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:44 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:44 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:45 [+] Опрос каталога
+27.09.2012 10:45 [+] Пробуем выгрузить заказы
+27.09.2012 10:45 [+] Выбираем заказы на экспорт
+27.09.2012 10:45 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:45 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:45 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:45 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:45 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:45 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:46 [+] Пробуем выгрузить заказы
+27.09.2012 10:46 [+] Выбираем заказы на экспорт
+27.09.2012 10:46 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:46 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:46 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:46 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:46 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:46 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:47 [!] Остановлено задание импорта
+27.09.2012 10:47 [!] Остановлено задание экспорта.
+27.09.2012 10:47 [!] Остановлено задание мониторинга.
+27.09.2012 10:47 [!] Остановлено задание получения КЭШа.
+27.09.2012 10:47 [!] Остановлено задание повторной выгрузки суточных данных.
+27.09.2012 10:47 [!] Остановлено задание автоматической выгрузки заказов.
+27.09.2012 10:47 [!] Остановлено задание автоматического перезапуска службы.
+27.09.2012 10:47 [+] Служба остановлена.
+27.09.2012 10:47 [+] Служба стартовала.
+27.09.2012 10:47 [!] Запущено задание импорта.
+27.09.2012 10:47 [!] Запущено задание экспорта.
+27.09.2012 10:47 [!] Запущено задание мониторинга.
+27.09.2012 10:47 [!] Запущено задание получения КЭШа.
+27.09.2012 10:47 [!] Запущено задание повторной выгрузки суточных данных.
+27.09.2012 10:47 [!] Запущено задание автоматической выгрузки заказов.
+27.09.2012 10:47 [!] Запущено задание автоматического перезапуска службы.
+27.09.2012 10:48 [+] Пробуем выгрузить заказы
+27.09.2012 10:48 [+] Выбираем заказы на экспорт
+27.09.2012 10:49 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:49 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:49 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:49 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:49 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:49 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:50 [+] Пробуем выгрузить заказы
+27.09.2012 10:50 [+] Выбираем заказы на экспорт
+27.09.2012 10:50 [+] Подготавливаем к выгрузке заказ 090000228459
+27.09.2012 10:50 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+27.09.2012 10:50 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:50 [+] Подготавливаем к выгрузке заказ 090000228614
+27.09.2012 10:50 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+27.09.2012 10:50 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+27.09.2012 10:51 [!] Остановлено задание автоматического перезапуска службы.
+27.09.2012 10:51 [+] Служба остановлена.
+27.09.2012 10:51 [+] Служба стартовала.
+27.09.2012 10:51 [!] Запущено задание автоматического перезапуска службы.
+27.09.2012 10:53 [!] Остановлено задание автоматического перезапуска службы.
+27.09.2012 10:53 [+] Служба остановлена.
+27.09.2012 10:53 [+] Служба стартовала.
+27.09.2012 10:53 [!] Запущено задание автоматического перезапуска службы.
+27.09.2012 10:54 [!] Остановлено задание автоматического перезапуска службы.
+27.09.2012 10:54 [+] Служба остановлена.
