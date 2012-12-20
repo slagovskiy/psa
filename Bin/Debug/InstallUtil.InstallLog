@@ -666,3 +666,24 @@ See the contents of the log file for the D:\Projects\lagovskiy_psa\trunk\Bin\Deb
 The file is located at D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.InstallLog.
 
 The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.exe assembly's progress.
+The file is located at D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.exe assembly's progress.
+The file is located at D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.exe assembly's progress.
+The file is located at D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.InstallLog.
+
+The uninstall has completed.

@@ -662,3 +662,24 @@ Affected parameters are:
 Removing EventLog source PSA.Robot.Service.
 Service PSA.Robot.Service is being removed from the system...
 Service PSA.Robot.Service was successfully removed from the system.
+Installing assembly 'D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.exe
+   logfile = D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.InstallLog
+Installing service PSA.Robot.Service...
+Service PSA.Robot.Service has been successfully installed.
+Creating EventLog source PSA.Robot.Service in log Application...
+Committing assembly 'D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.exe
+   logfile = D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.InstallLog
+Uninstalling assembly 'D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.exe
+   logfile = D:\Projects\lagovskiy_psa\trunk\Bin\Debug\PSA.Robot.InstallLog
+Removing EventLog source PSA.Robot.Service.
+Service PSA.Robot.Service is being removed from the system...
+Service PSA.Robot.Service was successfully removed from the system.

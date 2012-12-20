@@ -8,6 +8,7 @@ using System.Data;
 using System.Net;
 using Xceed.Ftp;
 using Xceed.FileSystem;
+using System.IO;
 
 namespace PSA.Robot
 {
@@ -22,8 +23,16 @@ namespace PSA.Robot
                  * net stop PSA.Robot
                  * net start PSA.Robot
                  */
-                System.Diagnostics.Process.Start("net.exe", "stop PSA.Robot");
-                System.Diagnostics.Process.Start("net.exe", "start PSA.Robot");
+                //System.Diagnostics.Process.Start("net.exe", "stop PSA.Robot");
+                //System.Diagnostics.Process.Start("net.exe", "start PSA.Robot");
+                string file = Guid.NewGuid().ToString() + ".cmd";
+                using (System.IO.StreamWriter bat = new StreamWriter(System.IO.Path.GetTempPath() + "\\" + file))
+                {
+                    bat.WriteLine("net stop PSA.Robot");
+                    bat.WriteLine("net start PSA.Robot");
+                }
+                System.Diagnostics.Process.Start(System.IO.Path.GetTempPath() + "\\" + file);
+                File.Delete(file);
             }
             catch (Exception ex)
             {

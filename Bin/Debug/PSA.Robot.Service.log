@@ -2388,3 +2388,59 @@ Xceed.FileSystem
 27.09.2012 10:53 [!] Запущено задание автоматического перезапуска службы.
 27.09.2012 10:54 [!] Остановлено задание автоматического перезапуска службы.
 27.09.2012 10:54 [+] Служба остановлена.
+28.09.2012 08:27 [+] Служба стартовала.
+28.09.2012 08:27 [!] Запущено задание импорта.
+28.09.2012 08:27 [!] Запущено задание экспорта.
+28.09.2012 08:27 [!] Запущено задание мониторинга.
+28.09.2012 08:27 [!] Запущено задание получения КЭШа.
+28.09.2012 08:27 [!] Запущено задание повторной выгрузки суточных данных.
+28.09.2012 08:27 [!] Запущено задание автоматической выгрузки заказов.
+28.09.2012 08:27 [!] Запущено задание автоматического перезапуска службы.
+28.09.2012 08:28 [+] Пробуем выгрузить заказы
+28.09.2012 08:29 [+] Выбираем заказы на экспорт
+28.09.2012 08:29 [+] Подготавливаем к выгрузке заказ 090000228459
+28.09.2012 08:29 [+] Выгружаем заказ 090000228459 на _int.fotoland.ru в /center/
+from: C:\Database\Export\auto_export\090000228459\
+to: center/090000228459/
+28.09.2012 08:29 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \center/090000228459/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+28.09.2012 08:29 [+] Подготавливаем к выгрузке заказ 090000228614
+28.09.2012 08:29 [+] Выгружаем заказ 090000228614 на _int.fotoland.ru в /versal/
+from: C:\Database\Export\auto_export\090000228614\
+to: versal/090000228614/
+28.09.2012 08:29 [!] Ошибка выгрузки заказа An I/O exception occurred while reading from or writing to a file item.
+Type: Xceed.Ftp.FtpFile
+FullName: \versal/090000228614/\.lock
+Xceed.FileSystem
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(FileSystemEvents events, Object userData, AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at Xceed.FileSystem.AbstractFolder.CopyFilesTo(AbstractFolder destinationFolder, Boolean recursive, Boolean replaceExistingFiles, Object[] filters)
+   at PSA.Robot.RobotService.UploadOrders() in D:\Projects\lagovskiy_psa\trunk\PSA.Robot\RobotService.Upload.cs:line 83
+28.09.2012 08:29 [!] Остановлено задание импорта
+28.09.2012 08:29 [!] Остановлено задание экспорта.
+28.09.2012 08:29 [!] Остановлено задание мониторинга.
+28.09.2012 08:29 [!] Остановлено задание получения КЭШа.
+28.09.2012 08:29 [!] Остановлено задание повторной выгрузки суточных данных.
+28.09.2012 08:29 [!] Остановлено задание автоматической выгрузки заказов.
+28.09.2012 08:29 [!] Остановлено задание автоматического перезапуска службы.
+28.09.2012 08:29 [+] Служба остановлена.
+28.09.2012 08:30 [+] Служба стартовала.
+28.09.2012 08:30 [!] Запущено задание импорта.
+28.09.2012 08:30 [!] Запущено задание экспорта.
+28.09.2012 08:30 [!] Запущено задание мониторинга.
+28.09.2012 08:30 [!] Запущено задание получения КЭШа.
+28.09.2012 08:30 [!] Запущено задание повторной выгрузки суточных данных.
+28.09.2012 08:30 [!] Запущено задание автоматической выгрузки заказов.
+28.09.2012 08:30 [!] Запущено задание автоматического перезапуска службы.
+28.09.2012 08:30 [!] Остановлено задание импорта
+28.09.2012 08:30 [!] Остановлено задание экспорта.
+28.09.2012 08:30 [!] Остановлено задание мониторинга.
+28.09.2012 08:30 [!] Остановлено задание получения КЭШа.
+28.09.2012 08:30 [!] Остановлено задание повторной выгрузки суточных данных.
+28.09.2012 08:30 [!] Остановлено задание автоматической выгрузки заказов.
+28.09.2012 08:30 [!] Остановлено задание автоматического перезапуска службы.
+28.09.2012 08:30 [+] Служба остановлена.

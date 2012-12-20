@@ -276,7 +276,8 @@ namespace PSA.Robot
                 (DateTime.Now.Hour == 18) ||
                 (DateTime.Now.Hour == 20) ||
                 (DateTime.Now.Hour == 22)
-                )))
+                ))
+                )
             {
                 t7.Stop();
                 try

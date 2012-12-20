@@ -47,105 +47,121 @@ namespace Photoland.Security.Discont
 							DateTime.Now.Minute.ToString("D2") + 
 							DateTime.Now.Second.ToString("D2") + 
 							DateTime.Now.Millisecond.ToString("D2");
-				HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://" + settings.DiscontServerAddress + "/card.get.php?code=" + code + "&key=" + key + "&format=xml");
-				HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-				Stream resStream = response.GetResponseStream();
-				XmlDocument doc = new XmlDocument();
-				try
-				{
-					doc.Load(resStream);
-					foreach (XmlNode n in doc.ChildNodes)
-					{
-						if (n.Name.ToLower() == "data")
-						{
-							foreach (XmlNode nn in n.ChildNodes)
-							{
-								if (nn.Name.ToLower() == "key")
-								{
-									if (key != nn.InnerText)
-									{
-										this._id_dcard = 0;
-										this._code_dcard = "";
-										this._name_dcard = "";
-										this._disc = 0;
-										this._discserv = 0;
-										this._not = false;
-										this._phone = "";
-										this._email = "";
-										this._bonus = 0;
-										this._bonustype = "";
-										return;
-									}
-								}
-								if (nn.Name.ToLower() == "card")
-								{
-									foreach (XmlNode nnn in nn.ChildNodes)
-									{
-										switch (nnn.Name.ToLower())
-										{
-											case "code":
-												{
-													this._code_dcard = nnn.InnerText;
-													break;
-												}
-											case "name":
-												{
-													this._name_dcard = nnn.InnerText;
-													break;
-												}
-											case "disc":
-												{
-													this._disc = decimal.Parse(nnn.InnerText);
-													break;
-												}
-											case "discserv":
-												{
-													this._discserv = decimal.Parse(nnn.InnerText);
-													break;
-												}
-											case "phone":
-												{
-													this._phone = nnn.InnerText;
-													break;
-												}
-											case "email":
-												{
-													this._email = nnn.InnerText;
-													break;
-												}
-											case "bonus":
-												{
-													this._bonus = decimal.Parse(nnn.InnerText);
-													break;
-												}
-											case "type":
-												{
-													this._bonustype = nnn.InnerText;
-													break;
-												}
-										}
-										this._not = false;
-										this._id_dcard = 999999999;
-									}
-								}
-							}
-						}
-					}
-				}
-				catch 
-				{
-					// не нашлось среди в web-е
-					this._id_dcard = 0;
-					this._code_dcard = "";
-					this._name_dcard = "";
-					this._disc = 0;
-					this._discserv = 0;
-					this._not = false;
-					this._phone = "";
-					this._email = "";
-					this._bonus = 0;
-					this._bonustype = "";
-				}
+                if (code.Trim() != "")
+                {
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://" + settings.DiscontServerAddress + "/card.get.php?code=" + code + "&key=" + key + "&format=xml");
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    Stream resStream = response.GetResponseStream();
+                    XmlDocument doc = new XmlDocument();
+                    try
+                    {
+                        doc.Load(resStream);
+                        foreach (XmlNode n in doc.ChildNodes)
+                        {
+                            if (n.Name.ToLower() == "data")
+                            {
+                                foreach (XmlNode nn in n.ChildNodes)
+                                {
+                                    if (nn.Name.ToLower() == "key")
+                                    {
+                                        if (key != nn.InnerText)
+                                        {
+                                            this._id_dcard = 0;
+                                            this._code_dcard = "";
+                                            this._name_dcard = "";
+                                            this._disc = 0;
+                                            this._discserv = 0;
+                                            this._not = false;
+                                            this._phone = "";
+                                            this._email = "";
+                                            this._bonus = 0;
+                                            this._bonustype = "";
+                                            return;
+                                        }
+                                    }
+                                    if (nn.Name.ToLower() == "card")
+                                    {
+                                        foreach (XmlNode nnn in nn.ChildNodes)
+                                        {
+                                            switch (nnn.Name.ToLower())
+                                            {
+                                                case "code":
+                                                    {
+                                                        this._code_dcard = nnn.InnerText;
+                                                        break;
+                                                    }
+                                                case "name":
+                                                    {
+                                                        this._name_dcard = nnn.InnerText;
+                                                        break;
+                                                    }
+                                                case "disc":
+                                                    {
+                                                        this._disc = decimal.Parse(nnn.InnerText);
+                                                        break;
+                                                    }
+                                                case "discserv":
+                                                    {
+                                                        this._discserv = decimal.Parse(nnn.InnerText);
+                                                        break;
+                                                    }
+                                                case "phone":
+                                                    {
+                                                        this._phone = nnn.InnerText;
+                                                        break;
+                                                    }
+                                                case "email":
+                                                    {
+                                                        this._email = nnn.InnerText;
+                                                        break;
+                                                    }
+                                                case "bonus":
+                                                    {
+                                                        this._bonus = decimal.Parse(nnn.InnerText);
+                                                        break;
+                                                    }
+                                                case "type":
+                                                    {
+                                                        this._bonustype = nnn.InnerText;
+                                                        break;
+                                                    }
+                                            }
+                                            this._not = false;
+                                            this._id_dcard = 999999999;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        // не нашлось среди в web-е
+                        this._id_dcard = 0;
+                        this._code_dcard = "";
+                        this._name_dcard = "";
+                        this._disc = 0;
+                        this._discserv = 0;
+                        this._not = false;
+                        this._phone = "";
+                        this._email = "";
+                        this._bonus = 0;
+                        this._bonustype = "";
+                    }
+                }
+                else
+                {
+                    this._id_dcard = 0;
+                    this._code_dcard = "";
+                    this._name_dcard = "";
+                    this._disc = 0;
+                    this._discserv = 0;
+                    this._not = false;
+                    this._phone = "";
+                    this._email = "";
+                    this._bonus = 0;
+                    this._bonustype = "";
+                }
 
 			}
 			catch 

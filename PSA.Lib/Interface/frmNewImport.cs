@@ -258,7 +258,7 @@ namespace PSA.Lib.Interface
                                 log.Items.Add("Загружаем " + number);
                                 log.SelectedIndex = log.Items.Count - 1;
                                 Application.DoEvents();
-
+                                log.Items.Add("Читаем файл и загружаем");
                                 if (ImportFile(file.FullName, checkPrintCheck.Checked, clientid))
                                 {
                                     try
@@ -359,6 +359,10 @@ namespace PSA.Lib.Interface
 
                                     }
                                     catch { }
+                                }
+                                else
+                                {
+                                    log.Items.Add("Не удалось загрузить заказ из файла");
                                 }
                             }
                         }
@@ -467,6 +471,7 @@ namespace PSA.Lib.Interface
                     {
                         case "order":
                             {
+                                log.Items.Add("Читается секция order");
                                 string[] r = str.Split(';');
                                 if (r.Length > 2)
                                 {
@@ -492,7 +497,7 @@ namespace PSA.Lib.Interface
                                                         prev = "1";
                                                     else
                                                         prev = "0";
-
+                                                    log.Items.Add("Обновляется информация в шапке заказа");
                                                     query = "UPDATE [order] " +
                                                             "SET [id_user_accept] = " + r[0] + " " +
                                                             ",[id_user_operator] = " + r[0] + " " +
@@ -547,6 +552,7 @@ namespace PSA.Lib.Interface
                                                         prev = "1";
                                                     else
                                                         prev = "0";
+                                                    log.Items.Add("Добавляется новая шапка для заказа");
                                                     query =
                                                         "INSERT INTO [order] ([id_user_accept],[id_client],[guid],[del],[name_accept],[status],[number],[input_date],[expected_date],[advanced_payment],[final_payment],[preview],[comment],[crop],[type]) VALUES (" +
                                                         usr.Id_user.ToString() + "," + clientid + ",'" + newguid + "',0,'" + usr.Name +
@@ -584,6 +590,7 @@ namespace PSA.Lib.Interface
                             }
                         case "body":
                             {
+                                log.Items.Add("Читается секция body");
                                 string[] r = str.Split(';');
                                 if (r.Length > 1)
                                 {
@@ -629,7 +636,7 @@ namespace PSA.Lib.Interface
                                                 {
                                                     idwork = "-1";
                                                 }
-
+                                                log.Items.Add("Обновляется строка в табличной части");
                                                 query = "UPDATE [orderbody] " +
                                                         "SET [id_order] = " + orderid + " ";
                                                 if (r[1] != "")
@@ -687,7 +694,7 @@ namespace PSA.Lib.Interface
                                                 string namework = r[15];
                                                 string iddefect = "0";
                                                 string namedefect = r[18];
-
+                                                log.Items.Add("Добавляется строка в табличкую часть");
                                                 query = "INSERT INTO [orderbody] " +
                                                         "([id_order]";
                                                 if (r[1] != "")
@@ -769,73 +776,83 @@ namespace PSA.Lib.Interface
 
                         case "events":
                             {
-                                string[] r = str.Split(';');
-                                if (r.Length > 1)
+                                log.Items.Add("Читается секция events");
+                                try
                                 {
-                                    if (loadthis)
+                                    string[] r = str.Split(';');
+                                    if (r.Length > 1)
                                     {
-                                        //MessageBox.Show(str + " " + r.Length.ToString());
-                                        string query = "SELECT * FROM [orderevent] WHERE [guid] = '" + r[2] + "'";
-                                        SqlCommand body_cmd = new SqlCommand(query, db_connection);
-                                        SqlDataReader rdr = body_cmd.ExecuteReader();
+                                        if (loadthis)
+                                        {
+                                            //MessageBox.Show(str + " " + r.Length.ToString());
+                                            string query = "SELECT * FROM [orderevent] WHERE [guid] = '" + r[2] + "'";
+                                            SqlCommand body_cmd = new SqlCommand(query, db_connection);
+                                            body_cmd.CommandTimeout = 9000;
+                                            SqlDataReader rdr = body_cmd.ExecuteReader();
 
-                                        if (rdr.Read())
-                                        {
-                                        }
-                                        else
-                                        {
-                                            try
+                                            if (rdr.Read())
                                             {
-                                                DateTime _d;
+                                            }
+                                            else
+                                            {
                                                 try
                                                 {
-                                                    _d = DateTime.Parse(r[4]);
-                                                }
-                                                catch (Exception)
-                                                {
-                                                    _d = DateTime.Now;
-                                                }
+                                                    DateTime _d;
+                                                    try
+                                                    {
+                                                        _d = DateTime.Parse(r[4]);
+                                                    }
+                                                    catch (Exception)
+                                                    {
+                                                        _d = DateTime.Now;
+                                                    }
+                                                    log.Items.Add("Добавляется строка в историю");
+                                                    query = "INSERT INTO [dbo].[orderevent]" +
+                                                            "([id_order]" +
+                                                            ",[event_user]" +
+                                                            ",[event_status]" +
+                                                            ",[event_point]" +
+                                                            ",[event_date]" +
+                                                            ",[guid]" +
+                                                            ",[event_text])" +
+                                                            "VALUES " +
+                                                            "(" + orderid + "" +
+                                                            ",'" + r[5].Trim() + "' " +
+                                                            ",'" + r[6].Trim() + "' " +
+                                                            ",'" + r[7] + "' " +
+                                                            ",CONVERT(DATETIME, '" + DateToSql(r[4]) + "', 120) " +
+                                                            ",'" + r[2] + "'" +
+                                                            ",'" + r[8] + "')";
+                                                    using (SqlConnection cn = new SqlConnection(prop.Connection_string))
+                                                    {
+                                                        cn.Open();
+                                                        SqlCommand u = new SqlCommand(query, cn);
+                                                        u.CommandTimeout = 9000;
+                                                        u.ExecuteNonQuery();
+                                                        cn.Close();
 
-                                                query = "INSERT INTO [dbo].[orderevent]" +
-                                                        "([id_order]" +
-                                                        ",[event_user]" +
-                                                        ",[event_status]" +
-                                                        ",[event_point]" +
-                                                        ",[event_date]" +
-                                                        ",[guid]" +
-                                                        ",[event_text])" +
-                                                        "VALUES " +
-                                                        "(" + orderid + "" +
-                                                        ",'" + r[5].Trim() + "' " +
-                                                        ",'" + r[6].Trim() + "' " +
-                                                        ",'" + r[7] + "' " +
-                                                        ",CONVERT(DATETIME, '" + DateToSql(r[4]) + "', 120) " +
-                                                        ",'" + r[2] + "'" +
-                                                        ",'" + r[8] + "')";
-                                                using (SqlConnection cn = new SqlConnection(prop.Connection_string))
+                                                    }
+                                                }
+                                                catch (Exception ex)
                                                 {
-                                                    cn.Open();
-                                                    SqlCommand u = new SqlCommand(query, cn);
-                                                    u.CommandTimeout = 9000;
-                                                    u.ExecuteNonQuery();
-                                                    cn.Close();
-
+                                                    MessageBox.Show("Ошибка во время переноса истории заказа!" + "\n" + ex.Message + "\n" +
+                                                                    ex.Source + "\n" + ex.StackTrace);
                                                 }
                                             }
-                                            catch (Exception ex)
-                                            {
-                                                MessageBox.Show("Ошибка во время переноса истории заказа!" + "\n" + ex.Message + "\n" +
-                                                                ex.Source + "\n" + ex.StackTrace);
-                                            }
+                                            rdr.Close();
                                         }
-                                        rdr.Close();
                                     }
+                                }
+                                catch (Exception ex)
+                                {
+                                    log.Items.Add("Произошла ошибка во время загрузки истории " + ex.Message);
                                 }
                                 break;
                             }
                     }
                 }
                 fs.Close();
+                log.Items.Add("Чтение завершено");
                 if (print)
                 {
                     foreach (string n in orderToPrint)
@@ -844,14 +861,17 @@ namespace PSA.Lib.Interface
                         {
                             Application.DoEvents();
                         }
-
+                        log.Items.Add("Пробуем напечатать чек");
                         PrintCheck(n);
                     }
                 }
+                log.Items.Add("Загрузка прошла успешно, возвращаем true");
                 ok = true;
             }
             catch (Exception ex)
             {
+                log.Items.Add("Произошла ошибка во время загрузки");
+                //MessageBox.Show(ex.Message + "\n" + ex.Source);
                 ok = false;
             }
             return ok;
@@ -862,15 +882,19 @@ namespace PSA.Lib.Interface
         private void PrintCheck(string num)
         {
             // Печатаем чек
+            log.Items.Add("Начинаем печать чека");
             using (SqlConnection con = new SqlConnection(prop.Connection_string))
             {
                 con.Open();
+                log.Items.Add("Получаем объект заказа");
                 OrderInfo prnOrder = new OrderInfo(con, num, true);
                 try
                 {
                     if (prop.PathReportsTemplates != "")
                     {
+                        log.Items.Add("Загружаем шаблон для печати");
                         rep.Load(prop.PathReportsTemplates, "Check");
+                        log.Items.Add("Заполняем поля в шаблоне");
                         rep.DataSource.Recordset = prnOrder.OrderBody;
                         decimal itog = 0;
                         decimal iitog = 0;
@@ -979,6 +1003,7 @@ namespace PSA.Lib.Interface
                         rep.Fields["EndPayment"].Text = (iitog - p).ToString().Replace(",", ".");
                         if (prop.CheckPreview)
                         {
+                            log.Items.Add("Показываем превью чека");
                             PrintPreviewDialog pd = new PrintPreviewDialog();
                             pd.ClientSize = new Size(465, 680);
                             pd.StartPosition = FormStartPosition.CenterScreen;
@@ -988,6 +1013,7 @@ namespace PSA.Lib.Interface
                         }
                         else
                         {
+                            log.Items.Add("Отправляем шаблон в принтер");
                             rep.Document.Print();
                         }
                     }
