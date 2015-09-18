@@ -1,0 +1,902 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C1.Win.C1PrintPreview.Classic.2</name>
+    </assembly>
+    <members>
+        <member name="M:C1.Win.AboutForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:C1.Win.LicensingForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:C1.Util.Localization.C1DescriptionAttribute">
+            <summary>
+            ------------------------------------------------------------------------
+            C1DescriptionAttribute replaces the DescriptionAttribute
+            and uses the C1Localizer class to return the localized Attribute string
+            </summary>
+        </member>
+        <member name="T:C1.Util.Localization.C1CategoryAttribute">
+            <summary>
+            ------------------------------------------------------------------------
+            C1CategoryAttribute replaces the CategoryAttribute
+            and uses the C1Localizer class to return the localized Attribute string
+            </summary>
+        </member>
+        <member name="T:C1.Util.Localization.C1Localizer">
+            <summary>
+            ------------------------------------------------------------------------
+            C1Localizer contains static methods to load and look up resources
+            </summary>
+        </member>
+        <member name="T:C1.Win.Misc.HilitingToolbar">
+            <summary>
+            Toolbar with hilited icons
+            </summary>
+        </member>
+        <member name="M:C1.Win.Misc.HilitingToolbar.Finalize">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:C1.Win.Misc.HilitingToolbar.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:C1.Win32.DummyWin32.S_OK">
+            End of WARNING
+        </member>
+        <member name="F:C1.Win32.DummyWin32.S_FALSE">
+            End of WARNING
+        </member>
+        <member name="F:C1.Win32.DummyWin32.E_NOTIMPL">
+            End of WARNING
+        </member>
+        <member name="F:C1.Win32.DummyWin32.E_OUTOFMEMORY">
+            End of WARNING
+        </member>
+        <member name="F:C1.Win32.DummyWin32.E_INVALIDARG">
+            End of WARNING
+        </member>
+        <member name="F:C1.Win32.DummyWin32.E_UNEXPECTED">
+            End of WARNING
+        </member>
+        <member name="F:C1.Win32.DummyWin32.LANG_SYSTEM_DEFAULT">
+            
+            WARNING!!! The order of definitions is important.
+            
+        </member>
+        <member name="M:C1.Win32.DummyWin32.GetLocaleInfo(System.UInt32,System.UInt32)">
+            <summary>
+            This function avoids BUG with API GetLocaleInfo function under Win9X
+            </summary>
+            <param name="Locale"></param>
+            <param name="LCType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C1.Util.Localization.StringTables">
+            <summary>
+            StringTables
+            this class contains a single static method InitTables that populates the
+            tables used by the Localizer class.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1ViewHistory.RemoveFromPage(System.Int32,C1.Win.C1PrintPreview.C1VisitedDocument)">
+            <summary>
+            Deletes the items from view history.
+            If visitedDocument == null then deletes *all* items which
+            are linked to null document and if their PageIndex more or equal to startPageIndex. 
+            If visitedDocument != null then deletes all items for which PageIndex more or equal to startPageIndex
+            *but* at least one item linked to the visitedDocument is remained in list.
+            AM 22.09.2004:
+            Now *all items* from the ViewHistory are deleted which linked with visitedDocument
+            item.
+            </summary>
+            <param name="startPageIndex"></param>
+            <param name="visitedDocument"></param>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.EmfPageMapElem">
+            <summary>
+            An EmfPageMap is built for a page when that page must be searched for text,
+            or user is selecting text in it. EmfPageMap is a memory-heavy object, so
+            should be used sparingly (i.e. only when needed, and disposed afterwards).
+            
+            The map contains EmfPageMapElem elements, each corresponding to a record
+            in the page metafile. Elements for 2 record types are supported:
+            - string elements, used for text search/selection;
+            - link elements, used for hyperlinks and the like.
+            
+            All elements store their metafile rectangle.
+            
+            String elements store the string and the char map.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.ExporterOptions">
+            <summary>
+            Represents the options of separate exporter,
+            the ExportOptions class contains the list of such objects.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.ExporterOptions.OptionsDialogClassName">
+            <summary>
+            Gets or sets the class name of the export options dialog form.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.ExporterOptions.Enabled">
+            <summary>
+            Indicates whether the exporter appears in the default FileSave dialog of C1PrintPreview.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.ExporterOptions.ExportProvider">
+            <summary>
+            Returns the ExportProvider object.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.ExportOptions">
+            <summary>
+            Contains the options for all exporters (PdfExporter, XlsExporter and so on).
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.ExportOptions.Reset">
+            <summary>
+            Resets all options of exporters to default values.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.ExportOptions.IndexByExportProvider(C1.C1PrintDocument.Export.ExportProvider)">
+            <summary>
+            Searches the ExportOptions object by ExportProvider.
+            </summary>
+            <param name="exportProvider">ExportProvider object, options of which must be searched.</param>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.ExportOptions.Count">
+            <summary>
+            Returns the number of options of exporters.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.ExportOptions.Item(System.Int32)">
+            <summary>
+            Returns the options of exporter by its index.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.ExportOptions.Item(System.Type)">
+            <summary>
+            Returns the options of exporter by type of ExportProvider.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.ExportOptions.Item(System.String)">
+            <summary>
+            Returns the options of exporter by FormatKey of ExportProvider.
+            Each ExportProvider has unique identificator (FormatKey property).
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.ExportOptions.Content">
+            <summary>
+            Do not use this property, it used for serialization.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.ExportDialogClassNames">
+            <summary>
+            Internal class, do not use.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.C1FindTextForm">
+            <summary>
+                Form used to show the find text dialog.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1FindTextForm.InitializeComponent">
+            <summary>
+            	Required method for Designer support - do not modify
+            	the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.HistorySavedActionsEnum">
+            <summary>
+            Defines the user actions which can be saved in the preview history
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.VisitedDocumentStorageEnum">
+            <summary>
+            Defines the modes of documents keeping in the preview history
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.HistoryOptions">
+            <summary>
+            Contains options for the preview history
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.OutlineNode">
+            <summary>
+            Tree node in the outline tree pointing to a page in the document.
+            </summary>
+        </member>
+        <member name="F:C1.Win.C1PrintPreview.C1PreviewPane._currentDocumentSavedInHistory">
+            <summary>
+            Means that the current document is added to the history BUT
+            do not saved in the storage.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.OnStatusChanged(System.EventArgs)">
+            <summary>
+            Fires the PreviewStatusChanged event. The default handler for this even
+            updates the navigation, toolbar and status controls connected to this preview.
+            Should be called when forcing status update is required.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.CheckCanChangePreviewPane(C1.Win.C1PrintPreview.C1PreviewPane,C1.Win.C1PrintPreview.C1PreviewPane)">
+            <summary>
+            Checks whether a connected control (toolbar, navBar, status) can change
+            preview pane.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.PageRectangle(System.Int32,System.Int32)">
+            <summary>
+            Returns the client rectangle of the specified page
+            </summary>
+            <param name="row">Row of the page in the preview pane window</param>
+            <param name="col">Column of the page in the preview pane window</param>
+            <returns>Page rectangle or Rectangle.Empty if none has been found</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.PageRectangle(System.Int32)">
+            <summary>
+            Returns the client rectangle of the specified page
+            </summary>
+            <param name="pageNo">0-based page index</param>
+            <returns>Page rectangle or Rectangle.Empty if none has been found</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.ClientToDocumentPage(System.Drawing.Point,C1.C1PrintDocument.DocEngine.Render.IPage@,System.Int32@)">
+            <summary>
+            Converts client coordinates to a point in DocEngine's page, in Src.Drawel.s_units.
+            </summary>
+            <param name="p">Client point to convert</param>
+            <param name="renderPage">Output, render page under point</param>
+            <param name="pageIdx">Output, 0-based page index</param>
+            <returns>PointF with converted coordinates or PointF.Empty</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.DocumentPageToClient(System.Int32,System.Drawing.PointF)">
+            <summary>
+            Converts DocEngine's page (in Src.Drawel.s_units) coordinates to
+            preview window client coordinates (page must be visible).
+            </summary>
+            <param name="pageIdx"></param>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.DocumentPageToClient(C1.C1PrintDocument.DocEngine.Render.IPage,System.Drawing.PointF)">
+            <summary>
+            Converts DocEngine's page (in Src.Drawel.s_units) coordinates to
+            preview window client coordinates (page must be visible).
+            </summary>
+            <param name="renderPage"></param>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.UpdateScreenLayout">
+            <summary>
+            Creates the _pageRects matrix with _nRows and _nCols.
+            Each rectangle is scaled to reflect the current 
+            document and display settings.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.IsUnModifiedDocEngineConnected">
+            <summary>
+            Returns the true value if unmodified C1DocEngine object is connected
+            to the C1PreviewPane.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.FileOpen">
+            <summary>
+            Shows a file open dialog, opens and loads a document.
+            </summary>
+            <returns>True if a document has been successfully loaded</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.FileOpen(System.String)">
+            <summary>
+            Opens and loads a previously saved .c1d document.
+            </summary>
+            <returns>True if a document has been successfully loaded</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.RenameCurrentDocument(System.String)">
+            <summary>
+            Renames current item in the documents' history.
+            </summary>
+            <param name="fullFileName">Full name of file.</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.FileSave(System.String)">
+            <summary>
+            Saves the document in the specified .c1d file.
+            </summary>
+            <param name="filename">file name</param>
+            <returns>True if a document has been successfully saved</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.FileSave">
+            <summary>
+            Shows a file save dialog, saves the currently loaded document.
+            </summary>
+            <returns>True if the document has been saved.</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.LoadDoc(System.Collections.IEnumerable,System.String)">
+            <summary>
+            Loads a new document from the supplied list of page images.
+            </summary>
+            <param name="images">Page images list</param>
+            <param name="docName">The document display name</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.LoadDoc(System.String,System.String)">
+            <summary>
+            Loads a set of image files as pages of a document.
+            </summary>
+            <param name="path">Specifies the image file(s) to load.</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.LoadDoc(System.String,System.String,System.String)">
+            <summary>
+            Loads a document previously saved as a collection of image files.
+            </summary>
+            <param name="path">File or directory name</param>
+            <param name="mask">If not null, files matching the specified mask only are loaded</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.RCPagesScale(System.Double,System.Double)">
+            <summary>
+                Scale all page rectangles by a specified amount.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.RCPagesGetSize">
+            <summary>
+                Get the overall size of the page array.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.PageIdxAtPoint(System.Drawing.Point)">
+            <summary>
+            Finds the page at the specified point in the pane window.
+            </summary>
+            <param name="x">The X coordinate</param>
+            <param name="y">The Y coordinate</param>
+            <returns>0-based page index or -1 if no page has been found</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.PageIdxAtPoint(System.Int32,System.Int32)">
+            <summary>
+            Finds the page at the specified point in the pane window.
+            </summary>
+            <param name="x">The X coordinate</param>
+            <param name="y">The Y coordinate</param>
+            <returns>0-based page index or -1 if no page has been found</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.PageIdxAtPoint(System.Drawing.Point,System.Int32@,System.Int32@)">
+            <summary>
+            Finds the page at the specified point in the pane window.
+            </summary>
+            <param name="p">The point</param>
+            <param name="row">Output, contains the 0-based row of the page in the preview window</param>
+            <param name="col">Output, contains the 0-based column of the page in the preview window</param>
+            <returns>0-based page index or -1 if no page has been found</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.PageIdxAtPoint(System.Int32,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Finds the page at the specified point in the pane window.
+            </summary>
+            <param name="x">The X coordinate</param>
+            <param name="y">The Y coordinate</param>
+            <param name="row">Output, contains the 0-based row of the page in the preview window</param>
+            <param name="col">Output, contains the 0-based column of the page in the preview window</param>
+            <returns>0-based page index or -1 if no page has been found</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.SetZoomRect(System.Drawing.Rectangle,System.Double)">
+            <summary>
+            Set zoom and scroll origin to match user-selected zoom rectangle
+            If newZoom != 0, it is used as the new zoom factor
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.Print(System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Prints the current doc.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.PageSetup">
+            <summary>
+            Shows the page setup dialog.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.Reflow(System.Drawing.Printing.PageSettings)">
+            <summary>
+            Reflows the current document
+            </summary>
+            <param name="pageSettings">New page settings to use</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.IsPageVisible(System.Int32)">
+            <summary>
+            Returns true if the page is currently visible, false otherwise.
+            </summary>
+            <param name="PageIdx">0-based page index</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.GetActiveDrawelInput">
+            <summary>
+            Returns the active DrawelInput, control of which has the input focus.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewPane.EditDocumentInfo">
+            <summary>
+            Opens the dialog for editing the content of DocumentInfo property.
+            </summary>
+            <returns>Returns the true if user press OK.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:C1.Win.C1PrintPreview.C1PreviewPane._generatePrintDocument(System.Drawing.Printing.PageSettings)" -->
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.ExportOptions">
+            <summary>
+            Gets the array of export options.
+            </summary>
+        </member>
+        <member name="E:C1.Win.C1PrintPreview.C1PreviewPane.PageSettingsChanged">
+            <summary>
+            Event which is fired after the default page settings have been changed by the user.
+            </summary>
+        </member>
+        <member name="E:C1.Win.C1PrintPreview.C1PreviewPane.LongOpInProgress">
+            <summary>
+            Event fired periodically when a time-consuming operation is in progress
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.DocumentName">
+            <summary>
+            Sets or returns the preview document's name
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.Document">
+            <summary>
+            Sets or returns the document being previewed.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.C1DocEngine">
+            <summary>
+            Sets or returns the C1DocEngine object this preview pane is associated with.
+            If the pane is associated with a C1Document, this property returns null
+            although there is an underlying C1DocEngine available. To get to it, use
+            GetDocEngine(false) call.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.C1PrintDocument">
+            <summary>
+            Sets or returns the C1Document object associated with this preview.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.PageSettings">
+            <summary>
+            Sets or returns the default page settings.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.ZoomMode">
+            <summary>
+            Zoom type: enumeration sets predefined combinations.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.ZoomFactor">
+            <summary>
+            Sets or returns the current zoom factor, in percent.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.MouseMode">
+            <summary>
+            Sets or returns the mouse mode.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.ResetMouseModeAfterZoom">
+            <summary>
+            If true, after a mouse zoom has been applied, the mouse is restored to the last tool used.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.InternalStartPageIdx">
+            <summary>
+            0-based index of the first page shown in the pane.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.StartPage">
+            <summary>
+                First visible page on preview control. This is 1-based.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.CanReflow">
+            <summary>
+            Returns true if the shown document can reflow to adapt to different page setup.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewPane.DocumentInfo">
+            <summary>
+            Returns the value of DocumentInfo property of currently opened
+            document. This property is not null only if C1PreviewPane is connected
+            to C1PrintDocument or C1DocEngine
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.C1PreviewPane.BindingListController">
+            BindingListController
+            If the PrintDocument supports IBindingList, use this PrintController
+            and get the images directly from the list.
+            This avoids saving extra images for each page in the standard
+            PrintPreviewController or the MetaFilePrintController.
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.C1PrintPreview">
+            <summary>
+            	Summary description for C1Preview.
+            </summary>
+        </member>
+        <member name="F:C1.Win.C1PrintPreview.C1PrintPreview.components">
+            <remarks>Required designer variable.</remarks>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PrintPreview.Finalize">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PrintPreview.Init">
+            <summary>
+            Initialize control.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PrintPreview.RefreshStatus">
+            <summary>
+            Forces the preview control to refresh its status
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PrintPreview.GetDocEngine(System.Boolean)">
+            <summary>
+            Returns the doc engine used by the preview
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PrintPreview.EditDocumentInfo">
+            <summary>
+            Opens the dialog for editing the content of DocumentInfo property.
+            </summary>
+            <returns>Returns the true if user press OK.</returns>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PrintPreview.ExportOptions">
+            <summary>
+            Gets the array of export options.
+            </summary>
+        </member>
+        <member name="E:C1.Win.C1PrintPreview.C1PrintPreview.PreviewButtonClick">
+            <summary>
+            Allows custom handling of any preset toolbar button click events
+            </summary>
+        </member>
+        <member name="E:C1.Win.C1PrintPreview.C1PrintPreview.ButtonClick">
+            <summary>
+            Regular toolbar button click event
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PrintPreview.PreviewPaneProps.PageRectangle(System.Int32,System.Int32)">
+            <summary>
+            Returns the page rectangle doc engine used by the preview
+            </summary>
+        </member>
+        <member name="E:C1.Win.C1PrintPreview.C1PrintPreview.ToolBarProps.PreviewButtonClick">
+            <summary>
+            Allows custom handling of any preset toolbar button click events
+            </summary>
+        </member>
+        <member name="E:C1.Win.C1PrintPreview.C1PrintPreview.ToolBarProps.ButtonClick">
+            <summary>
+            Regular toolbar button click event
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.DrawelSearchCriterionEnum">
+            <summary>
+            For drawel under point searches, determines which drawel to choose when more than one
+            occupy the postition in question.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.PageSettingsChangedArgs">
+            <summary>
+            Arguments for the PageSettingsChanged event handler.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.FormsUserActionEventArgs">
+            <summary>
+            Provides data for the FormsUserAction event.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.FormsUserActionEventArgs.InputControls">
+            <summary>
+            Gets the InputControls object containing the input control which raises an event.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.FormsUserActionEventArgs.UserAction">
+            <summary>
+            Gets the user action (Click, MouseDown, MouseUp etc.).
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.FormsUserActionEventArgs.InputAction">
+            <summary>
+            Gets the InputAction object that will handle the user action by default. 
+            This parameter can be null if no action is associated with the specified user action.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.FormsUserActionEventArgs.InputInfo">
+            <summary>
+            Gets the InputInfoBase object corresponding to the input control which
+            causes an event.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.FormsUserActionEventArgs.Handled">
+            <summary>
+            Gets or sets the value indicating whether the default handling of the user action 
+            should take place. Set this property to True to cancel the default handling.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.C1PreviewNavigationBar">
+            <summary>
+            Navigation pane for the preview control
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewNavigationBar.GetAdditionalOutlineEntries">
+            <summary>
+            Gets list of outline entries which is added through C1PrintPreview methods.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewNavigationBar.UpdateStatus">
+            <summary>
+            Updates the outline status (current thumb/node).
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewNavigationBar.RefreshOutlineNodes(System.Int32)">
+            <summary>
+            Refreshes the outline tree.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewNavigationBar.UnselectAllThumbnails">
+            <summary>
+            Unselects all thumbnails
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewNavigationBar._findOutlineEntry(System.Windows.Forms.TreeNodeCollection,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Checks exists the entry with specified props in _outlineView.Nodes or not.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewNavigationBar.PreviewPane">
+            <summary>
+            Gets or sets the preview pane this navigation pane is connected to.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewNavigationBar.PageThumbSide">
+            <summary>
+            Gets or sets the length of the thumb square.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewNavigationBar.ThumbsPage">
+            <summary>
+            Gets the tab page containing the thumbnails view.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewNavigationBar.ThumbsView">
+            <summary>
+            Gets the thumbnails view.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewNavigationBar.OutlinePage">
+            <summary>
+            Gets the tab page containing the outline view.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewNavigationBar.OutlineView">
+            <summary>
+            Gets the outline view.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.PreviewPage">
+            <summary>
+            Class describes one page of the print preview.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.PreviewPage.#ctor(C1.C1PrintDocument.DocEngine.Render.IPage)">
+            <summary>
+            Creates a new preview page from a C1PrintDocument render page.
+            </summary>
+            <param name="renderPage">The render page</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.PreviewPage.#ctor(System.Drawing.Image)">
+            <summary>
+            Creates a new preview page from a page image.
+            </summary>
+            <param name="img">The page image</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.PreviewPage.#ctor(System.Collections.IList,System.Int32)">
+            <summary>
+            Creates a new preview page from a list reference and an index into it.
+            The referenced list item must be convertable to an Image.
+            </summary>
+            <param name="list">The list to fetch the image from.</param>
+            <param name="idx">The index into the list.</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.PreviewPage.GetPageImage(C1.C1PrintDocument.DocumentDrawMode)">
+            <summary>
+            Returns the page image
+            </summary>
+            <param name="drawMode">Specifies the mode of draw, is used if PreviewPage corresponds to Render.Page</param>
+            <returns>Returns the page image.</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.PreviewPage.RemovedFromGic(C1.C1PrintDocument.DocumentDrawMode)">
+            <summary>
+            Is called when the page's image is removed from GIC.
+            </summary>
+            <param name="drawMode">Specifies the value of drawMode parameter that was used when page image was created</param>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.PreviewPage.RenderPage">
+            <summary>
+            Sets or returns the render page of the C1PrintDocument document.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.PreviewPage.PageImage">
+            <summary>
+            Sets or returns the page image.
+            If PreviewPage corresponds to RenderPage it uses DocumentDraw.ShowControls
+            to generate the page image.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.PreviewPage.EmfPageMap">
+            <summary>
+            Returns the EmfPageMap object for this page.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.PreviewPage.Visible">
+            <summary>
+            Specifies the Pages object that holds this object.
+            </summary>
+            <summary>
+            Returns the true value if page is visible on preview.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.PreviewPage.PagePixelsRect">
+            <summary>
+            Specifies the area of page of C1PreviewPane control, 
+            returns the Rectangle.Empty if page is not visible.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.Pages">
+            <summary>
+            Collection of preview pages.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.Pages.AddPage(System.Object)">
+            <summary>
+            Adds a new page to the collection.
+            </summary>
+            <param name="o">A PreviewPage, Image or Render.Page object.</param>
+            <returns>The PreviewPage object added to the collection.</returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.Pages.HistoryBeginUpdate">
+            <summary>
+            Call this method to prevent changes in the view history when the list of pages is changed.
+            This method must be used with HistoryEndUpdate()
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.Pages.HistoryEndUpdate">
+            <summary>
+            Call this method the start hustory updating when the list of pages is changed.
+            This method must be used with HistoryBeginUpdate()
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.Pages.ChangePage(System.Object,System.Int32)">
+            <summary>
+            Replaces the page with the specified index with the new page.
+            </summary>
+            <param name="newPage">New page (PreviewPage, Image or Render.Page).</param>
+            <param name="index">The 0-based index of the page to replace.</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.Pages.ChangePage(C1.C1PrintDocument.DocEngine.Render.IPage,System.Collections.IEnumerable)">
+            <summary>
+            Updates the page (identified by its unique page id) with the new Render.Page.
+            Unlike the ChangePage(object newPage, int index) method, this method invalidates
+            only the areas covered by changed drawels, thus producing much less flicker in the
+             preview.
+            </summary>
+            <param name="renderPage">The new Render.Page object.</param>
+            <param name="changedDrawels">A list of changed drawels.</param>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.Pages.GetPage(System.Int32)">
+            <summary>
+            Returns the page with the specified (0-based) index, or null if there is no such page.
+            </summary>
+            <param name="pageIdx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.Pages.ClonePageImages">
+            <summary>
+            Returns an array of page image clones
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.C1PreviewSplitter">
+            <summary>
+            Preview status control
+            </summary>
+        </member>
+        <member name="F:C1.Win.C1PrintPreview.C1PreviewStatusBar._zoomBox">
+            child controls
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewStatusBar.#ctor">
+            <summary>
+            Creates a new instance of the preview status control.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewStatusBar.Reset">
+            <summary>
+            Resets document-specific data (e.g. page combo)
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewStatusBar.UpdateStatus">
+            <summary>
+            Updates the status information displayed.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewStatusBar.PreviewPane">
+            <summary>
+            Gets or sets the preview pane control to show status of.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewStatusBar.Message">
+            <summary>
+            Gets or sets the status text.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.C1PreviewToolBar">
+            <summary>
+            Toolbar for the preview.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewToolBar.Dispose(System.Boolean)">
+            <summary> 
+            	Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.C1PreviewToolBar.InitializeComponent">
+            <summary> 
+            	Required method for Designer support - do not modify 
+            	the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewToolBar.PrintPreview">
+            <summary>
+            Sets or returns the print preview this toolbar controls.
+            </summary>
+        </member>
+        <member name="P:C1.Win.C1PrintPreview.C1PreviewToolBar.PreviewPane">
+            <summary>
+            Sets or returns the preview pane this toolbar controls.
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.PreviewToolBarButton">
+            <summary>
+            A preview toolbar button
+            </summary>
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.ButtonPicker">
+            <summary>
+            Allows to select from a set of related buttons
+            todo: make universal.
+            </summary>OnDeactivate
+        </member>
+        <member name="T:C1.Win.C1PrintPreview.Util.TabSizePicker">
+            <summary>
+            	Summary description for TabSizePicker.
+            </summary>
+        </member>
+        <member name="M:C1.Win.C1PrintPreview.Util.TabSizePicker.InitializeComponent">
+            <summary>
+            	Required method for Designer support - do not modify
+            	the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

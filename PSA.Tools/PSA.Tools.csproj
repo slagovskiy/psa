@@ -34,11 +34,6 @@
     <Reference Include="C1.Win.C1FlexGrid.2, Version=2.6.20071.324, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=2.5.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL" />
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL" />
-    <Reference Include="Photoland.Security.User, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="PSA.Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Bin\Debug\PSA.Lib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -83,6 +78,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PSA.Core\PSA.Core.csproj">
+      <Project>{16F2B4F4-46AD-43D1-AC7E-439BB66FA5E9}</Project>
+      <Name>PSA.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PSA.Robot\PSA.Robot.csproj">
       <Project>{F72B733E-B0F5-4AF4-8080-B5E27D1D3DD4}</Project>
       <Name>PSA.Robot</Name>

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3C122571-5C24-4C4B-8D1B-138698CF69E3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -72,18 +72,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Photoland.Security.User\Photoland.Security.User.csproj">
-      <Project>{0B0FDC42-5494-4832-8AC9-C9322C5A3693}</Project>
-      <Name>Photoland.Security.User</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PSA.Lib\PSA.Lib.csproj">
-      <Project>{A71127E6-49D1-4E68-B51E-4A96D24DEF57}</Project>
-      <Name>PSA.Lib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="I.ico" />
     <Content Include="Inv.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSA.Core\PSA.Core.csproj">
+      <Project>{16F2B4F4-46AD-43D1-AC7E-439BB66FA5E9}</Project>
+      <Name>PSA.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

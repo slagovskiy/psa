@@ -9,8 +9,7 @@ using System.Windows.Forms;
 using Photoland.Forms.Interface;
 using System.IO;
 using Photoland.Lib;
-using PSA.Lib.Interface;
-using PSA.Lib.Util;
+using Photoland.Forms.Interface.Util;
 
 namespace Photoland.Robot
 {

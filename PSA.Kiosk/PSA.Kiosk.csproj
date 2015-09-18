@@ -36,10 +36,6 @@
   <ItemGroup>
     <Reference Include="C1.Win.C1Report.2, Version=2.5.20071.231, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=2.5.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL" />
-    <Reference Include="Photoland.Order, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Photoland.Security.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Photoland.Security.Discont, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="PSA.Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -96,6 +92,12 @@
     <None Include="Resources\f6.ico" />
     <Content Include="robot-kiosk.ico" />
     <Content Include="T.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSA.Core\PSA.Core.csproj">
+      <Project>{16F2B4F4-46AD-43D1-AC7E-439BB66FA5E9}</Project>
+      <Name>PSA.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
