@@ -120,6 +120,9 @@
             this.txtOrderNo = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnGetProducts = new System.Windows.Forms.Button();
+            this.txtData = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -845,6 +848,9 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.txtData);
+            this.tabPage9.Controls.Add(this.btnGetProducts);
+            this.tabPage9.Controls.Add(this.label20);
             this.tabPage9.Controls.Add(this.label19);
             this.tabPage9.Controls.Add(this.label18);
             this.tabPage9.Controls.Add(this.txtOrderNo);
@@ -1005,6 +1011,7 @@
             this.btnGetOrderInfo.TabIndex = 14;
             this.btnGetOrderInfo.Text = "Get order info";
             this.btnGetOrderInfo.UseVisualStyleBackColor = true;
+            this.btnGetOrderInfo.Click += new System.EventHandler(this.btnGetOrderInfo_Click);
             // 
             // txtOrderNo
             // 
@@ -1030,6 +1037,33 @@
             this.label19.Size = new System.Drawing.Size(169, 13);
             this.label19.TabIndex = 17;
             this.label19.Text = "http://api.pixlpark.com/orders/{id}";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(32, 220);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(160, 13);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "http://api.pixlpark.com/products";
+            // 
+            // btnGetProducts
+            // 
+            this.btnGetProducts.Location = new System.Drawing.Point(198, 215);
+            this.btnGetProducts.Name = "btnGetProducts";
+            this.btnGetProducts.Size = new System.Drawing.Size(134, 23);
+            this.btnGetProducts.TabIndex = 19;
+            this.btnGetProducts.Text = "Get products";
+            this.btnGetProducts.UseVisualStyleBackColor = true;
+            this.btnGetProducts.Click += new System.EventHandler(this.btnGetProducts_Click);
+            // 
+            // txtData
+            // 
+            this.txtData.Location = new System.Drawing.Point(3, 244);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(594, 108);
+            this.txtData.TabIndex = 20;
+            this.txtData.Text = "";
             // 
             // frmMain
             // 
@@ -1166,6 +1200,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtOrderNo;
         private System.Windows.Forms.Button btnGetOrderInfo;
+        private System.Windows.Forms.Button btnGetProducts;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.RichTextBox txtData;
     }
 }
 

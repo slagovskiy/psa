@@ -743,5 +743,62 @@ namespace PSA.Tools
             return sb.ToString();
         }
 
+        private string Win1251ToUTF8(string source)
+        {
+
+            Encoding win1251 = Encoding.GetEncoding("windows-1251");
+
+            byte[] win1251Bytes = win1251.GetBytes(source);
+            source = Encoding.UTF8.GetString(win1251Bytes);
+            return source;
+
+        }
+
+        private void btnGetOrderInfo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Net.WebClient wc = new System.Net.WebClient();
+                string webData = wc.DownloadString("http://api.pixlpark.com/orders/" + txtOrderNo.Text + "?oauth_token=" + txtAccessToken.Text);
+                webData = Win1251ToUTF8(webData);
+                MessageBox.Show(webData);
+
+                wc = new System.Net.WebClient();
+                webData = wc.DownloadString("http://api.pixlpark.com/orders/" + txtOrderNo.Text + "/items/?oauth_token=" + txtAccessToken.Text);
+                webData = Win1251ToUTF8(webData);
+                MessageBox.Show(webData);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnGetProducts_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Net.WebClient wc = new System.Net.WebClient();
+                string webData = wc.DownloadString("http://api.pixlpark.com/products?oauth_token=" + txtAccessToken.Text);
+                webData = Win1251ToUTF8(webData);
+
+                foreach (string tmp in webData.Substring(webData.IndexOf('[') + 2, webData.IndexOf(']') - webData.IndexOf('[') - 3).Replace(",{", "").Split('}'))
+                {
+                    foreach(string tmp_ in tmp.Split(','))
+                    {
+                        string[] tmp__ = tmp_.Replace("\"", "").Split(':');
+                        if (tmp__[0] == "Id")
+                            txtData.Text += tmp__[1] + "\t";
+                        if (tmp__[0] == "Title")
+                            txtData.Text += tmp__[1] + "\n";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
