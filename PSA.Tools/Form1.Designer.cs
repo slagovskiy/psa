@@ -83,6 +83,7 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -97,10 +98,28 @@
             this.ftpAddress = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.txtApiPassword = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnGetToken = new System.Windows.Forms.Button();
+            this.txtToken = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPrivateKey = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPublicKey = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.button8 = new System.Windows.Forms.Button();
+            this.lblAccess = new System.Windows.Forms.Label();
+            this.txtAccessToken = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnGetOrderInfo = new System.Windows.Forms.Button();
+            this.txtOrderNo = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -115,6 +134,7 @@
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -178,13 +198,13 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -193,13 +213,13 @@
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -213,6 +233,7 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -678,6 +699,16 @@
             this.tabPage8.Text = "Robot";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(168, 6);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "new export";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(87, 6);
@@ -812,6 +843,116 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.label19);
+            this.tabPage9.Controls.Add(this.label18);
+            this.tabPage9.Controls.Add(this.txtOrderNo);
+            this.tabPage9.Controls.Add(this.btnGetOrderInfo);
+            this.tabPage9.Controls.Add(this.label17);
+            this.tabPage9.Controls.Add(this.txtAccessToken);
+            this.tabPage9.Controls.Add(this.label16);
+            this.tabPage9.Controls.Add(this.lblAccess);
+            this.tabPage9.Controls.Add(this.txtApiPassword);
+            this.tabPage9.Controls.Add(this.label15);
+            this.tabPage9.Controls.Add(this.label14);
+            this.tabPage9.Controls.Add(this.btnGetToken);
+            this.tabPage9.Controls.Add(this.txtToken);
+            this.tabPage9.Controls.Add(this.label13);
+            this.tabPage9.Controls.Add(this.txtPrivateKey);
+            this.tabPage9.Controls.Add(this.label12);
+            this.tabPage9.Controls.Add(this.txtPublicKey);
+            this.tabPage9.Controls.Add(this.label11);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(600, 355);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "Print";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // txtApiPassword
+            // 
+            this.txtApiPassword.Location = new System.Drawing.Point(85, 108);
+            this.txtApiPassword.Name = "txtApiPassword";
+            this.txtApiPassword.Size = new System.Drawing.Size(247, 20);
+            this.txtApiPassword.TabIndex = 9;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 111);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 13);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Password";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(82, 89);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(213, 13);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "http://api.pixlpark.com/oauth/requesttoken";
+            // 
+            // btnGetToken
+            // 
+            this.btnGetToken.Location = new System.Drawing.Point(338, 64);
+            this.btnGetToken.Name = "btnGetToken";
+            this.btnGetToken.Size = new System.Drawing.Size(75, 23);
+            this.btnGetToken.TabIndex = 6;
+            this.btnGetToken.Text = "Get Token";
+            this.btnGetToken.UseVisualStyleBackColor = true;
+            this.btnGetToken.Click += new System.EventHandler(this.btnGetToken_Click);
+            // 
+            // txtToken
+            // 
+            this.txtToken.Location = new System.Drawing.Point(85, 66);
+            this.txtToken.Name = "txtToken";
+            this.txtToken.Size = new System.Drawing.Size(247, 20);
+            this.txtToken.TabIndex = 5;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 69);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 13);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Token";
+            // 
+            // txtPrivateKey
+            // 
+            this.txtPrivateKey.Location = new System.Drawing.Point(85, 40);
+            this.txtPrivateKey.Name = "txtPrivateKey";
+            this.txtPrivateKey.Size = new System.Drawing.Size(247, 20);
+            this.txtPrivateKey.TabIndex = 3;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 43);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(61, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Private Key";
+            // 
+            // txtPublicKey
+            // 
+            this.txtPublicKey.Location = new System.Drawing.Point(85, 14);
+            this.txtPublicKey.Name = "txtPublicKey";
+            this.txtPublicKey.Size = new System.Drawing.Size(247, 20);
+            this.txtPublicKey.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 17);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Public Key";
+            // 
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(545, 414);
@@ -822,15 +963,73 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // button8
+            // lblAccess
             // 
-            this.button8.Location = new System.Drawing.Point(168, 6);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "new export";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.lblAccess.AutoSize = true;
+            this.lblAccess.Location = new System.Drawing.Point(338, 111);
+            this.lblAccess.Name = "lblAccess";
+            this.lblAccess.Size = new System.Drawing.Size(60, 13);
+            this.lblAccess.TabIndex = 10;
+            this.lblAccess.Text = "Access: ----";
+            // 
+            // txtAccessToken
+            // 
+            this.txtAccessToken.Location = new System.Drawing.Point(85, 147);
+            this.txtAccessToken.Name = "txtAccessToken";
+            this.txtAccessToken.Size = new System.Drawing.Size(247, 20);
+            this.txtAccessToken.TabIndex = 12;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 150);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(76, 13);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Access Token";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(82, 131);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(212, 13);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "http://api.pixlpark.com/oauth/accesstoken";
+            // 
+            // btnGetOrderInfo
+            // 
+            this.btnGetOrderInfo.Location = new System.Drawing.Point(198, 174);
+            this.btnGetOrderInfo.Name = "btnGetOrderInfo";
+            this.btnGetOrderInfo.Size = new System.Drawing.Size(134, 23);
+            this.btnGetOrderInfo.TabIndex = 14;
+            this.btnGetOrderInfo.Text = "Get order info";
+            this.btnGetOrderInfo.UseVisualStyleBackColor = true;
+            // 
+            // txtOrderNo
+            // 
+            this.txtOrderNo.Location = new System.Drawing.Point(85, 176);
+            this.txtOrderNo.Name = "txtOrderNo";
+            this.txtOrderNo.Size = new System.Drawing.Size(100, 20);
+            this.txtOrderNo.TabIndex = 15;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(3, 179);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(50, 13);
+            this.label18.TabIndex = 16;
+            this.label18.Text = "Order No";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(82, 199);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(169, 13);
+            this.label19.TabIndex = 17;
+            this.label19.Text = "http://api.pixlpark.com/orders/{id}";
             // 
             // frmMain
             // 
@@ -866,6 +1065,8 @@
             this.tabPage8.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -946,6 +1147,25 @@
         private System.Windows.Forms.TextBox ftpAddress;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TextBox txtPublicKey;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnGetToken;
+        private System.Windows.Forms.TextBox txtToken;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtPrivateKey;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtApiPassword;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblAccess;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtAccessToken;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtOrderNo;
+        private System.Windows.Forms.Button btnGetOrderInfo;
     }
 }
 

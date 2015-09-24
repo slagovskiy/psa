@@ -18,7 +18,8 @@ using PSA.Robot;
 using Xceed.Ftp;
 using Xceed.FileSystem;
 using Photoland.Security.User;
-
+using Newtonsoft.Json;
+using System.Security.Cryptography;
 
 
 namespace PSA.Tools
@@ -663,6 +664,83 @@ namespace PSA.Tools
         {
             RobotService robot = new RobotService();
             robot.UploadOrders();
+        }
+
+        private void btnGetToken_Click(object sender, EventArgs e)
+        {
+            string token = "";
+            string password = "";
+            string publicKey = "3c209e8c86464be69d9fbf36b1bde8a9";
+            string privateKey = "b41e9b4a20c647038bc590bac05ecf30";
+            string accessToken = "";
+            bool accessOK = false;
+
+            txtPublicKey.Text = publicKey;
+            txtPrivateKey.Text = privateKey;
+            try
+            {
+                System.Net.WebClient wc = new System.Net.WebClient();
+                string webData = wc.DownloadString("http://api.pixlpark.com/oauth/requesttoken");
+                Dictionary<string, string> jToken = JsonConvert.DeserializeObject<Dictionary<string, string>>(webData);
+                foreach (KeyValuePair<string, string> tmp in jToken)
+                    if (tmp.Key == "RequestToken")
+                    {
+                        token = tmp.Value;
+                        break;
+                    }
+                txtToken.Text = token.ToString();
+                password = GetHashString(token + privateKey);
+                txtApiPassword.Text = password;
+
+                try
+                {
+                    wc = new System.Net.WebClient();
+                    webData = wc.DownloadString("http://api.pixlpark.com/oauth/accesstoken?oauth_token=" + token +
+                        "&grant_type=api&username=" + publicKey + "&password=" + password);
+                    jToken = JsonConvert.DeserializeObject<Dictionary<string, string>>(webData);
+                    foreach (KeyValuePair<string, string> tmp in jToken)
+                    {
+                        if (tmp.Key == "AccessToken")
+                            accessToken = tmp.Value;
+                        if ((tmp.Key == "Success") && (tmp.Value == "True"))
+                        {
+                            lblAccess.Text = "Access: SUCCESS";
+                            accessOK = true;
+                        }
+                    }
+                    if (accessOK)
+                        txtAccessToken.Text = accessToken;
+                    else
+                        MessageBox.Show("Полученный токен доступа не действителен.");
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка получения токена доступа.\n" + ex.Message);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка получения токена.\n" + ex.Message);
+            }
+        }
+
+        public static byte[] GetHash(string inputString)
+        {
+            HashAlgorithm algorithm = SHA1.Create();  // SHA1.Create()
+            return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+        }
+
+        public static string GetHashString(string inputString)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in GetHash(inputString))
+                sb.Append(b.ToString("X2"));
+
+            return sb.ToString();
         }
 
     }
