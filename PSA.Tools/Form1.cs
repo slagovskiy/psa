@@ -761,11 +761,44 @@ namespace PSA.Tools
                 System.Net.WebClient wc = new System.Net.WebClient();
                 string webData = wc.DownloadString("http://api.pixlpark.com/orders/" + txtOrderNo.Text + "?oauth_token=" + txtAccessToken.Text);
                 webData = Win1251ToUTF8(webData);
-                MessageBox.Show(webData);
+                webData = webData
+                    .Replace("{\"ApiVersion\":\"1.0\",\"Result\":[{", "")
+                    .Replace("}],\"ResponseCode\":200}", "");
+                while (webData.IndexOf('{') > 0)
+                {
+                    webData = webData.Replace(
+                        webData.Substring(
+                            webData.IndexOf('{'), webData.IndexOf('}') - webData.IndexOf('{') + 1
+                        ), "\"\"");
+                }
+                webData = "{" + webData + "}";
+                Dictionary<string, string> jData = JsonConvert.DeserializeObject<Dictionary<string, string>>(webData);
 
                 wc = new System.Net.WebClient();
                 webData = wc.DownloadString("http://api.pixlpark.com/orders/" + txtOrderNo.Text + "/items/?oauth_token=" + txtAccessToken.Text);
                 webData = Win1251ToUTF8(webData);
+                webData = webData
+                    .Replace("{\"ApiVersion\":\"1.0\",\"Result\":[", " ")
+                    .Replace("],\"ResponseCode\":200}", "");
+                while (webData.IndexOf('{') > 0)
+                {
+                    string _webData = webData.Substring(
+                        webData.IndexOf('{'), webData.IndexOf('}') - webData.IndexOf('{') + 1);
+                    while (_webData.IndexOf('[') > 0)
+                    {
+                        _webData = _webData.Replace(
+                            _webData.Substring(
+                                _webData.IndexOf('['), _webData.IndexOf(']') - _webData.IndexOf('[') + 1
+                            ), "\"\"");
+                    }
+                    jData = JsonConvert.DeserializeObject<Dictionary<string, string>>(_webData);
+                    webData = webData.Replace(
+                        webData.Substring(
+                            webData.IndexOf('{'), webData.IndexOf('}') - webData.IndexOf('{') + 1
+                        ), "");
+                }
+
+
                 MessageBox.Show(webData);
             }
             catch (Exception ex)
