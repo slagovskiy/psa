@@ -1553,5 +1553,96 @@ namespace PSA.Lib.Util
         }
 
 
-	}
+        private string _PublicKey;
+        public string PublicKey
+        {
+            get
+            {
+                return _PublicKey;
+            }
+            set
+            {
+                _PublicKey = value;
+            }
+        }
+
+        private string _PrivateKey;
+        public string PrivateKey
+        {
+            get
+            {
+                return _PrivateKey;
+            }
+            set
+            {
+                _PrivateKey = value;
+            }
+        }
+
+        private string _ApiRequestToken;
+        public string ApiRequestToken
+        {
+            get
+            {
+                return _ApiRequestToken;
+            }
+            set
+            {
+                _ApiRequestToken = value;
+            }
+        }
+
+        private string _ApiAccessToken;
+        public string ApiAccessToken
+        {
+            get
+            {
+                return _ApiAccessToken;
+            }
+            set
+            {
+                _ApiAccessToken = value;
+            }
+        }
+
+        private string _ApiOrder;
+        public string ApiOrder
+        {
+            get
+            {
+                return _ApiOrder;
+            }
+            set
+            {
+                _ApiOrder = value;
+            }
+        }
+
+        private string _ApiOrderItems;
+        public string ApiOrderItems
+        {
+            get
+            {
+                return _ApiOrderItems;
+            }
+            set
+            {
+                _ApiOrderItems = value;
+            }
+        }
+
+        private string _ApiProducts;
+        public string ApiProducts
+        {
+            get
+            {
+                return _ApiProducts;
+            }
+            set
+            {
+                _ApiProducts = value;
+            }
+        }
+
+    }
 }

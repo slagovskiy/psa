@@ -680,6 +680,7 @@
     <Compile Include="Util\RemoteQuery_kData.cs" />
     <Compile Include="Util\RemoteQuery_kDataSet.cs" />
     <Compile Include="Util\RemoteQuery_mfotoData.cs" />
+    <Compile Include="Util\RemoteQuery_pData.cs" />
     <Compile Include="Util\Semaphore.cs" />
     <Compile Include="Util\Settings.cs" />
     <Compile Include="Util\Settings_def.cs" />

@@ -313,6 +313,13 @@ namespace PSA.Lib.Interface
             txtDirAutoImport.Text = p.Dir_auto_import;
             checkExportOld.Checked = p.ExportOld;
             checkDontLockExport.Checked = p.DontLockExported;
+            txtPublicKey.Text = p.PublicKey;
+            txtPrivateKey.Text = p.PrivateKey;
+            txtApiRequestToken.Text = p.ApiRequestToken;
+            txtApiAccessToken.Text = p.ApiAccessToken;
+            txtApiOrder.Text = p.ApiOrder;
+            txtApiOrderItems.Text = p.ApiOrderItems;
+            txtApiProducts.Text = p.ApiProducts;
 
 			
 		}
@@ -615,6 +622,14 @@ namespace PSA.Lib.Interface
 
             p.ExportOld = checkExportOld.Checked;
             p.DontLockExported = checkDontLockExport.Checked;
+
+            p.PublicKey = txtPublicKey.Text;
+            p.PrivateKey = txtPrivateKey.Text;
+            p.ApiRequestToken = txtApiRequestToken.Text;
+            p.ApiAccessToken = txtApiAccessToken.Text;
+            p.ApiOrder = txtApiOrder.Text;
+            p.ApiOrderItems = txtApiOrderItems.Text;
+            p.ApiProducts = txtApiProducts.Text;
 
             p.Dir_auto_import = txtDirAutoImport.Text;
             if(!p.Save())

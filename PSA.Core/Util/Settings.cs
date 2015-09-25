@@ -149,6 +149,13 @@ namespace PSA.Lib.Util
             _ExportOld = bool.Parse(f.IniReadValue("Main", "ExportOld", "true")); //bool
             _DontLockExported = bool.Parse(f.IniReadValue("Main", "DontLockExported", "true")); //bool
             _Dir_auto_import = f.IniReadValue("Main", "DirAutoImport", "d:\\Exchange"); //staring
+            _PublicKey = f.IniReadValue("API", "PublicKey", "3c209e8c86464be69d9fbf36b1bde8a9"); //staring
+            _PrivateKey = f.IniReadValue("API", "PrivateKey", "b41e9b4a20c647038bc590bac05ecf30"); //staring
+            _ApiRequestToken = f.IniReadValue("API", "RequestToken", "http://api.pixlpark.com/oauth/requesttoken"); //staring
+            _ApiAccessToken = f.IniReadValue("API", "AccessToken", "http://api.pixlpark.com/oauth/accesstoken"); //staring
+            _ApiOrder = f.IniReadValue("API", "Order", "http://api.pixlpark.com/orders/"); //staring
+            _ApiOrderItems = f.IniReadValue("API", "OrderItems", "http://api.pixlpark.com/orders/"); //staring
+            _ApiProducts = f.IniReadValue("API", "Products", "http://api.pixlpark.com/products"); //staring
         }
 		
 		public bool Save()
@@ -275,6 +282,13 @@ namespace PSA.Lib.Util
                 f.IniWriteValue("Main", "ExportOld", _ExportOld.ToString()); //bool
                 f.IniWriteValue("Main", "DontLockExported", _DontLockExported.ToString()); //bool
                 f.IniWriteValue("Main", "DirAutoImport", _Dir_auto_import); //staring
+                f.IniWriteValue("API", "PublicKey", _PublicKey); //staring
+                f.IniWriteValue("API", "PrivateKey", _PrivateKey); //staring
+                f.IniWriteValue("API", "RequestToken", _ApiRequestToken); //staring
+                f.IniWriteValue("API", "AccessToken", _ApiAccessToken); //staring
+                f.IniWriteValue("API", "Order", _ApiOrder); //staring
+                f.IniWriteValue("API", "OrderItems", _ApiOrderItems); //staring
+                f.IniWriteValue("API", "Products", _ApiProducts); //staring
                 r = true;
 			}
 			catch(Exception ex)
