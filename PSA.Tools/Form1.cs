@@ -20,7 +20,7 @@ using Xceed.FileSystem;
 using Photoland.Security.User;
 using Newtonsoft.Json;
 using System.Security.Cryptography;
-
+using System.Xml;
 
 namespace PSA.Tools
 {
@@ -827,6 +827,63 @@ namespace PSA.Tools
                             txtData.Text += tmp__[1] + "\n";
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                System.Net.WebClient wc = new System.Net.WebClient();
+                string webData = wc.DownloadString("http://api.pixlpark.com/orders/" + txtOrderNo.Text + "/items/?oauth_token=" + txtAccessToken.Text);
+                webData = Win1251ToUTF8(webData);
+                MessageBox.Show(webData);
+                //webData = webData
+                //    .Replace("{\"ApiVersion\":\"1.0\",", "{")
+                //    .Replace(",\"ResponseCode\":200}", "}");
+                webData = "{\"DATA\":[" + webData + "]}";
+
+                XmlDocument x = JsonConvert.DeserializeXmlNode(webData);
+
+                XmlNode r = x.GetElementsByTagName("Result")[0];
+                foreach (XmlNode node in r.ChildNodes)
+                {
+                    MessageBox.Show(node.InnerXml);
+                }
+                //Dictionary<string, string> jData = JsonConvert.DeserializeObject<Dictionary<string, string>>(webData);
+
+                /*
+                wc = new System.Net.WebClient();
+                webData = wc.DownloadString("http://api.pixlpark.com/orders/" + txtOrderNo.Text + "/items/?oauth_token=" + txtAccessToken.Text);
+                webData = Win1251ToUTF8(webData);
+                webData = webData
+                    .Replace("{\"ApiVersion\":\"1.0\",\"Result\":[", " ")
+                    .Replace("],\"ResponseCode\":200}", "");
+                while (webData.IndexOf('{') > 0)
+                {
+                    string _webData = webData.Substring(
+                        webData.IndexOf('{'), webData.IndexOf('}') - webData.IndexOf('{') + 1).Replace("[]", "\"\"");
+                    while (_webData.IndexOf("[\"") > 0)
+                    {
+                        _webData = _webData.Replace(
+                            _webData.Substring(
+                                _webData.IndexOf("[\""), _webData.IndexOf("\"]") - _webData.IndexOf("[\"") + 2
+                            ), "\"\"");
+                    }
+                    MessageBox.Show(_webData);
+                    jData = JsonConvert.DeserializeObject<Dictionary<string, string>>(_webData);
+                    webData = webData.Replace(
+                        webData.Substring(
+                            webData.IndexOf('{'), webData.IndexOf('}') - webData.IndexOf('{') + 1
+                        ), "");
+                }
+                */
+
             }
             catch (Exception ex)
             {

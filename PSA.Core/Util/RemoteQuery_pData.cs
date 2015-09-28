@@ -103,26 +103,26 @@ namespace PSA.Lib.Util
                         {
                             wc = new System.Net.WebClient();
                             webData = wc.DownloadString(prop.ApiOrder + order + "?oauth_token=" + accessToken);
-                            webData = Win1251ToUTF8(webData);
-                            webData = webData
-                                .Replace("{\"ApiVersion\":\"1.0\",\"Result\":[{", "")
-                                .Replace("}],\"ResponseCode\":200}", "");
-                            while (webData.IndexOf('{') > 0)
-                            {
-                                webData = webData.Replace(
-                                    webData.Substring(
-                                        webData.IndexOf('{'), webData.IndexOf('}') - webData.IndexOf('{') + 1
-                                    ), "\"\"");
-                            }
-                            webData = "{" + webData + "}";
-                            Dictionary<string, string> jData = JsonConvert.DeserializeObject<Dictionary<string, string>>(webData);
+                            //webData = Win1251ToUTF8(webData);
+                            //webData = webData
+                            //    .Replace("{\"ApiVersion\":\"1.0\",\"Result\":[{", "")
+                            //    .Replace("}],\"ResponseCode\":200}", "");
+                            //while (webData.IndexOf('{') > 0)
+                            //{
+                            //    webData = webData.Replace(
+                            //        webData.Substring(
+                            //            webData.IndexOf('{'), webData.IndexOf('}') - webData.IndexOf('{') + 1
+                            //        ), "\"\"");
+                            //}
+                            //webData = "{" + webData + "}";
+                            Dictionary<string, string> jData;// = JsonConvert.DeserializeObject<Dictionary<string, string>>(webData);
 
                             string t_kiosk = "", t_address = "", t_stamp = "", t_customer = "", t_phone = "", t_number = "", t_status = "", t_do = "", t_dp = "", t_dv = "", m = "";
                             t_number = order;
-                            foreach (KeyValuePair<string, string> tmp in jData)
-                            {
+                            //foreach (KeyValuePair<string, string> tmp in jData)
+                            //{
                                 //if (tmp.Key == "TotalPrice")
-                            }
+                            //}
                             head.Add("NUMBER", t_number);
                             head.Add("KIOSKID", "");
                             head.Add("ADDRESS", "");
@@ -154,6 +154,7 @@ namespace PSA.Lib.Util
                                         ), "\"\"");
                                 }
                                 jData = JsonConvert.DeserializeObject<Dictionary<string, string>>(_webData);
+
                                 DataRow r = od.NewRow();
                                 foreach (KeyValuePair<string, string> tmp in jData)
                                 {

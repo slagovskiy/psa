@@ -122,19 +122,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>5yiQ498qVD09Xj9to0lwH59whE0=</dsig:DigestValue>
+        <dsig:DigestValue>g9JCSHyVCt+ReJurD/B/qsb8nLg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PSA.Core.dll" size="3936256">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PSA.Core.dll" size="3935744">
       <assemblyIdentity name="PSA.Core" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ddGGWbn6U3r4XZETyEM9KJbEwgg=</dsig:DigestValue>
+        <dsig:DigestValue>EpfNFBdTUwi0TK/VcKqz36ih5AY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

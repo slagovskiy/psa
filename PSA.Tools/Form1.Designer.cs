@@ -99,6 +99,17 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.txtData = new System.Windows.Forms.RichTextBox();
+            this.btnGetProducts = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtOrderNo = new System.Windows.Forms.TextBox();
+            this.btnGetOrderInfo = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtAccessToken = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblAccess = new System.Windows.Forms.Label();
             this.txtApiPassword = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -112,17 +123,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.lblAccess = new System.Windows.Forms.Label();
-            this.txtAccessToken = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btnGetOrderInfo = new System.Windows.Forms.Button();
-            this.txtOrderNo = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.btnGetProducts = new System.Windows.Forms.Button();
-            this.txtData = new System.Windows.Forms.RichTextBox();
+            this.button9 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -848,6 +849,7 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.button9);
             this.tabPage9.Controls.Add(this.txtData);
             this.tabPage9.Controls.Add(this.btnGetProducts);
             this.tabPage9.Controls.Add(this.label20);
@@ -875,6 +877,102 @@
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Print";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // txtData
+            // 
+            this.txtData.Location = new System.Drawing.Point(3, 244);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(594, 108);
+            this.txtData.TabIndex = 20;
+            this.txtData.Text = "";
+            // 
+            // btnGetProducts
+            // 
+            this.btnGetProducts.Location = new System.Drawing.Point(198, 215);
+            this.btnGetProducts.Name = "btnGetProducts";
+            this.btnGetProducts.Size = new System.Drawing.Size(134, 23);
+            this.btnGetProducts.TabIndex = 19;
+            this.btnGetProducts.Text = "Get products";
+            this.btnGetProducts.UseVisualStyleBackColor = true;
+            this.btnGetProducts.Click += new System.EventHandler(this.btnGetProducts_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(32, 220);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(160, 13);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "http://api.pixlpark.com/products";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(82, 199);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(169, 13);
+            this.label19.TabIndex = 17;
+            this.label19.Text = "http://api.pixlpark.com/orders/{id}";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(3, 179);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(50, 13);
+            this.label18.TabIndex = 16;
+            this.label18.Text = "Order No";
+            // 
+            // txtOrderNo
+            // 
+            this.txtOrderNo.Location = new System.Drawing.Point(85, 176);
+            this.txtOrderNo.Name = "txtOrderNo";
+            this.txtOrderNo.Size = new System.Drawing.Size(100, 20);
+            this.txtOrderNo.TabIndex = 15;
+            // 
+            // btnGetOrderInfo
+            // 
+            this.btnGetOrderInfo.Location = new System.Drawing.Point(198, 174);
+            this.btnGetOrderInfo.Name = "btnGetOrderInfo";
+            this.btnGetOrderInfo.Size = new System.Drawing.Size(134, 23);
+            this.btnGetOrderInfo.TabIndex = 14;
+            this.btnGetOrderInfo.Text = "Get order info";
+            this.btnGetOrderInfo.UseVisualStyleBackColor = true;
+            this.btnGetOrderInfo.Click += new System.EventHandler(this.btnGetOrderInfo_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(82, 131);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(212, 13);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "http://api.pixlpark.com/oauth/accesstoken";
+            // 
+            // txtAccessToken
+            // 
+            this.txtAccessToken.Location = new System.Drawing.Point(85, 147);
+            this.txtAccessToken.Name = "txtAccessToken";
+            this.txtAccessToken.Size = new System.Drawing.Size(247, 20);
+            this.txtAccessToken.TabIndex = 12;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 150);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(76, 13);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Access Token";
+            // 
+            // lblAccess
+            // 
+            this.lblAccess.AutoSize = true;
+            this.lblAccess.Location = new System.Drawing.Point(338, 111);
+            this.lblAccess.Name = "lblAccess";
+            this.lblAccess.Size = new System.Drawing.Size(60, 13);
+            this.lblAccess.TabIndex = 10;
+            this.lblAccess.Text = "Access: ----";
             // 
             // txtApiPassword
             // 
@@ -969,101 +1067,15 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // lblAccess
+            // button9
             // 
-            this.lblAccess.AutoSize = true;
-            this.lblAccess.Location = new System.Drawing.Point(338, 111);
-            this.lblAccess.Name = "lblAccess";
-            this.lblAccess.Size = new System.Drawing.Size(60, 13);
-            this.lblAccess.TabIndex = 10;
-            this.lblAccess.Text = "Access: ----";
-            // 
-            // txtAccessToken
-            // 
-            this.txtAccessToken.Location = new System.Drawing.Point(85, 147);
-            this.txtAccessToken.Name = "txtAccessToken";
-            this.txtAccessToken.Size = new System.Drawing.Size(247, 20);
-            this.txtAccessToken.TabIndex = 12;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 150);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(76, 13);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "Access Token";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(82, 131);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(212, 13);
-            this.label17.TabIndex = 13;
-            this.label17.Text = "http://api.pixlpark.com/oauth/accesstoken";
-            // 
-            // btnGetOrderInfo
-            // 
-            this.btnGetOrderInfo.Location = new System.Drawing.Point(198, 174);
-            this.btnGetOrderInfo.Name = "btnGetOrderInfo";
-            this.btnGetOrderInfo.Size = new System.Drawing.Size(134, 23);
-            this.btnGetOrderInfo.TabIndex = 14;
-            this.btnGetOrderInfo.Text = "Get order info";
-            this.btnGetOrderInfo.UseVisualStyleBackColor = true;
-            this.btnGetOrderInfo.Click += new System.EventHandler(this.btnGetOrderInfo_Click);
-            // 
-            // txtOrderNo
-            // 
-            this.txtOrderNo.Location = new System.Drawing.Point(85, 176);
-            this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(100, 20);
-            this.txtOrderNo.TabIndex = 15;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 179);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 13);
-            this.label18.TabIndex = 16;
-            this.label18.Text = "Order No";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(82, 199);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(169, 13);
-            this.label19.TabIndex = 17;
-            this.label19.Text = "http://api.pixlpark.com/orders/{id}";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(32, 220);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(160, 13);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "http://api.pixlpark.com/products";
-            // 
-            // btnGetProducts
-            // 
-            this.btnGetProducts.Location = new System.Drawing.Point(198, 215);
-            this.btnGetProducts.Name = "btnGetProducts";
-            this.btnGetProducts.Size = new System.Drawing.Size(134, 23);
-            this.btnGetProducts.TabIndex = 19;
-            this.btnGetProducts.Text = "Get products";
-            this.btnGetProducts.UseVisualStyleBackColor = true;
-            this.btnGetProducts.Click += new System.EventHandler(this.btnGetProducts_Click);
-            // 
-            // txtData
-            // 
-            this.txtData.Location = new System.Drawing.Point(3, 244);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(594, 108);
-            this.txtData.TabIndex = 20;
-            this.txtData.Text = "";
+            this.button9.Location = new System.Drawing.Point(338, 173);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(134, 23);
+            this.button9.TabIndex = 21;
+            this.button9.Text = "Get order info";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // frmMain
             // 
@@ -1203,6 +1215,7 @@
         private System.Windows.Forms.Button btnGetProducts;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.RichTextBox txtData;
+        private System.Windows.Forms.Button button9;
     }
 }
 
