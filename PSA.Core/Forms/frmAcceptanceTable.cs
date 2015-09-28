@@ -394,7 +394,7 @@ namespace Photoland.Forms.Interface
 		}
 
 
-		private void OpenOrder(string orderno)
+		public void OpenOrder(string orderno)
 		{
 			if ((prop.UpdatePaymentTable > 0) || (checkAutoUpdate.Checked))
 				tmr.Stop();

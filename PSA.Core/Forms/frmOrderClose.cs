@@ -1094,7 +1094,7 @@ namespace Photoland.Forms.Interface
 				// заполняем прайс по фактическому количеству и выгружаем назад
 				for (int i = 0; i < _t.Rows.Count; i++)
 				{
-					if (prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1))
+					if ((prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1)) && (prop.OrderPixlPark.Substring(0, 1) != order.Orderno.Substring(0,1)))
 						_t.Rows[i][5] = GetPrice(_t.Rows[i][2].ToString(), decimal.Parse(_t.Rows[i][4].ToString()));
 					_t.Rows[i][6] = decimal.Parse(_t.Rows[i][5].ToString()) * decimal.Parse(_t.Rows[i][3].ToString());
 					_t.Rows[i][7] = decimal.Parse(_t.Rows[i][5].ToString()) * decimal.Parse(_t.Rows[i][4].ToString());
@@ -1371,7 +1371,7 @@ namespace Photoland.Forms.Interface
 				r[2] = tblDefectOrder.Rows[i][0];
 				r[4] = (decimal)tblDefectOrder.Rows[i][3] * -1;
 				r[3] = (decimal)0;
-				if (order.Orderno.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1))
+				if ((order.Orderno.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1)) || (order.Orderno.Substring(0, 1) == prop.OrderPixlPark.Substring(0,1)))
 					r[5] = decimal.Parse(tblDefectOrder.Rows[i][10].ToString());
 				else
 					r[5] = GetPrice(tblDefectOrder.Rows[i][0].ToString(), decimal.Parse(r[4].ToString()));
@@ -1547,7 +1547,7 @@ namespace Photoland.Forms.Interface
 		// Добавляет услугу из быстрой кнопки
 		private void SelectQuickService(string id)
 		{
-			if (prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1))
+			if ((prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1)) || (prop.OrderPixlPark.Substring(0,1) != order.Orderno.Substring(0,1)))
 			{
 				tmr.Stop();
 				List<string> _content = new List<string>();
@@ -1943,7 +1943,7 @@ namespace Photoland.Forms.Interface
 		// Добавляет услугу из списка
 		private void SelectService()
 		{
-			if (prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1))
+			if ((prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1)) || (prop.OrderPixlPark.Substring(0,1) != order.Orderno.Substring(0,1)))
 			{
 				tmr.Stop();
 				frmSelectService fSelServ = new frmSelectService(db_connection, true, order.Orderno, order.Datein);
@@ -1992,7 +1992,7 @@ namespace Photoland.Forms.Interface
 				_defect_user = f.txtUser.Text;
 				_defect_user_id = int.Parse(f.txtUser.SelectedValue.ToString());
 				*/
-				if (order.Orderno.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1))
+				if ((order.Orderno.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1)) || (order.Orderno.Substring(0,1)==prop.OrderPixlPark.Substring(0,1)))
 				{
 					decimal defPrice = 0;
 					for (int i = 0; i < tblOrder.Rows.Count; i++)
@@ -2013,7 +2013,8 @@ namespace Photoland.Forms.Interface
 						f.txtMashine.SelectedValue.ToString(), f.txtPaper.SelectedValue.ToString(), f.txtComment.Text);
 				}
 
-                if ((f.txtType.SelectedValue.ToString().Trim() == "10") && (order.Orderno.Substring(0, 1) != prop.Order_terminal_prefics.Substring(0, 1)))
+                if (((f.txtType.SelectedValue.ToString().Trim() == "10") && (order.Orderno.Substring(0, 1) != prop.Order_terminal_prefics.Substring(0, 1))) ||
+                    ((f.txtType.SelectedValue.ToString().Trim() == "10") && (order.Orderno.Substring(0, 1) != prop.OrderPixlPark.Substring(0, 1))))
                 {
                     bool _tmp = false;
                     while (!_tmp)
@@ -2160,7 +2161,8 @@ namespace Photoland.Forms.Interface
 			this.order.FinalPayment = 0;
 			ReCalcOrder();
 			frmFinalPayment fPayment = new frmFinalPayment(decimal.Parse(lblOrderSumFinal.Text));
-			if (order.Orderno.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1))
+			if ((order.Orderno.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1)) ||
+                (order.Orderno.Substring(0, 1) == prop.OrderPixlPark.Substring(0, 1)))
 				fPayment.size = 0;
 			fPayment.ShowDialog();
 			this.order.FinalPayment = fPayment.Payment;

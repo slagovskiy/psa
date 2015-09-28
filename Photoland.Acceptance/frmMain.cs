@@ -20,6 +20,7 @@ using Photoland.Acceptance.NumGenerator;
 using Photoland.Order;
 using PSA.Lib.Interface;
 using PSA.Lib.Util;
+using PSA.Core.Forms;
 
 
 namespace Photoland.Acceptance
@@ -1416,6 +1417,12 @@ namespace Photoland.Acceptance
         {
             frmNewImport f = new frmNewImport();
             f.usr = usr;
+            f.ShowDialog();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            frmImportPixlPark f = new frmImportPixlPark(db_connection, usr);
             f.ShowDialog();
         }
 	

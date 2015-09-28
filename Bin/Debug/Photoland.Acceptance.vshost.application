@@ -4,14 +4,14 @@
   <description asmv2:publisher="Photoland.Acceptance" asmv2:product="Photoland.Acceptance" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Photoland.Acceptance.exe.manifest" size="9250">
+    <dependentAssembly dependencyType="install" codebase="Photoland.Acceptance.exe.manifest" size="9881">
       <assemblyIdentity name="Photoland.Acceptance.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>O7wLG2u+hv6734TZt1o3tTz6r7Y=</dsig:DigestValue>
+        <dsig:DigestValue>1GoMx2to7yl1tx8635vBb7362fg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
