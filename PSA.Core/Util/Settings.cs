@@ -156,6 +156,7 @@ namespace PSA.Lib.Util
             _ApiOrder = f.IniReadValue("API", "Order", "http://api.pixlpark.com/orders/"); //staring
             _ApiOrderItems = f.IniReadValue("API", "OrderItems", "http://api.pixlpark.com/orders/"); //staring
             _ApiProducts = f.IniReadValue("API", "Products", "http://api.pixlpark.com/products"); //staring
+            _ApiProducts = f.IniReadValue("API", "Order", "45"); //staring
         }
 		
 		public bool Save()
@@ -289,6 +290,7 @@ namespace PSA.Lib.Util
                 f.IniWriteValue("API", "Order", _ApiOrder); //staring
                 f.IniWriteValue("API", "OrderItems", _ApiOrderItems); //staring
                 f.IniWriteValue("API", "Products", _ApiProducts); //staring
+                f.IniWriteValue("API", "Order", _OrderPixlPark); //staring
                 r = true;
 			}
 			catch(Exception ex)

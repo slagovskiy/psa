@@ -80,27 +80,31 @@ namespace PSA.Lib.Util
 				}
 				else
 				{
-					if ((barcode.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1)) && (barcode.Length > 11))
-					{
-						if (barcode.Substring(1, 1) == "0")
-						{
-							k = int.Parse(barcode.Substring(2, 3)).ToString();
-							o = int.Parse(barcode.Substring(5, 7)).ToString();
-							Query_k(k, o);
-						}
-						else if (barcode.Substring(1, 1) == "1")
-						{
-							k = "";
-							o = int.Parse(barcode.Substring(2, 10)).ToString();
-							Query_ir(k, o);
-						}
-						else if (barcode.Substring(1, 1) == "2")
-						{
-							k = "";
-							o = int.Parse(barcode.Substring(2, 10)).ToString();
-							Query_io(k, o);
-						}
-					}
+                    if ((barcode.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1)) && (barcode.Length > 11))
+                    {
+                        if (barcode.Substring(1, 1) == "0")
+                        {
+                            k = int.Parse(barcode.Substring(2, 3)).ToString();
+                            o = int.Parse(barcode.Substring(5, 7)).ToString();
+                            Query_k(k, o);
+                        }
+                        else if (barcode.Substring(1, 1) == "1")
+                        {
+                            k = "";
+                            o = int.Parse(barcode.Substring(2, 10)).ToString();
+                            Query_ir(k, o);
+                        }
+                        else if (barcode.Substring(1, 1) == "2")
+                        {
+                            k = "";
+                            o = int.Parse(barcode.Substring(2, 10)).ToString();
+                            Query_io(k, o);
+                        }
+                    }
+                    else
+                    {
+                        
+                    }
 				}
 			}
 			catch
@@ -249,25 +253,31 @@ namespace PSA.Lib.Util
 				}
 				else
 				{
-					if ((barcode.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1)) && (barcode.Length > 11))
-					{
-						if (barcode.Substring(1, 1) == "0")
-						{
-							k = int.Parse(barcode.Substring(2, 3)).ToString();
-							o = int.Parse(barcode.Substring(5, 7)).ToString();
-							QueryData_k(k, o);
-						} else if (barcode.Substring(1, 1) == "1")
-						{
-							k = "";
-							o = int.Parse(barcode.Substring(2, 10)).ToString();
-							QueryData_ir(k, o);
-						} else if (barcode.Substring(1, 1) == "2")
-						{
-							k = "";
-							o = int.Parse(barcode.Substring(2, 10)).ToString();
-							QueryData_io(k, o);
-						}
-					}
+                    if ((barcode.Substring(0, 1) == prop.Order_terminal_prefics.Substring(0, 1)) && (barcode.Length > 11))
+                    {
+                        if (barcode.Substring(1, 1) == "0")
+                        {
+                            k = int.Parse(barcode.Substring(2, 3)).ToString();
+                            o = int.Parse(barcode.Substring(5, 7)).ToString();
+                            QueryData_k(k, o);
+                        }
+                        else if (barcode.Substring(1, 1) == "1")
+                        {
+                            k = "";
+                            o = int.Parse(barcode.Substring(2, 10)).ToString();
+                            QueryData_ir(k, o);
+                        }
+                        else if (barcode.Substring(1, 1) == "2")
+                        {
+                            k = "";
+                            o = int.Parse(barcode.Substring(2, 10)).ToString();
+                            QueryData_io(k, o);
+                        }
+                    }
+                    else
+                    {
+                        QueryData_p(barcode);
+                    }
 				}
 			}
 			catch

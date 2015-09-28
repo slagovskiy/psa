@@ -1644,5 +1644,18 @@ namespace PSA.Lib.Util
             }
         }
 
+        private string _OrderPixlPark;
+        public string OrderPixlPark
+        {
+            get
+            {
+                return _OrderPixlPark;
+            }
+            set
+            {
+                _OrderPixlPark = value;
+            }
+        }
+
     }
 }

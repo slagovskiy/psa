@@ -301,6 +301,21 @@
             this.btnKiosk = new System.Windows.Forms.Button();
             this.label64 = new System.Windows.Forms.Label();
             this.txtPrefixTerminal = new System.Windows.Forms.MaskedTextBox();
+            this.tabPage29 = new System.Windows.Forms.TabPage();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.txtApiProducts = new System.Windows.Forms.TextBox();
+            this.txtApiOrderItems = new System.Windows.Forms.TextBox();
+            this.txtApiOrder = new System.Windows.Forms.TextBox();
+            this.txtApiAccessToken = new System.Windows.Forms.TextBox();
+            this.txtApiRequestToken = new System.Windows.Forms.TextBox();
+            this.txtPrivateKey = new System.Windows.Forms.TextBox();
+            this.txtPublicKey = new System.Windows.Forms.TextBox();
             this.tabDebug = new System.Windows.Forms.TabPage();
             this.checkDenyDelete = new System.Windows.Forms.CheckBox();
             this.checkQueryDelete = new System.Windows.Forms.CheckBox();
@@ -322,21 +337,8 @@
             this.checkDebugIdForQBtn = new System.Windows.Forms.CheckBox();
             this.odlg = new System.Windows.Forms.OpenFileDialog();
             this.dlg = new System.Windows.Forms.FolderBrowserDialog();
-            this.tabPage29 = new System.Windows.Forms.TabPage();
-            this.txtPublicKey = new System.Windows.Forms.TextBox();
-            this.txtPrivateKey = new System.Windows.Forms.TextBox();
-            this.txtApiRequestToken = new System.Windows.Forms.TextBox();
-            this.txtApiAccessToken = new System.Windows.Forms.TextBox();
-            this.txtApiOrder = new System.Windows.Forms.TextBox();
-            this.txtApiOrderItems = new System.Windows.Forms.TextBox();
-            this.txtApiProducts = new System.Windows.Forms.TextBox();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.txtOrderPixlPark = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabDatabase.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -393,9 +395,9 @@
             this.tabPage26.SuspendLayout();
             this.tabPage27.SuspendLayout();
             this.tabPage28.SuspendLayout();
+            this.tabPage29.SuspendLayout();
             this.tabDebug.SuspendLayout();
             this.groupBox16.SuspendLayout();
-            this.tabPage29.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -3155,6 +3157,143 @@
             this.txtPrefixTerminal.Size = new System.Drawing.Size(24, 20);
             this.txtPrefixTerminal.TabIndex = 10;
             // 
+            // tabPage29
+            // 
+            this.tabPage29.Controls.Add(this.txtOrderPixlPark);
+            this.tabPage29.Controls.Add(this.label79);
+            this.tabPage29.Controls.Add(this.label78);
+            this.tabPage29.Controls.Add(this.label77);
+            this.tabPage29.Controls.Add(this.label76);
+            this.tabPage29.Controls.Add(this.label75);
+            this.tabPage29.Controls.Add(this.label74);
+            this.tabPage29.Controls.Add(this.label73);
+            this.tabPage29.Controls.Add(this.label72);
+            this.tabPage29.Controls.Add(this.txtApiProducts);
+            this.tabPage29.Controls.Add(this.txtApiOrderItems);
+            this.tabPage29.Controls.Add(this.txtApiOrder);
+            this.tabPage29.Controls.Add(this.txtApiAccessToken);
+            this.tabPage29.Controls.Add(this.txtApiRequestToken);
+            this.tabPage29.Controls.Add(this.txtPrivateKey);
+            this.tabPage29.Controls.Add(this.txtPublicKey);
+            this.tabPage29.Location = new System.Drawing.Point(4, 22);
+            this.tabPage29.Name = "tabPage29";
+            this.tabPage29.Size = new System.Drawing.Size(602, 369);
+            this.tabPage29.TabIndex = 11;
+            this.tabPage29.Text = "PixelPark API";
+            this.tabPage29.UseVisualStyleBackColor = true;
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(3, 171);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(52, 13);
+            this.label78.TabIndex = 13;
+            this.label78.Text = "Products:";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(3, 145);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(63, 13);
+            this.label77.TabIndex = 12;
+            this.label77.Text = "Order items:";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(3, 119);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(36, 13);
+            this.label76.TabIndex = 11;
+            this.label76.Text = "Order:";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(3, 93);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(75, 13);
+            this.label75.TabIndex = 10;
+            this.label75.Text = "Access token:";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(3, 67);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(80, 13);
+            this.label74.TabIndex = 9;
+            this.label74.Text = "Request token:";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(3, 41);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(63, 13);
+            this.label73.TabIndex = 8;
+            this.label73.Text = "Private key:";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(3, 15);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(59, 13);
+            this.label72.TabIndex = 7;
+            this.label72.Text = "Public key:";
+            // 
+            // txtApiProducts
+            // 
+            this.txtApiProducts.Location = new System.Drawing.Point(89, 168);
+            this.txtApiProducts.Name = "txtApiProducts";
+            this.txtApiProducts.Size = new System.Drawing.Size(501, 20);
+            this.txtApiProducts.TabIndex = 6;
+            // 
+            // txtApiOrderItems
+            // 
+            this.txtApiOrderItems.Location = new System.Drawing.Point(89, 142);
+            this.txtApiOrderItems.Name = "txtApiOrderItems";
+            this.txtApiOrderItems.Size = new System.Drawing.Size(501, 20);
+            this.txtApiOrderItems.TabIndex = 5;
+            // 
+            // txtApiOrder
+            // 
+            this.txtApiOrder.Location = new System.Drawing.Point(89, 116);
+            this.txtApiOrder.Name = "txtApiOrder";
+            this.txtApiOrder.Size = new System.Drawing.Size(501, 20);
+            this.txtApiOrder.TabIndex = 4;
+            // 
+            // txtApiAccessToken
+            // 
+            this.txtApiAccessToken.Location = new System.Drawing.Point(89, 90);
+            this.txtApiAccessToken.Name = "txtApiAccessToken";
+            this.txtApiAccessToken.Size = new System.Drawing.Size(501, 20);
+            this.txtApiAccessToken.TabIndex = 3;
+            // 
+            // txtApiRequestToken
+            // 
+            this.txtApiRequestToken.Location = new System.Drawing.Point(89, 64);
+            this.txtApiRequestToken.Name = "txtApiRequestToken";
+            this.txtApiRequestToken.Size = new System.Drawing.Size(501, 20);
+            this.txtApiRequestToken.TabIndex = 2;
+            // 
+            // txtPrivateKey
+            // 
+            this.txtPrivateKey.Location = new System.Drawing.Point(89, 38);
+            this.txtPrivateKey.Name = "txtPrivateKey";
+            this.txtPrivateKey.Size = new System.Drawing.Size(501, 20);
+            this.txtPrivateKey.TabIndex = 1;
+            // 
+            // txtPublicKey
+            // 
+            this.txtPublicKey.Location = new System.Drawing.Point(89, 12);
+            this.txtPublicKey.Name = "txtPublicKey";
+            this.txtPublicKey.Size = new System.Drawing.Size(501, 20);
+            this.txtPublicKey.TabIndex = 0;
+            // 
             // tabDebug
             // 
             this.tabDebug.Controls.Add(this.checkDenyDelete);
@@ -3349,140 +3488,22 @@
             this.odlg.FileName = "odlg";
             this.odlg.Filter = "\"Photoland reports (*.xml)|*.xml|All files (*.*)|*.*\"";
             // 
-            // tabPage29
+            // label79
             // 
-            this.tabPage29.Controls.Add(this.label78);
-            this.tabPage29.Controls.Add(this.label77);
-            this.tabPage29.Controls.Add(this.label76);
-            this.tabPage29.Controls.Add(this.label75);
-            this.tabPage29.Controls.Add(this.label74);
-            this.tabPage29.Controls.Add(this.label73);
-            this.tabPage29.Controls.Add(this.label72);
-            this.tabPage29.Controls.Add(this.txtApiProducts);
-            this.tabPage29.Controls.Add(this.txtApiOrderItems);
-            this.tabPage29.Controls.Add(this.txtApiOrder);
-            this.tabPage29.Controls.Add(this.txtApiAccessToken);
-            this.tabPage29.Controls.Add(this.txtApiRequestToken);
-            this.tabPage29.Controls.Add(this.txtPrivateKey);
-            this.tabPage29.Controls.Add(this.txtPublicKey);
-            this.tabPage29.Location = new System.Drawing.Point(4, 22);
-            this.tabPage29.Name = "tabPage29";
-            this.tabPage29.Size = new System.Drawing.Size(602, 369);
-            this.tabPage29.TabIndex = 11;
-            this.tabPage29.Text = "PixelPark API";
-            this.tabPage29.UseVisualStyleBackColor = true;
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(3, 197);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(196, 13);
+            this.label79.TabIndex = 14;
+            this.label79.Text = "Префикс заказов с сервиса PixlPark:";
             // 
-            // txtPublicKey
+            // txtOrderPixlPark
             // 
-            this.txtPublicKey.Location = new System.Drawing.Point(89, 12);
-            this.txtPublicKey.Name = "txtPublicKey";
-            this.txtPublicKey.Size = new System.Drawing.Size(501, 20);
-            this.txtPublicKey.TabIndex = 0;
-            // 
-            // txtPrivateKey
-            // 
-            this.txtPrivateKey.Location = new System.Drawing.Point(89, 38);
-            this.txtPrivateKey.Name = "txtPrivateKey";
-            this.txtPrivateKey.Size = new System.Drawing.Size(501, 20);
-            this.txtPrivateKey.TabIndex = 1;
-            // 
-            // txtApiRequestToken
-            // 
-            this.txtApiRequestToken.Location = new System.Drawing.Point(89, 64);
-            this.txtApiRequestToken.Name = "txtApiRequestToken";
-            this.txtApiRequestToken.Size = new System.Drawing.Size(501, 20);
-            this.txtApiRequestToken.TabIndex = 2;
-            // 
-            // txtApiAccessToken
-            // 
-            this.txtApiAccessToken.Location = new System.Drawing.Point(89, 90);
-            this.txtApiAccessToken.Name = "txtApiAccessToken";
-            this.txtApiAccessToken.Size = new System.Drawing.Size(501, 20);
-            this.txtApiAccessToken.TabIndex = 3;
-            // 
-            // txtApiOrder
-            // 
-            this.txtApiOrder.Location = new System.Drawing.Point(89, 116);
-            this.txtApiOrder.Name = "txtApiOrder";
-            this.txtApiOrder.Size = new System.Drawing.Size(501, 20);
-            this.txtApiOrder.TabIndex = 4;
-            // 
-            // txtApiOrderItems
-            // 
-            this.txtApiOrderItems.Location = new System.Drawing.Point(89, 142);
-            this.txtApiOrderItems.Name = "txtApiOrderItems";
-            this.txtApiOrderItems.Size = new System.Drawing.Size(501, 20);
-            this.txtApiOrderItems.TabIndex = 5;
-            // 
-            // txtApiProducts
-            // 
-            this.txtApiProducts.Location = new System.Drawing.Point(89, 168);
-            this.txtApiProducts.Name = "txtApiProducts";
-            this.txtApiProducts.Size = new System.Drawing.Size(501, 20);
-            this.txtApiProducts.TabIndex = 6;
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(3, 15);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(59, 13);
-            this.label72.TabIndex = 7;
-            this.label72.Text = "Public key:";
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(3, 41);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(63, 13);
-            this.label73.TabIndex = 8;
-            this.label73.Text = "Private key:";
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(3, 67);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(80, 13);
-            this.label74.TabIndex = 9;
-            this.label74.Text = "Request token:";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(3, 93);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(75, 13);
-            this.label75.TabIndex = 10;
-            this.label75.Text = "Access token:";
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(3, 119);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(36, 13);
-            this.label76.TabIndex = 11;
-            this.label76.Text = "Order:";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(3, 145);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(63, 13);
-            this.label77.TabIndex = 12;
-            this.label77.Text = "Order items:";
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(3, 171);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(52, 13);
-            this.label78.TabIndex = 13;
-            this.label78.Text = "Products:";
+            this.txtOrderPixlPark.Location = new System.Drawing.Point(205, 194);
+            this.txtOrderPixlPark.MaxLength = 2;
+            this.txtOrderPixlPark.Name = "txtOrderPixlPark";
+            this.txtOrderPixlPark.Size = new System.Drawing.Size(43, 20);
+            this.txtOrderPixlPark.TabIndex = 15;
             // 
             // frmSetup
             // 
@@ -3590,12 +3611,12 @@
             this.tabPage27.PerformLayout();
             this.tabPage28.ResumeLayout(false);
             this.tabPage28.PerformLayout();
+            this.tabPage29.ResumeLayout(false);
+            this.tabPage29.PerformLayout();
             this.tabDebug.ResumeLayout(false);
             this.tabDebug.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
-            this.tabPage29.ResumeLayout(false);
-            this.tabPage29.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -3910,6 +3931,8 @@
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.TextBox txtOrderPixlPark;
+        private System.Windows.Forms.Label label79;
 
 	}
 }
