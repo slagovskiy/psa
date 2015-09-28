@@ -100,7 +100,7 @@ namespace PSA.Lib.Util
 
                         try
                         {
-                            System.Net.WebClient wc = new System.Net.WebClient();
+                            wc = new System.Net.WebClient();
                             webData = wc.DownloadString(prop.ApiOrder + order + "?oauth_token=" + accessToken);
                             webData = Win1251ToUTF8(webData);
                             webData = webData
@@ -126,7 +126,7 @@ namespace PSA.Lib.Util
                             head.Add("KIOSKID", "");
                             head.Add("ADDRESS", "");
                             head.Add("STAMP", "");
-                            head.Add("CUSTOMER", "Клиент PixlPark";
+                            head.Add("CUSTOMER", "Клиент PixlPark");
                             head.Add("PHONE", "");
                             head.Add("STATUS", "000000");
                             head.Add("TOPRINT_AUTHDATE", "");
@@ -185,21 +185,26 @@ namespace PSA.Lib.Util
                                     cn.Open();
                                     // проверяем на 9-й категорию прайса
                                     SqlCommand cmd = new SqlCommand("DECLARE @C int; SET @c = (SELECT COUNT(*) FROM [dbo].[category] WHERE [id_category] = 9); IF(@C = 0) BEGIN; INSERT INTO [dbo].[category]([id_category], [name], [input]) VALUES (9, 'Фототерминалы', 0); END;", cn);
+                                    cmd.CommandTimeout = 9000;
                                     cmd.ExecuteNonQuery();
 
                                     //Проверяем на наличие клиента с имененм "PixlPark" и 9-ой категории прайса
                                     cmd = new SqlCommand("DECLARE @ID int; SET @ID = (SELECT [id_client] FROM [dbo].[client] WHERE RTRIM([name]) = 'PixlPark'); IF(@ID > 0) BEGIN; SELECT @ID; END; ELSE BEGIN; INSERT INTO [dbo].[client] ([id_category], [id_dcard], [guid], [del], [name], [phone_1], [phone_2], [address], [email], [icq], [addon]) VALUES (9, 0, newid(), 0, 'PixlPark', '', '', '', '', '', ''); SET @ID = scope_identity(); SELECT @ID; END;", cn);
+                                    cmd.CommandTimeout = 9000;
                                     int client_id = (int)cmd.ExecuteScalar();
 
                                     //Проверяем на наличие услуги с кодом -1
                                     cmd = new SqlCommand("DECLARE @ID int; SET @ID = (SELECT [id_good] FROM [dbo].[good] WHERE RTRIM([id_good]) = '-1'); IF(@ID = '-1') BEGIN; SELECT @ID; END; ELSE BEGIN; INSERT INTO [dbo].[good] ([id_good], [guid], [del], [name], [description], [prefix], [folder], [type], [checked], [zero], [sign], [apply_form], [EI], [bonustype], [kiosk_name]) VALUES('-1', newid(), 0, 'УСЛУГА НЕ НАЙДЕНА', 'УСЛУГА НЕ НАЙДЕНА', '', '-1', '1', 0, 1, 'none-1', '', 0, '', ''); SET @ID = scope_identity(); SELECT @ID; END;", cn);
+                                    cmd.CommandTimeout = 9000;
                                     cmd.ExecuteNonQuery();
 
                                     //Проверяем наличие пользователя "PixlPark"
                                     cmd = new SqlCommand("DECLARE @ID int; SET @ID = (SELECT [id_user] FROM [dbo].[user] WHERE RTRIM([name]) = 'PixlPark'); IF(@ID > 0) BEGIN; SELECT @ID; END; ELSE BEGIN; INSERT INTO [dbo].[user]([name], [сontact], [login], [password], [permission]) VALUES ('PixlPark','','PixlPark','ajnjnthvbyfk',0); SET @ID = scope_identity(); SELECT @ID; END;", cn);
+                                    cmd.CommandTimeout = 9000;
                                     int user_id = (int)cmd.ExecuteScalar();
 
                                     cmd = new SqlCommand("SELECT * FROM [order] WHERE [number] = " + prop.OrderPixlPark + int.Parse(order).ToString("D10"), cn);
+                                    cmd.CommandTimeout = 9000;
                                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                                     DataTable t_order = new DataTable();
                                     da.Fill(t_order);
@@ -251,8 +256,14 @@ namespace PSA.Lib.Util
                                     {
                                         for (int j = 0; j < od.Rows.Count; j++)
                                         {
+                                            string sub_name = od.Rows[j]["ACTION_NAME"].ToString().Trim();
+                                            if (sub_name.IndexOf('[') > 0)
+                                                sub_name = sub_name.Substring(0, sub_name.IndexOf('['));
+                                            if (sub_name.IndexOf('(') > 0)
+                                                sub_name = sub_name.Substring(0, sub_name.IndexOf('('));
+
                                             // определяем ключи для услуг
-                                            cmd = new SqlCommand("SELECT id_good, type FROM dbo.good WHERE (id_good = '_" + od.Rows[j]["ACTION_ID"].ToString().Trim() + "')", cn);
+                                            cmd = new SqlCommand("SELECT id_good, type FROM dbo.good WHERE (name = '_" + sub_name.Trim() + "')", cn);
                                             SqlDataAdapter da_tmp = new SqlDataAdapter(cmd);
                                             DataSet ds = new DataSet();
                                             da_tmp.Fill(ds, "goods");
