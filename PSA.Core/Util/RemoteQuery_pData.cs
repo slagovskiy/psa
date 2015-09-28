@@ -219,7 +219,7 @@ namespace PSA.Lib.Util
                                             if (MessageBox.Show("Заказ с номером " + prop.OrderPixlPark + int.Parse(order).ToString("D10") + " уже существует в базе, но оплата по нему не принималась.\nОтменить его и импортировать новый?", "Импорт", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                             {
                                                 add = true;
-                                                query += "UPDATE [order] SET \n\t[status] = '010000', \n\texported = 0, \n\t[number] = '" + prop.OrderPixlPark + int.Parse(order).ToString("D10") + "' \nWHERE \n\t[number] = " + prop.Order_terminal_prefics + int.Parse(kiosk).ToString("D3") + int.Parse(order).ToString("D7") + ";\n";
+                                                query += "UPDATE [order] SET \n\t[status] = '010000', \n\texported = 0, \n\t[number] = '" + prop.OrderPixlPark.Substring(0, 1) + "9" + int.Parse(order).ToString("D10") + "' \nWHERE \n\t[number] = " + prop.OrderPixlPark + int.Parse(order).ToString("D10") + ";\n";
                                                 query += "INSERT INTO [dbo].[orderevent] \n" +
                                                            "([del] \n" +
                                                            ",[guid] \n" +
@@ -252,13 +252,12 @@ namespace PSA.Lib.Util
                                         for (int j = 0; j < od.Rows.Count; j++)
                                         {
                                             // определяем ключи для услуг
-                                            cmd = new SqlCommand("SELECT id_good, type FROM dbo.good WHERE (kiosk_name LIKE '%|" + od.Rows[j]["ACTION_HEADER"].ToString().Trim() + " " + od.Rows[j]["ACTION_NAME"].ToString().Trim() + "|%')", cn);
+                                            cmd = new SqlCommand("SELECT id_good, type FROM dbo.good WHERE (id_good = '_" + od.Rows[j]["ACTION_ID"].ToString().Trim() + "')", cn);
                                             SqlDataAdapter da_tmp = new SqlDataAdapter(cmd);
                                             DataSet ds = new DataSet();
                                             da_tmp.Fill(ds, "goods");
                                             if (ds.Tables[0].Rows.Count > 0)
                                             {
-
                                                 od.Rows[j]["KEY"] = ds.Tables[0].Rows[0][0].ToString().Trim();
                                                 od.Rows[j]["PATH"] = ds.Tables[0].Rows[0][1].ToString().Trim();
                                             }
@@ -270,66 +269,11 @@ namespace PSA.Lib.Util
                                         }
 
                                         //клиент
-                                        if (prop.Terminal_client_one)
-                                            query += "DECLARE @CLIENTID int;\n" +
-                                                "SET @CLIENTID = " + client_id + ";\n" +
-                                                "DECLARE @CLIENTNAME nchar(255);\n" +
-                                                "SET @CLIENTNAME = 'фототерминал'\n";
-                                        else
-                                            query += "DECLARE @name nchar(255)\n" +
-                                                    "DECLARE @phone nchar(255)\n" +
-                                                    "SET @name = '" + head["CUSTOMER"] + "%'\n" +
-                                                    "SET @phone = '" + head["PHONE"] + "'\n" +
-                                                    "DECLARE @CNT int\n" +
-                                                    "DECLARE @CLIENTID int;\n" +
-                                                    "SET @CLIENTID = 0;\n" +
-                                                    "SET @CNT = (\n" +
-                                                    "SELECT COUNT(*)\n" +
-                                                    "FROM [dbo].[client]\n" +
-                                                    "WHERE [name] like @name\n" +
-                                                    "  AND [id_category] = 9\n" +
-                                                    "  AND [phone_1] = @phone\n" +
-                                                    ")\n" +
-                                                    "IF (@CNT = 0)\n" +
-                                                    "BEGIN\n" +
-                                                    "	INSERT INTO [dbo].[client]\n" +
-                                                    "			   ([id_category]\n" +
-                                                    "			   ,[guid]\n" +
-                                                    "			   ,[del]\n" +
-                                                    "			   ,[name]\n" +
-                                                    "			   ,[phone_1]\n" +
-                                                    "			   )\n" +
-                                                    "		 VALUES\n" +
-                                                    "			   (9\n" +
-                                                    "			   ,newid()\n" +
-                                                    "			   ,0\n" +
-                                                    "			   ,'" + head["CUSTOMER"] + "'\n" +
-                                                    "			   ,'" + head["PHONE"] + "')\n" +
-                                                    "	SET @CLIENTID = scope_identity()\n" +
-                                                    "END\n" +
-                                                    "IF (@CNT = 1)\n" +
-                                                    "BEGIN\n" +
-                                                    "	SET @CLIENTID = (\n" +
-                                                    "		SELECT [id_client]\n" +
-                                                    "		FROM [dbo].[client]\n" +
-                                                    "		WHERE [name] like @name\n" +
-                                                    "		  AND [id_category] = 9\n" +
-                                                    "		  AND [phone_1] = @phone\n" +
-                                                    "	)\n" +
-                                                    "END\n" +
-                                                    "IF (@CNT > 1)\n" +
-                                                    "BEGIN\n" +
-                                                    "	SET @CLIENTID = (\n" +
-                                                    "		SELECT MAX([id_client]) AS id_client\n" +
-                                                    "		FROM dbo.client\n" +
-                                                    "		WHERE [name] like @name\n" +
-                                                    "		  AND [id_category] = 9\n" +
-                                                    "		  AND [phone_1] = @phone\n" +
-                                                    "	)\n" +
-                                                    "END\n" +
-                                                    "SELECT @CLIENTID;\n" +
-                                                    "DECLARE @CLIENTNAME nchar(255);\n" +
-                                                    "SET @CLIENTNAME = '" + head["CUSTOMER"] + "'\n";
+                                        query += "DECLARE @CLIENTID int;\n" +
+                                            "SET @CLIENTID = " + client_id + ";\n" +
+                                            "DECLARE @CLIENTNAME nchar(255);\n" +
+                                            "SET @CLIENTNAME = 'PixlPark'\n";
+                                        
 
                                         // Шапка
                                         query += "INSERT INTO [dbo].[order]\n" +
@@ -371,9 +315,8 @@ namespace PSA.Lib.Util
                                                ",'' \n" +
                                                ",'' \n" +
                                                ",'000010' \n" +
-                                               ",'" + prop.Order_terminal_prefics +
-                                               int.Parse(kiosk).ToString("D3") +
-                                               int.Parse(order).ToString("D7") + "' \n" +
+                                               ",'" + prop.OrderPixlPark +
+                                               int.Parse(order).ToString("D10") + "' \n" +
                                                ",GETDATE() \n" +
                                                ",DATEADD(hour, 1, GETDATE()) \n" +
                                                ",0 \n" +
@@ -424,7 +367,7 @@ namespace PSA.Lib.Util
                                                    "," + usr.Id_user + " \n" +
                                                    ",'" + usr.Name + "' \n" +
                                                    ",0\n" +
-                                                   ",'" + od.Rows[j]["ACTION_HEADER"].ToString().Trim() + " " + od.Rows[j]["ACTION_NAME"].ToString().Trim() + " " + od.Rows[j]["QTY"].ToString().Trim() + "*" + od.Rows[j]["ACTION_PRICE"].ToString().Trim() + "р; " + od.Rows[j]["SUBACTION_NAME"].ToString().Trim() + " " + od.Rows[j]["SUBACTION_PRICE"].ToString().Trim() + "р');\n";
+                                                   ",'" + od.Rows[j]["ACTION_NAME"].ToString().Trim() + " " + od.Rows[j]["SUBACTION_PRICE"].ToString().Trim() + "р');\n";
                                         }
                                         query += "INSERT INTO [dbo].[orderevent] \n" +
                                                    "([del] \n" +
@@ -444,9 +387,6 @@ namespace PSA.Lib.Util
                                                    ",'000010' \n" +
                                                    ",'" + prop.Order_prefics + "' \n" +
                                                    ",'Заказ был импортирован с сервера.');\n";
-                                        query += "INSERT INTO [dbo].[kiosk_orders_ok] ([number], [status], [exported]) VALUES ('" + prop.Order_terminal_prefics +
-                                               int.Parse(kiosk).ToString("D3") +
-                                               int.Parse(order).ToString("D7") + "', 1, 0);\n";
                                         query += "COMMIT;\n\n";
                                         cmd.CommandText = query;
                                         cmd.Connection = cn;
@@ -457,7 +397,7 @@ namespace PSA.Lib.Util
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(ex.Message + "\n" + ex.Source);
+                                MessageBox.Show("Ошибка сохранения заказа.\n" + ex.Message + "\n" + ex.Source);
                             }
 
 
