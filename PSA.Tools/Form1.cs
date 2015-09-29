@@ -848,12 +848,14 @@ namespace PSA.Tools
                 //    .Replace(",\"ResponseCode\":200}", "}");
                 webData = "{\"DATA\":[" + webData + "]}";
 
-                XmlDocument x = JsonConvert.DeserializeXmlNode(webData);
+                XmlDocument x = (XmlDocument)JsonConvert.DeserializeXmlNode(webData);
 
-                XmlNode r = x.GetElementsByTagName("Result")[0];
-                foreach (XmlNode node in r.ChildNodes)
+                foreach (XmlNode r in x.GetElementsByTagName("Result"))
                 {
-                    MessageBox.Show(node.InnerXml);
+                    foreach (XmlNode node in r.ChildNodes)
+                    {
+                        MessageBox.Show(node.InnerXml);
+                    }
                 }
                 //Dictionary<string, string> jData = JsonConvert.DeserializeObject<Dictionary<string, string>>(webData);
 

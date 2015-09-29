@@ -139,6 +139,26 @@ namespace PSA.Lib.Util
                             wc = new System.Net.WebClient();
                             webData = wc.DownloadString(prop.ApiOrderItems + order + "/items/?oauth_token=" + accessToken);
                             webData = Win1251ToUTF8(webData);
+                            webData = "{\"DATA\":[" + webData + "]}";
+                            XmlDocument x = (XmlDocument)JsonConvert.DeserializeXmlNode(webData);
+
+                            foreach (XmlNode r in x.GetElementsByTagName("Result"))
+                            {
+                                DataRow rw = od.NewRow();
+                                foreach (XmlNode node in r.ChildNodes)
+                                {
+                                    if (node.Name == "Id")
+                                        rw["ACTION_ID"] = node.InnerText;
+                                    if (node.Name == "Name")
+                                        rw["ACTION_NAME"] = node.InnerText;
+                                    if (node.Name == "Quantity")
+                                        rw["QTY"] = node.InnerText;
+                                    if (node.Name == "ItemPrice")
+                                        rw["PRICE"] = node.InnerText;
+                                }
+                                od.Rows.Add(rw);
+                            }
+                            /*
                             webData = webData
                                 .Replace("{\"ApiVersion\":\"1.0\",\"Result\":[", " ")
                                 .Replace("],\"ResponseCode\":200}", "");
@@ -179,7 +199,7 @@ namespace PSA.Lib.Util
                                         webData.IndexOf('{'), webData.IndexOf('}') - webData.IndexOf('{') + 1
                                     ), "");
                             }
-
+                            */
                             try
                             {
                                 using (SqlConnection cn = new SqlConnection(prop.Connection_string))
