@@ -156,7 +156,7 @@ namespace PSA.Lib.Util
             _ApiOrder = f.IniReadValue("API", "Order", "http://api.pixlpark.com/orders/"); //staring
             _ApiOrderItems = f.IniReadValue("API", "OrderItems", "http://api.pixlpark.com/orders/"); //staring
             _ApiProducts = f.IniReadValue("API", "Products", "http://api.pixlpark.com/products"); //staring
-            _OrderPixlPark = f.IniReadValue("API", "OrderPrefix", "45"); //staring
+            _OrderPixlPark = f.IniReadValue("API", "OrderPrefix", "50"); //staring
         }
 		
 		public bool Save()
