@@ -81,7 +81,6 @@ namespace PSA.Lib.Util
                     }
                     if (accessOK)
                     {
-                        MessageBox.Show("ok");
                         Dictionary<string, string> head = new Dictionary<string, string>();
                         DataTable od = new DataTable("orderdetail");
                         od.Columns.Add("ACTION_ID");

@@ -14,6 +14,7 @@ using Photoland.Security.User;
 using System.IO;
 using PSA.Lib.Interface;
 using PSA.Lib.Util;
+using PSA.Core.Admin;
 
 namespace Photoland.Administrator
 {
@@ -1426,6 +1427,26 @@ namespace Photoland.Administrator
 				frm.Show();
 			}
 		}
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void полноеУдалениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDeleteFromDate f = new frmDeleteFromDate();
+            f.db_connection = db_connection;
+            f.ShowDialog();
+        }
+
+        private void перестройкаИндексовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRebuildIndex f = new frmRebuildIndex();
+            f.db_connection = db_connection;
+            f.ShowDialog();
+
+        }
 
 
 

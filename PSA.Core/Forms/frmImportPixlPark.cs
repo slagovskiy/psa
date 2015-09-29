@@ -34,13 +34,14 @@ namespace PSA.Core.Forms
                 rm.usr = usr;
                 if (rm.QueryData_p(txtOrder.Text))
                 {
-                    frmAcceptanceTable t = new frmAcceptanceTable(db_connection, usr);
-                    t.OpenOrder(prop.OrderPixlPark + int.Parse(txtOrder.Text).ToString("D10"));
+                    MessageBox.Show("Заказ импортрован!");
+                    this.Close();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                this.Close();
             }
         }
     }
