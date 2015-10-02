@@ -82,6 +82,14 @@ namespace PSA.Core.Admin
             s.Add("ALTER INDEX [IX_price] ON [dbo].[price] REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF );");
             s.Add("ALTER INDEX [PK_price] ON [dbo].[price] REORGANIZE WITH ( LOB_COMPACTION = ON );");
             s.Add("ALTER INDEX [IX_price] ON [dbo].[price] REORGANIZE WITH ( LOB_COMPACTION = ON );");
+            s.Add("ALTER INDEX [IX_client] ON [dbo].[client] REBUILD  WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, ONLINE = OFF, SORT_IN_TEMPDB = OFF );");
+            s.Add("ALTER INDEX [IX_client_1] ON [dbo].[client] REBUILD  WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, ONLINE = OFF, SORT_IN_TEMPDB = OFF );");
+            s.Add("ALTER INDEX [IX_client_2] ON [dbo].[client] REBUILD  WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, ONLINE = OFF, SORT_IN_TEMPDB = OFF );");
+            s.Add("ALTER INDEX [PK_client] ON [dbo].[client] REBUILD  WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, ONLINE = OFF, SORT_IN_TEMPDB = OFF );");
+            s.Add("ALTER INDEX [IX_client] ON [dbo].[client] REORGANIZE WITH ( LOB_COMPACTION = ON );");
+            s.Add("ALTER INDEX [IX_client_1] ON [dbo].[client] REORGANIZE WITH ( LOB_COMPACTION = ON );");
+            s.Add("ALTER INDEX [IX_client_2] ON [dbo].[client] REORGANIZE WITH ( LOB_COMPACTION = ON );");
+            s.Add("ALTER INDEX [PK_client] ON [dbo].[client] REORGANIZE WITH ( LOB_COMPACTION = ON );");
             s.Add("DBCC CHECKDB;");
             s.Add("DBCC SHRINKDATABASE (" + prop.Db_base + ");");
             s.Add("DBCC SHRINKDATABASE(N'" + prop.Db_base + "');");

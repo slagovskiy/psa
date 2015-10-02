@@ -164,6 +164,7 @@ namespace PSA.Lib.Util
             _DStatus = f.IniReadValue("API", "D Status", "000200"); //staring
             _SelectImport = bool.Parse(f.IniReadValue("API", "Select import", "true")); //bool
             _PrintAfterImport = bool.Parse(f.IniReadValue("API", "Print after import", "true")); //bool
+            _PixlParkClient = bool.Parse(f.IniReadValue("API", "PixlPark Client", "false")); //bool
         }
 		
 		public bool Save()
@@ -304,6 +305,7 @@ namespace PSA.Lib.Util
                 f.IniWriteValue("API", "O Status", _OStatus); //staring
                 f.IniWriteValue("API", "Select import", _SelectImport.ToString()); //bool
                 f.IniWriteValue("API", "Print after import", _PrintAfterImport.ToString()); //bool
+                f.IniWriteValue("API", "PixlPark Client", _PixlParkClient.ToString()); //bool
                 r = true;
 			}
 			catch(Exception ex)

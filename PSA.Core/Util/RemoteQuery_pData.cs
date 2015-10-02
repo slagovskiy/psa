@@ -321,66 +321,66 @@ namespace PSA.Lib.Util
                                         }
 
                                         //клиент
-                                        /*
-                                        query += "DECLARE @CLIENTID int;\n" +
-                                            "SET @CLIENTID = " + client_id + ";\n" +
-                                            "DECLARE @CLIENTNAME nchar(255);\n" +
-                                            "SET @CLIENTNAME = 'PixlPark'\n";
-                                        */
-								        query += "DECLARE @name nchar(255)\n" +
-										        "DECLARE @phone nchar(255)\n" +
-										        "SET @name = '" + user_lname + " " + user_fname + "%'\n" +
-										        "SET @phone = '" + user_phone + "'\n" +
-										        "DECLARE @CNT int\n" +
-										        "DECLARE @CLIENTID int;\n" +
-										        "SET @CLIENTID = 0;\n" +
-										        "SET @CNT = (\n" +
-										        "SELECT COUNT(*)\n" +
-										        "FROM [dbo].[client]\n" +
-										        "WHERE [name] like @name\n" +
-										        "  AND [id_category] = 9\n" +
-										        "  AND [phone_1] = @phone\n" +
-										        ")\n" +
-										        "IF (@CNT = 0)\n" +
-										        "BEGIN\n" +
-										        "	INSERT INTO [dbo].[client]\n" +
-										        "			   ([id_category]\n" +
-										        "			   ,[guid]\n" +
-										        "			   ,[del]\n" +
-										        "			   ,[name]\n" +
-										        "			   ,[phone_1]\n" +
-										        "			   )\n" +
-										        "		 VALUES\n" +
-										        "			   (9\n" +
-										        "			   ,newid()\n" +
-										        "			   ,0\n" +
-                                                "			   ,'" + user_lname + " " + user_fname + "'\n" +
-                                                "			   ,'" + user_phone + "')\n" +
-										        "	SET @CLIENTID = scope_identity()\n" +
-										        "END\n" +
-										        "IF (@CNT = 1)\n" +
-										        "BEGIN\n" +
-										        "	SET @CLIENTID = (\n" +
-										        "		SELECT [id_client]\n" +
-										        "		FROM [dbo].[client]\n" +
-										        "		WHERE [name] like @name\n" +
-										        "		  AND [id_category] = 9\n" +
-										        "		  AND [phone_1] = @phone\n" +
-										        "	)\n" +
-										        "END\n" +
-										        "IF (@CNT > 1)\n" +
-										        "BEGIN\n" +
-										        "	SET @CLIENTID = (\n" +
-										        "		SELECT MAX([id_client]) AS id_client\n" +
-										        "		FROM dbo.client\n" +
-										        "		WHERE [name] like @name\n" +
-										        "		  AND [id_category] = 9\n" +
-										        "		  AND [phone_1] = @phone\n" +
-										        "	)\n" +
-										        "END\n" +
-										        "SELECT @CLIENTID;\n" +
-										        "DECLARE @CLIENTNAME nchar(255);\n" +
-                                                "SET @CLIENTNAME = '" + user_lname + " " + user_fname + "'\n";
+                                        if (prop.PixlParkClient)
+                                            query += "DECLARE @CLIENTID int;\n" +
+                                                "SET @CLIENTID = " + client_id + ";\n" +
+                                                "DECLARE @CLIENTNAME nchar(255);\n" +
+                                                "SET @CLIENTNAME = 'PixlPark'\n";
+                                        else
+								            query += "DECLARE @name nchar(255)\n" +
+										            "DECLARE @phone nchar(255)\n" +
+										            "SET @name = '" + user_lname + " " + user_fname + "%'\n" +
+										            "SET @phone = '" + user_phone + "'\n" +
+										            "DECLARE @CNT int\n" +
+										            "DECLARE @CLIENTID int;\n" +
+										            "SET @CLIENTID = 0;\n" +
+										            "SET @CNT = (\n" +
+										            "SELECT COUNT(*)\n" +
+										            "FROM [dbo].[client]\n" +
+										            "WHERE [name] like @name\n" +
+										            "  AND [id_category] = 9\n" +
+										            "  AND [phone_1] = @phone\n" +
+										            ")\n" +
+										            "IF (@CNT = 0)\n" +
+										            "BEGIN\n" +
+										            "	INSERT INTO [dbo].[client]\n" +
+										            "			   ([id_category]\n" +
+										            "			   ,[guid]\n" +
+										            "			   ,[del]\n" +
+										            "			   ,[name]\n" +
+										            "			   ,[phone_1]\n" +
+										            "			   )\n" +
+										            "		 VALUES\n" +
+										            "			   (9\n" +
+										            "			   ,newid()\n" +
+										            "			   ,0\n" +
+                                                    "			   ,'" + user_lname + " " + user_fname + "'\n" +
+                                                    "			   ,'" + user_phone + "')\n" +
+										            "	SET @CLIENTID = scope_identity()\n" +
+										            "END\n" +
+										            "IF (@CNT = 1)\n" +
+										            "BEGIN\n" +
+										            "	SET @CLIENTID = (\n" +
+										            "		SELECT [id_client]\n" +
+										            "		FROM [dbo].[client]\n" +
+										            "		WHERE [name] like @name\n" +
+										            "		  AND [id_category] = 9\n" +
+										            "		  AND [phone_1] = @phone\n" +
+										            "	)\n" +
+										            "END\n" +
+										            "IF (@CNT > 1)\n" +
+										            "BEGIN\n" +
+										            "	SET @CLIENTID = (\n" +
+										            "		SELECT MAX([id_client]) AS id_client\n" +
+										            "		FROM dbo.client\n" +
+										            "		WHERE [name] like @name\n" +
+										            "		  AND [id_category] = 9\n" +
+										            "		  AND [phone_1] = @phone\n" +
+										            "	)\n" +
+										            "END\n" +
+										            "SELECT @CLIENTID;\n" +
+										            "DECLARE @CLIENTNAME nchar(255);\n" +
+                                                    "SET @CLIENTNAME = '" + user_lname + " " + user_fname + "'\n";
 
 
                                         // Шапка

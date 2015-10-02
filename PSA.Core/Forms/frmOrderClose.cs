@@ -2889,11 +2889,18 @@ namespace Photoland.Forms.Interface
                     decimal iitog = 0;
                     for (int i = 0; i < prnOrder.OrderBody.Rows.Count; i++)
                     {
-                        itog += decimal.Parse(prnOrder.OrderBody.Rows[i]["price"].ToString()) *
-                                decimal.Parse(prnOrder.OrderBody.Rows[i]["actual_quantity"].ToString());
+                        
                         if (order.Orderno.Substring(0, 2) == prop.OrderPixlPark)
                         {
                             prnOrder.OrderBody.Rows[i]["name"] = prnOrder.OrderBody.Rows[i]["comment"];
+                            prnOrder.OrderBody.Rows[i]["actual_quantity"] = prnOrder.OrderBody.Rows[i]["quantity"];
+                            itog += decimal.Parse(prnOrder.OrderBody.Rows[i]["price"].ToString()) *
+                                decimal.Parse(prnOrder.OrderBody.Rows[i]["quantity"].ToString());
+                        }
+                        else
+                        {
+                            itog += decimal.Parse(prnOrder.OrderBody.Rows[i]["price"].ToString()) *
+                                decimal.Parse(prnOrder.OrderBody.Rows[i]["actual_quantity"].ToString());
                         }
                     }
 					rep.Fields["advstr1"].Text = prop.CheckString1;

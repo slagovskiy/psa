@@ -351,6 +351,7 @@
             this.checkDebugIdForQBtn = new System.Windows.Forms.CheckBox();
             this.odlg = new System.Windows.Forms.OpenFileDialog();
             this.dlg = new System.Windows.Forms.FolderBrowserDialog();
+            this.checkPixlParkClient = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabDatabase.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -3184,6 +3185,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.checkPixlParkClient);
             this.groupBox5.Controls.Add(this.checkPrintAfterImport);
             this.groupBox5.Controls.Add(this.txtDStatus);
             this.groupBox5.Controls.Add(this.txtOStatus);
@@ -3638,6 +3640,16 @@
             this.odlg.FileName = "odlg";
             this.odlg.Filter = "\"Photoland reports (*.xml)|*.xml|All files (*.*)|*.*\"";
             // 
+            // checkPixlParkClient
+            // 
+            this.checkPixlParkClient.AutoSize = true;
+            this.checkPixlParkClient.Location = new System.Drawing.Point(327, 93);
+            this.checkPixlParkClient.Name = "checkPixlParkClient";
+            this.checkPixlParkClient.Size = new System.Drawing.Size(197, 17);
+            this.checkPixlParkClient.TabIndex = 24;
+            this.checkPixlParkClient.Text = "PixlPark вместо фамилии клиента";
+            this.checkPixlParkClient.UseVisualStyleBackColor = true;
+            // 
             // frmSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4081,6 +4093,7 @@
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.CheckBox checkPrintAfterImport;
+        private System.Windows.Forms.CheckBox checkPixlParkClient;
 
 	}
 }

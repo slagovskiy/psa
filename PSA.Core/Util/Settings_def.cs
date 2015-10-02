@@ -1735,5 +1735,18 @@ namespace PSA.Lib.Util
             }
         }
 
+        private bool _PixlParkClient;
+        public bool PixlParkClient
+        {
+            get
+            {
+                return _PixlParkClient;
+            }
+            set
+            {
+                _PixlParkClient = value;
+            }
+        }
+
     }
 }
