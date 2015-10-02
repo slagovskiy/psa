@@ -321,6 +321,29 @@ namespace PSA.Lib.Interface
             txtApiOrderItems.Text = p.ApiOrderItems;
             txtApiProducts.Text = p.ApiProducts;
             txtOrderPixlPark.Text = p.OrderPixlPark;
+            txtApiUser.Text = p.ApiUser;
+            if (p.PrintAfterImport)
+                checkPrintAfterImport.Checked = true;
+            else
+                checkPrintAfterImport.Checked = false;
+            if (p.SelectImport)
+            {
+                checkSelectImport.Checked = true;
+                txtAStatus.Enabled = true;
+                txtOStatus.Enabled = true;
+                txtDStatus.Enabled = true;
+            }
+            else
+            {
+                checkSelectImport.Checked = false;
+                txtAStatus.Enabled = false;
+                txtOStatus.Enabled = false;
+                txtDStatus.Enabled = false;
+            }
+            txtAStatus.Text = p.AStatus;
+            txtOStatus.Text = p.OStatus;
+            txtDStatus.Text = p.DStatus;
+
 
 			
 		}
@@ -634,6 +657,13 @@ namespace PSA.Lib.Interface
             p.OrderPixlPark = txtOrderPixlPark.Text;
 
             p.Dir_auto_import = txtDirAutoImport.Text;
+            p.ApiUser = txtApiUser.Text;
+            p.AStatus = txtAStatus.Text;
+            p.OStatus = txtOStatus.Text;
+            p.DStatus = txtDStatus.Text;
+            p.PrintAfterImport = checkPrintAfterImport.Checked;
+            p.SelectImport = checkSelectImport.Checked;
+
             if(!p.Save())
 				MessageBox.Show("Ошибка при сохранении настроек!", "Настройки программы", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -1173,6 +1203,26 @@ namespace PSA.Lib.Interface
             dlg.ShowDialog();
             if (dlg.SelectedPath != "")
                 txtExportNet.Text = dlg.SelectedPath;
+        }
+
+        private void checkPrintAfterImport_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void checkSelectImport_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkSelectImport.Checked)
+            {
+                txtAStatus.Enabled = true;
+                txtOStatus.Enabled = true;
+                txtDStatus.Enabled = true;
+            }
+            else
+            {
+                txtAStatus.Enabled = false;
+                txtOStatus.Enabled = false;
+                txtDStatus.Enabled = false;
+            }
         }
 		
 	}

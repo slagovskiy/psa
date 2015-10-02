@@ -149,6 +149,7 @@ namespace PSA.Lib.Util
             _ExportOld = bool.Parse(f.IniReadValue("Main", "ExportOld", "true")); //bool
             _DontLockExported = bool.Parse(f.IniReadValue("Main", "DontLockExported", "true")); //bool
             _Dir_auto_import = f.IniReadValue("Main", "DirAutoImport", "d:\\Exchange"); //staring
+
             _PublicKey = f.IniReadValue("API", "PublicKey", "3c209e8c86464be69d9fbf36b1bde8a9"); //staring
             _PrivateKey = f.IniReadValue("API", "PrivateKey", "b41e9b4a20c647038bc590bac05ecf30"); //staring
             _ApiRequestToken = f.IniReadValue("API", "RequestToken", "http://api.pixlpark.com/oauth/requesttoken"); //staring
@@ -156,7 +157,13 @@ namespace PSA.Lib.Util
             _ApiOrder = f.IniReadValue("API", "Order", "http://api.pixlpark.com/orders/"); //staring
             _ApiOrderItems = f.IniReadValue("API", "OrderItems", "http://api.pixlpark.com/orders/"); //staring
             _ApiProducts = f.IniReadValue("API", "Products", "http://api.pixlpark.com/products"); //staring
+            _ApiUser = f.IniReadValue("API", "User", "http://api.pixlpark.com/users/"); //staring
             _OrderPixlPark = f.IniReadValue("API", "OrderPrefix", "50"); //staring
+            _AStatus = f.IniReadValue("API", "A Status", "000000"); //staring
+            _OStatus = f.IniReadValue("API", "O Status", "000100"); //staring
+            _DStatus = f.IniReadValue("API", "D Status", "000200"); //staring
+            _SelectImport = bool.Parse(f.IniReadValue("API", "Select import", "true")); //bool
+            _PrintAfterImport = bool.Parse(f.IniReadValue("API", "Print after import", "true")); //bool
         }
 		
 		public bool Save()
@@ -290,7 +297,13 @@ namespace PSA.Lib.Util
                 f.IniWriteValue("API", "Order", _ApiOrder); //staring
                 f.IniWriteValue("API", "OrderItems", _ApiOrderItems); //staring
                 f.IniWriteValue("API", "Products", _ApiProducts); //staring
+                f.IniWriteValue("API", "User", _ApiUser); //staring
                 f.IniWriteValue("API", "OrderPrefix", _OrderPixlPark); //staring
+                f.IniWriteValue("API", "A Status", _AStatus); //staring
+                f.IniWriteValue("API", "D Status", _DStatus); //staring
+                f.IniWriteValue("API", "O Status", _OStatus); //staring
+                f.IniWriteValue("API", "Select import", _SelectImport.ToString()); //bool
+                f.IniWriteValue("API", "Print after import", _PrintAfterImport.ToString()); //bool
                 r = true;
 			}
 			catch(Exception ex)

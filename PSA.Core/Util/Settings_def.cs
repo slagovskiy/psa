@@ -1644,6 +1644,19 @@ namespace PSA.Lib.Util
             }
         }
 
+        private string _ApiUser;
+        public string ApiUser
+        {
+            get
+            {
+                return _ApiUser;
+            }
+            set
+            {
+                _ApiUser = value;
+            }
+        }
+
         private string _OrderPixlPark;
         public string OrderPixlPark
         {
@@ -1654,6 +1667,71 @@ namespace PSA.Lib.Util
             set
             {
                 _OrderPixlPark = value;
+            }
+        }
+
+        private string _AStatus;
+        public string AStatus
+        {
+            get
+            {
+                return _AStatus;
+            }
+            set
+            {
+                _AStatus = value;
+            }
+        }
+
+        private string _DStatus;
+        public string DStatus
+        {
+            get
+            {
+                return _DStatus;
+            }
+            set
+            {
+                _DStatus = value;
+            }
+        }
+
+        private string _OStatus;
+        public string OStatus
+        {
+            get
+            {
+                return _OStatus;
+            }
+            set
+            {
+                _OStatus = value;
+            }
+        }
+
+        private bool _SelectImport;
+        public bool SelectImport
+        {
+            get
+            {
+                return _SelectImport;
+            }
+            set
+            {
+                _SelectImport = value;
+            }
+        }
+
+        private bool _PrintAfterImport;
+        public bool PrintAfterImport
+        {
+            get
+            {
+                return _PrintAfterImport;
+            }
+            set
+            {
+                _PrintAfterImport = value;
             }
         }
 
