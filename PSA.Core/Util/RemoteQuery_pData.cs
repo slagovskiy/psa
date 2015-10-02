@@ -41,7 +41,7 @@ namespace PSA.Lib.Util
 
         }
 
-        public bool QueryData_p(string order)
+        public bool QueryData_p(string order, string status)
         {
             string token = "";
             string password = "";
@@ -97,24 +97,44 @@ namespace PSA.Lib.Util
                         od.Columns.Add("COMMENT");
                         od.Columns.Add("PATH");
                         bool ok = false;
+                        string user_fname = "", user_lname = "", user_email = "", user_phone = "";
 
                         try
                         {
                             wc = new System.Net.WebClient();
                             webData = wc.DownloadString(prop.ApiOrder + order + "?oauth_token=" + accessToken);
-                            //webData = Win1251ToUTF8(webData);
-                            //webData = webData
-                            //    .Replace("{\"ApiVersion\":\"1.0\",\"Result\":[{", "")
-                            //    .Replace("}],\"ResponseCode\":200}", "");
-                            //while (webData.IndexOf('{') > 0)
-                            //{
-                            //    webData = webData.Replace(
-                            //        webData.Substring(
-                            //            webData.IndexOf('{'), webData.IndexOf('}') - webData.IndexOf('{') + 1
-                            //        ), "\"\"");
-                            //}
-                            //webData = "{" + webData + "}";
-                            Dictionary<string, string> jData;// = JsonConvert.DeserializeObject<Dictionary<string, string>>(webData);
+                            webData = Win1251ToUTF8(webData);
+                            webData = "{\"DATA\":[" + webData + "]}";
+                            XmlDocument x = (XmlDocument)JsonConvert.DeserializeXmlNode(webData);
+
+                            foreach (XmlNode r in x.GetElementsByTagName("Result"))
+                            {
+                                foreach (XmlNode node in r.ChildNodes)
+                                {
+                                    if (node.Name == "UserId")
+                                    {
+                                        wc = new System.Net.WebClient();
+                                        webData = wc.DownloadString(prop.ApiUser + node.InnerText + "?oauth_token=" + accessToken);
+                                        webData = Win1251ToUTF8(webData);
+                                        webData = "{\"DATA\":[" + webData + "]}";
+                                        XmlDocument xx = (XmlDocument)JsonConvert.DeserializeXmlNode(webData);
+                                        foreach (XmlNode rr in xx.GetElementsByTagName("Result"))
+                                        {
+                                            foreach (XmlNode nodee in rr.ChildNodes)
+                                            {
+                                                if (nodee.Name == "Email")
+                                                    user_email = nodee.InnerText;
+                                                if (nodee.Name == "FirstName")
+                                                    user_fname = nodee.InnerText;
+                                                if (nodee.Name == "LastName")
+                                                    user_lname = nodee.InnerText;
+                                                if (nodee.Name == "Phone")
+                                                    user_phone = nodee.InnerText;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
 
                             string t_kiosk = "", t_address = "", t_stamp = "", t_customer = "", t_phone = "", t_number = "", t_status = "", t_do = "", t_dp = "", t_dv = "", m = "";
                             t_number = order;
@@ -128,7 +148,7 @@ namespace PSA.Lib.Util
                             head.Add("STAMP", "");
                             head.Add("CUSTOMER", "Клиент PixlPark");
                             head.Add("PHONE", "");
-                            head.Add("STATUS", "000000");
+                            head.Add("STATUS", status);
                             head.Add("TOPRINT_AUTHDATE", "");
                             head.Add("PRINTED_AUTHDATE", "");
                             head.Add("SHIP_AUTHDATE", "");
@@ -139,7 +159,7 @@ namespace PSA.Lib.Util
                             webData = wc.DownloadString(prop.ApiOrderItems + order + "/items/?oauth_token=" + accessToken);
                             webData = Win1251ToUTF8(webData);
                             webData = "{\"DATA\":[" + webData + "]}";
-                            XmlDocument x = (XmlDocument)JsonConvert.DeserializeXmlNode(webData);
+                            x = (XmlDocument)JsonConvert.DeserializeXmlNode(webData);
 
                             foreach (XmlNode r in x.GetElementsByTagName("Result"))
                             {
@@ -301,10 +321,66 @@ namespace PSA.Lib.Util
                                         }
 
                                         //клиент
+                                        /*
                                         query += "DECLARE @CLIENTID int;\n" +
                                             "SET @CLIENTID = " + client_id + ";\n" +
                                             "DECLARE @CLIENTNAME nchar(255);\n" +
                                             "SET @CLIENTNAME = 'PixlPark'\n";
+                                        */
+								        query += "DECLARE @name nchar(255)\n" +
+										        "DECLARE @phone nchar(255)\n" +
+										        "SET @name = '" + user_lname + " " + user_fname + "%'\n" +
+										        "SET @phone = '" + user_phone + "'\n" +
+										        "DECLARE @CNT int\n" +
+										        "DECLARE @CLIENTID int;\n" +
+										        "SET @CLIENTID = 0;\n" +
+										        "SET @CNT = (\n" +
+										        "SELECT COUNT(*)\n" +
+										        "FROM [dbo].[client]\n" +
+										        "WHERE [name] like @name\n" +
+										        "  AND [id_category] = 9\n" +
+										        "  AND [phone_1] = @phone\n" +
+										        ")\n" +
+										        "IF (@CNT = 0)\n" +
+										        "BEGIN\n" +
+										        "	INSERT INTO [dbo].[client]\n" +
+										        "			   ([id_category]\n" +
+										        "			   ,[guid]\n" +
+										        "			   ,[del]\n" +
+										        "			   ,[name]\n" +
+										        "			   ,[phone_1]\n" +
+										        "			   )\n" +
+										        "		 VALUES\n" +
+										        "			   (9\n" +
+										        "			   ,newid()\n" +
+										        "			   ,0\n" +
+                                                "			   ,'" + user_lname + " " + user_fname + "'\n" +
+                                                "			   ,'" + user_phone + "')\n" +
+										        "	SET @CLIENTID = scope_identity()\n" +
+										        "END\n" +
+										        "IF (@CNT = 1)\n" +
+										        "BEGIN\n" +
+										        "	SET @CLIENTID = (\n" +
+										        "		SELECT [id_client]\n" +
+										        "		FROM [dbo].[client]\n" +
+										        "		WHERE [name] like @name\n" +
+										        "		  AND [id_category] = 9\n" +
+										        "		  AND [phone_1] = @phone\n" +
+										        "	)\n" +
+										        "END\n" +
+										        "IF (@CNT > 1)\n" +
+										        "BEGIN\n" +
+										        "	SET @CLIENTID = (\n" +
+										        "		SELECT MAX([id_client]) AS id_client\n" +
+										        "		FROM dbo.client\n" +
+										        "		WHERE [name] like @name\n" +
+										        "		  AND [id_category] = 9\n" +
+										        "		  AND [phone_1] = @phone\n" +
+										        "	)\n" +
+										        "END\n" +
+										        "SELECT @CLIENTID;\n" +
+										        "DECLARE @CLIENTNAME nchar(255);\n" +
+                                                "SET @CLIENTNAME = '" + user_lname + " " + user_fname + "'\n";
 
 
                                         // Шапка
@@ -346,7 +422,7 @@ namespace PSA.Lib.Util
                                                ",'' \n" +
                                                ",'' \n" +
                                                ",'' \n" +
-                                               ",'000000' \n" +
+                                               ",'" + status + "' \n" +
                                                ",'" + prop.OrderPixlPark +
                                                int.Parse(order).ToString("D10") + "' \n" +
                                                ",GETDATE() \n" +
@@ -392,7 +468,7 @@ namespace PSA.Lib.Util
                                                    ",newid() \n" +
                                                    ",0 \n" +
                                                    "," + od.Rows[j]["QTY"].ToString().Trim().Replace(',', '.') + " \n" +
-                                                   "," + od.Rows[j]["QTY"].ToString().Trim().Replace(',', '.') + " \n" +
+                                                   "," + ((status == "000000") ? od.Rows[j]["QTY"].ToString().Trim().Replace(',', '.') : "0") + " \n" +
                                                    ",'+' \n" +
                                                    "," + od.Rows[j]["PRICE"].ToString().Trim().Replace(',', '.') + " \n" +
                                                    ",getdate() \n" +

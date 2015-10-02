@@ -838,9 +838,33 @@ namespace PSA.Tools
         {
             try
             {
-                
+
                 System.Net.WebClient wc = new System.Net.WebClient();
-                string webData = wc.DownloadString("http://api.pixlpark.com/orders/" + txtOrderNo.Text + "/items/?oauth_token=" + txtAccessToken.Text);
+                string webData = wc.DownloadString("http://api.pixlpark.com/orders/" + txtOrderNo.Text + "?oauth_token=" + txtAccessToken.Text);
+                webData = Win1251ToUTF8(webData);
+                MessageBox.Show(webData);
+
+                webData = "{\"DATA\":[" + webData + "]}";
+
+                XmlDocument x = (XmlDocument)JsonConvert.DeserializeXmlNode(webData);
+
+                foreach (XmlNode r in x.GetElementsByTagName("Result"))
+                {
+                    foreach (XmlNode node in r.ChildNodes)
+                    {
+                        if (node.Name == "UserId")
+                        {
+                            wc = new System.Net.WebClient();
+                            webData = wc.DownloadString("http://api.pixlpark.com/users/" + node.InnerText + "?oauth_token=" + txtAccessToken.Text);
+                            webData = Win1251ToUTF8(webData);
+                            MessageBox.Show(webData);
+                        }
+                    }
+                }
+
+
+                wc = new System.Net.WebClient();
+                webData = wc.DownloadString("http://api.pixlpark.com/orders/" + txtOrderNo.Text + "/items/?oauth_token=" + txtAccessToken.Text);
                 webData = Win1251ToUTF8(webData);
                 MessageBox.Show(webData);
                 //webData = webData
@@ -848,7 +872,7 @@ namespace PSA.Tools
                 //    .Replace(",\"ResponseCode\":200}", "}");
                 webData = "{\"DATA\":[" + webData + "]}";
 
-                XmlDocument x = (XmlDocument)JsonConvert.DeserializeXmlNode(webData);
+                x = (XmlDocument)JsonConvert.DeserializeXmlNode(webData);
 
                 foreach (XmlNode r in x.GetElementsByTagName("Result"))
                 {

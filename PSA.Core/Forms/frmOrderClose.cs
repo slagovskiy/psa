@@ -2875,7 +2875,7 @@ namespace Photoland.Forms.Interface
 			}
 		}
 
-        private void PrintCheck()
+        public void PrintCheck()
         {
             // Печатаем чек
             OrderInfo prnOrder = new OrderInfo(db_connection, lblOrderNo.Text.Trim(), true);
@@ -2891,6 +2891,10 @@ namespace Photoland.Forms.Interface
                     {
                         itog += decimal.Parse(prnOrder.OrderBody.Rows[i]["price"].ToString()) *
                                 decimal.Parse(prnOrder.OrderBody.Rows[i]["actual_quantity"].ToString());
+                        if (order.Orderno.Substring(0, 2) == prop.OrderPixlPark)
+                        {
+                            prnOrder.OrderBody.Rows[i]["name"] = prnOrder.OrderBody.Rows[i]["comment"];
+                        }
                     }
 					rep.Fields["advstr1"].Text = prop.CheckString1;
 					rep.Fields["advstr2"].Text = prop.CheckString2;

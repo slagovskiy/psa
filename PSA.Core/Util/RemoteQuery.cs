@@ -276,7 +276,7 @@ namespace PSA.Lib.Util
                     }
                     else
                     {
-                        QueryData_p(barcode);
+                        //QueryData_p(barcode);
                     }
 				}
 			}
