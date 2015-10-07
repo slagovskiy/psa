@@ -1066,29 +1066,32 @@ namespace Photoland.Forms.Interface
                 _t.Columns.Add("mashine");              //20
                 _t.Columns.Add("material");             //21
 
-				// сбор данных
-				for (int i = 0; i < this.order.OrderBody.Rows.Count; i++)
-				{
-					bool found = false;
-					for (int j = 0; j < _t.Rows.Count; j++)
-					{
-						// если эта строка уже скопирована
-						if (order.OrderBody.Rows[i][2].ToString() == _t.Rows[j][2].ToString())
-						{
-							// суммируем количество
-							// обнуляем стоимость
-							// ставим флаг дублежа
-							_t.Rows[j][3] = decimal.Parse(_t.Rows[j][3].ToString()) + decimal.Parse(order.OrderBody.Rows[i][3].ToString());
-							_t.Rows[j][4] = decimal.Parse(_t.Rows[j][4].ToString()) + decimal.Parse(order.OrderBody.Rows[i][4].ToString());
-							_t.Rows[j][5] = decimal.Parse(order.OrderBody.Rows[i][5].ToString());
-							found = true;
-						}
-					}
-					if (!found)
-					{
-						_t.ImportRow(order.OrderBody.Rows[i]);
-					}
-				}
+                if ((prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1)) && (prop.OrderPixlPark.Substring(0, 1) != order.Orderno.Substring(0, 1)))
+                {
+                    // сбор данных
+                    for (int i = 0; i < this.order.OrderBody.Rows.Count; i++)
+                    {
+                        bool found = false;
+                        for (int j = 0; j < _t.Rows.Count; j++)
+                        {
+                            // если эта строка уже скопирована
+                            if (order.OrderBody.Rows[i][2].ToString() == _t.Rows[j][2].ToString())
+                            {
+                                // суммируем количество
+                                // обнуляем стоимость
+                                // ставим флаг дублежа
+                                _t.Rows[j][3] = decimal.Parse(_t.Rows[j][3].ToString()) + decimal.Parse(order.OrderBody.Rows[i][3].ToString());
+                                _t.Rows[j][4] = decimal.Parse(_t.Rows[j][4].ToString()) + decimal.Parse(order.OrderBody.Rows[i][4].ToString());
+                                _t.Rows[j][5] = decimal.Parse(order.OrderBody.Rows[i][5].ToString());
+                                found = true;
+                            }
+                        }
+                        if (!found)
+                        {
+                            _t.ImportRow(order.OrderBody.Rows[i]);
+                        }
+                    }
+                }
 
 				maxBonusSum = 0;
 				// заполняем прайс по фактическому количеству и выгружаем назад

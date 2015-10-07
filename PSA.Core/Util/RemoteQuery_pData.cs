@@ -174,6 +174,21 @@ namespace PSA.Lib.Util
                                         rw["QTY"] = node.InnerText;
                                     if (node.Name == "ItemPrice")
                                         rw["PRICE"] = node.InnerText;
+                                    if (node.Name == "Options")
+                                    {
+
+                                        XmlDocument xx = new XmlDocument();
+                                        xx.LoadXml("<DATA>" + node.InnerXml + "</DATA>");
+                                        foreach (XmlNode rr in xx.GetElementsByTagName("DATA"))
+                                        {
+                                            foreach (XmlNode nodee in rr.ChildNodes)
+                                            {
+                                                if (nodee.Name == "Title")
+                                                    rw["ACTION_NAME"] += " [" + nodee.InnerText + "]";
+                                            }
+                                        }
+                                    }
+
                                 }
                                 od.Rows.Add(rw);
                             }
