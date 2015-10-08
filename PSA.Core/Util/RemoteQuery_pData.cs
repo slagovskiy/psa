@@ -172,7 +172,7 @@ namespace PSA.Lib.Util
                                         rw["ACTION_NAME"] = node.InnerText;
                                     if (node.Name == "Quantity")
                                         rw["QTY"] = node.InnerText;
-                                    if (node.Name == "ItemPrice")
+                                    if (node.Name == "TotalPrice")
                                         rw["PRICE"] = node.InnerText;
                                     if (node.Name == "Options")
                                     {
@@ -190,6 +190,7 @@ namespace PSA.Lib.Util
                                     }
 
                                 }
+                                rw["PRICE"] = (decimal.Parse(rw["PRICE"].ToString()) / decimal.Parse(rw["QTY"].ToString())).ToString();
                                 od.Rows.Add(rw);
                             }
                             /*
