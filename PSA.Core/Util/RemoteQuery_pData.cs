@@ -190,7 +190,7 @@ namespace PSA.Lib.Util
                                     }
 
                                 }
-                                rw["PRICE"] = (decimal.Parse(rw["PRICE"].ToString()) / decimal.Parse(rw["QTY"].ToString())).ToString();
+                                rw["PRICE"] = (decimal.Parse(rw["PRICE"].ToString().Replace('.', ',')) / decimal.Parse(rw["QTY"].ToString().Replace('.', ','))).ToString();
                                 od.Rows.Add(rw);
                             }
                             /*
