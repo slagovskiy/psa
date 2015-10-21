@@ -4,7 +4,7 @@
   <description asmv2:iconFile="_A.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Photoland.Acceptance" version="1.7.15.1012" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Photoland.Acceptance" version="1.7.15.1021" language="neutral" processorArchitecture="msil" />
     <commandLine file="Photoland.Acceptance.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -40,6 +40,26 @@
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="2.0.50727.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Xceed.Compression" version="4.2.10304.10260" publicKeyToken="BA83FF368B7563C6" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Xceed.Compression.Formats" version="4.2.10304.10260" publicKeyToken="BA83FF368B7563C6" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Xceed.FileSystem" version="4.2.10304.10260" publicKeyToken="BA83FF368B7563C6" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Xceed.Ftp" version="4.2.10304.10260" publicKeyToken="BA83FF368B7563C6" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
   </dependency>
   <dependency>
@@ -116,49 +136,25 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Photoland.Acceptance.exe" size="220672">
-      <assemblyIdentity name="Photoland.Acceptance" version="1.7.15.1012" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Photoland.Acceptance" version="1.7.15.1021" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>HoCQBevwvd0q7mEQJ3NI8NNhP7M=</dsig:DigestValue>
+        <dsig:DigestValue>HxDva77AUz+RW4oax57G+PKlyvs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PSA.Core.dll" size="3971072">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PSA.Core.dll" size="3972608">
       <assemblyIdentity name="PSA.Core" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Z80G9/PPGZiGajL/irRIneggTnA=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Xceed.FileSystem.dll" size="126976">
-      <assemblyIdentity name="Xceed.FileSystem" version="4.2.10304.10260" publicKeyToken="BA83FF368B7563C6" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VjY7MCc5hWpTaRyVXIS7li35j0A=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Xceed.Ftp.dll" size="282624">
-      <assemblyIdentity name="Xceed.Ftp" version="4.2.10304.10260" publicKeyToken="BA83FF368B7563C6" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dkKjlIBRGIoFr4PH9dBmaEsMjXM=</dsig:DigestValue>
+        <dsig:DigestValue>zlUqbZKQjp9Yz8TWGFd1X1/VlsY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

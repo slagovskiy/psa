@@ -777,14 +777,8 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
-    <Reference Include="Xceed.FileSystem, Version=4.2.10304.10260, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Bin\Debug\Xceed.FileSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Ftp, Version=4.2.10304.10260, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Bin\Debug\Xceed.Ftp.dll</HintPath>
-    </Reference>
+    <Reference Include="Xceed.FileSystem, Version=4.2.10304.10260, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Ftp, Version=4.2.10304.10260, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Admin\frmCategoryTable.resx">

@@ -1188,8 +1188,9 @@ namespace PSA.Lib.Interface
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -1306,6 +1307,41 @@ WHERE     (dbo.[order].auto_export = - 1) AND (dbo.place.id_place > 0) AND (dbo.
             }
             catch { }
             finally { }
+        }
+
+        private void btnShowCancelExport_Click(object sender, EventArgs e)
+        {
+            btnShowCancelExport.Visible = false;
+            btnCancelExport.Visible = true;
+            dateCancelExport.Visible = true;
+        }
+
+        private void btnCancelExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(prop.Connection_string))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = cn;
+                    cmd.CommandText = @"UPDATE [order] SET [auto_export] = 0 WHERE [input_date] < CONVERT(DATETIME, '" + dateCancelExport.Value.ToString("yyyy-MM-dd") + " 23:59:59', 102)";
+                    cmd.CommandTimeout = 9000;
+                    cmd.ExecuteNonQuery();
+                    btnUpdateSendOrder_Click(sender, e);
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                btnShowCancelExport.Visible = true;
+                btnCancelExport.Visible = false;
+                dateCancelExport.Visible = false;
+            }
         }
 
     }

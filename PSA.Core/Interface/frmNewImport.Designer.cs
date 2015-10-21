@@ -48,13 +48,16 @@
             this.btnUpdateSendOrder = new System.Windows.Forms.Button();
             this.data3 = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateFilterStop1 = new System.Windows.Forms.DateTimePicker();
+            this.dateFilterStart1 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.data4 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateFilterStart1 = new System.Windows.Forms.DateTimePicker();
-            this.dateFilterStop1 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnShowCancelExport = new System.Windows.Forms.Button();
+            this.dateCancelExport = new System.Windows.Forms.DateTimePicker();
+            this.btnCancelExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rep)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -230,6 +233,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnCancelExport);
+            this.tabPage3.Controls.Add(this.dateCancelExport);
+            this.tabPage3.Controls.Add(this.btnShowCancelExport);
             this.tabPage3.Controls.Add(this.btnUpdateSendOrder);
             this.tabPage3.Controls.Add(this.data3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -275,15 +281,37 @@
             this.tabPage4.Text = "Отправленные заказы";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(588, 611);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Закрыть";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(344, 492);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "по";
+            // 
+            // dateFilterStop1
+            // 
+            this.dateFilterStop1.Location = new System.Drawing.Point(369, 488);
+            this.dateFilterStop1.Name = "dateFilterStop1";
+            this.dateFilterStop1.Size = new System.Drawing.Size(136, 20);
+            this.dateFilterStop1.TabIndex = 16;
+            // 
+            // dateFilterStart1
+            // 
+            this.dateFilterStart1.Location = new System.Drawing.Point(202, 488);
+            this.dateFilterStart1.Name = "dateFilterStart1";
+            this.dateFilterStart1.Size = new System.Drawing.Size(136, 20);
+            this.dateFilterStart1.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(107, 492);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Дата приема:  с";
             // 
             // button2
             // 
@@ -306,37 +334,44 @@
             this.data4.Size = new System.Drawing.Size(634, 478);
             this.data4.TabIndex = 2;
             // 
-            // label2
+            // button1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 492);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Дата приема:  с";
+            this.button1.Location = new System.Drawing.Point(588, 611);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Закрыть";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateFilterStart1
+            // btnShowCancelExport
             // 
-            this.dateFilterStart1.Location = new System.Drawing.Point(202, 488);
-            this.dateFilterStart1.Name = "dateFilterStart1";
-            this.dateFilterStart1.Size = new System.Drawing.Size(136, 20);
-            this.dateFilterStart1.TabIndex = 15;
+            this.btnShowCancelExport.Location = new System.Drawing.Point(612, 487);
+            this.btnShowCancelExport.Name = "btnShowCancelExport";
+            this.btnShowCancelExport.Size = new System.Drawing.Size(26, 23);
+            this.btnShowCancelExport.TabIndex = 2;
+            this.btnShowCancelExport.Text = "...";
+            this.btnShowCancelExport.UseVisualStyleBackColor = true;
+            this.btnShowCancelExport.Click += new System.EventHandler(this.btnShowCancelExport_Click);
             // 
-            // dateFilterStop1
+            // dateCancelExport
             // 
-            this.dateFilterStop1.Location = new System.Drawing.Point(369, 488);
-            this.dateFilterStop1.Name = "dateFilterStop1";
-            this.dateFilterStop1.Size = new System.Drawing.Size(136, 20);
-            this.dateFilterStop1.TabIndex = 16;
+            this.dateCancelExport.Location = new System.Drawing.Point(487, 490);
+            this.dateCancelExport.Name = "dateCancelExport";
+            this.dateCancelExport.Size = new System.Drawing.Size(150, 20);
+            this.dateCancelExport.TabIndex = 3;
+            this.dateCancelExport.Visible = false;
             // 
-            // label3
+            // btnCancelExport
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(344, 492);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 13);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "по";
+            this.btnCancelExport.Location = new System.Drawing.Point(229, 487);
+            this.btnCancelExport.Name = "btnCancelExport";
+            this.btnCancelExport.Size = new System.Drawing.Size(252, 23);
+            this.btnCancelExport.TabIndex = 4;
+            this.btnCancelExport.Text = "Отменить все экспорты до выбранной даты";
+            this.btnCancelExport.UseVisualStyleBackColor = true;
+            this.btnCancelExport.Visible = false;
+            this.btnCancelExport.Click += new System.EventHandler(this.btnCancelExport_Click);
             // 
             // frmNewImport
             // 
@@ -346,8 +381,8 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmNewImport";
-            this.Text = "                               - PSA v.9.0.30729.1";
-            this.Title = "                                 ";
+            this.Text = "                                  - PSA v.9.0.30729.1";
+            this.Title = "                                    ";
             this.Load += new System.EventHandler(this.frmNewImport_Load);
             this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.tabControl1, 0);
@@ -395,5 +430,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView data4;
+        private System.Windows.Forms.Button btnCancelExport;
+        private System.Windows.Forms.DateTimePicker dateCancelExport;
+        private System.Windows.Forms.Button btnShowCancelExport;
     }
 }
