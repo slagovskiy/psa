@@ -303,6 +303,7 @@
             this.txtPrefixTerminal = new System.Windows.Forms.MaskedTextBox();
             this.tabPage29 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkPixlParkClient = new System.Windows.Forms.CheckBox();
             this.checkPrintAfterImport = new System.Windows.Forms.CheckBox();
             this.txtDStatus = new System.Windows.Forms.TextBox();
             this.txtOStatus = new System.Windows.Forms.TextBox();
@@ -351,7 +352,9 @@
             this.checkDebugIdForQBtn = new System.Windows.Forms.CheckBox();
             this.odlg = new System.Windows.Forms.OpenFileDialog();
             this.dlg = new System.Windows.Forms.FolderBrowserDialog();
-            this.checkPixlParkClient = new System.Windows.Forms.CheckBox();
+            this.tabPage30 = new System.Windows.Forms.TabPage();
+            this.label84 = new System.Windows.Forms.Label();
+            this.txtEmailDayReport = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabDatabase.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -413,6 +416,7 @@
             this.groupBox3.SuspendLayout();
             this.tabDebug.SuspendLayout();
             this.groupBox16.SuspendLayout();
+            this.tabPage30.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -449,6 +453,7 @@
             this.tabControl1.Controls.Add(this.tabPage27);
             this.tabControl1.Controls.Add(this.tabPage28);
             this.tabControl1.Controls.Add(this.tabPage29);
+            this.tabControl1.Controls.Add(this.tabPage30);
             this.tabControl1.Controls.Add(this.tabDebug);
             this.tabControl1.Location = new System.Drawing.Point(12, 63);
             this.tabControl1.Name = "tabControl1";
@@ -3203,6 +3208,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Import";
             // 
+            // checkPixlParkClient
+            // 
+            this.checkPixlParkClient.AutoSize = true;
+            this.checkPixlParkClient.Location = new System.Drawing.Point(327, 93);
+            this.checkPixlParkClient.Name = "checkPixlParkClient";
+            this.checkPixlParkClient.Size = new System.Drawing.Size(197, 17);
+            this.checkPixlParkClient.TabIndex = 24;
+            this.checkPixlParkClient.Text = "PixlPark вместо фамилии клиента";
+            this.checkPixlParkClient.UseVisualStyleBackColor = true;
+            // 
             // checkPrintAfterImport
             // 
             this.checkPrintAfterImport.AutoSize = true;
@@ -3640,15 +3655,32 @@
             this.odlg.FileName = "odlg";
             this.odlg.Filter = "\"Photoland reports (*.xml)|*.xml|All files (*.*)|*.*\"";
             // 
-            // checkPixlParkClient
+            // tabPage30
             // 
-            this.checkPixlParkClient.AutoSize = true;
-            this.checkPixlParkClient.Location = new System.Drawing.Point(327, 93);
-            this.checkPixlParkClient.Name = "checkPixlParkClient";
-            this.checkPixlParkClient.Size = new System.Drawing.Size(197, 17);
-            this.checkPixlParkClient.TabIndex = 24;
-            this.checkPixlParkClient.Text = "PixlPark вместо фамилии клиента";
-            this.checkPixlParkClient.UseVisualStyleBackColor = true;
+            this.tabPage30.Controls.Add(this.txtEmailDayReport);
+            this.tabPage30.Controls.Add(this.label84);
+            this.tabPage30.Location = new System.Drawing.Point(4, 22);
+            this.tabPage30.Name = "tabPage30";
+            this.tabPage30.Size = new System.Drawing.Size(602, 369);
+            this.tabPage30.TabIndex = 12;
+            this.tabPage30.Text = "Фин отчеты";
+            this.tabPage30.UseVisualStyleBackColor = true;
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(3, 10);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(111, 13);
+            this.label84.TabIndex = 0;
+            this.label84.Text = "Получатели отчетов:";
+            // 
+            // txtEmailDayReport
+            // 
+            this.txtEmailDayReport.Location = new System.Drawing.Point(120, 7);
+            this.txtEmailDayReport.Name = "txtEmailDayReport";
+            this.txtEmailDayReport.Size = new System.Drawing.Size(479, 20);
+            this.txtEmailDayReport.TabIndex = 1;
             // 
             // frmSetup
             // 
@@ -3765,6 +3797,8 @@
             this.tabDebug.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
+            this.tabPage30.ResumeLayout(false);
+            this.tabPage30.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -4094,6 +4128,9 @@
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.CheckBox checkPrintAfterImport;
         private System.Windows.Forms.CheckBox checkPixlParkClient;
+        private System.Windows.Forms.TabPage tabPage30;
+        private System.Windows.Forms.TextBox txtEmailDayReport;
+        private System.Windows.Forms.Label label84;
 
 	}
 }

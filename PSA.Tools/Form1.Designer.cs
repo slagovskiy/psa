@@ -99,6 +99,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.txtData = new System.Windows.Forms.RichTextBox();
             this.btnGetProducts = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -123,7 +124,10 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
-            this.button9 = new System.Windows.Forms.Button();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.btnReport1 = new System.Windows.Forms.Button();
+            this.txtReportBody = new System.Windows.Forms.RichTextBox();
+            this.dateReportFilter = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -139,6 +143,7 @@
             this.tabPage8.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -238,6 +243,7 @@
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Controls.Add(this.tabPage10);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -878,6 +884,16 @@
             this.tabPage9.Text = "Print";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(338, 173);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(134, 23);
+            this.button9.TabIndex = 21;
+            this.button9.Text = "Get order info";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // txtData
             // 
             this.txtData.Location = new System.Drawing.Point(3, 244);
@@ -1067,15 +1083,42 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // button9
+            // tabPage10
             // 
-            this.button9.Location = new System.Drawing.Point(338, 173);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(134, 23);
-            this.button9.TabIndex = 21;
-            this.button9.Text = "Get order info";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.tabPage10.Controls.Add(this.dateReportFilter);
+            this.tabPage10.Controls.Add(this.txtReportBody);
+            this.tabPage10.Controls.Add(this.btnReport1);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(600, 355);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "Reports";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // btnReport1
+            // 
+            this.btnReport1.Location = new System.Drawing.Point(3, 3);
+            this.btnReport1.Name = "btnReport1";
+            this.btnReport1.Size = new System.Drawing.Size(75, 23);
+            this.btnReport1.TabIndex = 0;
+            this.btnReport1.Text = "Report 1";
+            this.btnReport1.UseVisualStyleBackColor = true;
+            this.btnReport1.Click += new System.EventHandler(this.btnReport1_Click);
+            // 
+            // txtReportBody
+            // 
+            this.txtReportBody.Location = new System.Drawing.Point(3, 32);
+            this.txtReportBody.Name = "txtReportBody";
+            this.txtReportBody.Size = new System.Drawing.Size(594, 320);
+            this.txtReportBody.TabIndex = 1;
+            this.txtReportBody.Text = "";
+            // 
+            // dateReportFilter
+            // 
+            this.dateReportFilter.Location = new System.Drawing.Point(397, 6);
+            this.dateReportFilter.Name = "dateReportFilter";
+            this.dateReportFilter.Size = new System.Drawing.Size(200, 20);
+            this.dateReportFilter.TabIndex = 2;
             // 
             // frmMain
             // 
@@ -1113,6 +1156,7 @@
             this.groupBox1.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1216,6 +1260,10 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.RichTextBox txtData;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.RichTextBox txtReportBody;
+        private System.Windows.Forms.Button btnReport1;
+        private System.Windows.Forms.DateTimePicker dateReportFilter;
     }
 }
 

@@ -1748,5 +1748,18 @@ namespace PSA.Lib.Util
             }
         }
 
+        private string _EmailDayReport;
+        public string EmailDayReport
+        {
+            get
+            {
+                return _EmailDayReport;
+            }
+            set
+            {
+                _EmailDayReport = value;
+            }
+        }
+
     }
 }

@@ -165,6 +165,7 @@ namespace PSA.Lib.Util
             _SelectImport = bool.Parse(f.IniReadValue("API", "Select import", "true")); //bool
             _PrintAfterImport = bool.Parse(f.IniReadValue("API", "Print after import", "true")); //bool
             _PixlParkClient = bool.Parse(f.IniReadValue("API", "PixlPark Client", "false")); //bool
+            _EmailDayReport = f.IniReadValue("Main", "Email day report", "sereda@fotoland.ru"); //staring
         }
 		
 		public bool Save()
@@ -306,6 +307,7 @@ namespace PSA.Lib.Util
                 f.IniWriteValue("API", "Select import", _SelectImport.ToString()); //bool
                 f.IniWriteValue("API", "Print after import", _PrintAfterImport.ToString()); //bool
                 f.IniWriteValue("API", "PixlPark Client", _PixlParkClient.ToString()); //bool
+                f.IniWriteValue("Main", "Email day report", _EmailDayReport); //string
                 r = true;
 			}
 			catch(Exception ex)

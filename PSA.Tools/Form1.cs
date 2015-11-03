@@ -917,5 +917,69 @@ namespace PSA.Tools
             }
         }
 
+        private void btnReport1_Click(object sender, EventArgs e)
+        {
+            string r = "\"Отчет по выданным заказам\",\"\"\n";
+            string rf1 = System.IO.Path.GetTempPath() +
+                        dateReportFilter.Value.Year.ToString("D4") + "-" +
+                        dateReportFilter.Value.Month.ToString("D2") + "-" +
+                        dateReportFilter.Value.Day.ToString("D2") + "-" +
+                        settings.Order_prefics + "-R1.csv";
+            string rf2 = System.IO.Path.GetTempPath() +
+                        dateReportFilter.Value.Year.ToString("D4") + "-" +
+                        dateReportFilter.Value.Month.ToString("D2") + "-" +
+                        dateReportFilter.Value.Day.ToString("D2") + "-" +
+                        settings.Order_prefics + "-R2.csv";
+            double s = 0;
+            r += "\"за " + dateReportFilter.Value.Day.ToString("D2") + "/" + dateReportFilter.Value.Month.ToString("D2") + "/" + dateReportFilter.Value.Year.ToString("D4") + "\",\"\"\n";
+            r += ",\n,\n";
+            string q = "SELECT name, SUM(sum) AS sum " +
+                        "FROM (SELECT name, SUM(payment) AS sum, Expr1 " +
+                        "   FROM(" +
+                        "       SELECT dbo.client.name, dbo.ptype.name_ptype, dbo.[order].advanced_payment + dbo.[order].final_payment AS payment, dbo.orderevent.event_status,  " +
+                        "       dbo.[order].number, MAX(dbo.orderevent.event_date) AS Expr1 " +
+                        "       FROM dbo.[order] INNER JOIN " +
+                        "           dbo.client ON dbo.[order].id_client = dbo.client.id_client INNER JOIN " +
+                        "           dbo.ptype ON dbo.[order].ptype = dbo.ptype.id_ptype INNER JOIN " +
+                        "           dbo.orderevent ON dbo.[order].id_order = dbo.orderevent.id_order " +
+                        "           GROUP BY dbo.client.name, dbo.ptype.name_ptype, dbo.[order].advanced_payment + dbo.[order].final_payment, dbo.orderevent.event_status,  " +
+                        "           dbo.[order].number " +
+                        "           HAVING (dbo.orderevent.event_status = N'100000') OR " +
+                        "           (dbo.orderevent.event_status = N'200000')) AS tbl " +
+                        "   GROUP BY name, name_ptype, event_status, number, Expr1) AS t " +
+                        "WHERE     (Expr1 > CONVERT(DATETIME, '" + dateReportFilter.Value.Year.ToString("D4") + "-" + dateReportFilter.Value.Month.ToString("D2") + "-" + dateReportFilter.Value.Day.ToString("D2") + " 00:00:00', 102)) AND (Expr1 < CONVERT(DATETIME, '" + dateReportFilter.Value.Year.ToString("D4") + "-" + dateReportFilter.Value.Month.ToString("D2") + "-" + dateReportFilter.Value.Day.ToString("D2") + " 23:59:59', 102)) " +
+                        "GROUP BY name " +
+                        "ORDER BY name";
+            using (SqlConnection cn = new SqlConnection())
+            {
+                try
+                {
+                    cn.ConnectionString = settings.Connection_string;
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = cn;
+                    cmd.CommandTimeout = 99999;
+                    cmd.CommandText = q;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable t = new DataTable();
+                    da.Fill(t);
+                    foreach (DataRow rw in t.Rows)
+                    {
+                        s += double.Parse(rw[1].ToString());
+                        r += "\"" + rw[0].ToString().Trim() + "\",\"" + rw[1].ToString().Replace(',', '.').Trim() + "\"\n";
+                    }
+                    r += "\"\",\"\"\n\"Итого\",\"" + s.ToString().Replace(",", ".") + "\"";
+                    txtReportBody.Text = r;
+                    System.IO.File.WriteAllText(rf1, r, Encoding.UTF8);
+                    cn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
+
     }
 }

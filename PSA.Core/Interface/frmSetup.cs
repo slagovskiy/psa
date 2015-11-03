@@ -349,6 +349,8 @@ namespace PSA.Lib.Interface
             else
                 checkPixlParkClient.Checked = false;
 
+            txtEmailDayReport.Text = p.EmailDayReport;
+
 			
 		}
 
@@ -668,6 +670,7 @@ namespace PSA.Lib.Interface
             p.PrintAfterImport = checkPrintAfterImport.Checked;
             p.SelectImport = checkSelectImport.Checked;
             p.PixlParkClient = checkPixlParkClient.Checked;
+            p.EmailDayReport = txtEmailDayReport.Text;
 
             if(!p.Save())
 				MessageBox.Show("Ошибка при сохранении настроек!", "Настройки программы", MessageBoxButtons.OK, MessageBoxIcon.Warning);
