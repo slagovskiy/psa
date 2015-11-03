@@ -1,0 +1,16 @@
+﻿Выполняется установка сборки 'd:\Projects\psa\Bin\Debug\PSA.Robot.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = d:\Projects\psa\Bin\Debug\PSA.Robot.exe
+   logfile = d:\Projects\psa\Bin\Debug\PSA.Robot.InstallLog
+Устанавливается служба PSA.Robot.Service...
+Создается исходный EventLog PSA.Robot.Service в журнале Application...
+Выполняется откат для сборки 'd:\Projects\psa\Bin\Debug\PSA.Robot.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   assemblypath = d:\Projects\psa\Bin\Debug\PSA.Robot.exe
+   logfile = d:\Projects\psa\Bin\Debug\PSA.Robot.InstallLog
+Восстанавливается исходное состояние журнала событий для источника PSA.Robot.Service.
+При выполнении программы установки System.Diagnostics.EventLogInstaller на этапе отката возникло исключение.
+System.Security.SecurityException: Источник не найден, но не удалось выполнить поиск по нескольким или всем журналам событий.  Недоступные журналы: Security.
+На этапе отката процедуры установки возникло исключение. Это исключение будет проигнорировано, и откат будет продолжен. Однако после завершения отката компьютер может не вернуться полностью в исходное состояние.

@@ -21,6 +21,7 @@ using Photoland.Security.User;
 using Newtonsoft.Json;
 using System.Security.Cryptography;
 using System.Xml;
+using System.Net.Mail;
 
 namespace PSA.Tools
 {
@@ -919,7 +920,6 @@ namespace PSA.Tools
 
         private void btnReport1_Click(object sender, EventArgs e)
         {
-            string r = "\"Отчет по выданным заказам\",\"\"\n";
             string rf1 = System.IO.Path.GetTempPath() +
                         dateReportFilter.Value.Year.ToString("D4") + "-" +
                         dateReportFilter.Value.Month.ToString("D2") + "-" +
@@ -930,30 +930,32 @@ namespace PSA.Tools
                         dateReportFilter.Value.Month.ToString("D2") + "-" +
                         dateReportFilter.Value.Day.ToString("D2") + "-" +
                         settings.Order_prefics + "-R2.csv";
-            double s = 0;
-            r += "\"за " + dateReportFilter.Value.Day.ToString("D2") + "/" + dateReportFilter.Value.Month.ToString("D2") + "/" + dateReportFilter.Value.Year.ToString("D4") + "\",\"\"\n";
-            r += ",\n,\n";
-            string q = "SELECT name, SUM(sum) AS sum " +
-                        "FROM (SELECT name, SUM(payment) AS sum, Expr1 " +
-                        "   FROM(" +
-                        "       SELECT dbo.client.name, dbo.ptype.name_ptype, dbo.[order].advanced_payment + dbo.[order].final_payment AS payment, dbo.orderevent.event_status,  " +
-                        "       dbo.[order].number, MAX(dbo.orderevent.event_date) AS Expr1 " +
-                        "       FROM dbo.[order] INNER JOIN " +
-                        "           dbo.client ON dbo.[order].id_client = dbo.client.id_client INNER JOIN " +
-                        "           dbo.ptype ON dbo.[order].ptype = dbo.ptype.id_ptype INNER JOIN " +
-                        "           dbo.orderevent ON dbo.[order].id_order = dbo.orderevent.id_order " +
-                        "           GROUP BY dbo.client.name, dbo.ptype.name_ptype, dbo.[order].advanced_payment + dbo.[order].final_payment, dbo.orderevent.event_status,  " +
-                        "           dbo.[order].number " +
-                        "           HAVING (dbo.orderevent.event_status = N'100000') OR " +
-                        "           (dbo.orderevent.event_status = N'200000')) AS tbl " +
-                        "   GROUP BY name, name_ptype, event_status, number, Expr1) AS t " +
-                        "WHERE     (Expr1 > CONVERT(DATETIME, '" + dateReportFilter.Value.Year.ToString("D4") + "-" + dateReportFilter.Value.Month.ToString("D2") + "-" + dateReportFilter.Value.Day.ToString("D2") + " 00:00:00', 102)) AND (Expr1 < CONVERT(DATETIME, '" + dateReportFilter.Value.Year.ToString("D4") + "-" + dateReportFilter.Value.Month.ToString("D2") + "-" + dateReportFilter.Value.Day.ToString("D2") + " 23:59:59', 102)) " +
-                        "GROUP BY name " +
-                        "ORDER BY name";
             using (SqlConnection cn = new SqlConnection())
             {
                 try
                 {
+                    string r = "\"Отчет по выданным заказам\",\"\"\n";
+                    double s = 0;
+                    r += "\"за " + dateReportFilter.Value.Day.ToString("D2") + "/" + dateReportFilter.Value.Month.ToString("D2") + "/" + dateReportFilter.Value.Year.ToString("D4") + "\",\"\"\n";
+                    r += ",\n,\n";
+                    r += "КЛИЕНТ,СУММА\n";
+                    string q = "SELECT name, SUM(sum) AS sum " +
+                                "FROM (SELECT name, SUM(payment) AS sum, Expr1 " +
+                                "   FROM(" +
+                                "       SELECT dbo.client.name, dbo.ptype.name_ptype, dbo.[order].advanced_payment + dbo.[order].final_payment AS payment, dbo.orderevent.event_status,  " +
+                                "       dbo.[order].number, MAX(dbo.orderevent.event_date) AS Expr1 " +
+                                "       FROM dbo.[order] INNER JOIN " +
+                                "           dbo.client ON dbo.[order].id_client = dbo.client.id_client INNER JOIN " +
+                                "           dbo.ptype ON dbo.[order].ptype = dbo.ptype.id_ptype INNER JOIN " +
+                                "           dbo.orderevent ON dbo.[order].id_order = dbo.orderevent.id_order " +
+                                "           GROUP BY dbo.client.name, dbo.ptype.name_ptype, dbo.[order].advanced_payment + dbo.[order].final_payment, dbo.orderevent.event_status,  " +
+                                "           dbo.[order].number " +
+                                "           HAVING (dbo.orderevent.event_status = N'100000') OR " +
+                                "           (dbo.orderevent.event_status = N'200000')) AS tbl " +
+                                "   GROUP BY name, name_ptype, event_status, number, Expr1) AS t " +
+                                "WHERE     (Expr1 > CONVERT(DATETIME, '" + dateReportFilter.Value.Year.ToString("D4") + "-" + dateReportFilter.Value.Month.ToString("D2") + "-" + dateReportFilter.Value.Day.ToString("D2") + " 00:00:00', 102)) AND (Expr1 < CONVERT(DATETIME, '" + dateReportFilter.Value.Year.ToString("D4") + "-" + dateReportFilter.Value.Month.ToString("D2") + "-" + dateReportFilter.Value.Day.ToString("D2") + " 23:59:59', 102)) " +
+                                "GROUP BY name " +
+                                "ORDER BY name";
                     cn.ConnectionString = settings.Connection_string;
                     cn.Open();
                     SqlCommand cmd = new SqlCommand();
@@ -969,8 +971,61 @@ namespace PSA.Tools
                         r += "\"" + rw[0].ToString().Trim() + "\",\"" + rw[1].ToString().Replace(',', '.').Trim() + "\"\n";
                     }
                     r += "\"\",\"\"\n\"Итого\",\"" + s.ToString().Replace(",", ".") + "\"";
-                    txtReportBody.Text = r;
                     System.IO.File.WriteAllText(rf1, r, Encoding.UTF8);
+
+
+                    cmd.CommandText = "SELECT [name_ptype] FROM [ptype] WHERE [del]=0";
+                    da = new SqlDataAdapter(cmd);
+                    DataTable tp = new DataTable();
+                    da.Fill(tp);
+
+                    r = "\"Отчет по выданным заказам\",\"\"\n";
+                    r += "\"за " + dateReportFilter.Value.Day.ToString("D2") + "/" + dateReportFilter.Value.Month.ToString("D2") + "/" + dateReportFilter.Value.Year.ToString("D4") + "\",\"\"\n";
+                    r += ",\n,\n";
+                    r += "\"КЛИЕНТ\",";
+                    foreach (DataRow rwp in tp.Rows)
+                    {
+                        r += "\"" + rwp[0].ToString().Trim().ToUpper() + "\",";
+                    }
+                    r = r.Substring(0, r.Length-1) + "\n";
+
+                    cmd.CommandText = "SELECT     TOP (100) PERCENT name, SUM(sum) AS sum, name_ptype " +
+                                "FROM         (SELECT     name, name_ptype, SUM(payment) AS sum, Expr1 " +
+                                "                       FROM          (SELECT     dbo.client.name, dbo.ptype.name_ptype, dbo.[order].advanced_payment + dbo.[order].final_payment AS payment, dbo.orderevent.event_status,  " +
+                                "                                                                      dbo.[order].number, MAX(dbo.orderevent.event_date) AS Expr1 " +
+                                "                                               FROM          dbo.[order] INNER JOIN " +
+                                "                                                                      dbo.client ON dbo.[order].id_client = dbo.client.id_client INNER JOIN " +
+                                "                                                                      dbo.ptype ON dbo.[order].ptype = dbo.ptype.id_ptype INNER JOIN " +
+                                "                                                                      dbo.orderevent ON dbo.[order].id_order = dbo.orderevent.id_order " +
+                                "                                               GROUP BY dbo.client.name, dbo.ptype.name_ptype, dbo.[order].advanced_payment + dbo.[order].final_payment, dbo.orderevent.event_status,  " +
+                                "                                                                      dbo.[order].number " +
+                                "                                               HAVING      (dbo.orderevent.event_status = N'100000') OR " +
+                                "                                                                      (dbo.orderevent.event_status = N'200000')) AS tbl " +
+                                "                       GROUP BY name, name_ptype, event_status, number, Expr1) AS t " +
+                                "WHERE     (Expr1 > CONVERT(DATETIME, '" + dateReportFilter.Value.Year.ToString("D4") + "-" + dateReportFilter.Value.Month.ToString("D2") + "-" + dateReportFilter.Value.Day.ToString("D2") + " 00:00:00', 102)) AND (Expr1 < CONVERT(DATETIME, '" + dateReportFilter.Value.Year.ToString("D4") + "-" + dateReportFilter.Value.Month.ToString("D2") + "-" + dateReportFilter.Value.Day.ToString("D2") + " 23:59:59', 102)) " +
+                                "GROUP BY name, name_ptype " +
+                                "ORDER BY name";
+                    da = new SqlDataAdapter(cmd);
+                    t = new DataTable();
+                    da.Fill(t);
+                    foreach (DataRow rw in t.Rows)
+                    {
+                        int rr = 0;
+                        foreach (DataRow rwp in tp.Rows)
+                        {
+                            if (rwp[0].ToString().Trim() == rw[2].ToString().Trim())
+                                break;
+                            else 
+                                rr++;
+                        }
+                        string rp = "";
+                        for (int i = 0; i < rr; i++)
+                            rp += "\"\",";
+                        r += "\"" + rw[0].ToString().Trim() + "\"," + rp + "\"" + rw[1].ToString().Replace(',', '.').Trim() + "\"\n";
+
+                    }
+                    System.IO.File.WriteAllText(rf2, r, Encoding.UTF8);
+
                     cn.Close();
                 }
                 catch (Exception ex)
@@ -978,6 +1033,32 @@ namespace PSA.Tools
                     MessageBox.Show(ex.Message);
                 }
             }
+
+            try
+            {
+                foreach (string ss in "lagovskiy@fotoland.ru;slagovskiy@gmail.com".Split(';'))
+                {
+                    MailMessage m = new MailMessage(settings.EmailDayFrom, ss);
+                    m.Subject = settings.Order_prefics + " отчет по выданным заказам";
+                    m.Attachments.Add(new Attachment(rf1));
+                    m.Attachments.Add(new Attachment(rf2));
+                    m.Body = settings.Order_prefics + " отчет по выданным заказам";
+                    SmtpClient s = new SmtpClient();
+                    s.Host = settings.EmailDayHost;
+                    s.Port = settings.EmailDayPort;
+                    s.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    s.UseDefaultCredentials = true;
+                    s.Credentials = new NetworkCredential(settings.EmailDayAuth, settings.EmailDayPas);
+                    s.Send(m);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Неудалось отправть сообщение об ошибке!\n" + ex.Message + "\n" + ex.Source + "\n" + ex.StackTrace + "\n", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
 
         }
 

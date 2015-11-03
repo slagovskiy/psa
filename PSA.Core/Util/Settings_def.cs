@@ -1761,5 +1761,70 @@ namespace PSA.Lib.Util
             }
         }
 
+        private string _EmailDayFrom;
+        public string EmailDayFrom
+        {
+            get
+            {
+                return _EmailDayFrom;
+            }
+            set
+            {
+                _EmailDayFrom = value;
+            }
+        }
+
+        private string _EmailDayAuth;
+        public string EmailDayAuth
+        {
+            get
+            {
+                return _EmailDayAuth;
+            }
+            set
+            {
+                _EmailDayAuth = value;
+            }
+        }
+
+        private string _EmailDayPas;
+        public string EmailDayPas
+        {
+            get
+            {
+                return _EmailDayPas;
+            }
+            set
+            {
+                _EmailDayPas = value;
+            }
+        }
+
+        private string _EmailDayHost;
+        public string EmailDayHost
+        {
+            get
+            {
+                return _EmailDayHost;
+            }
+            set
+            {
+                _EmailDayHost = value;
+            }
+        }
+
+        private int _EmailDayPort;
+        public int EmailDayPort
+        {
+            get
+            {
+                return _EmailDayPort;
+            }
+            set
+            {
+                _EmailDayPort = value;
+            }
+        }
+
     }
 }

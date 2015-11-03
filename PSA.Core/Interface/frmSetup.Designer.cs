@@ -331,6 +331,19 @@
             this.txtApiRequestToken = new System.Windows.Forms.TextBox();
             this.txtApiOrder = new System.Windows.Forms.TextBox();
             this.txtApiAccessToken = new System.Windows.Forms.TextBox();
+            this.tabPage30 = new System.Windows.Forms.TabPage();
+            this.txtEmailDayPort = new System.Windows.Forms.TextBox();
+            this.txtEmailDayHost = new System.Windows.Forms.TextBox();
+            this.txtEmailDayPas = new System.Windows.Forms.TextBox();
+            this.txtEmailDayAuth = new System.Windows.Forms.TextBox();
+            this.txtEmailDayFrom = new System.Windows.Forms.TextBox();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.txtEmailDayReport = new System.Windows.Forms.TextBox();
+            this.label84 = new System.Windows.Forms.Label();
             this.tabDebug = new System.Windows.Forms.TabPage();
             this.checkDenyDelete = new System.Windows.Forms.CheckBox();
             this.checkQueryDelete = new System.Windows.Forms.CheckBox();
@@ -352,9 +365,7 @@
             this.checkDebugIdForQBtn = new System.Windows.Forms.CheckBox();
             this.odlg = new System.Windows.Forms.OpenFileDialog();
             this.dlg = new System.Windows.Forms.FolderBrowserDialog();
-            this.tabPage30 = new System.Windows.Forms.TabPage();
-            this.label84 = new System.Windows.Forms.Label();
-            this.txtEmailDayReport = new System.Windows.Forms.TextBox();
+            this.label90 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabDatabase.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -414,9 +425,9 @@
             this.tabPage29.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tabPage30.SuspendLayout();
             this.tabDebug.SuspendLayout();
             this.groupBox16.SuspendLayout();
-            this.tabPage30.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -3461,6 +3472,124 @@
             this.txtApiAccessToken.Size = new System.Drawing.Size(501, 20);
             this.txtApiAccessToken.TabIndex = 3;
             // 
+            // tabPage30
+            // 
+            this.tabPage30.Controls.Add(this.label90);
+            this.tabPage30.Controls.Add(this.txtEmailDayPort);
+            this.tabPage30.Controls.Add(this.txtEmailDayHost);
+            this.tabPage30.Controls.Add(this.txtEmailDayPas);
+            this.tabPage30.Controls.Add(this.txtEmailDayAuth);
+            this.tabPage30.Controls.Add(this.txtEmailDayFrom);
+            this.tabPage30.Controls.Add(this.label89);
+            this.tabPage30.Controls.Add(this.label88);
+            this.tabPage30.Controls.Add(this.label87);
+            this.tabPage30.Controls.Add(this.label86);
+            this.tabPage30.Controls.Add(this.label85);
+            this.tabPage30.Controls.Add(this.txtEmailDayReport);
+            this.tabPage30.Controls.Add(this.label84);
+            this.tabPage30.Location = new System.Drawing.Point(4, 22);
+            this.tabPage30.Name = "tabPage30";
+            this.tabPage30.Size = new System.Drawing.Size(602, 369);
+            this.tabPage30.TabIndex = 12;
+            this.tabPage30.Text = "Фин отчеты";
+            this.tabPage30.UseVisualStyleBackColor = true;
+            // 
+            // txtEmailDayPort
+            // 
+            this.txtEmailDayPort.Location = new System.Drawing.Point(120, 169);
+            this.txtEmailDayPort.Name = "txtEmailDayPort";
+            this.txtEmailDayPort.Size = new System.Drawing.Size(479, 20);
+            this.txtEmailDayPort.TabIndex = 11;
+            // 
+            // txtEmailDayHost
+            // 
+            this.txtEmailDayHost.Location = new System.Drawing.Point(120, 143);
+            this.txtEmailDayHost.Name = "txtEmailDayHost";
+            this.txtEmailDayHost.Size = new System.Drawing.Size(479, 20);
+            this.txtEmailDayHost.TabIndex = 10;
+            // 
+            // txtEmailDayPas
+            // 
+            this.txtEmailDayPas.Location = new System.Drawing.Point(120, 117);
+            this.txtEmailDayPas.Name = "txtEmailDayPas";
+            this.txtEmailDayPas.Size = new System.Drawing.Size(479, 20);
+            this.txtEmailDayPas.TabIndex = 9;
+            // 
+            // txtEmailDayAuth
+            // 
+            this.txtEmailDayAuth.Location = new System.Drawing.Point(120, 91);
+            this.txtEmailDayAuth.Name = "txtEmailDayAuth";
+            this.txtEmailDayAuth.Size = new System.Drawing.Size(479, 20);
+            this.txtEmailDayAuth.TabIndex = 8;
+            // 
+            // txtEmailDayFrom
+            // 
+            this.txtEmailDayFrom.Location = new System.Drawing.Point(120, 61);
+            this.txtEmailDayFrom.Name = "txtEmailDayFrom";
+            this.txtEmailDayFrom.Size = new System.Drawing.Size(479, 20);
+            this.txtEmailDayFrom.TabIndex = 7;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(3, 172);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(35, 13);
+            this.label89.TabIndex = 6;
+            this.label89.Text = "Порт:";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(3, 146);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(34, 13);
+            this.label88.TabIndex = 5;
+            this.label88.Text = "Хост:";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(3, 120);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(48, 13);
+            this.label87.TabIndex = 4;
+            this.label87.Text = "Пароль:";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(3, 94);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(41, 13);
+            this.label86.TabIndex = 3;
+            this.label86.Text = "Логин:";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(3, 68);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(76, 13);
+            this.label85.TabIndex = 2;
+            this.label85.Text = "Отправитель:";
+            // 
+            // txtEmailDayReport
+            // 
+            this.txtEmailDayReport.Location = new System.Drawing.Point(120, 7);
+            this.txtEmailDayReport.Name = "txtEmailDayReport";
+            this.txtEmailDayReport.Size = new System.Drawing.Size(479, 20);
+            this.txtEmailDayReport.TabIndex = 1;
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(3, 10);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(111, 13);
+            this.label84.TabIndex = 0;
+            this.label84.Text = "Получатели отчетов:";
+            // 
             // tabDebug
             // 
             this.tabDebug.Controls.Add(this.checkDenyDelete);
@@ -3655,32 +3784,15 @@
             this.odlg.FileName = "odlg";
             this.odlg.Filter = "\"Photoland reports (*.xml)|*.xml|All files (*.*)|*.*\"";
             // 
-            // tabPage30
+            // label90
             // 
-            this.tabPage30.Controls.Add(this.txtEmailDayReport);
-            this.tabPage30.Controls.Add(this.label84);
-            this.tabPage30.Location = new System.Drawing.Point(4, 22);
-            this.tabPage30.Name = "tabPage30";
-            this.tabPage30.Size = new System.Drawing.Size(602, 369);
-            this.tabPage30.TabIndex = 12;
-            this.tabPage30.Text = "Фин отчеты";
-            this.tabPage30.UseVisualStyleBackColor = true;
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(3, 10);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(111, 13);
-            this.label84.TabIndex = 0;
-            this.label84.Text = "Получатели отчетов:";
-            // 
-            // txtEmailDayReport
-            // 
-            this.txtEmailDayReport.Location = new System.Drawing.Point(120, 7);
-            this.txtEmailDayReport.Name = "txtEmailDayReport";
-            this.txtEmailDayReport.Size = new System.Drawing.Size(479, 20);
-            this.txtEmailDayReport.TabIndex = 1;
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(3, 30);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(119, 13);
+            this.label90.TabIndex = 12;
+            this.label90.Text = "через точку с запятой";
+            this.label90.Click += new System.EventHandler(this.label90_Click);
             // 
             // frmSetup
             // 
@@ -3793,12 +3905,12 @@
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabPage30.ResumeLayout(false);
+            this.tabPage30.PerformLayout();
             this.tabDebug.ResumeLayout(false);
             this.tabDebug.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
-            this.tabPage30.ResumeLayout(false);
-            this.tabPage30.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -4131,6 +4243,17 @@
         private System.Windows.Forms.TabPage tabPage30;
         private System.Windows.Forms.TextBox txtEmailDayReport;
         private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.TextBox txtEmailDayPort;
+        private System.Windows.Forms.TextBox txtEmailDayHost;
+        private System.Windows.Forms.TextBox txtEmailDayPas;
+        private System.Windows.Forms.TextBox txtEmailDayAuth;
+        private System.Windows.Forms.TextBox txtEmailDayFrom;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Label label90;
 
 	}
 }

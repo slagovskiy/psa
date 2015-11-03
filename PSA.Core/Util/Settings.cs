@@ -166,6 +166,11 @@ namespace PSA.Lib.Util
             _PrintAfterImport = bool.Parse(f.IniReadValue("API", "Print after import", "true")); //bool
             _PixlParkClient = bool.Parse(f.IniReadValue("API", "PixlPark Client", "false")); //bool
             _EmailDayReport = f.IniReadValue("Main", "Email day report", "sereda@fotoland.ru"); //staring
+            _EmailDayFrom = f.IniReadValue("Main", "Email day report from", "psa@fotoland.ru"); //staring
+            _EmailDayAuth = f.IniReadValue("Main", "Email day report auth", "psa"); //staring
+            _EmailDayPas = f.IniReadValue("Main", "Email day report pas", "psa1029"); //staring
+            _EmailDayHost = f.IniReadValue("Main", "Email day report host", "mail.fotoland.ru"); //staring
+            _EmailDayPort = int.Parse(f.IniReadValue("Main", "Email day report port", "25")); //int
         }
 		
 		public bool Save()

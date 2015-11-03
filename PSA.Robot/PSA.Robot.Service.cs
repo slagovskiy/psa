@@ -236,12 +236,13 @@ namespace PSA.Robot
 
         private void t5_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if ((DateTime.Now.Hour == 0) && (DateTime.Now.Minute == 15))
+            if ((DateTime.Now.Hour == 23) && (DateTime.Now.Minute == 15))
             {
                 t5.Stop();
                 try
                 {
                     ReExport();
+                    FinExport();
                 }
                 catch { }
                 t5.Start();

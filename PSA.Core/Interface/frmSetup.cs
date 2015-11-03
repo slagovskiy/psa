@@ -350,6 +350,11 @@ namespace PSA.Lib.Interface
                 checkPixlParkClient.Checked = false;
 
             txtEmailDayReport.Text = p.EmailDayReport;
+            txtEmailDayFrom.Text = p.EmailDayFrom;
+            txtEmailDayAuth.Text = p.EmailDayAuth;
+            txtEmailDayPas.Text = p.EmailDayPas;
+            txtEmailDayHost.Text = p.EmailDayHost;
+            txtEmailDayPort.Text = p.EmailDayPort.ToString();
 
 			
 		}
@@ -671,6 +676,11 @@ namespace PSA.Lib.Interface
             p.SelectImport = checkSelectImport.Checked;
             p.PixlParkClient = checkPixlParkClient.Checked;
             p.EmailDayReport = txtEmailDayReport.Text;
+            p.EmailDayFrom = txtEmailDayFrom.Text;
+            p.EmailDayAuth = txtEmailDayAuth.Text;
+            p.EmailDayPas = txtEmailDayPas.Text;
+            p.EmailDayHost = txtEmailDayHost.Text;
+            p.EmailDayPort = int.Parse(txtEmailDayPort.Text);
 
             if(!p.Save())
 				MessageBox.Show("Ошибка при сохранении настроек!", "Настройки программы", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1231,6 +1241,11 @@ namespace PSA.Lib.Interface
                 txtOStatus.Enabled = false;
                 txtDStatus.Enabled = false;
             }
+        }
+
+        private void label90_Click(object sender, EventArgs e)
+        {
+
         }
 		
 	}
