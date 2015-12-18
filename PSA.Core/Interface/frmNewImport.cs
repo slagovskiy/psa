@@ -221,7 +221,8 @@ namespace PSA.Lib.Interface
                         SqlCommand cmd = new SqlCommand("SELECT COUNT([number]) FROM [order] WHERE [number] = '" + rw[1].ToString() + "'", db_connection);
                         if ((int)cmd.ExecuteScalar() == 0)
                         {
-                            unknown = true;
+                            if(rw[1].ToString().Substring(0, 2) != prop.OrderPixlPark)
+                                unknown = true;
                         }
                         cnt++;
                     }
@@ -239,6 +240,10 @@ namespace PSA.Lib.Interface
                     {
                         return;
                     }
+                }
+                else 
+                {
+                    clientid = -1;
                 }
 
                 pb.Minimum = 0;
@@ -553,6 +558,17 @@ namespace PSA.Lib.Interface
                                                     else
                                                         prev = "0";
                                                     log.Items.Add("Добавляется новая шапка для заказа");
+                                                    using (SqlConnection cn = new SqlConnection(prop.Connection_string))
+                                                    {
+                                                        string tmp_client = r[22].Trim();
+                                                        if ((tmp_client.IndexOf('{') > 0) && (tmp_client.IndexOf('}') > 0))
+                                                            tmp_client = tmp_client.Substring(tmp_client.IndexOf('{') + 1, tmp_client.IndexOf('}') - tmp_client.IndexOf('{') - 1);
+                                                        else
+                                                            tmp_client = "Клиент PixlPark";
+                                                        cn.Open();
+                                                        SqlCommand cmd = new SqlCommand("DECLARE @ID int; SET @ID = (SELECT [id_client] FROM [dbo].[client] WHERE RTRIM([name]) = '" + tmp_client + "'); IF(@ID > 0) BEGIN; SELECT @ID; END; ELSE BEGIN; INSERT INTO [dbo].[client] ([id_category], [id_dcard], [guid], [del], [name], [phone_1], [phone_2], [address], [email], [icq], [addon]) VALUES (9, 0, newid(), 0, '" + tmp_client + "', '', '', '', '', '', ''); SET @ID = scope_identity(); SELECT @ID; END;", cn);
+                                                        clientid = (int)cmd.ExecuteScalar();
+                                                    }
                                                     query =
                                                         "INSERT INTO [order] ([id_user_accept],[id_client],[guid],[del],[name_accept],[status],[number],[input_date],[expected_date],[advanced_payment],[final_payment],[preview],[comment],[crop],[type]) VALUES (" +
                                                         usr.Id_user.ToString() + "," + clientid + ",'" + newguid + "',0,'" + usr.Name +

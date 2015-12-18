@@ -1066,8 +1066,9 @@ namespace Photoland.Forms.Interface
                 _t.Columns.Add("mashine");              //20
                 _t.Columns.Add("material");             //21
 
-                if ((prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1)) && (prop.OrderPixlPark.Substring(0, 1) != order.Orderno.Substring(0, 1)))
-                {
+                //if ((prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1)) && (prop.OrderPixlPark.Substring(0, 1) != order.Orderno.Substring(0, 1)))
+                if (prop.Order_terminal_prefics.Substring(0, 1) != order.Orderno.Substring(0, 1))
+                    {
                     // сбор данных
                     for (int i = 0; i < this.order.OrderBody.Rows.Count; i++)
                     {

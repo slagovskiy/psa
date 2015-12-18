@@ -97,7 +97,7 @@ namespace PSA.Lib.Util
                         od.Columns.Add("COMMENT");
                         od.Columns.Add("PATH");
                         bool ok = false;
-                        string user_fname = "", user_lname = "", user_email = "", user_phone = "";
+                        string user_fname = "", user_lname = "", user_email = "", user_phone = "", user_address = "";
 
                         try
                         {
@@ -133,6 +133,21 @@ namespace PSA.Lib.Util
                                             }
                                         }
                                     }
+                                    if (node.Name == "DeliveryAddress")
+                                    {
+                                        foreach (XmlNode rr in node.ChildNodes)
+                                        {
+                                            if (rr.Name == "AddressLine1")
+                                                user_address = rr.InnerText.Replace('\n', ' ').Replace('\r', ' ');
+                                            if (user_address.IndexOf("овосибирск, ") > 0)
+                                                user_address = user_address.Replace("Новосибирск, ", "");
+                                            if ((user_address.IndexOf('(') > 0) && (user_address.IndexOf(')') > 0))
+                                                user_address = user_address.Replace(
+                                                    user_address.Substring(
+                                                    user_address.IndexOf('('), user_address.IndexOf(')') + 1 - user_address.IndexOf('(')
+                                                    ), "").Trim();
+                                        }
+                                    }
                                 }
                             }
 
@@ -152,7 +167,7 @@ namespace PSA.Lib.Util
                             head.Add("TOPRINT_AUTHDATE", "");
                             head.Add("PRINTED_AUTHDATE", "");
                             head.Add("SHIP_AUTHDATE", "");
-                            m += "Киоск №" + t_kiosk + ", " + t_address + " Заказ: " + t_number + ", принят " + t_stamp + " Клиент: " + ((t_customer == "") ? "Клиент фототерминала" : t_customer) + ((t_phone != "") ? ", телефон: " + t_phone : "") + " " + ((t_do != "") ? " Отправлено в печать: " + t_do : "") + ((t_dp != "") ? " Напечатано: " + t_dp : "") + ((t_dv != "") ? " Отправлено в центр выдачи: " + t_dv : "") + " СТАТУС: " + t_status + " (данные получены: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString() + ")\n";
+                            m += "Киоск №" + t_kiosk + ", " + t_address + " Заказ: " + t_number + ", принят " + t_stamp + " Клиент: " + ((user_fname == "") ? "Клиент PixlPark" : user_fname + " " + user_lname) + ((t_phone != "") ? ", телефон: " + t_phone : "") + " " + ((t_do != "") ? " Отправлено в печать: " + t_do : "") + ((t_dp != "") ? " Напечатано: " + t_dp : "") + ((t_dv != "") ? " Отправлено в центр выдачи: " + t_dv : "") + " СТАТУС: " + t_status + " (данные получены: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString() + "){" + user_fname + " " + user_lname + " [" + user_address + "]}" + "\n";
 
 
                             wc = new System.Net.WebClient();
@@ -345,7 +360,7 @@ namespace PSA.Lib.Util
                                         else
 								            query += "DECLARE @name nchar(255)\n" +
 										            "DECLARE @phone nchar(255)\n" +
-										            "SET @name = '" + user_lname + " " + user_fname + "%'\n" +
+										            "SET @name = '" + user_lname + " " + user_fname + " [" + user_address + "]%'\n" +
 										            "SET @phone = '" + user_phone + "'\n" +
 										            "DECLARE @CNT int\n" +
 										            "DECLARE @CLIENTID int;\n" +
@@ -370,7 +385,7 @@ namespace PSA.Lib.Util
 										            "			   (9\n" +
 										            "			   ,newid()\n" +
 										            "			   ,0\n" +
-                                                    "			   ,'" + user_lname + " " + user_fname + "'\n" +
+                                                    "			   ,'" + user_lname + " " + user_fname + " [" + user_address + "]'\n" +
                                                     "			   ,'" + user_phone + "')\n" +
 										            "	SET @CLIENTID = scope_identity()\n" +
 										            "END\n" +
@@ -396,7 +411,7 @@ namespace PSA.Lib.Util
 										            "END\n" +
 										            "SELECT @CLIENTID;\n" +
 										            "DECLARE @CLIENTNAME nchar(255);\n" +
-                                                    "SET @CLIENTNAME = '" + user_lname + " " + user_fname + "'\n";
+                                                    "SET @CLIENTNAME = '" + user_lname + " " + user_fname + " [" + user_address + "]'\n";
 
 
                                         // Шапка
