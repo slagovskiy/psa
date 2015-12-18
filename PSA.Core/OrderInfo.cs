@@ -1496,7 +1496,7 @@ namespace Photoland.Order
 
 				string fullquery = "";
 				string finish = "";
-				if (Distanation.Trim() == "100000")
+				if ((Distanation.Trim() == "100000") || (Distanation.Trim() == "200000"))
 				{
 					finish += ", [id_user_delivery] = " + Usr.Id_user + ", [name_delivery] = '" + Usr.Name.Trim() +
 							  "', [output_date] = CONVERT(DATETIME, '" + yn + "." + mn + "." + dn + " " +
