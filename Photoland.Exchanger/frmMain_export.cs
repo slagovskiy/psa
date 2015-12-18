@@ -177,7 +177,7 @@ namespace Photoland.Exchanger
                                             SqlCommand cmd_write =
                                                 new SqlCommand(
                                                     "UPDATE [order] SET [comment] = '" + t.Rows[i][22].ToString().Replace("!Экспорт", "").Trim() +
-                                                    "', [status] = '100000' WHERE [id_order] = " + t.Rows[i][26].ToString().Trim(), db_connection);
+                                                    "', [status] = '500000' WHERE [id_order] = " + t.Rows[i][26].ToString().Trim(), db_connection);
                                             cmd_write.ExecuteNonQuery();
                                         }
                                         else
@@ -185,7 +185,7 @@ namespace Photoland.Exchanger
                                             SqlCommand cmd_write =
                                                 new SqlCommand(
                                                     "UPDATE [order] SET [comment] = '!Экспорт " + t.Rows[i][22].ToString().Replace("!Экспорт", "").Trim() +
-                                                    "' WHERE [id_order] = " + t.Rows[i][26].ToString().Trim(), db_connection);
+                                                    "', [status] = '500000' WHERE [id_order] = " + t.Rows[i][26].ToString().Trim(), db_connection);
                                             cmd_write.ExecuteNonQuery();
                                         }
 

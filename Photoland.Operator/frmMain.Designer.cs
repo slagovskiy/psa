@@ -190,20 +190,20 @@
             this.LogoffToolStripMenuItem,
             this.ExitToolStripMenuItem});
             this.mnuFile.Name = "mnuFile";
-            this.mnuFile.Size = new System.Drawing.Size(45, 20);
+            this.mnuFile.Size = new System.Drawing.Size(48, 20);
             this.mnuFile.Text = "Файл";
             // 
             // LogoffToolStripMenuItem
             // 
             this.LogoffToolStripMenuItem.Name = "LogoffToolStripMenuItem";
-            this.LogoffToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.LogoffToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.LogoffToolStripMenuItem.Text = "Смена пользователя";
             this.LogoffToolStripMenuItem.Click += new System.EventHandler(this.LogoffToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.ExitToolStripMenuItem.Text = "Выход";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -217,7 +217,7 @@
             this.mnuSpisanie,
             this.toolStripMenuItem32});
             this.mnuReport.Name = "mnuReport";
-            this.mnuReport.Size = new System.Drawing.Size(59, 20);
+            this.mnuReport.Size = new System.Drawing.Size(60, 20);
             this.mnuReport.Text = "Отчеты";
             // 
             // mnuMaterial
@@ -225,7 +225,7 @@
             this.mnuMaterial.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.mnuMaterial.Name = "mnuMaterial";
-            this.mnuMaterial.Size = new System.Drawing.Size(143, 22);
+            this.mnuMaterial.Size = new System.Drawing.Size(138, 22);
             this.mnuMaterial.Text = "Материалы";
             // 
             // toolStripMenuItem1
@@ -235,27 +235,27 @@
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(191, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.toolStripMenuItem1.Text = "Остаток материалов";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem2.Text = "Печать";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem3.Text = "Экспорт в PDF";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem4.Text = "Экспорт в Excel";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
@@ -268,7 +268,7 @@
             this.mnuDiscard4,
             this.mnuDiscard5});
             this.mnuDiscard.Name = "mnuDiscard";
-            this.mnuDiscard.Size = new System.Drawing.Size(143, 22);
+            this.mnuDiscard.Size = new System.Drawing.Size(138, 22);
             this.mnuDiscard.Text = "Расход";
             // 
             // mnuDiscard1
@@ -278,27 +278,27 @@
             this.toolStripMenuItem18,
             this.toolStripMenuItem19});
             this.mnuDiscard1.Name = "mnuDiscard1";
-            this.mnuDiscard1.Size = new System.Drawing.Size(222, 22);
+            this.mnuDiscard1.Size = new System.Drawing.Size(224, 22);
             this.mnuDiscard1.Text = "Дата-Пользователь";
             // 
             // toolStripMenuItem17
             // 
             this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem17.Text = "Печать";
             this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
             // 
             // toolStripMenuItem18
             // 
             this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem18.Text = "PDF";
             this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
             // toolStripMenuItem19
             // 
             this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem19.Text = "Excel";
             this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
             // 
@@ -309,27 +309,27 @@
             this.toolStripMenuItem21,
             this.toolStripMenuItem22});
             this.mnuDiscard2.Name = "mnuDiscard2";
-            this.mnuDiscard2.Size = new System.Drawing.Size(222, 22);
+            this.mnuDiscard2.Size = new System.Drawing.Size(224, 22);
             this.mnuDiscard2.Text = "Дата-Пользователь-Сумма";
             // 
             // toolStripMenuItem20
             // 
             this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem20.Text = "Печать";
             this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
             // 
             // toolStripMenuItem21
             // 
             this.toolStripMenuItem21.Name = "toolStripMenuItem21";
-            this.toolStripMenuItem21.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem21.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem21.Text = "PDF";
             this.toolStripMenuItem21.Click += new System.EventHandler(this.toolStripMenuItem21_Click);
             // 
             // toolStripMenuItem22
             // 
             this.toolStripMenuItem22.Name = "toolStripMenuItem22";
-            this.toolStripMenuItem22.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem22.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem22.Text = "Excel";
             this.toolStripMenuItem22.Click += new System.EventHandler(this.toolStripMenuItem22_Click);
             // 
@@ -340,27 +340,27 @@
             this.toolStripMenuItem24,
             this.toolStripMenuItem25});
             this.mnuDiscard3.Name = "mnuDiscard3";
-            this.mnuDiscard3.Size = new System.Drawing.Size(222, 22);
+            this.mnuDiscard3.Size = new System.Drawing.Size(224, 22);
             this.mnuDiscard3.Text = "Дата-Сумма";
             // 
             // toolStripMenuItem23
             // 
             this.toolStripMenuItem23.Name = "toolStripMenuItem23";
-            this.toolStripMenuItem23.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem23.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem23.Text = "Печать";
             this.toolStripMenuItem23.Click += new System.EventHandler(this.toolStripMenuItem23_Click);
             // 
             // toolStripMenuItem24
             // 
             this.toolStripMenuItem24.Name = "toolStripMenuItem24";
-            this.toolStripMenuItem24.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem24.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem24.Text = "PDF";
             this.toolStripMenuItem24.Click += new System.EventHandler(this.toolStripMenuItem24_Click);
             // 
             // toolStripMenuItem25
             // 
             this.toolStripMenuItem25.Name = "toolStripMenuItem25";
-            this.toolStripMenuItem25.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem25.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem25.Text = "Excel";
             this.toolStripMenuItem25.Click += new System.EventHandler(this.toolStripMenuItem25_Click);
             // 
@@ -371,27 +371,27 @@
             this.toolStripMenuItem27,
             this.toolStripMenuItem28});
             this.mnuDiscard4.Name = "mnuDiscard4";
-            this.mnuDiscard4.Size = new System.Drawing.Size(222, 22);
+            this.mnuDiscard4.Size = new System.Drawing.Size(224, 22);
             this.mnuDiscard4.Text = "Сумма";
             // 
             // toolStripMenuItem26
             // 
             this.toolStripMenuItem26.Name = "toolStripMenuItem26";
-            this.toolStripMenuItem26.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem26.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem26.Text = "Печать";
             this.toolStripMenuItem26.Click += new System.EventHandler(this.toolStripMenuItem26_Click);
             // 
             // toolStripMenuItem27
             // 
             this.toolStripMenuItem27.Name = "toolStripMenuItem27";
-            this.toolStripMenuItem27.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem27.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem27.Text = "PDF";
             this.toolStripMenuItem27.Click += new System.EventHandler(this.toolStripMenuItem27_Click);
             // 
             // toolStripMenuItem28
             // 
             this.toolStripMenuItem28.Name = "toolStripMenuItem28";
-            this.toolStripMenuItem28.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem28.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem28.Text = "Excel";
             this.toolStripMenuItem28.Click += new System.EventHandler(this.toolStripMenuItem28_Click);
             // 
@@ -402,27 +402,27 @@
             this.toolStripMenuItem30,
             this.toolStripMenuItem31});
             this.mnuDiscard5.Name = "mnuDiscard5";
-            this.mnuDiscard5.Size = new System.Drawing.Size(222, 22);
+            this.mnuDiscard5.Size = new System.Drawing.Size(224, 22);
             this.mnuDiscard5.Text = "Все";
             // 
             // toolStripMenuItem29
             // 
             this.toolStripMenuItem29.Name = "toolStripMenuItem29";
-            this.toolStripMenuItem29.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem29.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem29.Text = "Печать";
             this.toolStripMenuItem29.Click += new System.EventHandler(this.toolStripMenuItem29_Click);
             // 
             // toolStripMenuItem30
             // 
             this.toolStripMenuItem30.Name = "toolStripMenuItem30";
-            this.toolStripMenuItem30.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem30.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem30.Text = "PDF";
             this.toolStripMenuItem30.Click += new System.EventHandler(this.toolStripMenuItem30_Click);
             // 
             // toolStripMenuItem31
             // 
             this.toolStripMenuItem31.Name = "toolStripMenuItem31";
-            this.toolStripMenuItem31.Size = new System.Drawing.Size(122, 22);
+            this.toolStripMenuItem31.Size = new System.Drawing.Size(113, 22);
             this.toolStripMenuItem31.Text = "Excel";
             this.toolStripMenuItem31.Click += new System.EventHandler(this.toolStripMenuItem31_Click);
             // 
@@ -432,7 +432,7 @@
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.mnuSpisanie.Name = "mnuSpisanie";
-            this.mnuSpisanie.Size = new System.Drawing.Size(143, 22);
+            this.mnuSpisanie.Size = new System.Drawing.Size(138, 22);
             this.mnuSpisanie.Text = "Списание";
             // 
             // toolStripMenuItem5
@@ -442,27 +442,27 @@
             this.toolStripMenuItem8,
             this.toolStripMenuItem9});
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(201, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(206, 22);
             this.toolStripMenuItem5.Text = "Списания по форматам";
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem7.Text = "Печать";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem8.Text = "Экспорт в PDF";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem9.Text = "Экспорт в Excel";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
@@ -473,27 +473,27 @@
             this.toolStripMenuItem11,
             this.toolStripMenuItem12});
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(201, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(206, 22);
             this.toolStripMenuItem6.Text = "Списание остальное";
             // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem10.Text = "Печать";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem11.Text = "Экспорт в PDF";
             this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem12.Text = "Экспорт в Excel";
             this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
@@ -503,7 +503,7 @@
             this.servicesByDateToolStripMenuItem,
             this.servicesByNumberToolStripMenuItem});
             this.toolStripMenuItem32.Name = "toolStripMenuItem32";
-            this.toolStripMenuItem32.Size = new System.Drawing.Size(143, 22);
+            this.toolStripMenuItem32.Size = new System.Drawing.Size(138, 22);
             this.toolStripMenuItem32.Text = "Работы";
             // 
             // servicesByDateToolStripMenuItem
@@ -513,27 +513,27 @@
             this.toolStripMenuItem15,
             this.toolStripMenuItem16});
             this.servicesByDateToolStripMenuItem.Name = "servicesByDateToolStripMenuItem";
-            this.servicesByDateToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.servicesByDateToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.servicesByDateToolStripMenuItem.Text = "Услуги по дате";
             // 
             // toolStripMenuItem13
             // 
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem13.Text = "Печать";
             this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
             // toolStripMenuItem15
             // 
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem15.Text = "Экспорт в PDF";
             this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click_1);
             // 
             // toolStripMenuItem16
             // 
             this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem16.Text = "Экспорт в Excel";
             this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click_1);
             // 
@@ -544,27 +544,27 @@
             this.toolStripMenuItem37,
             this.toolStripMenuItem38});
             this.servicesByNumberToolStripMenuItem.Name = "servicesByNumberToolStripMenuItem";
-            this.servicesByNumberToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.servicesByNumberToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.servicesByNumberToolStripMenuItem.Text = "Услуги по заказам";
             // 
             // toolStripMenuItem14
             // 
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem14.Text = "Печать";
             this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click_1);
             // 
             // toolStripMenuItem37
             // 
             this.toolStripMenuItem37.Name = "toolStripMenuItem37";
-            this.toolStripMenuItem37.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem37.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem37.Text = "Экспорт в PDF";
             this.toolStripMenuItem37.Click += new System.EventHandler(this.toolStripMenuItem37_Click_1);
             // 
             // toolStripMenuItem38
             // 
             this.toolStripMenuItem38.Name = "toolStripMenuItem38";
-            this.toolStripMenuItem38.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem38.Size = new System.Drawing.Size(157, 22);
             this.toolStripMenuItem38.Text = "Экспорт в Excel";
             this.toolStripMenuItem38.Click += new System.EventHandler(this.toolStripMenuItem38_Click_1);
             // 
@@ -576,32 +576,32 @@
             this.toolStripSeparator1,
             this.loadNewToolStripMenuItem});
             this.mnuService.Name = "mnuService";
-            this.mnuService.Size = new System.Drawing.Size(55, 20);
+            this.mnuService.Size = new System.Drawing.Size(59, 20);
             this.mnuService.Text = "Сервис";
             // 
             // mnuSetup
             // 
             this.mnuSetup.Name = "mnuSetup";
-            this.mnuSetup.Size = new System.Drawing.Size(265, 22);
+            this.mnuSetup.Size = new System.Drawing.Size(267, 22);
             this.mnuSetup.Text = "Настройки";
             this.mnuSetup.Click += new System.EventHandler(this.mnuSetup_Click);
             // 
             // semaphoresToolStripMenuItem
             // 
             this.semaphoresToolStripMenuItem.Name = "semaphoresToolStripMenuItem";
-            this.semaphoresToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.semaphoresToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
             this.semaphoresToolStripMenuItem.Text = "Семафоры";
             this.semaphoresToolStripMenuItem.Click += new System.EventHandler(this.semaphoresToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(262, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(264, 6);
             // 
             // loadNewToolStripMenuItem
             // 
             this.loadNewToolStripMenuItem.Name = "loadNewToolStripMenuItem";
-            this.loadNewToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
+            this.loadNewToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
             this.loadNewToolStripMenuItem.Text = "Установить последнее обновление";
             this.loadNewToolStripMenuItem.Click += new System.EventHandler(this.loadNewToolStripMenuItem_Click);
             // 
@@ -610,7 +610,7 @@
             this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AboutToolStripMenuItem});
             this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(59, 20);
+            this.mnuHelp.Size = new System.Drawing.Size(68, 20);
             this.mnuHelp.Text = "Помощь";
             // 
             // AboutToolStripMenuItem
@@ -1010,7 +1010,7 @@
             this.btnEndOrder.Name = "btnEndOrder";
             this.btnEndOrder.Size = new System.Drawing.Size(120, 45);
             this.btnEndOrder.TabIndex = 40;
-            this.btnEndOrder.Text = "Завершить работу на заказом";
+            this.btnEndOrder.Text = "Завершить работу над заказом";
             this.btnEndOrder.UseVisualStyleBackColor = true;
             this.btnEndOrder.Click += new System.EventHandler(this.btnEndOrder_Click);
             // 

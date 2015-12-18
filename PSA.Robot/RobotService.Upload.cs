@@ -83,7 +83,7 @@ namespace PSA.Robot
                                         source.CopyFilesTo(destination, true, true);
                                         FtpFile _lock = new FtpFile(connection, ftp_to + ".lock");
                                         _lock.Delete();
-                                        db_command = new SqlCommand("UPDATE [order] SET [auto_export] = -1, [status_export] = 'Отправлен', [status_export_date] = getdate() WHERE [number] = '" + rw["number"].ToString().Trim() + "'", db_connection);
+                                        db_command = new SqlCommand("UPDATE [order] SET [auto_export] = -1, [status_export] = 'Отправлен', [status] = '500000', [status_export_date] = getdate() WHERE [number] = '" + rw["number"].ToString().Trim() + "'", db_connection);
                                         db_command.ExecuteNonQuery();
                                         file.WriteLine(DateTime.Now.ToString("g", ci) + " [+] Выгружен заказ " + rw["number"].ToString().Trim());
                                         file.Flush();

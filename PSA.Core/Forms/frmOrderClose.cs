@@ -712,19 +712,31 @@ namespace Photoland.Forms.Interface
 
 						break;
 					}
-				// Списано
-				case "400000":
-					{
-						hideActions.Visible = false;
+                // Списано
+                case "400000":
+                    {
+                        hideActions.Visible = false;
 
-						btnDelServ.Enabled = false;
-						btnOK.Enabled = false;
-						lblStatus.Text = "Списано";
-						btnHow.Enabled = true;
+                        btnDelServ.Enabled = false;
+                        btnOK.Enabled = false;
+                        lblStatus.Text = "Списано";
+                        btnHow.Enabled = true;
 
-						break;
-					}
-				// Выдано (не оплачено)
+                        break;
+                    }
+                // Экспортировано
+                case "500000":
+                    {
+                        hideActions.Visible = false;
+
+                        btnDelServ.Enabled = false;
+                        btnOK.Enabled = false;
+                        lblStatus.Text = "Экспортировано";
+                        btnHow.Enabled = true;
+
+                        break;
+                    }
+                // Выдано (не оплачено)
                 case "200000":
                     {
                         hideActions.Visible = false;
