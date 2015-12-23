@@ -4,7 +4,7 @@
   <description asmv2:iconFile="_A.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Photoland.Acceptance" version="1.7.15.1218" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Photoland.Acceptance" version="1.7.15.1223" language="neutral" processorArchitecture="msil" />
     <commandLine file="Photoland.Acceptance.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -136,13 +136,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Photoland.Acceptance.exe" size="220672">
-      <assemblyIdentity name="Photoland.Acceptance" version="1.7.15.1218" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Photoland.Acceptance" version="1.7.15.1223" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>OfxqGef8m6x/Qb/14Xu7D4b4Cp4=</dsig:DigestValue>
+        <dsig:DigestValue>MKXMXj2nPnQNB99OrwX8eomU3+g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -154,7 +154,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>jVMtIhnGjrmXNc2VU3PV95Y3dvg=</dsig:DigestValue>
+        <dsig:DigestValue>+fh+cKATDSw4BX9NsRuKS3htnuk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
