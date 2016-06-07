@@ -1169,8 +1169,23 @@ namespace Photoland.Acceptance
 												f.dateEnd.Value.Year.ToString("D4") + "-" +
 												f.dateEnd.Value.Month.ToString("D2") + "-" +
 												f.dateEnd.Value.Day.ToString("D2") + " 23:59:59', 102))";
-											string query =
-												"SELECT TOP (100) PERCENT BODYSUM.id_order, BODYSUM.sm, dbo.[order].number, dbo.client.name AS client, dbo.client.id_client,  dbo.order_status.status_desc, dbo.order_status.order_status, dbo.[order].input_date, dbo.[order].output_date, dbo.[order].advanced_payment, dbo.[order].final_payment FROM (SELECT TOP (100) PERCENT id_order, SUM(actual_quantity * price) AS sm FROM dbo.orderbody GROUP BY id_order HAVING (id_order > 0)) AS BODYSUM INNER JOIN dbo.[order] ON BODYSUM.id_order = dbo.[order].id_order INNER JOIN dbo.client ON dbo.[order].id_client = dbo.client.id_client INNER JOIN dbo.category ON dbo.client.id_category = dbo.category.id_category INNER JOIN dbo.order_status ON dbo.[order].status = dbo.order_status.order_status WHERE (dbo.category.id_category > 2) AND (dbo.order_status.order_status = N'100000' OR dbo.order_status.order_status = N'200000') AND " + filter + " ORDER BY client";
+                                            string query =
+                                                "SELECT     TOP (100) PERCENT BODYSUM.id_order, BODYSUM.sm, dbo.[order].number, dbo.client.name AS client, dbo.client.id_client, dbo.order_status.status_desc, " +
+                                                "                      dbo.order_status.order_status, dbo.[order].input_date, dbo.[order].output_date, dbo.[order].advanced_payment, dbo.[order].final_payment, " +
+                                                "                      BODYSUM.sm - (dbo.[order].advanced_payment + dbo.[order].final_payment) AS dolg, dbo.[user].name " +
+                                                "FROM         (SELECT     TOP (100) PERCENT id_order, SUM(actual_quantity * price) AS sm" +
+                                                "                       FROM          dbo.orderbody" +
+                                                "                       GROUP BY id_order" +
+                                                "                       HAVING      (id_order > 0)) AS BODYSUM INNER JOIN" +
+                                                "                      dbo.[order] ON BODYSUM.id_order = dbo.[order].id_order INNER JOIN" +
+                                                "                      dbo.client ON dbo.[order].id_client = dbo.client.id_client INNER JOIN" +
+                                                "                      dbo.category ON dbo.client.id_category = dbo.category.id_category INNER JOIN" +
+                                                "                      dbo.order_status ON dbo.[order].status = dbo.order_status.order_status INNER JOIN" +
+                                                "                      dbo.[user] ON dbo.[order].id_user_accept = dbo.[user].id_user " +
+                                                "WHERE     (dbo.category.id_category > 2) AND (dbo.order_status.order_status = N'100000' OR" +
+                                                "                      dbo.order_status.order_status = N'200000') AND " + filter + " " +
+                                                "ORDER BY client";
+												//"SELECT TOP (100) PERCENT BODYSUM.id_order, BODYSUM.sm, dbo.[order].number, dbo.client.name AS client, dbo.client.id_client,  dbo.order_status.status_desc, dbo.order_status.order_status, dbo.[order].input_date, dbo.[order].output_date, dbo.[order].advanced_payment, dbo.[order].final_payment FROM (SELECT TOP (100) PERCENT id_order, SUM(actual_quantity * price) AS sm FROM dbo.orderbody GROUP BY id_order HAVING (id_order > 0)) AS BODYSUM INNER JOIN dbo.[order] ON BODYSUM.id_order = dbo.[order].id_order INNER JOIN dbo.client ON dbo.[order].id_client = dbo.client.id_client INNER JOIN dbo.category ON dbo.client.id_category = dbo.category.id_category INNER JOIN dbo.order_status ON dbo.[order].status = dbo.order_status.order_status WHERE (dbo.category.id_category > 2) AND (dbo.order_status.order_status = N'100000' OR dbo.order_status.order_status = N'200000') AND " + filter + " ORDER BY client";
 											c = new SqlCommand(query, db_connection);
 											c.CommandTimeout = 9000;
 											a = new SqlDataAdapter(c);

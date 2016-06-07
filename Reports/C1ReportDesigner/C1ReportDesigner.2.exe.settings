@@ -11,6 +11,7 @@
   </preferences>
   <!-- recently used files -->
   <recentfiles>
+    <item value="d:\projects\psa\reports\psa.ver1.1.xml" />
     <item value="d:\projects\psa\reports\psa.ver1.0.xml" />
     <item value="q:\work\photoland system automation\psa\reports\psa.ver1.0.xml" />
     <item value="h:\work\photoland system automation\psa\reports\psa.ver1.0.xml" />
@@ -18,7 +19,6 @@
     <item value="d:\work\photoland system automation\photoland\reports\psa.ver1.0_.xml" />
     <item value="psa.ver1.0.xml" />
     <item value="d:\work\projects\photoland system automation\photoland\reports\psa.ver1.0.xml" />
-    <item value="d:\work\photoland system automation\photoland\photoland.giveme\bin\debug\a.xml" />
   </recentfiles>
   <!-- recently used connection strings
 		all connection strings must be valid OLEDB connection strings
@@ -27,7 +27,7 @@
 		saved with DataSet.WriteXml(filename, WriteSchema)
 	-->
   <recentconnections>
-    <item encrypt="true" value="dT2VmfZVFTIjfsxKY/MqyB8DREhTFAQN1MXfWypKAWH/4QoziLAUh00mI+lM3ewXVaVTYuSQBqvjI3fLFSDOpONEuLdc5uCeufuszlcbEiF8JiDYWSqc9dP0+s+lxoJv1Bs6HJzeM9y703F99++hkXJVE0qF0aguuhSEX3rdAo4=" />
+    <item encrypt="true" value="obuJkxaIY+qevzP01sQO9sNCFidDO829CCwJ3ko2UV5NANWQ3uAppIrcsR3PBKr1L2i1N0ImgMuY2fterUXzDOvXFuYb4nmVy5OI6M4kB+j7wPRKTIxTQoyufegC25/bG2E0EavD4aD6IcloB8lktIwIWgzyD3m3nsVnP8rjgnc=" />
     <item encrypt="true" value="obuJkxaIY+qevzP01sQO9hDpT1CimNT8EUXfTSyT9k/gqe0f3cyBK1fYoo0sz/9UY0Fv/Oq/FiHbYcUNe0SrZ6z6WlkmKCVwHTnwt8zERjp/eTwFl8vZ13M5HuwRkVUE2Ce7k9/zWnDy4bwMkNQz2yZbp61Ub96yP0D7p57aCq4=" />
     <item encrypt="true" value="obuJkxaIY+qevzP01sQO9hDpT1CimNT8EUXfTSyT9k/gqe0f3cyBK1fYoo0sz/9UY0Fv/Oq/FiHbYcUNe0SrZ6z6WlkmKCVwHTnwt8zERjr+Mj2hUh6Vk+4qvYBgWU441lANzMfOdCwR1A3wPfr2cQ07HlCp+qA2GQE4DYLcwnc=" />
     <item encrypt="true" value="dT2VmfZVFTIjfsxKY/MqyEzMgPydPxfsSpMxvRx6O/1zPPqYubkvhCfYrQeSuUMojwuQrxB7dmWTaz6SuCgLMmH48FDTHkTu0d+KoPQh6i+5+d8GFWIsq14rCErHHfmLTBrhvKvZ2obNg7sLQtuiK1E8BH7PxRx5JfFTEAS48Cc=" />
