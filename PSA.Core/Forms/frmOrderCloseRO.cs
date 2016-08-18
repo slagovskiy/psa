@@ -1124,35 +1124,63 @@ namespace Photoland.Forms.Interface
 								fApply.Close();
 								break;
 							}
-						case "00003":
-							{
-								frmQueryFrameParam fApply = new frmQueryFrameParam();
-								fApply.ShowDialog();
-								if (fApply.DialogResult == DialogResult.OK)
-								{
+                        case "00003":
+                            {
+                                frmQueryFrameParam fApply = new frmQueryFrameParam();
+                                fApply.ShowDialog();
+                                if (fApply.DialogResult == DialogResult.OK)
+                                {
                                     _content.Add("\r\nИнформация к заказу:\r\nФайл: " + fApply.txtFile.Text + "\r\nШирина: " + fApply.txtW.Text + "\r\nВысота: " + fApply.txtH.Text + "\r\nПлощадь: " + fApply.txtS.Text + "\r\nКомментарий: \r\n" + fApply.txtComment.Text);
-									if(prop.Round3)
-										_content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 3);
-									else
-										_content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 2);
-								}
-								else
-								{
-									frmQueryCount fCount = new frmQueryCount();
-									fCount.ShowDialog();
-									if (fCount.DialogResult == DialogResult.OK)
-									{
-										_content_count = fCount.Count;
-									}
-									else
-									{
-										_content_count = 0;
-									}
-								}
-								fApply.Close();
-								break;
-							}
-						default:
+                                    if (prop.Round3)
+                                        _content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 3);
+                                    else
+                                        _content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 2);
+                                }
+                                else
+                                {
+                                    frmQueryCount fCount = new frmQueryCount();
+                                    fCount.ShowDialog();
+                                    if (fCount.DialogResult == DialogResult.OK)
+                                    {
+                                        _content_count = fCount.Count;
+                                    }
+                                    else
+                                    {
+                                        _content_count = 0;
+                                    }
+                                }
+                                fApply.Close();
+                                break;
+                            }
+                        case "00004":
+                            {
+                                frmQueryFrameParam2 fApply = new frmQueryFrameParam2();
+                                fApply.ShowDialog();
+                                if (fApply.DialogResult == DialogResult.OK)
+                                {
+                                    _content.Add("\r\nИнформация к заказу:\r\nФайл: " + fApply.txtFile.Text + "\r\nШирина: " + fApply.txtW.Text + "\r\nВысота: " + fApply.txtH.Text + "\r\nПериметр: " + fApply.txtS.Text + "\r\nКомментарий: \r\n" + fApply.txtComment.Text);
+                                    if (prop.Round3)
+                                        _content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 3);
+                                    else
+                                        _content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 2);
+                                }
+                                else
+                                {
+                                    frmQueryCount fCount = new frmQueryCount();
+                                    fCount.ShowDialog();
+                                    if (fCount.DialogResult == DialogResult.OK)
+                                    {
+                                        _content_count = fCount.Count;
+                                    }
+                                    else
+                                    {
+                                        _content_count = 0;
+                                    }
+                                }
+                                fApply.Close();
+                                break;
+                            }
+                        default:
 							{
 								frmQueryCount fCount = new frmQueryCount();
 								fCount.ShowDialog();

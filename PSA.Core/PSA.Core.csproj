@@ -253,6 +253,12 @@
     <Compile Include="Export.cs" />
     <Compile Include="FilterRow.cs" />
     <Compile Include="FilterRowLike.cs" />
+    <Compile Include="Forms\frmQueryFrameParam2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQueryFrameParam2.Designer.cs">
+      <DependentUpon>frmQueryFrameParam2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ErrorNfo.cs" />
     <Compile Include="Forms\frmAbout.cs">
       <SubType>Form</SubType>
@@ -905,6 +911,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Crash\frmApplicationCrash.resx">
       <DependentUpon>frmApplicationCrash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQueryFrameParam2.resx">
+      <DependentUpon>frmQueryFrameParam2.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAbout.resx">

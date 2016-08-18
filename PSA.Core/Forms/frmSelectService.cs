@@ -274,47 +274,87 @@ namespace Photoland.Forms.Interface
 									fApply.Close();
 									break;
 								}
-							case "00003":
-								{
-									frmQueryFrameParam fApply = new frmQueryFrameParam();
-									string dir = "";
-									try
-									{
-										orderno = orderno.Trim();
-										Order.OrderInfo ord = new Photoland.Order.OrderInfo(db_connection, orderno);
-										string date = "";
-										if (ord.Datein != null)
-											date = ord.Datein;
-										else
-											date = DateTime.Now.ToShortDateString();
-										if (!Directory.Exists(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno))
-											Directory.CreateDirectory(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno);
-										if (!Directory.Exists(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan"))
-											Directory.CreateDirectory(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan");
-										dir = prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan";
-										
-									}
-									catch (Exception ex)
-									{
-									}
-									fApply.lblPath.Text = dir;
-									fApply.ShowDialog();
-									if (fApply.DialogResult == DialogResult.OK)
-									{
+                            case "00003":
+                                {
+                                    frmQueryFrameParam fApply = new frmQueryFrameParam();
+                                    string dir = "";
+                                    try
+                                    {
+                                        orderno = orderno.Trim();
+                                        Order.OrderInfo ord = new Photoland.Order.OrderInfo(db_connection, orderno);
+                                        string date = "";
+                                        if (ord.Datein != null)
+                                            date = ord.Datein;
+                                        else
+                                            date = DateTime.Now.ToShortDateString();
+                                        if (!Directory.Exists(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno))
+                                            Directory.CreateDirectory(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno);
+                                        if (!Directory.Exists(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan"))
+                                            Directory.CreateDirectory(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan");
+                                        dir = prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan";
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                    }
+                                    fApply.lblPath.Text = dir;
+                                    fApply.ShowDialog();
+                                    if (fApply.DialogResult == DialogResult.OK)
+                                    {
                                         _content.Add("\r\nИнформация к заказу:\r\nФайл: " + fApply.txtFile.Text + "\r\nШирина: " + fApply.txtW.Text + "\r\nВысота: " + fApply.txtH.Text + "\r\nПлощадь: " + fApply.txtS.Text + "\r\nКомментарий: \r\n" + fApply.txtComment.Text);
-										if(prop.Round3)
-											_content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 3);
-										else
-											_content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 2);
-									}
-									else
-									{
-										_content_count = 0;
-									}
-									fApply.Close();
-									break;
-								}
-							default:
+                                        if (prop.Round3)
+                                            _content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 3);
+                                        else
+                                            _content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 2);
+                                    }
+                                    else
+                                    {
+                                        _content_count = 0;
+                                    }
+                                    fApply.Close();
+                                    break;
+                                }
+                            case "00004":
+                                {
+                                    frmQueryFrameParam2 fApply = new frmQueryFrameParam2();
+                                    string dir = "";
+                                    try
+                                    {
+                                        orderno = orderno.Trim();
+                                        Order.OrderInfo ord = new Photoland.Order.OrderInfo(db_connection, orderno);
+                                        string date = "";
+                                        if (ord.Datein != null)
+                                            date = ord.Datein;
+                                        else
+                                            date = DateTime.Now.ToShortDateString();
+                                        if (!Directory.Exists(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno))
+                                            Directory.CreateDirectory(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno);
+                                        if (!Directory.Exists(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan"))
+                                            Directory.CreateDirectory(prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan");
+                                        dir = prop.Dir_print + "\\" + fso.GetDateSubFolders(date) + "\\" + orderno + "\\" + gridServices.GetData(gridServices.Row, 7).ToString().Trim() + "_noscan";
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                    }
+                                    fApply.lblPath.Text = dir;
+                                    fApply.ShowDialog();
+                                    if (fApply.DialogResult == DialogResult.OK)
+                                    {
+                                        _content.Add("\r\nИнформация к заказу:\r\nФайл: " + fApply.txtFile.Text + "\r\nШирина: " + fApply.txtW.Text + "\r\nВысота: " + fApply.txtH.Text + "\r\nПериметр: " + fApply.txtS.Text + "\r\nКомментарий: \r\n" + fApply.txtComment.Text);
+                                        if (prop.Round3)
+                                            _content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 3);
+                                        else
+                                            _content_count = decimal.Round(decimal.Parse(fApply.txtS.Text), 2);
+                                    }
+                                    else
+                                    {
+                                        _content_count = 0;
+                                    }
+                                    fApply.Close();
+                                    break;
+                                }
+                            default:
 								{
 									frmQueryCount fCount = new frmQueryCount();
 									fCount.ShowDialog();
