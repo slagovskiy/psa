@@ -55,11 +55,15 @@ namespace Photoland.Forms.Admin
 			row["id"] = "00002";
 			row["name"] = "Применить к кадрам";
 			form.Rows.Add(row);
-			row = form.NewRow();
-			row["id"] = "00003";
-			row["name"] = "Заказы для Lambda";
-			form.Rows.Add(row);
-			txtForm.DataSource = form;
+            row = form.NewRow();
+            row["id"] = "00003";
+            row["name"] = "Расчет площади";
+            form.Rows.Add(row);
+            row = form.NewRow();
+            row["id"] = "00004";
+            row["name"] = "Расчет периметра";
+            form.Rows.Add(row);
+            txtForm.DataSource = form;
 			txtForm.DisplayMember = "name";
 			txtForm.ValueMember = "id";
 
