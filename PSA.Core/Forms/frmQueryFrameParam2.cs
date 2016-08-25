@@ -122,7 +122,8 @@ namespace Photoland.Forms.Interface
 		{
             try
             {
-                if ((decimal.Parse(txtS.Text) > 0) && (txtFile.Text != ""))
+                //if ((decimal.Parse(txtS.Text) > 0) && (txtFile.Text != ""))
+                if (decimal.Parse(txtS.Text) > 0)
                 {
                     this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 }

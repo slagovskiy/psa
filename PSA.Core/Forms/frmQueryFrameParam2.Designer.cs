@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQueryFrameParam));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQueryFrameParam2));
             this.preview = new System.Windows.Forms.PictureBox();
             this.txtW = new System.Windows.Forms.TextBox();
             this.txtH = new System.Windows.Forms.TextBox();
@@ -136,7 +136,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(329, 189);
+            this.label3.Location = new System.Drawing.Point(329, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 25;
@@ -147,7 +147,7 @@
             this.txtS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtS.Enabled = false;
-            this.txtS.Location = new System.Drawing.Point(389, 187);
+            this.txtS.Location = new System.Drawing.Point(389, 139);
             this.txtS.Name = "txtS";
             this.txtS.Size = new System.Drawing.Size(223, 20);
             this.txtS.TabIndex = 26;
@@ -156,7 +156,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(329, 219);
+            this.label4.Location = new System.Drawing.Point(329, 168);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(283, 73);
             this.label4.TabIndex = 27;
@@ -176,40 +176,44 @@
             // 
             this.txtFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.txtFile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFile.Location = new System.Drawing.Point(389, 161);
+            this.txtFile.Location = new System.Drawing.Point(389, 280);
             this.txtFile.Name = "txtFile";
             this.txtFile.ReadOnly = true;
             this.txtFile.Size = new System.Drawing.Size(192, 20);
             this.txtFile.TabIndex = 30;
+            this.txtFile.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(329, 163);
+            this.label6.Location = new System.Drawing.Point(329, 282);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 29;
             this.label6.Text = "Файл";
+            this.label6.Visible = false;
             // 
             // btnSelectFile
             // 
-            this.btnSelectFile.Location = new System.Drawing.Point(587, 161);
+            this.btnSelectFile.Location = new System.Drawing.Point(587, 280);
             this.btnSelectFile.Name = "btnSelectFile";
             this.btnSelectFile.Size = new System.Drawing.Size(25, 20);
             this.btnSelectFile.TabIndex = 31;
             this.btnSelectFile.Text = "...";
             this.btnSelectFile.UseVisualStyleBackColor = true;
+            this.btnSelectFile.Visible = false;
             this.btnSelectFile.Click += new System.EventHandler(this.btnSelectFile_Click);
             // 
             // lblPath
             // 
             this.lblPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPath.Location = new System.Drawing.Point(326, 136);
+            this.lblPath.Location = new System.Drawing.Point(330, 255);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(286, 22);
             this.lblPath.TabIndex = 32;
+            this.lblPath.Visible = false;
             // 
-            // frmQueryFrameParam
+            // frmQueryFrameParam2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,7 +237,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmQueryFrameParam";
+            this.Name = "frmQueryFrameParam2";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmQueryFrameParam";
